@@ -6,8 +6,9 @@
     <meta charset="utf-8">
     <meta name="keywords" content="31条MIPS指令单周期CPU, 鱼水没有迭久伴">
     <meta name="description" content="
-title: 31条MIPS指令CPU数据通路date: 2023-09-03 15:13:51tags: [verilog,计组课设,TJ-CS]categories: 计组课设写在前面
-31条MIPS指令CPU 算是计组课设第一个比较">
+**写在前面**
+
+31条MIPS指令CPU 算是计组课设第一个比较大的项目了,好在他不是很难,到后面流水线,其实基本上就没有人写的出来了,虽说计科作业一大抄(我愿称之为站在巨人的肩膀上),但是我觉着这个项目还是值得写一写的,完成这个项目">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -63,7 +64,8 @@ title: 31条MIPS指令CPU数据通路date: 2023-09-03 15:13:51tags: [verilog,计
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -438,159 +440,365 @@ title: 31条MIPS指令CPU数据通路date: 2023-09-03 15:13:51tags: [verilog,计
         
 
         
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <hr>
-<h2 id="title-31条MIPS指令CPU数据通路date-2023-09-03-15-13-51tags-verilog-计组课设-TJ-CS-categories-计组课设"><a href="#title-31条MIPS指令CPU数据通路date-2023-09-03-15-13-51tags-verilog-计组课设-TJ-CS-categories-计组课设" class="headerlink" title="title: 31条MIPS指令CPU数据通路date: 2023-09-03 15:13:51tags: [verilog,计组课设,TJ-CS]categories: 计组课设"></a>title: 31条MIPS指令CPU数据通路<br>date: 2023-09-03 15:13:51<br>tags: [verilog,计组课设,TJ-CS]<br>categories: 计组课设</h2><p><strong>写在前面</strong></p>
+                <meta name="referrer" content="no-referrer" />
+**写在前面**
+
 <p>31条MIPS指令CPU 算是计组课设第一个比较大的项目了,好在他不是很难,到后面流水线,其实基本上就没有人写的出来了,虽说计科作业一大抄(我愿称之为站在巨人的肩膀上),但是我觉着这个项目还是值得写一写的,完成这个项目,会对CPU的核心功能有非常深刻的认识和理解,并且会对前面学过的知识有一个非常充分的理解和应用.</p>
 <p>整个31条指令CPU从开始到完成用了整整3天时间,不同于写软件,硬件是要慢工出细活,不然哪里理解有错误,就要返工,如此以往就会<del>一不小心打开Github找代码</del>浪费非常多的时间</p>
 <p>好了废话不多说,我们进入正题, 先从 <code>画好数据通路图开始</code>,理解画好通路图,基本上一天就能debug完所有的CPU.</p>
 <p>MIPS上有一份文档,对31条指令的讲解算比较详细的,这里我就直接截图到每个指令下面去了.</p>
 <h1 id="R型指令"><a href="#R型指令" class="headerlink" title="R型指令"></a>R型指令</h1><h2 id="通路类型1"><a href="#通路类型1" class="headerlink" title="通路类型1"></a>通路类型1</h2><h3 id="1-ADD"><a href="#1-ADD" class="headerlink" title="1.ADD"></a>1.ADD</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903152608.png" alt="image-20230903152606092"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903152620.png" alt="image-20230903152619181"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PC -&gt; IMEM</span><br><span class="line">PC + 4 -&gt; NPC</span><br><span class="line">NPC -&gt; PC</span><br><span class="line">out1 -&gt; A , out2 -&gt; B</span><br><span class="line">(A + B -&gt; RES)</span><br><span class="line">ans -&gt; in</span><br></pre></td></tr></table></figure>
-
+<pre><code>PC -&gt; IMEM
+PC + 4 -&gt; NPC
+NPC -&gt; PC
+out1 -&gt; A , out2 -&gt; B
+(A + B -&gt; RES)
+ans -&gt; in
+</code></pre>
 <h3 id="2-ADDU"><a href="#2-ADDU" class="headerlink" title="2.ADDU"></a>2.ADDU</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903152655.png" alt="image-20230903152654109"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903152706.png" alt="image-20230903152705235"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PC -&gt; IMEM</span><br><span class="line">PC + 4 -&gt; NPC</span><br><span class="line">NPC -&gt; PC</span><br><span class="line">out1 -&gt; A , out2 -&gt; B</span><br><span class="line">(A + B -&gt; RES)</span><br><span class="line">ans -&gt; in</span><br></pre></td></tr></table></figure>
-
+<pre><code>PC -&gt; IMEM
+PC + 4 -&gt; NPC
+NPC -&gt; PC
+out1 -&gt; A , out2 -&gt; B
+(A + B -&gt; RES)
+ans -&gt; in
+</code></pre>
 <h3 id="3-SUB"><a href="#3-SUB" class="headerlink" title="3.SUB"></a>3.SUB</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903152738.png" alt="image-20230903152737639"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903152751.png" alt="image-20230903152750362"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PC -&gt; IMEM</span><br><span class="line">PC + 4 -&gt; NPC</span><br><span class="line">NPC -&gt; PC</span><br><span class="line">out1 -&gt; A , out2 -&gt; B</span><br><span class="line">(A - B -&gt; RES)</span><br><span class="line">ans -&gt; in</span><br></pre></td></tr></table></figure>
-
+<pre><code>PC -&gt; IMEM
+PC + 4 -&gt; NPC
+NPC -&gt; PC
+out1 -&gt; A , out2 -&gt; B
+(A - B -&gt; RES)
+ans -&gt; in
+</code></pre>
 <h3 id="4-SUBU"><a href="#4-SUBU" class="headerlink" title="4.SUBU"></a>4.SUBU</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903152817.png" alt="image-20230903152816000"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903152837.png" alt="image-20230903152836568"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PC -&gt; IMEM</span><br><span class="line">PC + 4 -&gt; NPC</span><br><span class="line">NPC -&gt; PC</span><br><span class="line">out1 -&gt; A , out2 -&gt; B</span><br><span class="line">(A - B -&gt; RES)</span><br><span class="line">ans -&gt; in</span><br></pre></td></tr></table></figure>
-
+<pre><code>PC -&gt; IMEM
+PC + 4 -&gt; NPC
+NPC -&gt; PC
+out1 -&gt; A , out2 -&gt; B
+(A - B -&gt; RES)
+ans -&gt; in
+</code></pre>
 <h3 id="5-AND"><a href="#5-AND" class="headerlink" title="5.AND"></a>5.AND</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903152914.png" alt="image-20230903152913243"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903152922.png" alt="image-20230903152921102"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PC -&gt; IMEM</span><br><span class="line">PC + 4 -&gt; NPC</span><br><span class="line">NPC -&gt; PC</span><br><span class="line">out1 -&gt; A , out2 -&gt; B</span><br><span class="line">(A &amp; B -&gt; RES)</span><br><span class="line">ans -&gt; in</span><br></pre></td></tr></table></figure>
-
+<pre><code>PC -&gt; IMEM
+PC + 4 -&gt; NPC
+NPC -&gt; PC
+out1 -&gt; A , out2 -&gt; B
+(A &amp; B -&gt; RES)
+ans -&gt; in
+</code></pre>
 <h3 id="6-OR"><a href="#6-OR" class="headerlink" title="6.OR"></a>6.OR</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903152952.png" alt="image-20230903152951212"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153000.png" alt="image-20230903152959397"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153009.png" alt="image-20230903153007873"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PC -&gt; IMEM</span><br><span class="line">PC + 4 -&gt; NPC</span><br><span class="line">NPC -&gt; PC</span><br><span class="line">out1 -&gt; A , out2 -&gt; B</span><br><span class="line">(A | B -&gt; RES)</span><br><span class="line">ans -&gt; in</span><br></pre></td></tr></table></figure>
-
+<pre><code>PC -&gt; IMEM
+PC + 4 -&gt; NPC
+NPC -&gt; PC
+out1 -&gt; A , out2 -&gt; B
+(A | B -&gt; RES)
+ans -&gt; in
+</code></pre>
 <h3 id="7-XOR"><a href="#7-XOR" class="headerlink" title="7.XOR"></a>7.XOR</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153045.png" alt="image-20230903153044772"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153057.png" alt="image-20230903153056418"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153105.png" alt="image-20230903153103917"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PC -&gt; IMEM</span><br><span class="line">PC + 4 -&gt; NPC</span><br><span class="line">NPC -&gt; PC</span><br><span class="line">out1 -&gt; A , out2 -&gt; B</span><br><span class="line">(A ⊕ B -&gt; RES)</span><br><span class="line">ans -&gt; in</span><br></pre></td></tr></table></figure>
-
+<pre><code>PC -&gt; IMEM
+PC + 4 -&gt; NPC
+NPC -&gt; PC
+out1 -&gt; A , out2 -&gt; B
+(A ⊕ B -&gt; RES)
+ans -&gt; in
+</code></pre>
 <h3 id="8-NOR"><a href="#8-NOR" class="headerlink" title="8.NOR"></a>8.NOR</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153125.png" alt="image-20230903153124557"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153136.png" alt="image-20230903153134776"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PC -&gt; IMEM</span><br><span class="line">PC + 4 -&gt; NPC</span><br><span class="line">NPC -&gt; PC</span><br><span class="line">out1 -&gt; A , out2 -&gt; B</span><br><span class="line">(A ⊙ B -&gt; RES)</span><br><span class="line">ans -&gt; in</span><br></pre></td></tr></table></figure>
-
+<pre><code>PC -&gt; IMEM
+PC + 4 -&gt; NPC
+NPC -&gt; PC
+out1 -&gt; A , out2 -&gt; B
+(A ⊙ B -&gt; RES)
+ans -&gt; in
+</code></pre>
 <h2 id="通路类型2"><a href="#通路类型2" class="headerlink" title="通路类型2"></a>通路类型2</h2><h3 id="9-SLT"><a href="#9-SLT" class="headerlink" title="9.SLT"></a>9.SLT</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153203.png" alt="image-20230903153202748"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153210.png" alt="image-20230903153209325"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153218.png" alt="image-20230903153217447"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">PC -&gt; IMEM</span><br><span class="line">PC + 4 -&gt; NPC</span><br><span class="line">NPC -&gt; PC</span><br><span class="line">out1 -&gt; A , out2 -&gt; B</span><br><span class="line">(A - B -&gt; ans) //相减判断，负数则为Rs中数小</span><br><span class="line">negative -&gt; EXT1 //注意要做扩展</span><br><span class="line">EXT1 -&gt; in</span><br></pre></td></tr></table></figure>
-
+<pre><code>PC -&gt; IMEM
+PC + 4 -&gt; NPC
+NPC -&gt; PC
+out1 -&gt; A , out2 -&gt; B
+(A - B -&gt; ans) //相减判断，负数则为Rs中数小
+negative -&gt; EXT1 //注意要做扩展
+EXT1 -&gt; in
+</code></pre>
 <h3 id="10-SLTU"><a href="#10-SLTU" class="headerlink" title="10.SLTU"></a>10.SLTU</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153242.png" alt="image-20230903153241700"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153250.png" alt="image-20230903153249301"><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153306.png" alt="image-20230903153304789"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">PC -&gt; IMEM</span><br><span class="line">PC + 4 -&gt; NPC</span><br><span class="line">NPC -&gt; PC</span><br><span class="line">out1 -&gt; A , out2 -&gt; B</span><br><span class="line">(A - B -&gt; ans) //相减判断，负数则为Rs中数小</span><br><span class="line">negative -&gt; EXT1 //注意要做扩展</span><br><span class="line">EXT1 -&gt; in</span><br></pre></td></tr></table></figure>
-
+<pre><code>PC -&gt; IMEM
+PC + 4 -&gt; NPC
+NPC -&gt; PC
+out1 -&gt; A , out2 -&gt; B
+(A - B -&gt; ans) //相减判断，负数则为Rs中数小
+negative -&gt; EXT1 //注意要做扩展
+EXT1 -&gt; in
+</code></pre>
 <h2 id="通路类型3"><a href="#通路类型3" class="headerlink" title="通路类型3"></a>通路类型3</h2><h3 id="11-SLL"><a href="#11-SLL" class="headerlink" title="11.SLL"></a>11.SLL</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153345.png" alt="image-20230903153343889"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153351.png" alt="image-20230903153350249"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153400.png" alt="image-20230903153358972"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">PC -&gt; IMEM</span><br><span class="line">PC + 4 -&gt; NPC</span><br><span class="line">NPC -&gt; PC</span><br><span class="line">IMEM[10:6] -&gt; EXT5</span><br><span class="line">EXT5 -&gt; A</span><br><span class="line">out2 -&gt; B</span><br><span class="line">(B&lt;&lt;A -&gt; ans)</span><br><span class="line">ans -&gt; in</span><br></pre></td></tr></table></figure>
-
+<pre><code>PC -&gt; IMEM
+PC + 4 -&gt; NPC
+NPC -&gt; PC
+IMEM[10:6] -&gt; EXT5
+EXT5 -&gt; A
+out2 -&gt; B
+(B&lt;&lt;A -&gt; ans)
+ans -&gt; in
+</code></pre>
 <h3 id="12-SRL"><a href="#12-SRL" class="headerlink" title="12.SRL"></a>12.SRL</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153422.png" alt="image-20230903153420881"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153427.png" alt="image-20230903153426488"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153435.png" alt="image-20230903153434362"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">PC -&gt; IMEM</span><br><span class="line">PC + 4 -&gt; NPC</span><br><span class="line">NPC -&gt; PC</span><br><span class="line">IMEM[10:6] -&gt; EXT5</span><br><span class="line">EXT5 -&gt; A</span><br><span class="line">out2 -&gt; B</span><br><span class="line">(B&gt;&gt;A -&gt; ans)</span><br><span class="line">ans -&gt; in</span><br></pre></td></tr></table></figure>
-
+<pre><code>PC -&gt; IMEM
+PC + 4 -&gt; NPC
+NPC -&gt; PC
+IMEM[10:6] -&gt; EXT5
+EXT5 -&gt; A
+out2 -&gt; B
+(B&gt;&gt;A -&gt; ans)
+ans -&gt; in
+</code></pre>
 <h3 id="13-SRA"><a href="#13-SRA" class="headerlink" title="13.SRA"></a>13.SRA</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153504.png" alt="image-20230903153503190"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153512.png" alt="image-20230903153511161"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153521.png" alt="image-20230903153519996"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">PC -&gt; IMEM</span><br><span class="line">PC + 4 -&gt; NPC</span><br><span class="line">NPC -&gt; PC</span><br><span class="line">IMEM[10:6] -&gt; EXT5</span><br><span class="line">EXT5 -&gt; A</span><br><span class="line">out2 -&gt; B</span><br><span class="line">(B&gt;&gt;A -&gt; ans)</span><br><span class="line">ans -&gt; in</span><br></pre></td></tr></table></figure>
-
+<pre><code>PC -&gt; IMEM
+PC + 4 -&gt; NPC
+NPC -&gt; PC
+IMEM[10:6] -&gt; EXT5
+EXT5 -&gt; A
+out2 -&gt; B
+(B&gt;&gt;A -&gt; ans)
+ans -&gt; in
+</code></pre>
 <h2 id="通路类型4"><a href="#通路类型4" class="headerlink" title="通路类型4"></a>通路类型4</h2><h3 id="14-SLLV"><a href="#14-SLLV" class="headerlink" title="14.SLLV"></a>14.SLLV</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153556.png" alt="image-20230903153555626"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153603.png" alt="image-20230903153602037"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153615.png" alt="image-20230903153614340"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">PC -&gt; IMEM</span><br><span class="line">PC + 4 -&gt; NPC</span><br><span class="line">NPC -&gt; PC</span><br><span class="line">out1[4:0] -&gt; EXT5</span><br><span class="line">EXT5 -&gt; A</span><br><span class="line">out2 -&gt; B</span><br><span class="line">(A&lt;&lt;B -&gt; ans)</span><br><span class="line">ans -&gt; in</span><br></pre></td></tr></table></figure>
-
+<pre><code>PC -&gt; IMEM
+PC + 4 -&gt; NPC
+NPC -&gt; PC
+out1[4:0] -&gt; EXT5
+EXT5 -&gt; A
+out2 -&gt; B
+(A&lt;&lt;B -&gt; ans)
+ans -&gt; in
+</code></pre>
 <h3 id="15-SRLV"><a href="#15-SRLV" class="headerlink" title="15.SRLV"></a>15.SRLV</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153637.png" alt="image-20230903153636747"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153649.png" alt="image-20230903153648629"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153659.png" alt="image-20230903153657786"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">PC -&gt; IMEM</span><br><span class="line">PC + 4 -&gt; NPC</span><br><span class="line">NPC -&gt; PC</span><br><span class="line">out1[4:0] -&gt; EXT5</span><br><span class="line">EXT5 -&gt; A</span><br><span class="line">out2 -&gt; B</span><br><span class="line">(A &gt;&gt; B -&gt; ans)</span><br><span class="line">ans -&gt; in</span><br></pre></td></tr></table></figure>
-
+<pre><code>PC -&gt; IMEM
+PC + 4 -&gt; NPC
+NPC -&gt; PC
+out1[4:0] -&gt; EXT5
+EXT5 -&gt; A
+out2 -&gt; B
+(A &gt;&gt; B -&gt; ans)
+ans -&gt; in
+</code></pre>
 <h3 id="16-SRAV"><a href="#16-SRAV" class="headerlink" title="16.SRAV"></a>16.SRAV</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153722.png" alt="image-20230903153721162"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153728.png" alt="image-20230903153727591"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153735.png" alt="image-20230903153734246"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">PC -&gt; IMEM</span><br><span class="line">PC + 4 -&gt; NPC</span><br><span class="line">NPC -&gt; PC</span><br><span class="line">out1[4:0] -&gt; EXT5</span><br><span class="line">EXT5 -&gt; A</span><br><span class="line">out2 -&gt; B</span><br><span class="line">(A &gt;&gt; B -&gt; ans)</span><br><span class="line">ans -&gt; in</span><br></pre></td></tr></table></figure>
-
+<pre><code>PC -&gt; IMEM
+PC + 4 -&gt; NPC
+NPC -&gt; PC
+out1[4:0] -&gt; EXT5
+EXT5 -&gt; A
+out2 -&gt; B
+(A &gt;&gt; B -&gt; ans)
+ans -&gt; in
+</code></pre>
 <h2 id="通路类型5"><a href="#通路类型5" class="headerlink" title="通路类型5"></a>通路类型5</h2><h3 id="17-JR"><a href="#17-JR" class="headerlink" title="17.JR"></a>17.JR</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153809.png" alt="image-20230903153807912"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153819.png" alt="image-20230903153817871"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153837.png" alt="image-20230903153836543"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">PC -&gt; IMEM</span><br><span class="line">PC + 4 -&gt; NPC //无关指令</span><br><span class="line">out1 -&gt; MUX</span><br><span class="line">MUX_OUT -&gt; PC</span><br><span class="line">NPC -&gt; MUX //无关指令</span><br></pre></td></tr></table></figure>
-
+<pre><code>PC -&gt; IMEM
+PC + 4 -&gt; NPC //无关指令
+out1 -&gt; MUX
+MUX_OUT -&gt; PC
+NPC -&gt; MUX //无关指令
+</code></pre>
 <h1 id="I型指令"><a href="#I型指令" class="headerlink" title="I型指令"></a>I型指令</h1><h2 id="通路类型6"><a href="#通路类型6" class="headerlink" title="通路类型6"></a>通路类型6</h2><h3 id="18-ADDI"><a href="#18-ADDI" class="headerlink" title="18.ADDI"></a>18.ADDI</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153919.png" alt="image-20230903153918136"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153925.png" alt="image-20230903153924042"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153933.png" alt="image-20230903153931935"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">PC -&gt; IMEM</span><br><span class="line">PC + 4 -&gt; NPC</span><br><span class="line">NPC -&gt; PC</span><br><span class="line">IMEM[15:0] -&gt; EXT16</span><br><span class="line">EXT16-&gt; B</span><br><span class="line">out1 -&gt; A</span><br><span class="line">(A + B -&gt; RES)</span><br><span class="line">ans -&gt; Rd</span><br></pre></td></tr></table></figure>
-
+<pre><code>PC -&gt; IMEM
+PC + 4 -&gt; NPC
+NPC -&gt; PC
+IMEM[15:0] -&gt; EXT16
+EXT16-&gt; B
+out1 -&gt; A
+(A + B -&gt; RES)
+ans -&gt; Rd
+</code></pre>
 <h3 id="19-ADDIU"><a href="#19-ADDIU" class="headerlink" title="19.ADDIU"></a>19.ADDIU</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154020.png" alt="image-20230903154019616"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154026.png" alt="image-20230903154025503"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154032.png" alt="image-20230903154031767"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">PC -&gt; IMEM</span><br><span class="line">PC + 4 -&gt; NPC</span><br><span class="line">NPC -&gt; PC</span><br><span class="line">IMEM[15:0] -&gt; EXT16</span><br><span class="line">EXT16-&gt; B</span><br><span class="line">out1 -&gt; A</span><br><span class="line">(A + B -&gt; RES)</span><br><span class="line">ans -&gt; Rd</span><br></pre></td></tr></table></figure>
-
+<pre><code>PC -&gt; IMEM
+PC + 4 -&gt; NPC
+NPC -&gt; PC
+IMEM[15:0] -&gt; EXT16
+EXT16-&gt; B
+out1 -&gt; A
+(A + B -&gt; RES)
+ans -&gt; Rd
+</code></pre>
 <h3 id="20-ANDI"><a href="#20-ANDI" class="headerlink" title="20.ANDI"></a>20.ANDI</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154058.png" alt="image-20230903154056829"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154105.png" alt="image-20230903154103829"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154112.png" alt="image-20230903154110896"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">PC -&gt; IMEM</span><br><span class="line">PC + 4 -&gt; NPC</span><br><span class="line">NPC -&gt; PC</span><br><span class="line">IMEM[15:0] -&gt; EXT16</span><br><span class="line">EXT16-&gt; B</span><br><span class="line">out1 -&gt; A</span><br><span class="line">(A &amp; B -&gt; RES)</span><br><span class="line">ans -&gt; Rd</span><br></pre></td></tr></table></figure>
-
+<pre><code>PC -&gt; IMEM
+PC + 4 -&gt; NPC
+NPC -&gt; PC
+IMEM[15:0] -&gt; EXT16
+EXT16-&gt; B
+out1 -&gt; A
+(A &amp; B -&gt; RES)
+ans -&gt; Rd
+</code></pre>
 <h3 id="21-ORI"><a href="#21-ORI" class="headerlink" title="21.ORI"></a>21.ORI</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154133.png" alt="image-20230903154132439"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154139.png" alt="image-20230903154138601"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154149.png" alt="image-20230903154148393"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">PC -&gt; IMEM</span><br><span class="line">PC + 4 -&gt; NPC</span><br><span class="line">NPC -&gt; PC</span><br><span class="line">IMEM[15:0] -&gt; EXT16</span><br><span class="line">EXT16-&gt; B</span><br><span class="line">out1 -&gt; A</span><br><span class="line">(A | B -&gt; RES)</span><br><span class="line">ans -&gt; Rd</span><br></pre></td></tr></table></figure>
-
+<pre><code>PC -&gt; IMEM
+PC + 4 -&gt; NPC
+NPC -&gt; PC
+IMEM[15:0] -&gt; EXT16
+EXT16-&gt; B
+out1 -&gt; A
+(A | B -&gt; RES)
+ans -&gt; Rd
+</code></pre>
 <h3 id="22-XORI"><a href="#22-XORI" class="headerlink" title="22.XORI"></a>22.XORI</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154210.png" alt="image-20230903154209565"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154216.png" alt="image-20230903154215544"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154223.png" alt="image-20230903154221885"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">PC -&gt; IMEM</span><br><span class="line">PC + 4 -&gt; NPC</span><br><span class="line">NPC -&gt; PC</span><br><span class="line">IMEM[15:0] -&gt; EXT16</span><br><span class="line">EXT16-&gt; B</span><br><span class="line">out1 -&gt; A</span><br><span class="line">(A ⊕ B -&gt; RES)</span><br><span class="line">ans -&gt; Rd</span><br></pre></td></tr></table></figure>
-
+<pre><code>PC -&gt; IMEM
+PC + 4 -&gt; NPC
+NPC -&gt; PC
+IMEM[15:0] -&gt; EXT16
+EXT16-&gt; B
+out1 -&gt; A
+(A ⊕ B -&gt; RES)
+ans -&gt; Rd
+</code></pre>
 <h2 id="通路类型7"><a href="#通路类型7" class="headerlink" title="通路类型7"></a>通路类型7</h2><p>###23.LW</p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154257.png" alt="image-20230903154256703"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154305.png" alt="image-20230903154304112"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154313.png" alt="image-20230903154311792"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">PC -&gt; IMEM</span><br><span class="line">PC + 4 -&gt; NPC</span><br><span class="line">NPC -&gt; PC</span><br><span class="line">IMEM[15:0] -&gt; EXT16</span><br><span class="line">EXT16 -&gt; B</span><br><span class="line">out1 -&gt; A</span><br><span class="line">(A + B -&gt; ans)</span><br><span class="line">ans -&gt; DMEM_ADDR</span><br><span class="line">data -&gt; in</span><br></pre></td></tr></table></figure>
-
+<pre><code>PC -&gt; IMEM
+PC + 4 -&gt; NPC
+NPC -&gt; PC
+IMEM[15:0] -&gt; EXT16
+EXT16 -&gt; B
+out1 -&gt; A
+(A + B -&gt; ans)
+ans -&gt; DMEM_ADDR
+data -&gt; in
+</code></pre>
 <h2 id="通路类型8"><a href="#通路类型8" class="headerlink" title="通路类型8"></a>通路类型8</h2><h3 id="24-SW"><a href="#24-SW" class="headerlink" title="24.SW"></a>24.SW</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154341.png" alt="image-20230903154340703"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154348.png" alt="image-20230903154346852"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154355.png" alt="image-20230903154354355"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">PC -&gt; IMEM</span><br><span class="line">PC + 4 -&gt; NPC</span><br><span class="line">NPC -&gt; PC</span><br><span class="line">IMEM[15:0] -&gt; EXT16</span><br><span class="line">EXT16_OUT -&gt; B</span><br><span class="line">out1 -&gt; A</span><br><span class="line">(A + B -&gt; ans)</span><br><span class="line">out2 -&gt; DMEM</span><br><span class="line">ans -&gt; DMEM_ADDR</span><br></pre></td></tr></table></figure>
-
+<pre><code>PC -&gt; IMEM
+PC + 4 -&gt; NPC
+NPC -&gt; PC
+IMEM[15:0] -&gt; EXT16
+EXT16_OUT -&gt; B
+out1 -&gt; A
+(A + B -&gt; ans)
+out2 -&gt; DMEM
+ans -&gt; DMEM_ADDR
+</code></pre>
 <h2 id="通路类型9"><a href="#通路类型9" class="headerlink" title="通路类型9"></a>通路类型9</h2><h3 id="25-BEQ"><a href="#25-BEQ" class="headerlink" title="25.BEQ"></a>25.BEQ</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154423.png" alt="image-20230903154421935"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154430.png" alt="image-20230903154429754"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154438.png" alt="image-20230903154436939"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">PC -&gt; IMEM</span><br><span class="line">PC + 4 -&gt; NPC</span><br><span class="line">NPC -&gt; MUX</span><br><span class="line">IMEM[15:0] || 02 -&gt; EXT18</span><br><span class="line">EXT18_OUT -&gt; ADD_A</span><br><span class="line">NPC -&gt; ADD_B</span><br><span class="line">(ADD_A + ADD_B -&gt; ADD_OUT)</span><br><span class="line">ADD_OUT -&gt; MUX</span><br><span class="line">out1 -&gt; A</span><br><span class="line">out2 -&gt; B</span><br><span class="line">(A - B -&gt; RES)</span><br><span class="line">zero -&gt; MUX</span><br><span class="line">MUX -&gt; PC</span><br></pre></td></tr></table></figure>
-
+<pre><code>PC -&gt; IMEM
+PC + 4 -&gt; NPC
+NPC -&gt; MUX
+IMEM[15:0] || 02 -&gt; EXT18
+EXT18_OUT -&gt; ADD_A
+NPC -&gt; ADD_B
+(ADD_A + ADD_B -&gt; ADD_OUT)
+ADD_OUT -&gt; MUX
+out1 -&gt; A
+out2 -&gt; B
+(A - B -&gt; RES)
+zero -&gt; MUX
+MUX -&gt; PC
+</code></pre>
 <h3 id="26-BNE"><a href="#26-BNE" class="headerlink" title="26.BNE"></a>26.BNE</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154459.png" alt="image-20230903154457977"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154505.png" alt="image-20230903154503904"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154516.png" alt="image-20230903154515306"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">PC -&gt; IMEM</span><br><span class="line">PC + 4 -&gt; NPC</span><br><span class="line">NPC -&gt; MUX</span><br><span class="line">IMEM[15:0] || 02 -&gt; EXT18</span><br><span class="line">EXT18_OUT -&gt; ADD_A</span><br><span class="line">NPC -&gt; ADD_B</span><br><span class="line">(ADD_A + ADD_B -&gt; ADD_OUT)</span><br><span class="line">ADD_OUT -&gt; MUX</span><br><span class="line">out1 -&gt; A</span><br><span class="line">out2 -&gt; B</span><br><span class="line">(A - B -&gt; RES)</span><br><span class="line">zero -&gt; MUX</span><br><span class="line">MUX -&gt; PC</span><br></pre></td></tr></table></figure>
-
+<pre><code>PC -&gt; IMEM
+PC + 4 -&gt; NPC
+NPC -&gt; MUX
+IMEM[15:0] || 02 -&gt; EXT18
+EXT18_OUT -&gt; ADD_A
+NPC -&gt; ADD_B
+(ADD_A + ADD_B -&gt; ADD_OUT)
+ADD_OUT -&gt; MUX
+out1 -&gt; A
+out2 -&gt; B
+(A - B -&gt; RES)
+zero -&gt; MUX
+MUX -&gt; PC
+</code></pre>
 <h2 id="通路类型10"><a href="#通路类型10" class="headerlink" title="通路类型10"></a>通路类型10</h2><h3 id="27-SLTI"><a href="#27-SLTI" class="headerlink" title="27.SLTI"></a>27.SLTI</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154549.png" alt="image-20230903154548160"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154556.png" alt="image-20230903154555439"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154605.png" alt="image-20230903154604103"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">PC -&gt; IMEM</span><br><span class="line">PC + 4 -&gt; NPC</span><br><span class="line">NPC -&gt; PC</span><br><span class="line">IMEM[15:0] -&gt; EXT16</span><br><span class="line">EXT16 -&gt; B</span><br><span class="line">out1 -&gt; A</span><br><span class="line">(A - B -&gt; RES)</span><br><span class="line">Carry -&gt; EXT1</span><br><span class="line">EXT1 -&gt; in</span><br></pre></td></tr></table></figure>
-
+<pre><code>PC -&gt; IMEM
+PC + 4 -&gt; NPC
+NPC -&gt; PC
+IMEM[15:0] -&gt; EXT16
+EXT16 -&gt; B
+out1 -&gt; A
+(A - B -&gt; RES)
+Carry -&gt; EXT1
+EXT1 -&gt; in
+</code></pre>
 <h3 id="28-SLTIU"><a href="#28-SLTIU" class="headerlink" title="28.SLTIU"></a>28.SLTIU</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154625.png" alt="image-20230903154623846"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154631.png" alt="image-20230903154629949"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154638.png" alt="image-20230903154637208"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">PC -&gt; IMEM</span><br><span class="line">PC + 4 -&gt; NPC</span><br><span class="line">NPC -&gt; PC</span><br><span class="line">IMEM[15:0] -&gt; EXT16</span><br><span class="line">EXT16 -&gt; B</span><br><span class="line">out1 -&gt; A</span><br><span class="line">(A - B -&gt; ans)</span><br><span class="line">Carry -&gt; EXT1</span><br><span class="line">EXT1 -&gt; in</span><br></pre></td></tr></table></figure>
-
+<pre><code>PC -&gt; IMEM
+PC + 4 -&gt; NPC
+NPC -&gt; PC
+IMEM[15:0] -&gt; EXT16
+EXT16 -&gt; B
+out1 -&gt; A
+(A - B -&gt; ans)
+Carry -&gt; EXT1
+EXT1 -&gt; in
+</code></pre>
 <h2 id="通路类型11"><a href="#通路类型11" class="headerlink" title="通路类型11"></a>通路类型11</h2><h3 id="29-LUI"><a href="#29-LUI" class="headerlink" title="29.LUI"></a>29.LUI</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154709.png" alt="image-20230903154708496"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154716.png" alt="image-20230903154715278"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154723.png" alt="image-20230903154722528"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PC -&gt; IMEM</span><br><span class="line">PC + 4 -&gt; NPC</span><br><span class="line">NPC -&gt; PC</span><br><span class="line">IMEM[15:0] -&gt; EXT16</span><br><span class="line">EXT16 -&gt; B</span><br><span class="line">res -&gt; in</span><br></pre></td></tr></table></figure>
-
+<pre><code>PC -&gt; IMEM
+PC + 4 -&gt; NPC
+NPC -&gt; PC
+IMEM[15:0] -&gt; EXT16
+EXT16 -&gt; B
+res -&gt; in
+</code></pre>
 <h1 id="J型指令"><a href="#J型指令" class="headerlink" title="J型指令"></a>J型指令</h1><h2 id="通路类型12"><a href="#通路类型12" class="headerlink" title="通路类型12"></a>通路类型12</h2><h3 id="30-J"><a href="#30-J" class="headerlink" title="30.J"></a>30.J</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154811.png" alt="image-20230903154810007"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154819.png" alt="image-20230903154817859"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154826.png" alt="image-20230903154825162"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">PC -&gt; IMEM</span><br><span class="line">PC + 4 -&gt; NPC</span><br><span class="line">NPC -&gt; MUX</span><br><span class="line">PC[31:28] -&gt; ||_A</span><br><span class="line">IMEM[25,0] || 00 -&gt; ||_B</span><br><span class="line">||_OUT -&gt; MUX</span><br><span class="line">MUX_OUT -&gt; PC</span><br></pre></td></tr></table></figure>
-
+<pre><code>PC -&gt; IMEM
+PC + 4 -&gt; NPC
+NPC -&gt; MUX
+PC[31:28] -&gt; ||_A
+IMEM[25,0] || 00 -&gt; ||_B
+||_OUT -&gt; MUX
+MUX_OUT -&gt; PC
+</code></pre>
 <h2 id="通路类型13"><a href="#通路类型13" class="headerlink" title="通路类型13"></a>通路类型13</h2><h3 id="31-JAL"><a href="#31-JAL" class="headerlink" title="31.JAL"></a>31.JAL</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154855.png" alt="image-20230903154854257"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154901.png" alt="image-20230903154859827"></p>
 <h1 id="顶层控制器和数据总通路图"><a href="#顶层控制器和数据总通路图" class="headerlink" title="顶层控制器和数据总通路图"></a>顶层控制器和数据总通路图</h1><p>到这一步你的CPU 就算完成**70%**了,剩下的就是完成顶层控制器和调试,控制器我使用了布硬线的方法,<del>因为微程序我不会</del>对照着真值表弄好你的数据选择器即可.</p>
@@ -1088,7 +1296,21 @@ title: 31条MIPS指令CPU数据通路date: 2023-09-03 15:13:51tags: [verilog,计
 
 <!-- 代码语言 -->
 
-<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFunction.js"></script>
+
+<!-- 代码语言 -->
 
 
 <!-- 代码块复制 -->
@@ -1101,6 +1323,7 @@ title: 31条MIPS指令CPU数据通路date: 2023-09-03 15:13:51tags: [verilog,计
 <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
 
+<!-- 代码块折行 -->
 
     </div>
     <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">

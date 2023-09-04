@@ -57,7 +57,8 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -408,6 +409,11 @@
         
 
         
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
 
         <div class="card-content article-card-content">
             <div id="articleContent">
@@ -557,7 +563,7 @@
             color: color
           }
         },
-        data: ["建站","hexo框架","TJ-CS","计算机组成原理","CPU"]
+        data: ["TJ-CS","计算机组成原理","CPU","建站","hexo框架"]
       },
       yAxis: {
         name: '文章篇数',
@@ -585,7 +591,7 @@
       series: [{
         name: '文章篇数',
         type: 'bar',
-        data: [{"name":"建站","value":1,"path":"tags/建站/"},{"name":"hexo框架","value":1,"path":"tags/hexo框架/"},{"name":"TJ-CS","value":1,"path":"tags/TJ-CS/"},{"name":"计算机组成原理","value":1,"path":"tags/计算机组成原理/"},{"name":"CPU","value":1,"path":"tags/CPU/"}],
+        data: [{"name":"TJ-CS","value":1,"path":"tags/TJ-CS/"},{"name":"计算机组成原理","value":1,"path":"tags/计算机组成原理/"},{"name":"CPU","value":1,"path":"tags/CPU/"},{"name":"建站","value":1,"path":"tags/建站/"},{"name":"hexo框架","value":1,"path":"tags/hexo框架/"}],
         itemStyle: {
           borderRadius: [5, 5, 0, 0],
           color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
@@ -645,7 +651,7 @@
       },
       legend: {
         top: 'bottom',
-        data: ["hexo","Verilog"],
+        data: ["Verilog","hexo"],
         textStyle: {
           color: color
         }
@@ -664,7 +670,7 @@
         radius: ['15%', '90%'],
         center: ['50%', '55%'],
         sort: 'desc',
-        data: [{"name":"hexo","value":1,"path":"categories/hexo/","id":"clm511wwz0005lwmjaxpmhgq6","parentId":"0"},{"name":"Verilog","value":1,"path":"categories/Verilog/","id":"clm511wx3000alwmj2b15co1y","parentId":"0"}],
+        data: [{"name":"Verilog","value":1,"path":"categories/Verilog/","id":"clm526m010004vgmj9h7u7llt","parentId":"0"},{"name":"hexo","value":1,"path":"categories/hexo/","id":"clm526m040009vgmjdihj1obu","parentId":"0"}],
         itemStyle: {
           borderColor: '#fff',
           borderWidth: 2,
@@ -686,7 +692,7 @@
           color: color,
           formatter: '{b} : {c} ({d}%)'
         },
-        data: [{"name":"hexo","value":1,"path":"categories/hexo/","id":"clm511wwz0005lwmjaxpmhgq6","parentId":"0"},{"name":"Verilog","value":1,"path":"categories/Verilog/","id":"clm511wx3000alwmj2b15co1y","parentId":"0"}],
+        data: [{"name":"Verilog","value":1,"path":"categories/Verilog/","id":"clm526m010004vgmj9h7u7llt","parentId":"0"},{"name":"hexo","value":1,"path":"categories/hexo/","id":"clm526m040009vgmjdihj1obu","parentId":"0"}],
         itemStyle: {
           emphasis: {
             shadowBlur: 10,
@@ -1144,7 +1150,21 @@
 
 <!-- 代码语言 -->
 
-<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFunction.js"></script>
+
+<!-- 代码语言 -->
 
 
 <!-- 代码块复制 -->
@@ -1157,6 +1177,7 @@
 <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
 
+<!-- 代码块折行 -->
 
     </div>
     <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
