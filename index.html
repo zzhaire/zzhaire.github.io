@@ -98,9 +98,9 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
     <script src="/libs/echarts/echarts.min.js"></script>
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="字灼海" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="字灼海" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -385,6 +385,13 @@
 
 <div class="carousel carousel-slider center index-cover" data-indicators="true" style="margin-top: -64px;">
     
+        <div id="prev-cover" class="left waves-effect carousel-control">
+            <i class="icon fa fa-angle-left"></i>
+        </div>
+        <div id="next-cover" class="right waves-effect carousel-control">
+            <i class="icon fa fa-angle-right"></i>
+        </div>
+    
 
     <div class="carousel-item  white-text bg-cover about-cover">
         <div class="container">
@@ -485,6 +492,57 @@
         </div>
     </div>
 
+    
+        
+
+        
+            
+            <div class="carousel-item amber white-text carousel-post bg-cover"
+                 style="background-image: url('/medias/featureimages/12.jpg');">
+                <div class="container">
+                    <div class="row">
+                        <div class="col s10 offset-s1">
+                            <div class="title center-align">Hello World</div>
+                            <div class="description center-align">
+                                
+                                    Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
+                                
+                            </div>
+                            <div class="cover-btns">
+                                <a href="/2023/09/04/hello-world/" class="waves-effect waves-light btn"
+                                   target="_blank">
+                                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            
+            <div class="carousel-item amber white-text carousel-post bg-cover"
+                 style="background-image: url('/medias/featureimages/13.jpg');">
+                <div class="container">
+                    <div class="row">
+                        <div class="col s10 offset-s1">
+                            <div class="title center-align">31条MIPS指令单周期CPU</div>
+                            <div class="description center-align">
+                                
+                                    写在前面
+31条MIPS指令CPU 算是计组课设第一个比较大的项目了,好在他不是很难,到后面流水线,其实基本上就没有人写的出来了,虽说计科作业一大抄(我愿称之为站在巨人的肩膀上),但是我觉着这个项目还是值得写一写的,完成这个项目,会对CPU
+                                
+                            </div>
+                            <div class="cover-btns">
+                                <a href="/2023/09/04/31%E6%9D%A1MIPS%E6%8C%87%E4%BB%A4%E5%8D%95%E5%91%A8%E6%9C%9FCPU/" class="waves-effect waves-light btn"
+                                   target="_blank">
+                                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
     
 </div>
 
@@ -971,16 +1029,17 @@ $(function () {
 
                                                 
 
+                                                    <script type="text/javascript">
+                                                        // 只在桌面版网页启用特效
+                                                        var windowWidth = $(window).width();
+                                                        if (windowWidth > 768) {
+                                                            document.write('<script type="text/javascript" src="/libs/others/sakura.js"><\/script>');
+                                                        }
+                                                    </script>
+                                                    
+
                                                         <!-- 雪花特效 -->
                                                         
-                                                            <script type="text/javascript">
-                                                                // 只在桌面版网页启用特效
-                                                                var windowWidth = $(window).width();
-                                                                if (windowWidth > 768) {
-                                                                    document.write('<script type="text/javascript" src="/libs/others/snow.js"><\/script>');
-                                                                }
-                                                            </script>
-                                                            
                                                                 <canvas class="fireworks"
                                                                     style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
                                                                 <script type="text/javascript"
@@ -991,15 +1050,6 @@ $(function () {
                                                                 
 
                                                                         
-                                                                            <script
-                                                                                src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
-                                                                            <script
-                                                                                src="/libs/others/TencentCaptcha.js"></script>
-                                                                            <button id="TencentCaptcha"
-                                                                                data-appid="xxxxxxxxxx"
-                                                                                data-cbfn="callback" type="button"
-                                                                                hidden></button>
-                                                                            
 
                                                                                 <!-- Baidu Analytics -->
 
@@ -1020,10 +1070,6 @@ $(function () {
 </script>
 
                                                                                         
-                                                                                            <script
-                                                                                                src="/libs/others/clicklove.js"
-                                                                                                async="async"></script>
-                                                                                            
                                                                                                 
                                                                                                     <script async
                                                                                                         src="/libs/others/busuanzi.pure.mini.js"></script>
