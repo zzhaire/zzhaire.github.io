@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>字灼海</title>
+  
+  <subtitle>鱼水没有迭久伴</subtitle>
+  <link href="https://zzhaire.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://zzhaire.github.io/"/>
+  <updated>2023-09-04T16:55:48.391Z</updated>
+  <id>https://zzhaire.github.io/</id>
+  
+  <author>
+    <name>zzhaire</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>31条MIPS指令单周期CPU</title>
+    <link href="https://zzhaire.github.io/2023/09/04/31%E6%9D%A1MIPS%E6%8C%87%E4%BB%A4%E5%8D%95%E5%91%A8%E6%9C%9FCPU/"/>
+    <id>https://zzhaire.github.io/2023/09/04/31%E6%9D%A1MIPS%E6%8C%87%E4%BB%A4%E5%8D%95%E5%91%A8%E6%9C%9FCPU/</id>
+    <published>2023-09-04T15:33:00.000Z</published>
+    <updated>2023-09-04T16:55:48.391Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">**写在前面**
+&lt;p&gt;31条MIPS指令CPU</summary>
+        
+      
+    
+    
+    
+    <category term="Verilog" scheme="https://zzhaire.github.io/categories/Verilog/"/>
+    
+    
+    <category term="TJ-CS" scheme="https://zzhaire.github.io/tags/TJ-CS/"/>
+    
+    <category term="计算机组成原理" scheme="https://zzhaire.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
+    
+    <category term="CPU" scheme="https://zzhaire.github.io/tags/CPU/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://zzhaire.github.io/2023/09/04/hello-world/"/>
+    <id>https://zzhaire.github.io/2023/09/04/hello-world/</id>
+    <published>2023-09-04T08:07:41.283Z</published>
+    <updated>2023-09-04T16:55:48.388Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+        
+      
+    
+    
+    
+    <category term="hexo" scheme="https://zzhaire.github.io/categories/hexo/"/>
+    
+    
+    <category term="建站" scheme="https://zzhaire.github.io/tags/%E5%BB%BA%E7%AB%99/"/>
+    
+    <category term="hexo框架" scheme="https://zzhaire.github.io/tags/hexo%E6%A1%86%E6%9E%B6/"/>
+    
+  </entry>
+  
+</feed>

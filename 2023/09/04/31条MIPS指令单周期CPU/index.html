@@ -4,11 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="31条MIPS指令单周期CPU, 鱼水没有迭久伴">
-    <meta name="description" content="
-**写在前面**
-
-31条MIPS指令CPU 算是计组课设第一个比较大的项目了,好在他不是很难,到后面流水线,其实基本上就没有人写的出来了,虽说计科作业一大抄(我愿称之为站在巨人的肩膀上),但是我觉着这个项目还是值得写一写的,完成这个项目">
+    <meta name="keywords" content="31条MIPS指令单周期CPU, 字灼海">
+    <meta name="description" content="**写在前面**
+31条MIPS指令CPU 算是计组课设第一个比较大的项目了,好在他不是很难,到后面流水线,其实基本上就没有人写的出来了,虽说计科作业一大抄(我愿称之为站在巨人的肩膀上),但是我觉着这个项目还是值得写一写的,完成这个项目,会">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>31条MIPS指令单周期CPU | 鱼水没有迭久伴</title>
+    <title>31条MIPS指令单周期CPU | 字灼海</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -63,13 +61,16 @@
 
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+    <script src="/libs/echarts/echarts.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="字灼海" type="application/atom+xml">
 
-<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
-<body>
-    <header class="navbar-fixed">
+    <body>
+        <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
@@ -77,7 +78,7 @@
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">鱼水没有迭久伴</span>
+                    <span class="logo-span">字灼海</span>
                 </a>
             </div>
             
@@ -181,7 +182,7 @@
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">鱼水没有迭久伴</div>
+        <div class="logo-name">字灼海</div>
         <div class="logo-desc">
             
             Never really desperate, only the lost of the soul.
@@ -343,7 +344,7 @@
 
 </header>
 
-    
+            
 <script src="/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
@@ -429,10 +430,25 @@
                 
 
                 
-
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.5k
+                </div>
                 
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    7 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
             </div>
         </div>
         <hr class="clearfix">
@@ -448,14 +464,15 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <meta name="referrer" content="no-referrer" />
-**写在前面**
-
+                **写在前面**
 <p>31条MIPS指令CPU 算是计组课设第一个比较大的项目了,好在他不是很难,到后面流水线,其实基本上就没有人写的出来了,虽说计科作业一大抄(我愿称之为站在巨人的肩膀上),但是我觉着这个项目还是值得写一写的,完成这个项目,会对CPU的核心功能有非常深刻的认识和理解,并且会对前面学过的知识有一个非常充分的理解和应用.</p>
-<p>整个31条指令CPU从开始到完成用了整整3天时间,不同于写软件,硬件是要慢工出细活,不然哪里理解有错误,就要返工,如此以往就会<del>一不小心打开Github找代码</del>浪费非常多的时间</p>
+<p>整个31条指令CPU从开始到完成用了整整3天时间,不同于写软件,硬件是要慢工出细活,不然哪里理解有错误,就要返工,如此以往就会<s>一不小心打开Github找代码</s>浪费非常多的时间</p>
 <p>好了废话不多说,我们进入正题, 先从 <code>画好数据通路图开始</code>,理解画好通路图,基本上一天就能debug完所有的CPU.</p>
 <p>MIPS上有一份文档,对31条指令的讲解算比较详细的,这里我就直接截图到每个指令下面去了.</p>
-<h1 id="R型指令"><a href="#R型指令" class="headerlink" title="R型指令"></a>R型指令</h1><h2 id="通路类型1"><a href="#通路类型1" class="headerlink" title="通路类型1"></a>通路类型1</h2><h3 id="1-ADD"><a href="#1-ADD" class="headerlink" title="1.ADD"></a>1.ADD</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903152608.png" alt="image-20230903152606092"></p>
+<h1>R型指令</h1>
+<h2 id="通路类型1">通路类型1</h2>
+<h3 id="1-ADD">1.ADD</h3>
+<p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903152608.png" alt="image-20230903152606092"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903152620.png" alt="image-20230903152619181"></p>
 <pre><code>PC -&gt; IMEM
 PC + 4 -&gt; NPC
@@ -464,7 +481,8 @@ out1 -&gt; A , out2 -&gt; B
 (A + B -&gt; RES)
 ans -&gt; in
 </code></pre>
-<h3 id="2-ADDU"><a href="#2-ADDU" class="headerlink" title="2.ADDU"></a>2.ADDU</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903152655.png" alt="image-20230903152654109"></p>
+<h3 id="2-ADDU">2.ADDU</h3>
+<p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903152655.png" alt="image-20230903152654109"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903152706.png" alt="image-20230903152705235"></p>
 <pre><code>PC -&gt; IMEM
 PC + 4 -&gt; NPC
@@ -473,7 +491,8 @@ out1 -&gt; A , out2 -&gt; B
 (A + B -&gt; RES)
 ans -&gt; in
 </code></pre>
-<h3 id="3-SUB"><a href="#3-SUB" class="headerlink" title="3.SUB"></a>3.SUB</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903152738.png" alt="image-20230903152737639"></p>
+<h3 id="3-SUB">3.SUB</h3>
+<p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903152738.png" alt="image-20230903152737639"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903152751.png" alt="image-20230903152750362"></p>
 <pre><code>PC -&gt; IMEM
 PC + 4 -&gt; NPC
@@ -482,7 +501,8 @@ out1 -&gt; A , out2 -&gt; B
 (A - B -&gt; RES)
 ans -&gt; in
 </code></pre>
-<h3 id="4-SUBU"><a href="#4-SUBU" class="headerlink" title="4.SUBU"></a>4.SUBU</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903152817.png" alt="image-20230903152816000"></p>
+<h3 id="4-SUBU">4.SUBU</h3>
+<p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903152817.png" alt="image-20230903152816000"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903152837.png" alt="image-20230903152836568"></p>
 <pre><code>PC -&gt; IMEM
 PC + 4 -&gt; NPC
@@ -491,7 +511,8 @@ out1 -&gt; A , out2 -&gt; B
 (A - B -&gt; RES)
 ans -&gt; in
 </code></pre>
-<h3 id="5-AND"><a href="#5-AND" class="headerlink" title="5.AND"></a>5.AND</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903152914.png" alt="image-20230903152913243"></p>
+<h3 id="5-AND">5.AND</h3>
+<p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903152914.png" alt="image-20230903152913243"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903152922.png" alt="image-20230903152921102"></p>
 <pre><code>PC -&gt; IMEM
 PC + 4 -&gt; NPC
@@ -500,7 +521,8 @@ out1 -&gt; A , out2 -&gt; B
 (A &amp; B -&gt; RES)
 ans -&gt; in
 </code></pre>
-<h3 id="6-OR"><a href="#6-OR" class="headerlink" title="6.OR"></a>6.OR</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903152952.png" alt="image-20230903152951212"></p>
+<h3 id="6-OR">6.OR</h3>
+<p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903152952.png" alt="image-20230903152951212"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153000.png" alt="image-20230903152959397"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153009.png" alt="image-20230903153007873"></p>
 <pre><code>PC -&gt; IMEM
@@ -510,7 +532,8 @@ out1 -&gt; A , out2 -&gt; B
 (A | B -&gt; RES)
 ans -&gt; in
 </code></pre>
-<h3 id="7-XOR"><a href="#7-XOR" class="headerlink" title="7.XOR"></a>7.XOR</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153045.png" alt="image-20230903153044772"></p>
+<h3 id="7-XOR">7.XOR</h3>
+<p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153045.png" alt="image-20230903153044772"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153057.png" alt="image-20230903153056418"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153105.png" alt="image-20230903153103917"></p>
 <pre><code>PC -&gt; IMEM
@@ -520,7 +543,8 @@ out1 -&gt; A , out2 -&gt; B
 (A ⊕ B -&gt; RES)
 ans -&gt; in
 </code></pre>
-<h3 id="8-NOR"><a href="#8-NOR" class="headerlink" title="8.NOR"></a>8.NOR</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153125.png" alt="image-20230903153124557"></p>
+<h3 id="8-NOR">8.NOR</h3>
+<p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153125.png" alt="image-20230903153124557"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153136.png" alt="image-20230903153134776"></p>
 <pre><code>PC -&gt; IMEM
 PC + 4 -&gt; NPC
@@ -529,7 +553,9 @@ out1 -&gt; A , out2 -&gt; B
 (A ⊙ B -&gt; RES)
 ans -&gt; in
 </code></pre>
-<h2 id="通路类型2"><a href="#通路类型2" class="headerlink" title="通路类型2"></a>通路类型2</h2><h3 id="9-SLT"><a href="#9-SLT" class="headerlink" title="9.SLT"></a>9.SLT</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153203.png" alt="image-20230903153202748"></p>
+<h2 id="通路类型2">通路类型2</h2>
+<h3 id="9-SLT">9.SLT</h3>
+<p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153203.png" alt="image-20230903153202748"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153210.png" alt="image-20230903153209325"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153218.png" alt="image-20230903153217447"></p>
 <pre><code>PC -&gt; IMEM
@@ -540,7 +566,8 @@ out1 -&gt; A , out2 -&gt; B
 negative -&gt; EXT1 //注意要做扩展
 EXT1 -&gt; in
 </code></pre>
-<h3 id="10-SLTU"><a href="#10-SLTU" class="headerlink" title="10.SLTU"></a>10.SLTU</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153242.png" alt="image-20230903153241700"></p>
+<h3 id="10-SLTU">10.SLTU</h3>
+<p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153242.png" alt="image-20230903153241700"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153250.png" alt="image-20230903153249301"><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153306.png" alt="image-20230903153304789"></p>
 <pre><code>PC -&gt; IMEM
 PC + 4 -&gt; NPC
@@ -550,7 +577,9 @@ out1 -&gt; A , out2 -&gt; B
 negative -&gt; EXT1 //注意要做扩展
 EXT1 -&gt; in
 </code></pre>
-<h2 id="通路类型3"><a href="#通路类型3" class="headerlink" title="通路类型3"></a>通路类型3</h2><h3 id="11-SLL"><a href="#11-SLL" class="headerlink" title="11.SLL"></a>11.SLL</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153345.png" alt="image-20230903153343889"></p>
+<h2 id="通路类型3">通路类型3</h2>
+<h3 id="11-SLL">11.SLL</h3>
+<p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153345.png" alt="image-20230903153343889"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153351.png" alt="image-20230903153350249"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153400.png" alt="image-20230903153358972"></p>
 <pre><code>PC -&gt; IMEM
@@ -562,7 +591,8 @@ out2 -&gt; B
 (B&lt;&lt;A -&gt; ans)
 ans -&gt; in
 </code></pre>
-<h3 id="12-SRL"><a href="#12-SRL" class="headerlink" title="12.SRL"></a>12.SRL</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153422.png" alt="image-20230903153420881"></p>
+<h3 id="12-SRL">12.SRL</h3>
+<p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153422.png" alt="image-20230903153420881"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153427.png" alt="image-20230903153426488"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153435.png" alt="image-20230903153434362"></p>
 <pre><code>PC -&gt; IMEM
@@ -574,7 +604,8 @@ out2 -&gt; B
 (B&gt;&gt;A -&gt; ans)
 ans -&gt; in
 </code></pre>
-<h3 id="13-SRA"><a href="#13-SRA" class="headerlink" title="13.SRA"></a>13.SRA</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153504.png" alt="image-20230903153503190"></p>
+<h3 id="13-SRA">13.SRA</h3>
+<p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153504.png" alt="image-20230903153503190"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153512.png" alt="image-20230903153511161"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153521.png" alt="image-20230903153519996"></p>
 <pre><code>PC -&gt; IMEM
@@ -586,7 +617,9 @@ out2 -&gt; B
 (B&gt;&gt;A -&gt; ans)
 ans -&gt; in
 </code></pre>
-<h2 id="通路类型4"><a href="#通路类型4" class="headerlink" title="通路类型4"></a>通路类型4</h2><h3 id="14-SLLV"><a href="#14-SLLV" class="headerlink" title="14.SLLV"></a>14.SLLV</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153556.png" alt="image-20230903153555626"></p>
+<h2 id="通路类型4">通路类型4</h2>
+<h3 id="14-SLLV">14.SLLV</h3>
+<p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153556.png" alt="image-20230903153555626"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153603.png" alt="image-20230903153602037"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153615.png" alt="image-20230903153614340"></p>
 <pre><code>PC -&gt; IMEM
@@ -598,7 +631,8 @@ out2 -&gt; B
 (A&lt;&lt;B -&gt; ans)
 ans -&gt; in
 </code></pre>
-<h3 id="15-SRLV"><a href="#15-SRLV" class="headerlink" title="15.SRLV"></a>15.SRLV</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153637.png" alt="image-20230903153636747"></p>
+<h3 id="15-SRLV">15.SRLV</h3>
+<p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153637.png" alt="image-20230903153636747"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153649.png" alt="image-20230903153648629"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153659.png" alt="image-20230903153657786"></p>
 <pre><code>PC -&gt; IMEM
@@ -610,7 +644,8 @@ out2 -&gt; B
 (A &gt;&gt; B -&gt; ans)
 ans -&gt; in
 </code></pre>
-<h3 id="16-SRAV"><a href="#16-SRAV" class="headerlink" title="16.SRAV"></a>16.SRAV</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153722.png" alt="image-20230903153721162"></p>
+<h3 id="16-SRAV">16.SRAV</h3>
+<p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153722.png" alt="image-20230903153721162"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153728.png" alt="image-20230903153727591"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153735.png" alt="image-20230903153734246"></p>
 <pre><code>PC -&gt; IMEM
@@ -622,7 +657,9 @@ out2 -&gt; B
 (A &gt;&gt; B -&gt; ans)
 ans -&gt; in
 </code></pre>
-<h2 id="通路类型5"><a href="#通路类型5" class="headerlink" title="通路类型5"></a>通路类型5</h2><h3 id="17-JR"><a href="#17-JR" class="headerlink" title="17.JR"></a>17.JR</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153809.png" alt="image-20230903153807912"></p>
+<h2 id="通路类型5">通路类型5</h2>
+<h3 id="17-JR">17.JR</h3>
+<p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153809.png" alt="image-20230903153807912"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153819.png" alt="image-20230903153817871"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153837.png" alt="image-20230903153836543"></p>
 <pre><code>PC -&gt; IMEM
@@ -631,7 +668,10 @@ out1 -&gt; MUX
 MUX_OUT -&gt; PC
 NPC -&gt; MUX //无关指令
 </code></pre>
-<h1 id="I型指令"><a href="#I型指令" class="headerlink" title="I型指令"></a>I型指令</h1><h2 id="通路类型6"><a href="#通路类型6" class="headerlink" title="通路类型6"></a>通路类型6</h2><h3 id="18-ADDI"><a href="#18-ADDI" class="headerlink" title="18.ADDI"></a>18.ADDI</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153919.png" alt="image-20230903153918136"></p>
+<h1>I型指令</h1>
+<h2 id="通路类型6">通路类型6</h2>
+<h3 id="18-ADDI">18.ADDI</h3>
+<p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153919.png" alt="image-20230903153918136"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153925.png" alt="image-20230903153924042"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903153933.png" alt="image-20230903153931935"></p>
 <pre><code>PC -&gt; IMEM
@@ -643,7 +683,8 @@ out1 -&gt; A
 (A + B -&gt; RES)
 ans -&gt; Rd
 </code></pre>
-<h3 id="19-ADDIU"><a href="#19-ADDIU" class="headerlink" title="19.ADDIU"></a>19.ADDIU</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154020.png" alt="image-20230903154019616"></p>
+<h3 id="19-ADDIU">19.ADDIU</h3>
+<p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154020.png" alt="image-20230903154019616"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154026.png" alt="image-20230903154025503"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154032.png" alt="image-20230903154031767"></p>
 <pre><code>PC -&gt; IMEM
@@ -655,7 +696,8 @@ out1 -&gt; A
 (A + B -&gt; RES)
 ans -&gt; Rd
 </code></pre>
-<h3 id="20-ANDI"><a href="#20-ANDI" class="headerlink" title="20.ANDI"></a>20.ANDI</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154058.png" alt="image-20230903154056829"></p>
+<h3 id="20-ANDI">20.ANDI</h3>
+<p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154058.png" alt="image-20230903154056829"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154105.png" alt="image-20230903154103829"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154112.png" alt="image-20230903154110896"></p>
 <pre><code>PC -&gt; IMEM
@@ -667,7 +709,8 @@ out1 -&gt; A
 (A &amp; B -&gt; RES)
 ans -&gt; Rd
 </code></pre>
-<h3 id="21-ORI"><a href="#21-ORI" class="headerlink" title="21.ORI"></a>21.ORI</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154133.png" alt="image-20230903154132439"></p>
+<h3 id="21-ORI">21.ORI</h3>
+<p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154133.png" alt="image-20230903154132439"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154139.png" alt="image-20230903154138601"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154149.png" alt="image-20230903154148393"></p>
 <pre><code>PC -&gt; IMEM
@@ -679,7 +722,8 @@ out1 -&gt; A
 (A | B -&gt; RES)
 ans -&gt; Rd
 </code></pre>
-<h3 id="22-XORI"><a href="#22-XORI" class="headerlink" title="22.XORI"></a>22.XORI</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154210.png" alt="image-20230903154209565"></p>
+<h3 id="22-XORI">22.XORI</h3>
+<p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154210.png" alt="image-20230903154209565"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154216.png" alt="image-20230903154215544"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154223.png" alt="image-20230903154221885"></p>
 <pre><code>PC -&gt; IMEM
@@ -691,7 +735,8 @@ out1 -&gt; A
 (A ⊕ B -&gt; RES)
 ans -&gt; Rd
 </code></pre>
-<h2 id="通路类型7"><a href="#通路类型7" class="headerlink" title="通路类型7"></a>通路类型7</h2><p>###23.LW</p>
+<h2 id="通路类型7">通路类型7</h2>
+<p>###23.LW</p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154257.png" alt="image-20230903154256703"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154305.png" alt="image-20230903154304112"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154313.png" alt="image-20230903154311792"></p>
@@ -705,7 +750,9 @@ out1 -&gt; A
 ans -&gt; DMEM_ADDR
 data -&gt; in
 </code></pre>
-<h2 id="通路类型8"><a href="#通路类型8" class="headerlink" title="通路类型8"></a>通路类型8</h2><h3 id="24-SW"><a href="#24-SW" class="headerlink" title="24.SW"></a>24.SW</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154341.png" alt="image-20230903154340703"></p>
+<h2 id="通路类型8">通路类型8</h2>
+<h3 id="24-SW">24.SW</h3>
+<p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154341.png" alt="image-20230903154340703"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154348.png" alt="image-20230903154346852"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154355.png" alt="image-20230903154354355"></p>
 <pre><code>PC -&gt; IMEM
@@ -718,7 +765,9 @@ out1 -&gt; A
 out2 -&gt; DMEM
 ans -&gt; DMEM_ADDR
 </code></pre>
-<h2 id="通路类型9"><a href="#通路类型9" class="headerlink" title="通路类型9"></a>通路类型9</h2><h3 id="25-BEQ"><a href="#25-BEQ" class="headerlink" title="25.BEQ"></a>25.BEQ</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154423.png" alt="image-20230903154421935"></p>
+<h2 id="通路类型9">通路类型9</h2>
+<h3 id="25-BEQ">25.BEQ</h3>
+<p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154423.png" alt="image-20230903154421935"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154430.png" alt="image-20230903154429754"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154438.png" alt="image-20230903154436939"></p>
 <pre><code>PC -&gt; IMEM
@@ -735,7 +784,8 @@ out2 -&gt; B
 zero -&gt; MUX
 MUX -&gt; PC
 </code></pre>
-<h3 id="26-BNE"><a href="#26-BNE" class="headerlink" title="26.BNE"></a>26.BNE</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154459.png" alt="image-20230903154457977"></p>
+<h3 id="26-BNE">26.BNE</h3>
+<p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154459.png" alt="image-20230903154457977"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154505.png" alt="image-20230903154503904"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154516.png" alt="image-20230903154515306"></p>
 <pre><code>PC -&gt; IMEM
@@ -752,7 +802,9 @@ out2 -&gt; B
 zero -&gt; MUX
 MUX -&gt; PC
 </code></pre>
-<h2 id="通路类型10"><a href="#通路类型10" class="headerlink" title="通路类型10"></a>通路类型10</h2><h3 id="27-SLTI"><a href="#27-SLTI" class="headerlink" title="27.SLTI"></a>27.SLTI</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154549.png" alt="image-20230903154548160"></p>
+<h2 id="通路类型10">通路类型10</h2>
+<h3 id="27-SLTI">27.SLTI</h3>
+<p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154549.png" alt="image-20230903154548160"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154556.png" alt="image-20230903154555439"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154605.png" alt="image-20230903154604103"></p>
 <pre><code>PC -&gt; IMEM
@@ -765,7 +817,8 @@ out1 -&gt; A
 Carry -&gt; EXT1
 EXT1 -&gt; in
 </code></pre>
-<h3 id="28-SLTIU"><a href="#28-SLTIU" class="headerlink" title="28.SLTIU"></a>28.SLTIU</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154625.png" alt="image-20230903154623846"></p>
+<h3 id="28-SLTIU">28.SLTIU</h3>
+<p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154625.png" alt="image-20230903154623846"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154631.png" alt="image-20230903154629949"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154638.png" alt="image-20230903154637208"></p>
 <pre><code>PC -&gt; IMEM
@@ -778,7 +831,9 @@ out1 -&gt; A
 Carry -&gt; EXT1
 EXT1 -&gt; in
 </code></pre>
-<h2 id="通路类型11"><a href="#通路类型11" class="headerlink" title="通路类型11"></a>通路类型11</h2><h3 id="29-LUI"><a href="#29-LUI" class="headerlink" title="29.LUI"></a>29.LUI</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154709.png" alt="image-20230903154708496"></p>
+<h2 id="通路类型11">通路类型11</h2>
+<h3 id="29-LUI">29.LUI</h3>
+<p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154709.png" alt="image-20230903154708496"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154716.png" alt="image-20230903154715278"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154723.png" alt="image-20230903154722528"></p>
 <pre><code>PC -&gt; IMEM
@@ -788,7 +843,10 @@ IMEM[15:0] -&gt; EXT16
 EXT16 -&gt; B
 res -&gt; in
 </code></pre>
-<h1 id="J型指令"><a href="#J型指令" class="headerlink" title="J型指令"></a>J型指令</h1><h2 id="通路类型12"><a href="#通路类型12" class="headerlink" title="通路类型12"></a>通路类型12</h2><h3 id="30-J"><a href="#30-J" class="headerlink" title="30.J"></a>30.J</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154811.png" alt="image-20230903154810007"></p>
+<h1>J型指令</h1>
+<h2 id="通路类型12">通路类型12</h2>
+<h3 id="30-J">30.J</h3>
+<p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154811.png" alt="image-20230903154810007"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154819.png" alt="image-20230903154817859"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154826.png" alt="image-20230903154825162"></p>
 <pre><code>PC -&gt; IMEM
@@ -799,15 +857,22 @@ IMEM[25,0] || 00 -&gt; ||_B
 ||_OUT -&gt; MUX
 MUX_OUT -&gt; PC
 </code></pre>
-<h2 id="通路类型13"><a href="#通路类型13" class="headerlink" title="通路类型13"></a>通路类型13</h2><h3 id="31-JAL"><a href="#31-JAL" class="headerlink" title="31.JAL"></a>31.JAL</h3><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154855.png" alt="image-20230903154854257"></p>
+<h2 id="通路类型13">通路类型13</h2>
+<h3 id="31-JAL">31.JAL</h3>
+<p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154855.png" alt="image-20230903154854257"></p>
 <p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903154901.png" alt="image-20230903154859827"></p>
-<h1 id="顶层控制器和数据总通路图"><a href="#顶层控制器和数据总通路图" class="headerlink" title="顶层控制器和数据总通路图"></a>顶层控制器和数据总通路图</h1><p>到这一步你的CPU 就算完成**70%**了,剩下的就是完成顶层控制器和调试,控制器我使用了布硬线的方法,<del>因为微程序我不会</del>对照着真值表弄好你的数据选择器即可.</p>
-<h2 id="数据总通路图"><a href="#数据总通路图" class="headerlink" title="数据总通路图"></a>数据总通路图</h2><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903161839.png" alt="image-20230903161838124"></p>
-<h2 id="顶层控制器真值表"><a href="#顶层控制器真值表" class="headerlink" title="顶层控制器真值表"></a>顶层控制器真值表</h2><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903161921.png" alt="image-20230903161920066"></p>
-<h2 id="ALU-看不懂可以跳过这张图"><a href="#ALU-看不懂可以跳过这张图" class="headerlink" title="ALU(看不懂可以跳过这张图)"></a>ALU(看不懂可以跳过这张图)</h2><p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903162005.png" alt="image-20230903162004491"></p>
-<h1 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h1><p>原代码太多我就不一个一个写了,项目里有我的报告,如果对你有帮助,希望支持下我的CSDN和我的博客(现在正在加急开发中,以后会有更多功能上限)</p>
+<h1>顶层控制器和数据总通路图</h1>
+<p>到这一步你的CPU 就算完成**70%**了,剩下的就是完成顶层控制器和调试,控制器我使用了布硬线的方法,<s>因为微程序我不会</s>对照着真值表弄好你的数据选择器即可.</p>
+<h2 id="数据总通路图">数据总通路图</h2>
+<p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903161839.png" alt="image-20230903161838124"></p>
+<h2 id="顶层控制器真值表">顶层控制器真值表</h2>
+<p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903161921.png" alt="image-20230903161920066"></p>
+<h2 id="ALU-看不懂可以跳过这张图">ALU(看不懂可以跳过这张图)</h2>
+<p><img src="https://gitee.com/zzhaire/markdown_imgs/raw/master/img/20230903162005.png" alt="image-20230903162004491"></p>
+<h1>源代码</h1>
+<p>原代码太多我就不一个一个写了,项目里有我的报告,如果对你有帮助,希望支持下我的CSDN和我的博客(现在正在加急开发中,以后会有更多功能上限)</p>
 <p>我的博客网址 :  <a href="https://zzhaire.github.io/">https://zzhaire.github.io/</a></p>
-<p>我的CSDN :  </p>
+<p>我的CSDN :</p>
 <p>项目源代码 :  <a target="_blank" rel="noopener" href="https://github.com/zzhaire/31SinglePeriodMipsCpu">https://github.com/zzhaire/31SinglePeriodMipsCpu</a></p>
 
                 
@@ -1413,61 +1478,8 @@ MUX_OUT -&gt; PC
 
 
 
-    <footer class="page-footer bg-color">
-    
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        
-        display: none;
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
-        
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="503838841"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="/libs/aplayer/Meting.min.js"></script>
-
+                
+<footer class="page-footer bg-color">
     
 
     <div class="container row center-align"
@@ -1483,22 +1495,26 @@ MUX_OUT -&gt; PC
             
             <br>
             
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">1.6k</span>
+            
             
             
                 
             
-            
-                <span id="busuanzi_container_site_pv">
-                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
-                    <span id="busuanzi_value_site_pv" class="white-color"></span>
-            </span>
-            
-            
-                <span id="busuanzi_container_site_uv">
-                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
-                    <span id="busuanzi_value_site_uv" class="white-color"></span>
-            </span>
-            
+
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        <i class="fa fa-heart-o"></i>
+        本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+    </span>
+
+
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+    </span>
+
+
+
             <br>
 
             <!-- 运行天数提醒. -->
@@ -1539,12 +1555,31 @@ MUX_OUT -&gt; PC
 
 </div>
     </div>
+    <script>
+    $(document).ready(function () {
+
+        var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+        var pvcountOffset = 80000;  // 初始化首次数据
+        var uvcountOffset = 20000;
+
+        function fixCount() {
+            if (document.getElementById("busuanzi_container_site_pv").style.display != "none") {
+                $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + pvcountOffset);
+                clearInterval(int);
+            }
+            if ($("#busuanzi_container_site_pv").css("display") != "none") {
+                $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + uvcountOffset); // 加上初始数据 
+                clearInterval(int); // 停止检测
+            }
+        }
+    });
+</script>
 </footer>
 
 <div class="progress-bar"></div>
 
 
-    <!-- 搜索遮罩框 -->
+                    <!-- 搜索遮罩框 -->
 <div id="searchModal" class="modal">
     <div class="modal-content">
         <div class="search-header">
@@ -1648,7 +1683,7 @@ $(function () {
 });
 </script>
 
-    <!-- 白天和黑夜主题 -->
+                        <!-- 白天和黑夜主题 -->
 <div class="stars-con">
     <div id="stars"></div>
     <div id="stars2"></div>
@@ -1672,7 +1707,7 @@ $(function () {
     }
 </script>
 
-    <!-- 回到顶部按钮 -->
+                            <!-- 回到顶部按钮 -->
 <div id="backTop" class="top-scroll">
     <a class="btn-floating btn-large waves-effect waves-light" href="#!">
         <i class="fas fa-arrow-up"></i>
@@ -1680,42 +1715,55 @@ $(function () {
 </div>
 
 
-    <script src="/libs/materialize/materialize.min.js"></script>
-    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
-    <script src="/libs/aos/aos.js"></script>
-    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
-    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
-    <script src="/js/matery.js"></script>
+                                <script
+                                    src="/libs/materialize/materialize.min.js"></script>
+                                <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+                                <script src="/libs/aos/aos.js"></script>
+                                <script
+                                    src="/libs/scrollprogress/scrollProgress.min.js"></script>
+                                <script
+                                    src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+                                <script src="/js/matery.js"></script>
 
-    
+                                
 
-    
-    
-    
+                                        
 
-    <!-- 雪花特效 -->
-     
-        <script type="text/javascript">
-            // 只在桌面版网页启用特效
-            var windowWidth = $(window).width();
-            if (windowWidth > 768) {
-                document.write('<script type="text/javascript" src="/libs/others/snow.js"><\/script>');
-            }
-        </script>
-    
+                                                
 
-    <!-- 鼠标星星特效 -->
-    
+                                                        <!-- 雪花特效 -->
+                                                        
+                                                            <script type="text/javascript">
+                                                                // 只在桌面版网页启用特效
+                                                                var windowWidth = $(window).width();
+                                                                if (windowWidth > 768) {
+                                                                    document.write('<script type="text/javascript" src="/libs/others/snow.js"><\/script>');
+                                                                }
+                                                            </script>
+                                                            
+                                                                <canvas class="fireworks"
+                                                                    style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
+                                                                <script type="text/javascript"
+                                                                    src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+                                                                <script type="text/javascript"
+                                                                    src="/js/fireworks.js"></script>
+                                                                <!-- 鼠标星星特效 -->
+                                                                
 
-     
-        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
-        <script src="/libs/others/TencentCaptcha.js"></script>
-        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
-    
+                                                                        
+                                                                            <script
+                                                                                src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+                                                                            <script
+                                                                                src="/libs/others/TencentCaptcha.js"></script>
+                                                                            <button id="TencentCaptcha"
+                                                                                data-appid="xxxxxxxxxx"
+                                                                                data-cbfn="callback" type="button"
+                                                                                hidden></button>
+                                                                            
 
-    <!-- Baidu Analytics -->
+                                                                                <!-- Baidu Analytics -->
 
-    <!-- Baidu Push -->
+                                                                                    <!-- Baidu Push -->
 
 <script>
     (function () {
@@ -1731,29 +1779,48 @@ $(function () {
     })();
 </script>
 
-    
-    <script src="/libs/others/clicklove.js" async="async"></script>
-    
-    
-    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
-    
+                                                                                        
+                                                                                            <script
+                                                                                                src="/libs/others/clicklove.js"
+                                                                                                async="async"></script>
+                                                                                            
+                                                                                                
+                                                                                                    <script async
+                                                                                                        src="/libs/others/busuanzi.pure.mini.js"></script>
+                                                                                                    
 
-    
+                                                                                                        
 
-    
+                                                                                                                
 
-    <!--腾讯兔小巢-->
-    
-    
+                                                                                                                        <!--腾讯兔小巢-->
+                                                                                                                        
+                                                                                                                                
 
-    
+                                                                                                                                        
+                                                                                                                                            
+                                                                                                                                                <script
+                                                                                                                                                    type="text/javascript"
+                                                                                                                                                    size="150"
+                                                                                                                                                    alpha='0.6'
+                                                                                                                                                    zIndex="-1"
+                                                                                                                                                    src="/libs/background/ribbon-refresh.min.js"
+                                                                                                                                                    async="async"></script>
+                                                                                                                                                
 
-    
+                                                                                                                                                    
+                                                                                                                                                        <script
+                                                                                                                                                            type="text/javascript"
+                                                                                                                                                            src="/libs/background/ribbon-dynamic.js"
+                                                                                                                                                            async="async"></script>
+                                                                                                                                                        
 
-    
-    <script src="/libs/instantpage/instantpage.js" type="module"></script>
-    
+                                                                                                                                                            
+                                                                                                                                                                <script
+                                                                                                                                                                    src="/libs/instantpage/instantpage.js"
+                                                                                                                                                                    type="module"></script>
+                                                                                                                                                                
 
-</body>
+    </body>
 
 </html>
