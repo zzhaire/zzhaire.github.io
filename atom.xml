@@ -6,7 +6,7 @@
   <link href="https://zzhaire.github.io/atom.xml" rel="self"/>
   
   <link href="https://zzhaire.github.io/"/>
-  <updated>2023-09-05T15:43:36.314Z</updated>
+  <updated>2023-09-25T03:17:28.820Z</updated>
   <id>https://zzhaire.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Git的使用和安装</title>
+    <link href="https://zzhaire.github.io/2023/09/25/Git%E7%9A%84%E4%BD%BF%E7%94%A8%E5%92%8C%E5%AE%89%E8%A3%85/"/>
+    <id>https://zzhaire.github.io/2023/09/25/Git%E7%9A%84%E4%BD%BF%E7%94%A8%E5%92%8C%E5%AE%89%E8%A3%85/</id>
+    <published>2023-09-25T03:16:00.000Z</published>
+    <updated>2023-09-25T03:17:28.820Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;Git的安装和使用&lt;/h1&gt;
+&lt;h2 id=&quot;git安装&quot;&gt;git安装&lt;/h2&gt;
+&lt;p&gt;官网下载地址： &lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="软件开发" scheme="https://zzhaire.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="git使用" scheme="https://zzhaire.github.io/tags/git%E4%BD%BF%E7%94%A8/"/>
+    
+    <category term="github" scheme="https://zzhaire.github.io/tags/github/"/>
+    
+  </entry>
   
   <entry>
     <title>31条MIPS指令单周期CPU</title>

@@ -4,8 +4,14 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="friends, 字灼海">
-    <meta name="description" content="字灼海">
+    <meta name="keywords" content="Git的使用和安装, 字灼海">
+    <meta name="description" content="Git的安装和使用
+git安装
+官网下载地址： https://git-scm.com/download
+
+双击安装程序，一路next就行（建议放C盘，大小不大，而且不会产生多余的东西）
+其余全部默认配置即可
+编辑器可以选Vim也可以选vs">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +23,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>friends | 字灼海</title>
+    <title>Git的使用和安装 | 字灼海</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -343,472 +349,344 @@
 
 </header>
 
-            <div class="bg-cover pd-header about-cover">
-    <div class="container">
-    <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                考研加油!
-                
-            </div>
+            
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
 
-            <div class="description center-align">
-                
-                <span id="subtitle"></span>
-                <script src="/libs/typed/typed.js"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: [ 
-                            
-                                "希望大家都能拥有爱情, 而我能够上岸",
-                            
-                                "从此大雪深埋过往, 而我能够重新开始",
-                            
-                        ],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: true,
-                        backSpeed: 50,
-                        showCursor: true
-                    });
-                </script>
-                
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Git的使用和安装</h1>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 
-<script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
-    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
-</script>
-<script>
+
+
+<main class="post-container content">
+
     
-      var bannerUrl = "/medias/featureimages/" + Math.floor(Math.random() * 24) + '.jpg';
-    
-    $('.bg-cover.about-cover').css('background-image', 'url(' + bannerUrl + ')');
-
-</script>
-
-
-    </div>
-</div>
-<style>
-    .friends-container {
-        margin-top: -100px;
-        margin-bottom: 30px;
-    }
-
-    .friends-container .tag-title {
-        margin-bottom: 10px;
-        color: #3C4858;
-        font-size: 1.75rem;
-        font-weight: 400;
-    }
-
-    .frind-ship img {
-        border-radius: 50%;
-    }
-
-    /* 一下是按钮样式 */
-
-    .frind-ship {
-        padding: 10px 20px;
-    }
-
-    .frind-ship .title {
-        display: flex;
-        align-items: center;
-    }
-
-    .frind-ship .title div {
-        color: #fff;
-        padding-left: 10px;
-    }
-
-    .frind-ship .title img {
-        width: 100px;
-        height: 100px;
-        flex-shrink: 0;
-    }
-
-    .frind-ship .title h1 {
-        padding-bottom: 5px;
-        border-bottom: 2px solid #fff;
-        position: relative;
-        top:-15px;
-        left: 3px;
-    }
-
-    .friend-button {
-        display: flex;
-        justify-content: center;
-        margin-bottom: -27px;
-    }
-
-    .friend-button a {
-        border-radius: 40px;
-    }
-
-    .friend-all .tag-post {
-        margin-bottom: 30px;
-    }
-
-    .button-caution {
-        background-color: #FF4351;
-        border-color: #FF4351;
-        color: #FFF;
-    }
-
-    .button {
-        font-weight: 300;
-        font-size: 16px;
-        font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-        text-decoration: none;
-        text-align: center;
-        line-height: 40px;
-        height: 40px;
-        padding: 0 40px;
-        margin: 0;
-        display: inline-block;
-        appearance: none;
-        cursor: pointer;
-        border: none;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        -webkit-transition-property: all;
-        transition-property: all;
-        -webkit-transition-duration: .3s;
-        transition-duration: .3s;
-    }
-
-    .title {
-        margin-bottom: 0rem !important;
-    }
-
-    .card {
-        margin: 3rem 0 1rem 0 !important;
-    }
-
-    .button-glow.button-caution {
-        -webkit-animation-name: glowing-caution;
-        animation-name: glowing-caution;
-    }
-
-    @-webkit-keyframes glowing-caution {
-        from {
-            -webkit-box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-            box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-        }
-
-        50% {
-            -webkit-box-shadow: 0 0 20px rgba(255, 67, 81, 0.8);
-            box-shadow: 0 0 20px rgba(255, 67, 81, 0.8);
-        }
-
-        to {
-            -webkit-box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-            box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-        }
-    }
-
-    @keyframes glowing-caution {
-        from {
-            -webkit-box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-            box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-        }
-
-        50% {
-            -webkit-box-shadow: 0 0 20px rgba(255, 67, 81, 0.8);
-            box-shadow: 0 0 20px rgba(255, 67, 81, 0.8);
-        }
-
-        to {
-            -webkit-box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-            box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-        }
-    }
-
-    .button-caution:hover {
-        background-color: #ff7680;
-        border-color: #ff7680;
-        color: #FFF;
-        text-decoration: none;
-    }
-
-    .frind-card1 {
-        background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
-    }
-
-    .frind-card2 {
-        background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    }
-
-    .frind-card3 {
-        background-image: linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #b465da 0%, #cf6cc9 33%, #ee609c 66%, #ee609c 100%);
-    }
-
-    .frind-card4 {
-        background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
-    }
-
-    .frind-card5 {
-        background-image: linear-gradient(to top, #c471f5 0%, #fa71cd 100%);
-    }
-
-    .frind-card6 {
-        background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);
-    }
-
-    .frind-card7 {
-        background-image: linear-gradient(to top, #0ba360 0%, #3cba92 100%);
-    }
-
-    .frind-card8 {
-        background-image: linear-gradient(to top, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%);
-    }
-
-    .frind-card9 {
-        background-image: linear-gradient(to right, #ff758c 0%, #ff7eb3 100%);
-    }
-
-    .frind-card10 {
-        background-image: linear-gradient(to top, #f77062 0%, #fe5196 100%);
-    }
-
-    article .card {
-        overflow: visible !important;
-    }
-</style>
-
-<main class="content">
-    <div class="container friends-container">
-        <div class="card">
-            <div class="card-content">
-                <div class="tag-title center-align">
-                    <i class="fas fa-address-book"></i>&nbsp;&nbsp;友情链接
-                </div>
-                <article id="friends-link">
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
                     
-                    
-                    <div class="row tags-posts friend-all">
+                    <div class="article-tag">
                         
+                            <a href="/tags/git%E4%BD%BF%E7%94%A8/">
+                                <span class="chip bg-color">git使用</span>
+                            </a>
                         
-                        <div class="col s12 m6 l4 friend-div" data-aos="zoom-in-up">
-                            <div class="card frind-card1">
-                                <div class="frind-ship">
-                                    <div class="title">
-                                        <img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/R.png" alt="img">
-                                        <div>
-                                            <h1 class="friend-name">菜鸟教程</h1>
-                                            <p style="position: relative;top: -35px;">常用文档查询</p>
-                                        </div>
-                                    </div>
-                                    <div class="friend-button">
-                                        <a href="https://www.runoob.com/" target="_blank"
-                                            class="button button-glow button-rounded button-caution">
-                                            GOTO
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        
-                        <div class="col s12 m6 l4 friend-div" data-aos="zoom-in-up">
-                            <div class="card frind-card2">
-                                <div class="frind-ship">
-                                    <div class="title">
-                                        <img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/1.jpg" alt="img">
-                                        <div>
-                                            <h1 class="friend-name">CSDN</h1>
-                                            <p style="position: relative;top: -35px;">成就一亿技术人</p>
-                                        </div>
-                                    </div>
-                                    <div class="friend-button">
-                                        <a href="https://www.csdn.net/" target="_blank"
-                                            class="button button-glow button-rounded button-caution">
-                                            GOTO
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        
-                        <div class="col s12 m6 l4 friend-div" data-aos="zoom-in-up">
-                            <div class="card frind-card3">
-                                <div class="frind-ship">
-                                    <div class="title">
-                                        <img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/2.jpg" alt="img">
-                                        <div>
-                                            <h1 class="friend-name">C语言中文网</h1>
-                                            <p style="position: relative;top: -35px;">C语言学习网站</p>
-                                        </div>
-                                    </div>
-                                    <div class="friend-button">
-                                        <a href="http://c.biancheng.net/" target="_blank"
-                                            class="button button-glow button-rounded button-caution">
-                                            GOTO
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        
-                        <div class="col s12 m6 l4 friend-div" data-aos="zoom-in-up">
-                            <div class="card frind-card4">
-                                <div class="frind-ship">
-                                    <div class="title">
-                                        <img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/3.jpg" alt="img">
-                                        <div>
-                                            <h1 class="friend-name">飞鸟云</h1>
-                                            <p style="position: relative;top: -35px;">便宜好用的梯子(需要科学上网)</p>
-                                        </div>
-                                    </div>
-                                    <div class="friend-button">
-                                        <a href="https://feiniaoyun.xyz/" target="_blank"
-                                            class="button button-glow button-rounded button-caution">
-                                            GOTO
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        
-                        <div class="col s12 m6 l4 friend-div" data-aos="zoom-in-up">
-                            <div class="card frind-card5">
-                                <div class="frind-ship">
-                                    <div class="title">
-                                        <img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/R%20%281%29.png" alt="img">
-                                        <div>
-                                            <h1 class="friend-name">闪击PPT</h1>
-                                            <p style="position: relative;top: -35px;">在线生成PPT</p>
-                                        </div>
-                                    </div>
-                                    <div class="friend-button">
-                                        <a href="https://ppt.sankki.com/#/intro" target="_blank"
-                                            class="button button-glow button-rounded button-caution">
-                                            GOTO
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        
-                        <div class="col s12 m6 l4 friend-div" data-aos="zoom-in-up">
-                            <div class="card frind-card6">
-                                <div class="frind-ship">
-                                    <div class="title">
-                                        <img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/4.png" alt="img">
-                                        <div>
-                                            <h1 class="friend-name">Process</h1>
-                                            <p style="position: relative;top: -35px;">在线免费作图工具</p>
-                                        </div>
-                                    </div>
-                                    <div class="friend-button">
-                                        <a href="https://www.processon.com/" target="_blank"
-                                            class="button button-glow button-rounded button-caution">
-                                            GOTO
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        
-                        <div class="col s12 m6 l4 friend-div" data-aos="zoom-in-up">
-                            <div class="card frind-card7">
-                                <div class="frind-ship">
-                                    <div class="title">
-                                        <img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/R.jpg" alt="img">
-                                        <div>
-                                            <h1 class="friend-name">鸟哥的Linux私房菜</h1>
-                                            <p style="position: relative;top: -35px;">学习Linux一本就够</p>
-                                        </div>
-                                    </div>
-                                    <div class="friend-button">
-                                        <a href="https://wizardforcel.gitbooks.io/vbird-linux-basic-4e/content/index.html" target="_blank"
-                                            class="button button-glow button-rounded button-caution">
-                                            GOTO
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        
-                        <div class="col s12 m6 l4 friend-div" data-aos="zoom-in-up">
-                            <div class="card frind-card8">
-                                <div class="frind-ship">
-                                    <div class="title">
-                                        <img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/R%20%282%29.png" alt="img">
-                                        <div>
-                                            <h1 class="friend-name">Hexo</h1>
-                                            <p style="position: relative;top: -35px;">Hexo官方文档</p>
-                                        </div>
-                                    </div>
-                                    <div class="friend-button">
-                                        <a href="https://hexo.io/zh-cn/" target="_blank"
-                                            class="button button-glow button-rounded button-caution">
-                                            GOTO
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        
-                        <div class="col s12 m6 l4 friend-div" data-aos="zoom-in-up">
-                            <div class="card frind-card9">
-                                <div class="frind-ship">
-                                    <div class="title">
-                                        <img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/OIP.jpg" alt="img">
-                                        <div>
-                                            <h1 class="friend-name">Vue</h1>
-                                            <p style="position: relative;top: -35px;">Vue官方文档</p>
-                                        </div>
-                                    </div>
-                                    <div class="friend-button">
-                                        <a href="https://cn.vuejs.org/" target="_blank"
-                                            class="button button-glow button-rounded button-caution">
-                                            GOTO
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            <a href="/tags/github/">
+                                <span class="chip bg-color">github</span>
+                            </a>
                         
                     </div>
                     
-                </article>
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/" class="post-category">
+                                软件开发
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-09-25
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    873
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    3 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
             </div>
         </div>
+        <hr class="clearfix">
 
         
 
-        <div class="card">
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1>Git的安装和使用</h1>
+<h2 id="git安装">git安装</h2>
+<p>官网下载地址： <a target="_blank" rel="noopener" href="https://git-scm.com/download">https://git-scm.com/download</a></p>
+<ul>
+<li>双击安装程序，一路next就行（建议放C盘，大小不大，而且不会产生多余的东西）</li>
+<li>其余全部默认配置即可</li>
+<li>编辑器可以选<code>Vim</code>也可以选<code>vscode</code>（建议），大概是这个位置:</li>
+</ul>
+<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/image-20230925093831496.png" alt="image-20230925093831496"></p>
+<ul>
+<li>剩下的还是默认配置</li>
+</ul>
+<p>安装完成后，在开始菜单找到 <code>git bash</code> ，或者桌面右键也可,这里如果你配置到了vscode里的话，就可以使用vscode的命令行找到。</p>
+<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/image-20230925094231978.png" alt="image-20230925094231978"></p>
+<p>这个终端就是模仿<code>linux</code> 系统的bash，可以使用一些<code>linux</code>的指令在<code>windows</code>里，（<s>如果你是高贵的mac，当我没说</s>）</p>
+<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/image-20230925094415111.png" alt="image-20230925094415111"></p>
+<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/image-20230925094424469.png" alt="image-20230925094424469"></p>
+<p>实际位置</p>
+<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/image-20230925094501415.png" alt="image-20230925094501415"></p>
+<p>除了常用的指令，也可以使用 cd/ bin &amp;&amp; ls 查看有哪些全局指令，（后缀为.exe的即为可运行的程序）</p>
+<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/image-20230925094742865.png" alt="image-20230925094742865"></p>
+<p>使用git</p>
+<pre><code>git --version
+</code></pre>
+<p>如果未能出现这一步，检查环境变量</p>
+<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/image-20230925095047816.png" alt="image-20230925095047816"></p>
+<p>开新终端即可使用</p>
+<h2 id="Git-使用">Git 使用</h2>
+<h3 id="Git-使用-2">Git 使用</h3>
+<p>vscode中支持git，免安装，想用图形化，安装git graph即可</p>
+<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/image-20230925102853125.png" alt="image-20230925102853125"></p>
+<p>（图我拿的别人的，懒得画了，看不懂没关系，<s>无所谓我会出手</s>）</p>
+<ul>
+<li>git是一个记录代码的工具，相当于有个人拿着照相机，如果你想要让他记录某个时间的代码，你只需要让他照相即可</li>
+<li>然后你本地写好代码之后，使用<code>git add 文件1 文件2 文件3 … </code>或者 <code>git add .</code> 就可以让git 给你的代码拍照，记录你此刻的代码</li>
+<li>使用git commit -m”你代码照片的名字“ ，把你此时的代码保存到相机，然后起好名字，方便你后续查看相机</li>
+<li>最后使用 git push ，把你的代码上传至网盘，也就是我们说的远程仓库。</li>
+</ul>
+<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/image-20230925103907460.png" alt="image-20230925103907460"></p>
+<ul>
+<li>你在本地更改照片时，git会自动检测你的更改，（会对比你之前的照片）</li>
+</ul>
+<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/image-20230925104353327.png" alt="image-20230925104353327"></p>
+<ul>
+<li>vscode里面有图形化工具，用好了，可以不使用命令</li>
+</ul>
+<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/image-20230925104532187.png" alt="image-20230925104532187"></p>
+<p>你可以点击这些文件，对比你的更改和上次的照片</p>
+<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/image-20230925105227835.png" alt="image-20230925105227835"></p>
+<h3 id="如何创建相机">如何创建相机</h3>
+<ul>
+<li>创建本地相机</li>
+</ul>
+<p>使用 git init 即可创建本地相机,然后就可以干上面那些事情了（上传不了网盘）</p>
+<pre><code>git init 
+</code></pre>
+<p>本地会出现一个<code>.git</code>文件，这个就是你的相机</p>
+<ul>
+<li>使用远程仓库相机</li>
+</ul>
+<pre><code>git clone (仓库链)
+</code></pre>
+<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/image-20230925104854719.png" alt="image-20230925104854719"></p>
+<p>你的本地也会出现一个 <code>.git</code></p>
+<p>（详细的ssh需要单独配置，参考文章<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42310154/article/details/118340458%EF%BC%89">https://blog.csdn.net/weixin_42310154/article/details/118340458）</a></p>
+<p><s>没错，我又懒得写文档了</s></p>
+<h3 id="如何多人协作">如何多人协作</h3>
+<p>如果你需要和别人公用一个仓库，那你需要邀请别人到你的仓库里来</p>
+<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/image-20230925105125154.png" alt="image-20230925105125154"></p>
+<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/image-20230925105415351.png" alt="image-20230925105415351"></p>
+<p>(要输入密码，不然别人把你网盘偷了)</p>
+<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/image-20230925105426636.png" alt="image-20230925105426636"></p>
+<p>可以邀请别人，别人同意了然后就可以一起维护网盘了（<s>别人不一定愿意维护你的屎山</s>）</p>
+<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/image-20230925105502910.png" alt="image-20230925105502910"></p>
+<h3 id="创建分支">创建分支</h3>
+<p>有时候一个分支不够用，比如说你需要缝合前后端的（一般到这个阶段也应该都是git老手了）</p>
+<p>详情请参考这篇博客（<s>没错我又懒得写文档了</s>）</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/silence_pinot/article/details/111478596">https://blog.csdn.net/silence_pinot/article/details/111478596</a></p>
+<h3 id="版本回退，解决冲突">版本回退，解决冲突</h3>
+<p>（到这个位置一般都比较难操作了，一篇文章讲不完，请看b站大学，<s>我不会告诉你我是因为懒</s></p>
+<p>【Git零基础入门到实战详解】 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1sJ411D7xN/?p=16&amp;share_source=copy_web">https://www.bilibili.com/video/BV1sJ411D7xN/?p=16&amp;share_source=copy_web</a></p>
+<h3 id="推荐的Git插件">推荐的Git插件</h3>
+<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/image-20230925111215540.png" alt="image-20230925111215540"></p>
+
+                
+            </div>
+            <hr/>
 
             
 
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">zzhaire</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://zzhaire.github.io/2023/09/25/Git%E7%9A%84%E4%BD%BF%E7%94%A8%E5%92%8C%E5%AE%89%E8%A3%85/">https://zzhaire.github.io/2023/09/25/Git%E7%9A%84%E4%BD%BF%E7%94%A8%E5%92%8C%E5%AE%89%E8%A3%85/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">zzhaire</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/git%E4%BD%BF%E7%94%A8/">
+                                    <span class="chip bg-color">git使用</span>
+                                </a>
+                            
+                                <a href="/tags/github/">
+                                    <span class="chip bg-color">github</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
             
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
 
             
+        </div>
+    </div>
 
-            
+    
 
-            
+    
 
-            
-                <style>
+    
+
+    
+
+    
+
+    
+        <style>
     .waline-card {
         margin: 1.5rem auto;
     }
@@ -1018,21 +896,256 @@
         avatar: 'mm'    
     });
   </script> 
-            
+    
 
-            
+    
 
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2023/09/25/Git%E7%9A%84%E4%BD%BF%E7%94%A8%E5%92%8C%E5%AE%89%E8%A3%85/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Git的使用和安装">
+                        
+                        <span class="card-title">Git的使用和安装</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-25
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/" class="post-category">
+                                    软件开发
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/git%E4%BD%BF%E7%94%A8/">
+                        <span class="chip bg-color">git使用</span>
+                    </a>
+                    
+                    <a href="/tags/github/">
+                        <span class="chip bg-color">github</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/09/04/31%E6%9D%A1MIPS%E6%8C%87%E4%BB%A4%E5%8D%95%E5%91%A8%E6%9C%9FCPU/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="31条MIPS指令单周期CPU">
+                        
+                        <span class="card-title">31条MIPS指令单周期CPU</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Verilog/" class="post-category">
+                                    Verilog
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/TJ-CS/">
+                        <span class="chip bg-color">TJ-CS</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">
+                        <span class="chip bg-color">计算机组成原理</span>
+                    </a>
+                    
+                    <a href="/tags/CPU/">
+                        <span class="chip bg-color">CPU</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFunction.js"></script>
+
+<!-- 代码语言 -->
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
         </div>
     </div>
-</main>
+</div>
 
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
 <script>
     $(function () {
-        $('#friends-link').masonry({
-            itemSelector: '.friend-div'
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
         });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
     });
 </script>
+
+    
+
+</main>
+
+
 
 
                 
