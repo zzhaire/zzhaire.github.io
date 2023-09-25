@@ -6,7 +6,7 @@
   <link href="https://zzhaire.github.io/atom.xml" rel="self"/>
   
   <link href="https://zzhaire.github.io/"/>
-  <updated>2023-09-25T03:17:28.820Z</updated>
+  <updated>2023-09-25T11:53:42.825Z</updated>
   <id>https://zzhaire.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Git在vsstudio中的使用</title>
+    <link href="https://zzhaire.github.io/2023/09/25/Git%E5%9C%A8vsstudio%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>https://zzhaire.github.io/2023/09/25/Git%E5%9C%A8vsstudio%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/</id>
+    <published>2023-09-25T11:53:00.000Z</published>
+    <updated>2023-09-25T11:53:42.825Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;vsstudio 中如何使用git 记录代码版本&lt;/h1&gt;
+&lt;h2 id=&quot;安装下载git&quot;&gt;安装下载git&lt;/h2&gt;
+&lt;h2 id=&quot;git安装&quot;&gt;git安装&lt;/h2&gt;
+&lt;p&gt;官网下载地址： &lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="软件开发" scheme="https://zzhaire.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="git" scheme="https://zzhaire.github.io/tags/git/"/>
+    
+  </entry>
   
   <entry>
     <title>Git的使用和安装</title>

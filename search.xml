@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Git在vsstudio中的使用</title>
+      <link href="/2023/09/25/Git%E5%9C%A8vsstudio%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+      <url>/2023/09/25/Git%E5%9C%A8vsstudio%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+      
+        <content type="html"><![CDATA[<h1>vsstudio 中如何使用git 记录代码版本</h1><h2 id="安装下载git">安装下载git</h2><h2 id="git安装">git安装</h2><p>官网下载地址： <a href="https://git-scm.com/download">https://git-scm.com/download</a></p><ul><li>双击安装程序，一路next就行（建议放C盘，大小不大，而且不会产生多余的东西）</li><li>其余全部默认配置即可</li><li>编辑器可以选<code>Vim</code>也可以选<code>vscode</code>（建议），大概是这个位置:</li></ul><p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/image-20230925093831496.png" alt="image-20230925093831496"></p><ul><li>剩下的还是默认配置</li></ul><p>安装完成后，在开始菜单找到 <code>git bash</code> ，或者桌面右键也可,这里如果你配置到了vscode里的话，就可以使用vscode的命令行找到。</p><p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/image-20230925094231978.png" alt="image-20230925094231978"></p><p>这个终端就是模仿<code>linux</code> 系统的bash，可以使用一些<code>linux</code>的指令在<code>windows</code>里，（<s>如果你是高贵的mac，当我没说</s>）</p><p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/image-20230925094415111.png" alt="image-20230925094415111"></p><p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/image-20230925094424469.png" alt="image-20230925094424469"></p><p>实际位置</p><p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/image-20230925094501415.png" alt="image-20230925094501415"></p><p>除了常用的指令，也可以使用 cd/ bin &amp;&amp; ls 查看有哪些全局指令，（后缀为.exe的即为可运行的程序）</p><p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/image-20230925094742865.png" alt="image-20230925094742865"></p><p>使用git</p><pre><code>git --version</code></pre><p>如果未能出现这一步，检查环境变量</p><p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/image-20230925095047816.png" alt="image-20230925095047816"></p><p>开新终端即可使用</p><h2 id="Git-在vsstudio中使用">Git 在vsstudio中使用</h2><p>首先用打开一个空文件夹，用cmd打开</p><p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/image-20230925194038366.png" alt="image-20230925194038366"></p><p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/image-20230925194101620.png" alt="image-20230925194101620"></p><p>输入git init</p><p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/image-20230925194122059.png" alt="image-20230925194122059"></p><p>然后把大作业模板解压到这里面</p><p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/image-20230925194214596.png" alt="image-20230925194214596"></p><p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/image-20230925194234362.png" alt="image-20230925194234362"></p><p>点击BigHW.sln打开vsstudio</p><p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/image-20230925194333254.png" alt="image-20230925194333254"></p><p>先把你的初始代码存了</p><p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/image-20230925194417199.png" alt="image-20230925194417199"></p><p>然后点击==全部暂存==即可保存</p><p><strong>！ 注意把 .vs 这个文件忽略掉，这里面会产生一些日志</strong></p><p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/image-20230925194523018.png" alt="image-20230925194523018"></p><p>此时你的文件夹下面会有一个 <code>.gitignore</code> 这里记录着哪些文件是不需要被记录的</p><p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/image-20230925194709544.png" alt="image-20230925194709544"></p><p>然后编辑你的文件，git就会记录你的代码变化</p><p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/image-20230925194804098.png" alt="image-20230925194804098"></p><p>点击 Git 更改，就可以看到对应的文件改动</p><p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/image-20230925194854366.png" alt="image-20230925194854366"></p><p>以后想要保存某个版本，重复暂存，提交临时数据即可</p><p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/image-20230925194942817.png" alt="image-20230925194942817"></p><p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/image-20230925195008513.png" alt="image-20230925195008513"></p><p>git的详细使用可以看我的博客：<a href="https://zzhaire.github.io/2023/09/25/Git%E7%9A%84%E4%BD%BF%E7%94%A8%E5%92%8C%E5%AE%89%E8%A3%85/">https://zzhaire.github.io/2023/09/25/Git的使用和安装/</a></p><p>写的如果有不对的地方，希望可以请大家指正，希望我的文档可以帮助到大家</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件开发 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Git的使用和安装</title>
       <link href="/2023/09/25/Git%E7%9A%84%E4%BD%BF%E7%94%A8%E5%92%8C%E5%AE%89%E8%A3%85/"/>
       <url>/2023/09/25/Git%E7%9A%84%E4%BD%BF%E7%94%A8%E5%92%8C%E5%AE%89%E8%A3%85/</url>
