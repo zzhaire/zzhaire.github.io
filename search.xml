@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>动态规划 - 摘花生</title>
+      <link href="/2023/10/04/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E6%91%98%E8%8A%B1%E7%94%9F/"/>
+      <url>/2023/10/04/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E6%91%98%E8%8A%B1%E7%94%9F/</url>
+      
+        <content type="html"><![CDATA[<h1>动态规划 - 001.摘花生</h1><p>Hello Kitty想摘点花生送给她喜欢的米老鼠。</p><p>她来到一片有网格状道路的矩形花生地(如下图)，从西北角进去，东南角出来。</p><p>地里每个道路的交叉点上都有种着一株花生苗，上面有若干颗花生，经过一株花生苗就能摘走该它上面所有的花生。</p><p>Hello Kitty只能向东或向南走，不能向西或向北走。</p><p>问Hello Kitty最多能够摘到多少颗花生。</p><p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/19_a8509f26d5-1.gif" alt="1.gif"></p><h4 id="输入格式">输入格式</h4><p>第一行是一个整数T，代表一共有多少组数据。</p><p>接下来是T组数据。</p><p>每组数据的第一行是两个整数，分别代表花生苗的行数R和列数 C。</p><p>每组数据的接下来R行数据，从北向南依次描述每行花生苗的情况。每行数据有C个整数，按从西向东的顺序描述了该行每株花生苗上的花生数目M。</p><h4 id="输出格式">输出格式</h4><p>对每组输入数据，输出一行，内容为Hello Kitty能摘到得最多的花生颗数。</p><h4 id="数据范围">数据范围</h4><blockquote><p>​1≤T≤1001≤100,<br>1≤R,C≤100,<br>​0≤M≤1000</p></blockquote><h4 id="输入样例：">输入样例：</h4><pre><code>22 21 13 42 32 3 41 6 5</code></pre><h4 id="输出样例：">输出样例：</h4><pre><code>816</code></pre><h4 id="通过代码">通过代码:</h4><pre class="line-numbers language-language-c++"><code class="language-language-c++">#include<iostream>using namespace std;const int N =1010;int a[N][N];int f[N][N];int main(){    int t ;scanf("%d",&t);    while (t--)    {        int r ,c ;        scanf("%d%d",&r,&c);        for(int i = 1 ;i<=r ;i++)        {            for(int j = 1 ;j<=c;j++)            {                int x ;scanf("%d",&x);                a[i][j] = x;                f[i][j] = max(f[i][j-1] + x , f[i-1][j]+x);                // f[i][j] = max(f[i][j], f[i][j-1]+ x);            }        }        printf("%d\n" , f[r][c]);    }}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 动态规划 </category>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数字三角模型 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Git在vsstudio中的使用</title>
       <link href="/2023/09/25/Git%E5%9C%A8vsstudio%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
       <url>/2023/09/25/Git%E5%9C%A8vsstudio%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
