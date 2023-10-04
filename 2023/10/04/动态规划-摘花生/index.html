@@ -516,13 +516,14 @@ int main()
                 int x ;scanf("%d",&x);
                 a[i][j] = x;
                 f[i][j] = max(f[i][j-1] + x , f[i-1][j]+x);
-                // f[i][j] = max(f[i][j], f[i][j-1]+ x);
+                //f[i][j] = max(f[i][j], f[i][j-1]+ x); 下面这种写法会多考虑左上角走下来的,
+                //f[i][j] = max(f[i][j],f[i-1][j] + x); 两个本质上是不一样的,下面这种会错
             }
         }
         printf("%d\n" , f[r][c]);
     }
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
