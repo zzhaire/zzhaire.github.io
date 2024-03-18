@@ -6,7 +6,7 @@
   <link href="https://zzhaire.github.io/atom.xml" rel="self"/>
   
   <link href="https://zzhaire.github.io/"/>
-  <updated>2023-10-04T06:02:51.587Z</updated>
+  <updated>2024-03-18T05:44:37.109Z</updated>
   <id>https://zzhaire.github.io/</id>
   
   <author>
@@ -15,6 +15,63 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>基础算法2</title>
+    <link href="https://zzhaire.github.io/2024/03/18/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%952/"/>
+    <id>https://zzhaire.github.io/2024/03/18/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%952/</id>
+    <published>2024-03-18T05:43:00.000Z</published>
+    <updated>2024-03-18T05:44:37.109Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;第一章 基础算法二&lt;/h1&gt;
+&lt;h2 id=&quot;高精度&quot;&gt;&lt;strong&gt;高精度&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;A + B：两个大整数相加&lt;/p&gt;
+&lt;p&gt;A - B：两个大整数相减&lt;/p&gt;
+&lt;p&gt;A × b：一个大整数乘一个小整数&lt;/p&gt;
+&lt;p&gt;A ÷</summary>
+        
+      
+    
+    
+    
+    <category term="算法" scheme="https://zzhaire.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="基础算法" scheme="https://zzhaire.github.io/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基础算法1</title>
+    <link href="https://zzhaire.github.io/2024/02/26/test/"/>
+    <id>https://zzhaire.github.io/2024/02/26/test/</id>
+    <published>2024-02-26T05:50:00.000Z</published>
+    <updated>2024-03-18T05:42:17.549Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;第一章 基础算法一&lt;/h1&gt;
+&lt;h2 id=&quot;快速排序&quot;&gt;快速排序&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;quick_sort(int q[], int l, int</summary>
+        
+      
+    
+    
+    
+    <category term="算法" scheme="https://zzhaire.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="基础算法" scheme="https://zzhaire.github.io/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>动态规划 - 摘花生</title>
