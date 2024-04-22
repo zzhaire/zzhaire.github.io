@@ -1,0 +1,1750 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="动态规划2, 机器学习,深度学习,计算机科学,C++,python,算法">
+    <meta name="description" content="第五章 动态规划二
+线性DP
+状态转移方程呈现出一种线性的递推形式的DP，我们将其称为线性DP。
+数字三角形
+给定一个如下图所示的数字三角形，从顶部出发，在每一结点可以选择移动至其左下方的结点或移动至其右下方的结点，一直走到底层，要求找出一">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>动态规划2 | HiBlog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <style>
+        body{
+            background-image: url(https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/res/site/medias/background.jpg);
+            background-repeat:no-repeat;
+            background-size: 100% 100%;
+            background-attachment:fixed;
+        }
+    </style>
+
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+    <script src="/libs/echarts/echarts.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="HiBlog" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+    <body>
+        <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">HiBlog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">HiBlog</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/zzhaire/zzhaire.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>源代码
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/zzhaire/zzhaire.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="源代码" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+            
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">动态规划2</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
+                                <span class="chip bg-color">动态规划</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                算法
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-04-22
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.7k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    16 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1>第五章 动态规划二</h1>
+<h2 id="线性DP">线性DP</h2>
+<p>状态转移方程呈现出一种线性的递推形式的DP，我们将其称为线性DP。</p>
+<h3 id="数字三角形"><strong><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/900/">数字三角形</a></strong></h3>
+<p>给定一个如下图所示的数字三角形，从顶部出发，在每一结点可以选择移动至其左下方的结点或移动至其右下方的结点，一直走到底层，要求找出一条路径，使路径上的数字的和最大。</p>
+<pre class="line-numbers language-none"><code class="language-none">        7
+      3   8
+    8   1   0
+  2   7   4   4
+4   5   2   6   5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="输入格式"><strong>输入格式</strong></h3>
+<p>第一行包含整数&nbsp;n，表示数字三角形的层数。</p>
+<p>接下来&nbsp;n&nbsp;行，每行包含若干整数，其中第&nbsp;i&nbsp;行表示数字三角形第&nbsp;i&nbsp;层包含的整数。</p>
+<h3 id="输出格式"><strong>输出格式</strong></h3>
+<p>输出一个整数，表示最大的路径数字和。</p>
+<h3 id="数据范围"><strong>数据范围</strong></h3>
+<p>1≤n≤500,</p>
+<p>−10000≤三角形中的整数≤10000</p>
+<h3 id="输入样例："><strong>输入样例：</strong></h3>
+<pre class="line-numbers language-none"><code class="language-none">5
+7
+3 8
+8 1 0
+2 7 4 4
+4 5 2 6 5
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="输出样例："><strong>输出样例：</strong></h3>
+<pre class="line-numbers language-none"><code class="language-none">30<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="分析">分析</h3>
+<p><img src="https://pic4.zhimg.com/80/v2-d0f9e78f45527483c1cdd4ee70c00c2b.png" alt=""></p>
+<p><code>f[i][j] = max(f[i - 1][j - 1], f[i - 1][j]) + a[i][j]</code></p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">#include&lt;iostream&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+
+const int N = 510, INF = 1e9;
+
+int a[N][N], f[N][N];
+
+int main() {
+    int n;
+    cin &gt;&gt; n;
+    for (int i= 1; i &lt;= n; i++)
+        for (int j = 1; j &lt;= i; j++)
+            cin &gt;&gt; a[i][j];
+    for (int i= 0; i &lt;= n; i++)
+        for (int j = 0; j &lt;= i + 1; j++)
+            f[i][j] = -INF;
+
+    f[1][1] = a[1][1];
+
+    for (int i = 2; i &lt;= n; i++)
+        for (int j = 1; j &lt;= i; j++)
+            f[i][j] = max(f[i - 1][j - 1], f[i - 1][j]) + a[i][j];
+
+    int res = -INF;
+    for (int i = 1; i &lt;= n; i++) res = max(res, f[n][i]);
+    cout &lt;&lt; res &lt;&lt; endl;
+    return 0;
+} <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这道题还可以从下往上递推，考虑<code>f[i][j]</code>来自左下方和来自右下方两种情况，这样就不需要处理边界问题，而且最后的结果一定集中在<code>f[1][1]</code>中。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">#include&lt;iostream&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+
+const int N = 510, INF = 1e9;
+
+int a[N][N], f[N][N];
+
+int main() {
+    int n;
+    cin &gt;&gt; n;
+    for (int i= 1; i &lt;= n; i++)
+        for (int j = 1; j &lt;= i; j++)
+            cin &gt;&gt; a[i][j];
+            
+    for (int i = 1; i &lt;= n; i++) f[n][i] = a[n][i];
+    
+    for (int i = n - 1; i &gt;= 1; i--)
+        for (int j = 1; j &lt;= i; j++)
+            f[i][j] = max(f[i + 1][j], f[i + 1][j + 1]) + a[i][j];
+    
+    cout &lt;&lt; f[1][1] &lt;&lt; endl;
+    return 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="最长上升子序列-LIS"><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/897/">最长上升子序列(LIS)</a></h3>
+<p>给定一个长度为&nbsp;N&nbsp;的数列，求数值严格单调递增的子序列的长度最长是多少。</p>
+<h3 id="输入格式-2"><strong>输入格式</strong></h3>
+<p>第一行包含整数&nbsp;N。</p>
+<p>第二行包含&nbsp;N&nbsp;个整数，表示完整序列。</p>
+<h3 id="输出格式-2"><strong>输出格式</strong></h3>
+<p>输出一个整数，表示最大长度。</p>
+<h3 id="数据范围-2"><strong>数据范围</strong></h3>
+<p>1≤N≤1000，</p>
+<p>−10e9≤数列中的数≤10e9</p>
+<h3 id="输入样例：-2"><strong>输入样例：</strong></h3>
+<pre class="line-numbers language-none"><code class="language-none">7
+3 1 2 1 8 5 6
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="输出样例：-2"><strong>输出样例：</strong></h3>
+<pre class="line-numbers language-none"><code class="language-none">4<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="分析-2">分析</h3>
+<p><img src="https://pic4.zhimg.com/80/v2-ffef59f77750a23983ca05b636124638.png" alt=""></p>
+<p><code>f[i] = max(f[j]) + 1</code>，其中 $j \in [0, i - 1]$<br>
+由于子序列需要是严格单调递增，所以并不是[0,i - 1]中的所有位置都可以作为倒数第二个位置。必须满足<code>a[j] &lt; a[i]</code>，才行。</p>
+<p><strong>时间复杂度$O(n^2)$</strong></p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">#include&lt;iostream&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+
+const int N = 1010;
+
+int f[N], a[N];
+
+int main() {
+    int n;
+    cin &gt;&gt; n;
+    for (int i = 1; i &lt;= n; i++) 
+        cin &gt;&gt; a[i], f[i] = 1;
+        
+    for (int i = 1; i &lt;= n; i++)
+        for (int j = 1; j &lt;= i - 1; j++)
+            if (a[j] &lt; a[i]) f[i] = max(f[i], f[j] + 1);
+    
+    int res = 0;
+    for (int i = 1; i &lt;= n; i++) res = max(res, f[i]);
+    cout &lt;&lt; res &lt;&lt; endl;
+    return 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>当数据范围扩大时，$O(n^2)$的时间复杂度已经不能满足要求时有一种纸牌游戏+二分的方法可以优化到$O(nlogn)$</strong></p>
+<p>首先，给你一排扑克牌，我们像遍历数组那样从左到右一张一张处理这些扑克牌，最终要把这些牌分成若干堆。</p>
+<p><img src="https://pic4.zhimg.com/80/v2-7402461292dd12e38de13fa24b9020ea.png" alt=""></p>
+<p>处理这些扑克牌要遵循以下规则：</p>
+<ul>
+<li>只能把点数小的牌压到点数比它大的牌上；如果当前牌点数较大没有可以放置的堆，则新建一个堆，把这张牌放进去；如果当前牌有多个堆可供选择，则选择最左边的那一堆放置。</li>
+<li>比如说上述的扑克牌最终会被分成这样 5 堆（我们认为纸牌 A 的牌面是最大的，纸牌 2 的牌面是最小的）。</li>
+</ul>
+<p>按照上述规则执行，可以算出最长递增子序列，牌的堆数就是最长递增子序列的长度</p>
+<p><img src="https://pic4.zhimg.com/80/v2-4a9b53157ad00401bb57e8b5fca02361.png" alt=""></p>
+<p>每次处理一张扑克牌，需要找一个合适的牌堆放置，就可以使用二分来查找合适的牌堆</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">#include&lt;iostream&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+
+const int N = 100010, INF = 1e9;
+
+int heap[N], cnt;
+
+int main() {
+    int n;
+    cin &gt;&gt; n;
+    for (int i = 0; i &lt; n; i++) heap[i] = -INF;
+    for (int i = 0; i &lt; n; i++) {
+        int x;
+        cin &gt;&gt; x;
+        int l = 0, r = cnt;
+        while (l &lt; r) {
+            int mid = l + r &gt;&gt; 1;
+            if (heap[mid] &gt;= x) r = mid;
+            else l = mid + 1;
+        }
+        if (heap[l] &gt;= x) heap[l] = x;
+        else heap[cnt++] = x;
+    }
+    cout &lt;&lt; cnt &lt;&lt; endl;
+    return 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="最长公共子序列-LCS"><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/899/">最长公共子序列(LCS)</a></h3>
+<p>给定两个长度分别为&nbsp;N&nbsp;和&nbsp;M&nbsp;的字符串&nbsp;A&nbsp;和&nbsp;B，求既是&nbsp;A&nbsp;的子序列又是&nbsp;B&nbsp;的子序列的字符串长度最长是多少。</p>
+<h3 id="输入格式-3"><strong>输入格式</strong></h3>
+<p>第一行包含两个整数&nbsp;N&nbsp;和&nbsp;M。</p>
+<p>第二行包含一个长度为&nbsp;N&nbsp;的字符串，表示字符串&nbsp;A。</p>
+<p>第三行包含一个长度为&nbsp;M&nbsp;的字符串，表示字符串&nbsp;B。</p>
+<p>字符串均由小写字母构成。</p>
+<h3 id="输出格式-3"><strong>输出格式</strong></h3>
+<p>输出一个整数，表示最大长度。</p>
+<h3 id="数据范围-3"><strong>数据范围</strong></h3>
+<p>1≤N,M≤1000</p>
+<h3 id="输入样例：-3"><strong>输入样例：</strong></h3>
+<pre class="line-numbers language-none"><code class="language-none">4 5
+acbd
+abedc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="输出样例：-3"><strong>输出样例：</strong></h3>
+<pre class="line-numbers language-none"><code class="language-none">3<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="分析-3">分析</h3>
+<p><img src="https://pic4.zhimg.com/80/v2-daaf196b3696621562e87c1bdd9736c4.png" alt=""></p>
+<p>其中00，可以直接用<code>f[i - 1, j - 1]</code>&nbsp;表示，11可以直接用<code>f[i - 1, j - 1] + 1</code>来表示，但注意11需要满足<code>a[i] = b[j]</code>才行</p>
+<p>对于01和10两种情况，是否能用<code>f[i - 1, j]</code>和<code>f[i, j - 1]</code> 表示呢？</p>
+<p><img src="https://pic4.zhimg.com/80/v2-f3607d8c7ffdbef2c0fe1f189febc1b2.png" alt=""></p>
+<p><code>f[i - 1, j]</code> 表示的是由第一个序列的前<code>i-1</code>个字母和第二个序列的前<code>j</code>个字母构成的公共子序列，但是01这种情况是必须要包含<code>b[j]</code> 的，因此二者并不等价，01这种情况是包含在<code>f[i - 1, j]</code> 中的，即<code>f[i - 1, j]</code>表示的集合实际是要大于01这个集合的。但是01集合的最大值一定小于等于<code>f[i - 1][j]</code> 的最大值，好在<code>f[i - 1][j]</code>是包含在<code>f[i][j]</code>中的，因此用<code>f[i - 1][j]</code> 代表01集合是可以的，同理<code>f[i][j - 1]</code> 也可以代表10集合。虽然这几个集合是有重叠的，但是对于求<code>max</code>是无所谓的。</p>
+<p><code>f[i - 1, j]</code>和&nbsp;<code>f[i, j - 1]</code>，实际是包含了00这个子集的，所以编写代码时，可以省略00这个子集。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">#include&lt;iostream&gt;
+using namespace std;
+
+const int N = 1010;
+
+char a[N], b[N];
+
+int f[N][N];
+int n, m;
+
+int main() {
+    cin &gt;&gt; n &gt;&gt; m;
+    cin &gt;&gt; a + 1 &gt;&gt; b + 1;
+    for (int i = 1; i &lt;= n; i++) 
+        for (int j = 1; j &lt;= m; j++) {
+            f[i][j] = max(f[i - 1][j], f[i][j - 1]);
+            if(a[i] == b[j]) f[i][j] = max(f[i][j], f[i - 1][j - 1] + 1);
+        }
+    cout &lt;&lt; f[n][m] &lt;&lt; endl;
+    return 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="最短编辑距离"><strong><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/904/">最短编辑距离</a></strong></h3>
+<p>给定两个字符串&nbsp;A&nbsp;和&nbsp;B，现在要将&nbsp;A&nbsp;经过若干操作变为&nbsp;B，可进行的操作有：</p>
+<ol>
+<li>删除–将字符串A中的某个字符删除。</li>
+<li>插入–在字符串A的某个位置插入某个字符。</li>
+<li>替换–将字符串A中的某个字符替换为另一个字符。</li>
+</ol>
+<p>现在请你求出，将&nbsp;A&nbsp;变为&nbsp;B&nbsp;至少需要进行多少次操作。</p>
+<h3 id="输入格式-4"><strong>输入格式</strong></h3>
+<p>第一行包含整数&nbsp;n，表示字符串&nbsp;A&nbsp;的长度。</p>
+<p>第二行包含一个长度为&nbsp;n&nbsp;的字符串&nbsp;A。</p>
+<p>第三行包含整数&nbsp;m，表示字符串&nbsp;B&nbsp;的长度。</p>
+<p>第四行包含一个长度为&nbsp;m&nbsp;的字符串&nbsp;B。</p>
+<p>字符串中均只包含大小写字母。</p>
+<h3 id="输出格式-4"><strong>输出格式</strong></h3>
+<p>输出一个整数，表示最少操作次数。</p>
+<h3 id="数据范围-4"><strong>数据范围</strong></h3>
+<p>1≤n,m≤1000</p>
+<h3 id="输入样例：-4"><strong>输入样例：</strong></h3>
+<pre class="line-numbers language-none"><code class="language-none">10
+AGTCTGACGC
+11
+AGTAAGTAGGC<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="输出样例：-4"><strong>输出样例：</strong></h3>
+<pre class="line-numbers language-none"><code class="language-none">4<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="分析-4">分析</h3>
+<p><img src="https://pic4.zhimg.com/80/v2-390bc679e00acef7414b4844ba8e43e3.png" alt=""></p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">#include&lt;iostream&gt;
+using namespace std;
+
+const int N = 1010;
+
+char a[N], b[N];
+
+int f[N][N];
+
+int main() {
+    int n, m;
+    cin &gt;&gt; n &gt;&gt; a + 1;
+    cin &gt;&gt; m &gt;&gt; b + 1;
+    
+    for (int i = 0; i &lt;= n; i++) f[i][0] = i;
+    for (int j = 0; j &lt;= m; j++) f[0][j] = j;
+    
+    for (int i = 1; i &lt;= n; i++)
+        for (int j = 1; j &lt;= m; j++) {
+            f[i][j] = min(f[i - 1][j] + 1, f[i][j - 1] + 1);
+            if (a[i] == b[j]) f[i][j] = min(f[i][j], f[i - 1][j - 1]);
+            else f[i][j] = min(f[i][j], f[i - 1][j - 1] + 1);
+        }
+    cout &lt;&lt; f[n][m] &lt;&lt; endl;
+    return 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="区间DP"><strong>区间DP</strong></h2>
+<p>状态表示是某一个区间，比如<code>f[i, j]</code>表示的是<code>[i ,j]</code>&nbsp;这个区间</p>
+<h3 id="石子合并"><strong><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/284/">石子合并</a></strong></h3>
+<p>设有&nbsp;N&nbsp;堆石子排成一排，其编号为&nbsp;1，2，3，…，N。</p>
+<p>每堆石子有一定的质量，可以用一个整数来描述，现在要将这&nbsp;N&nbsp;堆石子合并成为一堆。</p>
+<p>每次只能合并相邻的两堆，合并的代价为这两堆石子的质量之和，合并后与这两堆石子相邻的石子将和新堆相邻，合并时由于选择的顺序不同，合并的总代价也不相同。</p>
+<p>例如有&nbsp;4&nbsp;堆石子分别为&nbsp;<code>1 3 5 2</code>， 我们可以先合并&nbsp;1、2堆，代价为&nbsp;4，得到&nbsp;<code>4 5 2</code>， 又合并&nbsp;1，2&nbsp;堆，代价为&nbsp;9，得到&nbsp;<code>9 2</code>&nbsp;，再合并得到&nbsp;11，总代价为&nbsp;4+9+11=24；</p>
+<p>如果第二步是先合并&nbsp;2，3&nbsp;堆，则代价为&nbsp;7，得到&nbsp;<code>4 7</code>，最后一次合并代价为11，总代价为4+7+11=22。</p>
+<p>问题是：找出一种合理的方法，使总的代价最小，输出最小代价。</p>
+<h3 id="输入格式-5"><strong>输入格式</strong></h3>
+<p>第一行一个数&nbsp;N&nbsp;表示石子的堆数&nbsp;N。</p>
+<p>第二行&nbsp;N&nbsp;个数，表示每堆石子的质量(均不超过&nbsp;1000)。</p>
+<h3 id="输出格式-5"><strong>输出格式</strong></h3>
+<p>输出一个整数，表示最小代价。</p>
+<h3 id="数据范围-5"><strong>数据范围</strong></h3>
+<p>1≤N≤300</p>
+<h3 id="输入样例：-5"><strong>输入样例：</strong></h3>
+<pre class="line-numbers language-none"><code class="language-none">4
+1 3 5 2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="输出样例：-5"><strong>输出样例：</strong></h3>
+<pre class="line-numbers language-none"><code class="language-none">22<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="分析-5">分析</h3>
+<p><img src="https://pic4.zhimg.com/80/v2-3b0084cc5f86857d2a62622588640c52.png" alt=""></p>
+<p><code>f[i,j] = min(f[i,k] + f[k+1,j]) + sum[i,j]</code><br>
+其中  $k \in [i,j-1]$ ，而其中的sum[i,j] 表示第i堆到第j堆的石子的总质量。因为最后一步的合并代价始终是sum[i,j]，这个可以用<strong>前缀和</strong>来处理。</p>
+<p>时间复杂度：状态数量是二维，是$n^2$的，状态的计算，是枚举k，是 $O(n)$的计算量，所以一共的时间复杂度是 O ( n 3 ) $O(n^3)$ 的。</p>
+<p>区间DP，需要注意循环时的顺序，我们需要保证在计算<code>f[i,j]</code>时，需要的其他全部的f的值，都已经被算好了。所以这里我们按区间长度从小到大来枚举，先枚举区间长度为1，所有的<code>f[i,j]</code>，再枚举区间长度为2，…</p>
+<p>所有区间DP类的问题，都可以用这种模式来做，先从小到大循环区间的长度（区间长度1，2，3，…），然后内层循环就循环区间的起点。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+
+const int N = 310;
+
+int f[N][N], s[N];
+
+int n;
+
+int main() {
+    memset(f, 0x3f, sizeof f);
+    cin &gt;&gt; n;
+    for (int i = 1; i &lt;= n; i++) cin &gt;&gt; s[i], s[i] += s[i - 1];
+    
+    for (int i = 1; i &lt;= n; i++) f[i][i] = 0;
+    
+    for (int len = 2; len &lt;= n; len++)
+        for (int i = 1; i + len - 1 &lt;= n; i++) {
+            int l = i, r = i + len - 1;
+            for (int k = l; k &lt; r; k++)
+                f[l][r] = min(f[l][r], f[l][k] + f[k + 1][r] + s[r] - s[l - 1]);
+        }
+    cout &lt;&lt; f[1][n] &lt;&lt; endl;
+    return 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="计数dp">计数dp</h2>
+<p>前面几种DP，求的都是最值，而整数划分，求解的是方案数</p>
+<h3 id="整数划分"><strong><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/902/">整数划分</a></strong></h3>
+<p>一个正整数&nbsp;n&nbsp;可以表示成若干个正整数之和，形如：n=n1+n2+…+nk，其中&nbsp;n1≥n2≥…≥nk,k≥1。</p>
+<p>我们将这样的一种表示称为正整数&nbsp;n&nbsp;的一种划分。</p>
+<p>现在给定一个正整数&nbsp;n，请你求出&nbsp;n&nbsp;共有多少种不同的划分方法。</p>
+<h3 id="输入格式-6"><strong>输入格式</strong></h3>
+<p>共一行，包含一个整数&nbsp;n。</p>
+<h3 id="输出格式-6"><strong>输出格式</strong></h3>
+<p>共一行，包含一个整数，表示总划分数量。</p>
+<p>由于答案可能很大，输出结果请对&nbsp;10e9+7取模。</p>
+<h3 id="数据范围-6"><strong>数据范围</strong></h3>
+<p>1≤n≤1000</p>
+<h3 id="输入样例"><strong>输入样例:</strong></h3>
+<pre class="line-numbers language-none"><code class="language-none">5<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="输出样例：-6"><strong>输出样例：</strong></h3>
+<pre class="line-numbers language-none"><code class="language-none">7<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="分析：">分析：</h3>
+<p><strong>完全背包做法</strong>：按照完全背包的思路来想，有<code>i</code>属于<code>1</code>到<code>n</code>，共n种物品，每种物品体积为<code>i</code>，每种物品能使用无限次，背包的体积为<code>n</code>，问恰好能装满背包的物品选法的方案总数。</p>
+<p><img src="https://pic4.zhimg.com/80/v2-08ef7a64d3cf386ae1afe43c57d1e166.png" alt=""></p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">f[i][j] = f[i - 1][j] + f[i - 1][j - i] + f[i - 1][j - 2i] + .... + f[i - 1][j - k*i]
+f[i][j - i] =           f[i - 1][j - i] + f[i - 1][j - 2i] + .... + f[i - 1][j - k*i]
+所以：
+f[i][j] = f[i - 1][j] + f[i][j - i]
+优化至一维
+f[j] = f[j] + f[j - i]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+
+const int N = 1010, MOD = 1e9 + 7;
+
+int f[N];
+
+int main() {
+    int n;
+    cin &gt;&gt; n;
+    f[0] = 1;
+    for (int i = 1; i &lt;= n; i++)
+        for (int j = 1; j &lt;= n; j++)
+            if (j &gt;= i) f[j] = (f[j] + f[j - i]) % MOD;
+    cout &lt;&lt; f[n] &lt;&lt; endl;
+    return 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>其他思路</strong></p>
+<p><img src="https://pic4.zhimg.com/80/v2-ef681975fdcd8f3da57ca2ad65195693.png" alt=""></p>
+<p>用<code>f[i][j]</code>表示，所有总和是<code>i</code>，并且恰好表示成<code>j</code>个数的和的方案，<code>f[i][j]</code>的值是方案的数量。</p>
+<p>集合划分，能够分为如下两类</p>
+<ul>
+<li>方案中最小值是1的所有方案，这时候去掉一个1，此时和变成了<code>i - 1</code> ，个数变成了<code>j - 1</code> ，即<code>f[i - 1][j - 1]</code></li>
+<li>方案中最小值大于1的所有方案，此时将j个数都减去1，此时和变成了<code>i - j</code>，个数还是<code>j</code>，即<code>f[i - j][j]</code></li>
+</ul>
+<p>最终答案，就是<code>f[n][1]</code>&nbsp;+&nbsp;<code>f[n][2]</code>&nbsp;+&nbsp;<code>f[n][3]</code>&nbsp;+ … +&nbsp;<code>f[n][n]</code></p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+
+const int N = 1010, MOD = 1e9 + 7;
+
+int f[N][N];
+
+int main() {
+    int n;
+    cin &gt;&gt; n;
+    f[0][0] = 1;
+    for (int i = 1; i &lt;= n; i++)
+        for (int j = 1; j &lt;= i; j++)
+            f[i][j] = (f[i - 1][j - 1] + f[i - j][j]) % MOD;
+    int res = 0;
+    for (int i = 0; i &lt;= n; i++) res = (res + f[n][i]) % MOD;
+    cout &lt;&lt; res &lt;&lt; endl;
+    return 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">zzhaire</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://zzhaire.github.io/2024/04/22/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%922/">https://zzhaire.github.io/2024/04/22/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%922/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">zzhaire</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
+                                    <span class="chip bg-color">动态规划</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .waline-card {
+        margin: 1.5rem auto;
+    }
+    .waline-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #waline p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+    #waline blockquote p {
+        text-indent: 0.2rem;
+    }
+    #waline a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+    #waline img {
+        max-width: 100%;
+        cursor: pointer;
+    }
+    #waline ol li {
+        list-style-type: decimal;
+    }
+    #waline ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+    #waline ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+    #waline ul li {
+        list-style-type: disc;
+    }
+    #waline ul ul li {
+        list-style-type: circle;
+    }
+    #waline table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+    #waline table, th, td {
+        border: 0;
+    }
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+    #waline table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+    #waline table td {
+        min-width: 80px;
+    }
+    #waline h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+    #waline h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+    #waline h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+    #waline h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+    #waline h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+    #waline h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+    #waline p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+    #waline hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+    #waline blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+    #waline pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+    #waline code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+    #waline pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+    #waline pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+    #waline code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+    #waline [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+    #waline b,
+    strong {
+        font-weight: bold;
+    }
+    #waline dfn {
+        font-style: italic;
+    }
+    #waline small {
+        font-size: 85%;
+    }
+    #waline cite {
+        font-style: normal;
+    }
+    #waline mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+    #waline table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+    #waline table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+    #waline table td {
+        min-width: 80px;
+    }
+    #waline [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+  </style>
+  
+  <div class="card waline-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="waline" class="card-content" style="display: grid">
+    </div>
+  </div>
+  
+
+  <!-- <script src="//cdn.jsdelivr.net/npm/@waline/client"></script> -->
+  <script src="/libs/waline/Waline.min.js"></script>
+  <script>
+    new Waline({
+        el: '#waline',
+        serverURL: 'https://comment.limitedpaper.top/',
+        avatar: 'mm'    
+    });
+  </script> 
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/04/22/%E8%B4%AA%E5%BF%831/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="贪心1">
+                        
+                        <span class="card-title">贪心1</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-04-22
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%B4%AA%E5%BF%83/">
+                        <span class="chip bg-color">贪心</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/04/22/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%923/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="动态规划3">
+                        
+                        <span class="card-title">动态规划3</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-04-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
+                        <span class="chip bg-color">动态规划</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFunction.js"></script>
+
+<!-- 代码语言 -->
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+                
+<footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2024</span>
+            
+            <a href="/about" target="_blank">zzhaire</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">41.4k</span>
+            
+            
+            
+                
+            
+
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        <i class="fa fa-heart-o"></i>
+        本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+    </span>
+
+
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+    </span>
+
+
+
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/zzhaire" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:zzhaire5@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1642249956" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1642249956" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+    <script>
+    $(document).ready(function () {
+
+        var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+        var pvcountOffset = 80000;  // 初始化首次数据
+        var uvcountOffset = 20000;
+
+        function fixCount() {
+            if (document.getElementById("busuanzi_container_site_pv").style.display != "none") {
+                $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + pvcountOffset);
+                clearInterval(int);
+            }
+            if ($("#busuanzi_container_site_pv").css("display") != "none") {
+                $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + uvcountOffset); // 加上初始数据 
+                clearInterval(int); // 停止检测
+            }
+        }
+    });
+</script>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+                    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+                        <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+                            <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+                                <script
+                                    src="/libs/materialize/materialize.min.js"></script>
+                                <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+                                <script src="/libs/aos/aos.js"></script>
+                                <script
+                                    src="/libs/scrollprogress/scrollProgress.min.js"></script>
+                                <script
+                                    src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+                                <script src="/js/matery.js"></script>
+
+                                
+
+                                        
+
+                                                
+
+                                                        <!-- 雪花特效 -->
+                                                        
+                                                                <canvas class="fireworks"
+                                                                    style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
+                                                                <script type="text/javascript"
+                                                                    src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+                                                                <script type="text/javascript"
+                                                                    src="/js/fireworks.js"></script>
+                                                                <!-- 鼠标星星特效 -->
+                                                                
+
+                                                                        
+
+                                                                                <!-- Baidu Analytics -->
+
+                                                                                    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+                                                                                        
+                                                                                                
+                                                                                                    <script async
+                                                                                                        src="/libs/others/busuanzi.pure.mini.js"></script>
+                                                                                                    
+
+                                                                                                        
+
+                                                                                                                
+
+                                                                                                                        <!--腾讯兔小巢-->
+                                                                                                                        
+                                                                                                                                
+
+                                                                                                                                        
+
+                                                                                                                                                    
+
+                                                                                                                                                            
+                                                                                                                                                                <script
+                                                                                                                                                                    src="/libs/instantpage/instantpage.js"
+                                                                                                                                                                    type="module"></script>
+                                                                                                                                                                
+
+    </body>
+
+</html>
