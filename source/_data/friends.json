@@ -1,0 +1,43 @@
+[{
+    "avatar": "https://fulequn.github.io/img/avatar.png",
+    "name": "付乐群",
+    "introduction": "世界和我爱着你，向着自己的梦想前进",
+    "url": "https://fulequn.github.io/",
+    "title": "前去学习"
+}, {
+    "avatar": "http://image.luokangyuan.com/4027734.jpeg",
+    "name": "闪烁之狐",
+    "introduction": "编程界大佬，技术牛，人还特别好，不懂的都可以请教大佬",
+    "url": "https://blinkfox.github.io/",
+    "title": "前去学习"
+}, {
+    "avatar": "https://blog.17lai.site/medias_webp/avatar.webp",
+    "name": "夜法之书",
+    "introduction": "平凡的脚步也可以走出伟大的行程",
+    "url": "https://blog.17lai.site/",
+    "title": "前去学习"
+},	{
+	    "avatar": "https://cdn.jsdelivr.net/gh/guixinchn/image/blog/csdn.png",
+	    "name": "Blog",
+	    "introduction": "CSDN社区",
+	    "url": "https://blog.csdn.net/guixinchn",
+	    "title": "CSDN"
+},  {
+        "avatar": "https://cdn.jsdelivr.net/gh/guixinchn/image/blog/bokeyuan.png",
+        "name": "Blog",
+        "introduction": "博客园",
+        "url": "https://www.cnblogs.com/guixinchn/",
+        "title": "博客园"
+},  {
+	    "avatar": "https://cdn.jsdelivr.net/gh/guixinchn/image/blog/github.png",
+	    "name": "github",
+	    "introduction": "github",
+	    "url": "https://github.com/guixinchn",
+	    "title": "github"
+},  {
+	    "avatar": "https://cdn.jsdelivr.net/gh/guixinchn/image/blog/touxiang.jpg",
+	    "name": "Blog",
+	    "introduction": "咕咕星",
+	    "url": "https://ythan.top",
+	    "title": "咕咕星"
+}]
