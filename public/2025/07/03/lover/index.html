@@ -4,10 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="test, HiBlog">
-    <meta name="description" content="核心代码说明Pytorch-Unet本项目提供了四种语义分割模型的实现与对比，包括 UNET、BBSNET、UCNET 及改进版 UNET。支持在 RGB-D 图像数据集（如 NYUv2）上运行，并输出分割结果。
-
-1. 目录结构12345">
+    <meta name="keywords" content="title, HiBlog">
+    <meta name="description" content="123546
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,8 +18,8 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>test | HiBlog</title>
-    <link rel="icon" type="image/png" href="/favicon.png">
+    <title>title | HiBlog</title>
+    <link rel="icon" type="image/png" href="/hello.png">
     
 
 
@@ -47,8 +46,6 @@
 
 
     
-        <link rel="stylesheet" type="text/css" href="/css/reward.css">
-    
 
 
 
@@ -66,7 +63,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    <img src="/hello.png" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">HiBlog</span>
                 </a>
@@ -170,7 +167,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        <img src="/hello.png" class="logo-img circle responsive-img">
         
         <div class="logo-name">HiBlog</div>
         <div class="logo-desc">
@@ -338,12 +335,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">test</h1>
+                    <h1 class="description center-align post-title">title</h1>
                 </div>
             </div>
         </div>
@@ -365,12 +362,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%BB%BA%E7%AB%99%E6%B5%8B%E8%AF%95/">
+                                <span class="chip bg-color"> 建站测试</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%BB%BA%E7%AB%99%E6%B5%8B%E8%AF%95/" class="post-category">
+                                建站测试 
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -379,28 +389,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2025-07-02
+                    2025-07-03
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-07-02
+                    2025-07-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    760
+                    1
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    1 分
                 </div>
                 
 
@@ -423,82 +433,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="核心代码说明"><a href="#核心代码说明" class="headerlink" title="核心代码说明"></a>核心代码说明</h1><h2 id="Pytorch-Unet"><a href="#Pytorch-Unet" class="headerlink" title="Pytorch-Unet"></a>Pytorch-Unet</h2><p>本项目提供了四种语义分割模型的实现与对比，包括 <strong>UNET</strong>、<strong>BBSNET</strong>、<strong>UCNET</strong> 及改进版 <strong>UNET</strong>。支持在 RGB-D 图像数据集（如 NYUv2）上运行，并输出分割结果。</p>
-<hr>
-<h2 id="1-目录结构"><a href="#1-目录结构" class="headerlink" title="1. 目录结构"></a>1. 目录结构</h2><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">├── Pytorch-UNet # 原始 UNET 实现 + 个人修改</span><br><span class="line">├── Unet-for-rgbd-sod # RGB-D UNET 训练  +  增强版 UNET</span><br><span class="line">├── BBS-Net # BBSNET 官方实现 + 个人修改</span><br><span class="line">├── UCNet # UCNET 官方实现  + 个人修改</span><br><span class="line">├── data # 数据集存放路径（需自行准备）</span><br><span class="line">├── results # 输出结果保存路径</span><br><span class="line">└── readme.md # 本说明文件</span><br></pre></td></tr></tbody></table></figure>
-
-<hr>
-<h2 id="2-环境依赖"><a href="#2-环境依赖" class="headerlink" title="2. 环境依赖"></a>2. 环境依赖</h2><figure class="highlight py"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建并激活 Python 3.8 虚拟环境</span></span><br><span class="line">sudo apt update &amp;&amp; sudo apt install python3<span class="number">.8</span>-venv</span><br><span class="line">python3<span class="number">.8</span> -m venv seg_env</span><br><span class="line">source seg_env/<span class="built_in">bin</span>/activate</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装基础依赖</span></span><br><span class="line">pip install --upgrade pip</span><br><span class="line">pip install torch==<span class="number">1.12</span><span class="number">.1</span>+cu113 torchvision==<span class="number">0.13</span><span class="number">.1</span>+cu113 \</span><br><span class="line">            numpy opencv-python matplotlib pillow</span><br></pre></td></tr></tbody></table></figure>
-
-<p>确保安装以下 Python 库：</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install torch torchvision numpy opencv-python matplotlib pillow</span><br></pre></td></tr></tbody></table></figure>
-
-<p><strong>特殊依赖</strong>：</p>
-<ul>
-<li><strong>PyTorch</strong> 版本需与模型代码兼容（建议使用与作者一致的版本，如 <code>torch==1.7.0</code>）</li>
-<li>部分模型可能依赖 <code>scipy</code> 或 <code>tifffile</code>，可通过以下命令安装：</li>
-</ul>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install scipy tifffile</span><br></pre></td></tr></tbody></table></figure>
-
-<hr>
-<p><strong>环境要求</strong>：Ubuntu Linux + Python 3.8 + NVIDIA RTX 4090</p>
-<h2 id="3-数据集准备"><a href="#3-数据集准备" class="headerlink" title="3. 数据集准备"></a>3. 数据集准备</h2><h3 id="3-1-下载数据集"><a href="#3-1-下载数据集" class="headerlink" title="3.1 下载数据集"></a>3.1 下载数据集</h3><p>以 <strong>NYUv2</strong> 为例：</p>
-<ol>
-<li>下载 NYUv2 Depth V2</li>
-<li>解压后将 <code>images</code> 和 <code>masks</code> 文件夹放入 <code>data/</code> 目录</li>
-<li>其他 RGBD  图片下载按照对应文件夹中的配置即可</li>
-</ol>
-<blockquote>
-<p>注意要修改对应 train 中数据集的位置, 以确保能够正确导入数据</p>
-</blockquote>
-<h3 id="3-2-数据格式要求"><a href="#3-2-数据格式要求" class="headerlink" title="3.2 数据格式要求"></a>3.2 数据格式要求</h3><ul>
-<li>输入图像：RGB 格式（H×W×3）</li>
-<li>深度图：单通道灰度图（H×W×1）</li>
-<li>mask图：类别标签（H×W×1，整数类型）</li>
-</ul>
-<hr>
-<h2 id="4-模型运行指南"><a href="#4-模型运行指南" class="headerlink" title="4. 模型运行指南"></a>4. 模型运行指南</h2><h3 id="4-1-原始-UNET-Pytorch-UNet"><a href="#4-1-原始-UNET-Pytorch-UNet" class="headerlink" title="4.1 原始 UNET (Pytorch-UNet)"></a>4.1 原始 UNET (<code>Pytorch-UNet</code>)</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd Pytorch-UNet</span><br><span class="line">python train.py --dataset nyuv2 --batch-size 8 --epochs 50</span><br></pre></td></tr></tbody></table></figure>
-
-<ul>
-<li><p>输出结果保存在 <code>Pytorch-UNet/results/</code> 目录</p>
-</li>
-<li><p>可视化训练过程：<code>tensorboard --logdir=runs</code></p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">python train.py \</span><br><span class="line">  --dataset nyuv2 \</span><br><span class="line">  --batch-size 8 \</span><br><span class="line">  --epochs 50 \</span><br><span class="line">  --scale 0.5 \          # 图像缩放因子</span><br><span class="line">  --classes 2 \          # 类别数</span><br><span class="line">  --amp                  # 可选：启用混合精度训练</span><br></pre></td></tr></tbody></table></figure></li>
-</ul>
-<h3 id="4-2-RGB-D-增强版-UNET-Unet-for-rgbd-sod"><a href="#4-2-RGB-D-增强版-UNET-Unet-for-rgbd-sod" class="headerlink" title="4.2 RGB-D 增强版 UNET (Unet-for-rgbd-sod)"></a>4.2 RGB-D 增强版 UNET (<code>Unet-for-rgbd-sod</code>)</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd Unet-for-rgbd-sod</span><br><span class="line">python main.py --mode train --data-root data/nyuv2</span><br></pre></td></tr></tbody></table></figure>
-
-<ul>
-<li>支持 RGB-D 融合输入，需确保深度图与图像对齐</li>
-<li>修改 <code>config.py</code> 中的 <code>depth_weight</code> 参数调整深度图权重</li>
-<li>其中包含消融实验和改进后的 UNET训练代码, 配置同 UNET</li>
-</ul>
-<h3 id="4-3-BBSNET-BBS-Net"><a href="#4-3-BBSNET-BBS-Net" class="headerlink" title="4.3 BBSNET (BBS-Net)"></a>4.3 BBSNET (<code>BBS-Net</code>)</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-BBS_dataset\ </span><br><span class="line">  -RGBD_for_train\  </span><br><span class="line">  -RGBD_for_test\</span><br><span class="line">  -test_in_train\</span><br><span class="line">-BBSNet</span><br><span class="line">  -models\</span><br><span class="line">  -model_pths\</span><br><span class="line">     -BBSNet.pth</span><br><span class="line">  ...</span><br></pre></td></tr></tbody></table></figure>
-
-<ul>
-<li>模型训练</li>
-</ul>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd BBS-Net</span><br><span class="line">python BBSNet_train.py --batchsize 10 --gpu_id 0</span><br></pre></td></tr></tbody></table></figure>
-
-<ul>
-<li>模型测试</li>
-</ul>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python BBSNet_test.py --gpu_id 0 </span><br></pre></td></tr></tbody></table></figure>
-
-<ul>
-<li>sota 模型下载 :  [code: dwcp]  <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1Fn-Hvdou4DDWcgeTtx081g?_at_=1748571067778">https://pan.baidu.com/s/1Fn-Hvdou4DDWcgeTtx081g?_at_=1748571067778</a></li>
-<li>输出包含边界感知的分割结果</li>
-</ul>
-<h3 id="4-4-UCNET-UCNet"><a href="#4-4-UCNET-UCNet" class="headerlink" title="4.4 UCNET (UCNet)"></a>4.4 UCNET (<code>UCNet</code>)</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd UCNet</span><br><span class="line">python train.py </span><br></pre></td></tr></tbody></table></figure>
-
-<ul>
-<li>使用多尺度训练提升精度</li>
-</ul>
-<p>cite:</p>
-<figure class="highlight tex"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@inproceedings{Zhang2020UCNet,</span><br><span class="line">  title={UC-Net: Uncertainty Inspired RGB-D Saliency Detection via Conditional Variational Autoencoders},</span><br><span class="line">  author={Zhang, Jing and Fan, Deng-Ping and Dai, Yuchao and Anwar, Saeed and Sadat Saleh, Fatemeh and Zhang, Tong and Barnes, Nick},</span><br><span class="line">  booktitle={Proceedings of the IEEE conference on computer vision and pattern recognition},</span><br><span class="line">  year={2020}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<figure class="highlight tex"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@article{zhang2021uncertainty,</span><br><span class="line">  title={Uncertainty Inspired RGB-D Saliency Detection},</span><br><span class="line">  author={Jing Zhang and Deng-Ping Fan and Yuchao Dai and Saeed Anwar and Fatemeh Saleh and Sadegh Aliakbarian and Nick Barnes},</span><br><span class="line">  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence}, </span><br><span class="line">  year={2021}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250701194706995.png" alt="image-20250701194706995"></p>
+                <p>123546</p>
 
                 
             </div>
@@ -525,7 +460,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://zzhaire.github.io/2025/07/02/test-1/">https://zzhaire.github.io/2025/07/02/test-1/</a>
+                    <a href="https://zzhaire.github.io/2025/07/03/lover/">https://zzhaire.github.io/2025/07/03/lover/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -562,7 +497,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E5%BB%BA%E7%AB%99%E6%B5%8B%E8%AF%95/">
+                                    <span class="chip bg-color"> 建站测试</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -581,39 +520,6 @@
 
                 </div>
             </div>
-            
-                <div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fas fa-times"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
-                    </ul>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('.tabs').tabs();
-    });
-</script>
-
             
         </div>
     </div>
@@ -877,14 +783,14 @@
 <script>
     new Valine({
         el: '#vcomments',
-        appId: '',
-        appKey: '',
-        serverURLs: '',
-        notify: 'false' === 'true',
-        verify: 'false' === 'true',
+        appId: 'tBaBeOeMvOKCIZHcLuK8rXe0-gzGzoHsz',
+        appKey: 'KTxKGaCDtSVuailXk3ptjMs7',
+        serverURLs: 'https://tbabeoem.lc-cn-n1-shared.com',
+        notify: 'true' === 'true',
+        verify: 'true' === 'true',
         visitor: 'true' === 'true',
         avatar: 'mm',
-        pageSize: '10',
+        pageSize: '15',
         lang: 'zh-cn',
         placeholder: 'just go go'
     });
@@ -910,48 +816,7 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2025/07/02/12312-312/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="title">
-                        
-                        <span class="card-title">title</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2025-07-02
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%BB%BA%E7%AB%99%E6%B5%8B%E8%AF%95/" class="post-category">
-                                    建站测试 
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2025/07/02/hello-world/">
+                <a href="/2025/07/04/hello-world/">
                     <div class="card-image">
                         
                         
@@ -967,9 +832,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-07-02
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-07-04
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -982,11 +847,98 @@
             </div>
         </div>
         
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
+            </div>
+            <div class="card">
+                <a href="/2025/07/03/lover/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="title">
+                        
+                        <span class="card-title">title</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-07-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%BB%BA%E7%AB%99%E6%B5%8B%E8%AF%95/" class="post-category">
+                                    建站测试 
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%BB%BA%E7%AB%99%E6%B5%8B%E8%AF%95/">
+                        <span class="chip bg-color"> 建站测试</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
     </div>
 </article>
 
 </div>
 
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('500')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: HiBlog<br />'
+            + '文章作者: zzhaire<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
 
 
 <!-- 代码块功能依赖 -->
@@ -1103,60 +1055,6 @@
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        
-        display: none;
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
-        
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="503838841"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="/libs/aplayer/Meting.min.js"></script>
-
-    
 
     <div class="container row center-align"
          style="margin-bottom: 0px !important;">
@@ -1172,7 +1070,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">871</span>
+                        class="white-color">74</span>
             
             
             
@@ -1198,13 +1096,13 @@
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <a href="https://github.com/zzhaire" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
 
 
 
-    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:zzhaire5@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fas fa-envelope-open"></i>
     </a>
 
@@ -1214,7 +1112,7 @@
 
 
 
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1642249956" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1642249956" data-position="top" data-delay="50">
         <i class="fab fa-qq"></i>
     </a>
 
