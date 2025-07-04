@@ -255,7 +255,7 @@ snowdown:
 # profile in about page, including avatars, career, and personal introductions.
 # 在”关于”页面中配置个人信息，包括头像、职业和个人介绍.
 profile:
-  avatar: /medias/profile.jpg
+  avatar: /medias/profile.png
   career: student | computer science
   introduction: Tongji Computer -> Tsinghua University's Network Research Institute, 
                 | algorithms | scientific research | essays | development
