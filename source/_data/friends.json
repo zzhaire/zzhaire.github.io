@@ -1,43 +1,65 @@
-[{
-    "avatar": "https://fulequn.github.io/img/avatar.png",
-    "name": "付乐群",
-    "introduction": "世界和我爱着你，向着自己的梦想前进",
-    "url": "https://fulequn.github.io/",
-    "title": "前去学习"
-}, {
+[
+    {
     "avatar": "http://image.luokangyuan.com/4027734.jpeg",
     "name": "闪烁之狐",
-    "introduction": "编程界大佬，技术牛，人还特别好，不懂的都可以请教大佬",
+    "introduction": "本博客主题作者",
     "url": "https://blinkfox.github.io/",
-    "title": "前去学习"
-}, {
-    "avatar": "https://blog.17lai.site/medias_webp/avatar.webp",
-    "name": "夜法之书",
-    "introduction": "平凡的脚步也可以走出伟大的行程",
-    "url": "https://blog.17lai.site/",
-    "title": "前去学习"
-},	{
-	    "avatar": "https://cdn.jsdelivr.net/gh/guixinchn/image/blog/csdn.png",
-	    "name": "Blog",
-	    "introduction": "CSDN社区",
-	    "url": "https://blog.csdn.net/guixinchn",
-	    "title": "CSDN"
-},  {
-        "avatar": "https://cdn.jsdelivr.net/gh/guixinchn/image/blog/bokeyuan.png",
-        "name": "Blog",
-        "introduction": "博客园",
-        "url": "https://www.cnblogs.com/guixinchn/",
-        "title": "博客园"
-},  {
-	    "avatar": "https://cdn.jsdelivr.net/gh/guixinchn/image/blog/github.png",
-	    "name": "github",
-	    "introduction": "github",
-	    "url": "https://github.com/guixinchn",
-	    "title": "github"
-},  {
-	    "avatar": "https://cdn.jsdelivr.net/gh/guixinchn/image/blog/touxiang.jpg",
-	    "name": "Blog",
-	    "introduction": "咕咕星",
-	    "url": "https://ythan.top",
-	    "title": "咕咕星"
-}]
+    "title": "闪烁之狐"
+    },
+    {
+        "avatar": "https://cdn.sstatic.net/Sites/stackoverflow/Img/favicon.ico",
+        "name": "Stack Overflow",
+        "introduction": "Global ER for programmers",
+        "url": "https://stackoverflow.com/",
+        "title": "Debug Now"
+    },
+    {
+        "avatar": "https://www.tencent.com/favicon.ico",
+        "name": "Tencent Yuanbao",
+        "introduction": "LLMs on left hand, productivity tools on right",
+        "url": "https://yuanbao.tencent.com/",
+        "title": "Try AI"
+    },
+    {
+        "avatar": "https://leetcode.cn/favicon.ico",
+        "name": "LeetCode",
+        "introduction": "Algorithm monks' enlightenment ground",
+        "url": "https://leetcode.com/",
+        "title": "Grind Now"
+    },
+    {
+        "avatar": "https://pytorch.org/favicon.ico",
+        "name": "PyTorch",
+        "introduction": "Where gradients descend faster than my motivation",
+        "url": "https://pytorch.org/",
+        "title": "Train Model"
+    },
+    {
+        "avatar": "https://www.w3schools.com/favicon.ico",
+        "name": "W3Schools",
+        "introduction": "From 'Hello World' to 'WTF is this'",
+        "url": "https://www.w3schools.com/",
+        "title": "Learn Fast"
+    },
+    {
+        "avatar": "https://arxiv.org/favicon.ico",
+        "name": "arXiv",
+        "introduction": "Academic dopamine dealer",
+        "url": "https://arxiv.org/",
+        "title": "Read Papers"
+    },
+    {
+        "avatar": "https://www.kaggle.com/favicon.ico",
+        "name": "Kaggle",
+        "introduction": "Where GPUs burn and dreams come true",
+        "url": "https://www.kaggle.com/",
+        "title": "Join Competition"
+    },
+    {
+        "avatar": "https://docs.python.org/favicon.ico",
+        "name": "Python Docs",
+        "introduction": "Life is short, you need Python",
+        "url": "https://docs.python.org/3/",
+        "title": "Read Docs"
+    }
+]

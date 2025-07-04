@@ -17,11 +17,11 @@ menu:
     url: /about
     icon: fas fa-user-circle
   Contact:
-    url: /contact
-    icon: fas fa-comments
-  Friends:
     url: /friends
-    icon: fas fa-address-book
+    icon: fas fa-comments
+  # Friends:
+  #   url: /friends
+  #   icon: fas fa-address-book
   # 二级菜单写法如下
   #Medias:
   #  icon: fas fa-list
@@ -257,8 +257,8 @@ snowdown:
 profile:
   avatar: /medias/profile.png
   career: student | computer science
-  introduction: Tongji Computer -> Tsinghua University's Network Research Institute, 
-                | algorithms | scientific research | essays | development
+  introduction: (Bachelor) Tongji Computer Science ➡️ (Master) Tsinghua Network Research Institute
+                 Algorithms | Research | Essays | Development
 
 # config my projects informations in about page.
 # If you don't want to display this `My Projects` content, you can deactivate or delete this configuration.
@@ -609,13 +609,13 @@ ribbon:
 
 # 背景动态彩带.
 ribbon_dynamic:
-  enable: false
+  enable: true
 
 # sharejs文章分享模块.
 # 支持顺序，可选项目为twitter, facebook, google, qq, qzone, wechat, weibo, douban, linkedin.
 sharejs:
   enable: true
-  sites: twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin
+  sites: qq,qzone,wechat,weibo
 
 # addthis文章分享模块.
 addthis:
