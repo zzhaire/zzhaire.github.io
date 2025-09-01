@@ -8,7 +8,7 @@ tags:
 - bfs
 - 搜索
 title: Catch That Cow
-updated: '2025-09-01T22:31:52.902+08:00'
+updated: '2025-09-01T22:42:33.770+08:00'
 ---
 ## 题目链接
 
@@ -33,9 +33,10 @@ Line 1: The least amount of time, in minutes, it takes for Farmer John to catch 
 
 ### Sample
 
-| Input    | Output |
-| -------- | ------ |
-| `5 17` | `4`  |
+
+| Input  | Output |
+| ------ | ------ |
+| `5 17` | `4`    |
 
 ### Hint
 
@@ -109,7 +110,7 @@ signed main()
 
 做了第三道搜索题了,感觉基本上最短路径就是用BFS搜索
 
-然后整个代码基本上就是
+然后整个算法基本上大概如下:
 
 ```cpp
 q.push(初始节点)
@@ -124,4 +125,4 @@ while(q.size())
 }
 ```
 
-具体情况具体题目决定, 有时候要在节点里记录步长.
+具体情况具体题目决定, 有时候要在节点里记录步长. 后面可能要用到优先队列, 换掉这里的queue 就行了
