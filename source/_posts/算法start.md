@@ -1,7 +1,8 @@
 ---
 abbrlink: 梦的起点
 author: zzhaire
-categories: []
+categories:
+- - acmer之路
 date: '2025-08-30T12:05:11.126287+08:00'
 tags:
 - 说说
