@@ -8,19 +8,13 @@ tags:
 - 算法模板
 - acwing 基础课
 title: acwing 算法基础课模板
-updated: '2025-09-11T16:12:55.210+08:00'
+updated: '2025-09-11T16:27:14.277+08:00'
 ---
-# acwing 算法基础课模板
-
-> 【FlowUs 息流】acwing 算法基础课模板
-> 
-> https://flowus.cn/share/85525e48-ed80-434d-81c5-0ecbec3c109f?code=XAGV17
-
 # 1. 基本模板
 
 ## △ C++ STL 用法
 
-```C++
+```cpp
 vector 变长数组，倍增的思想
     size()  返回元素个数
     empty()  返回是否为空
@@ -123,7 +117,7 @@ bitset, 圧位
 
 ## 常用函数
 
-```C++
+```cpp
 #include<cmath>
 pow(2,3)乘方运算
 sqrt()
@@ -150,7 +144,7 @@ log10()
 
 ## 快速排序
 
-```C++
+```cpp
 int arr[N];
 void quickSort(int l, int r){
     if (r <= l) return; 
@@ -167,7 +161,7 @@ void quickSort(int l, int r){
 
 ## 归并排序
 
-```C++
+```cpp
 void mergeSort(int l ,int r){
     if (r<=l)return;
     int mid = l + r >>1;
@@ -202,7 +196,7 @@ void merge_sort(int q[], int l, int r){
 
 ## 整数二分
 
-```C++
+```cpp
 bool check(int x) {/* ... */} // 检查x是否满足某种性质
 // 区间[l, r]被划分成[l, mid]和[mid + 1, r]时使用：
 int bsearch_1(int l, int r){
@@ -236,7 +230,7 @@ int bsearch_2(int l, int r){
 
 ## 二分答案
 
-```C++
+```cpp
 bool check(){};
 int bsearch(int l ,int r ){
      int ans;
@@ -255,8 +249,8 @@ int bsearch(int l ,int r ){
 
 三分用来求单峰函数, 通过逼近法, 得到单峰值
 
-```C++
-for (int i = 1; i <= 1000; i++) {
+```cpp
+ for (int i = 1; i <= 1000; i++) {
         double lm = l + (r - l) / 3, rm = r - (r - l) / 3;
         if (check(lm) >= check(rm))l = lm;
         else r = rm;
@@ -268,7 +262,7 @@ else       x = t >> 1    , y = t+x+1 ;    // 下取整
 
 ## 浮点二分
 
-```C++
+```cpp
 bool check(double x) {/* ... */} // 检查x是否满足某种性质
 double bsearch_3(double l, double r){
     const double eps = 1e-6;   // eps 表示精度，取决于题目对精度的要求
@@ -285,7 +279,7 @@ double bsearch_3(double l, double r){
 
 ## 高精度加减乘除
 
-```C++
+```cpp
 vector<int> add(vector<int> &A, vector<int> &B){
     if (A.size() < B.size()) return add(B, A);
     vector<int> C;
@@ -370,7 +364,7 @@ int above(vector<int>&a ,vector<int>&b){
 
 ### 一维前缀和
 
-```C++
+```cpp
 // 构造s
 s[i]  = s[i-1] + a[i]
 // a[l] +... + a[r]
@@ -381,7 +375,7 @@ s[r] - s[l-1] == a[l] + a[l+1] + ... + a[r];
 
 ### 二维前缀和
 
-```C++
+```cpp
 // 构造s
 s[y][x]  = s[y-1][x] + s[y][x-1] - s[y-1][x-1] + a[y][x]
 // a[y1][x1] + ... + a[y2][x2]
@@ -394,7 +388,7 @@ s[y][x]  = s[y-1][x] + s[y][x-1] - s[y-1][x-1] + a[y][x]
 
 ![https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/202501021537516.png](https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/202501021537516.png)
 
-```C++
+```cpp
 //构造
 a[i] = s[i] - s[i-1]
 //给区间[l, r]中的每个数加上c：
@@ -407,7 +401,7 @@ s[i] = s[i-1] + a[i];
 
 ![https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/202501021549145.png](https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/202501021549145.png)
 
-```C++
+```cpp
 //构造
 a[y][x] = s[y][x] - s[y-1][x] - s[y][x-1] + s[y-1][x-1];
 //矩阵内每个元素加c
@@ -422,7 +416,7 @@ s[y][x] = s[y-1][x] + s[y][x-1] -s[y-1][x-1] + a[y][x];
 
 - acwing799`最长连续不重复子序列`给定一个长度为 n 的整数序列，请找出最长的不包含重复的数的连续区间，输出它的长度。
 
-```C++
+```cpp
 int a[N] , vis[N];
 int main(){
     int n ;cin >>n;
@@ -444,7 +438,7 @@ int main(){
 
 > 常见问题分类：  (1) 对于一个序列，用两个指针维护一段区间  (2) 对于两个序列，维护某种次序，比如归并排序中合并两个有序序列的操作
 
-```C++
+```cpp
 for (int i = 0, j = 0; i < n; i ++ ){
     while (j < i && check(i, j)) j ++ ;
     // 具体问题的逻辑
@@ -458,7 +452,7 @@ for (int i = 0, j = 0; i < n; i ++ ){
 
 例: 统计int k中1的个数 (太优美了)
 
-```C++
+```cpp
 int getK(int k){
     int cnt = 0 ;
     for(int i = k ; i ; i-= i&-i) cnt++;
@@ -470,7 +464,7 @@ int getK(int k){
 
 ### 离散化
 
-```C++
+```cpp
 #include<bits/stdc++.h>
 using namespace std;
 const int N = 300010; //n次插入和m次查询相关数据量的上界
@@ -524,7 +518,7 @@ int main() {
 
 模版
 
-```C++
+```cpp
 vector<int> alls; // 存储所有待离散化的值
 sort(alls.begin(), alls.end()); // 将所有值排序
 alls.erase(unique(alls.begin(), alls.end()), alls.end());   // 去掉重复元素
@@ -542,7 +536,7 @@ int find(int x){ // 找到第一个大于等于x的位置
 
 ### 区间合并
 
-```C++
+```cpp
 // 将所有存在交集的区间合并
 typedef pair< int , int> PII;
 void merge(vector<PII> &segs){
@@ -568,7 +562,7 @@ void merge(vector<PII> &segs){
 
 ![image-20250911161918895](https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911161918895.png)
 
-```C++
+```cpp
 // head存储链表头，e[]存储节点的值，ne[]存储节点的next指针，idx表示当前用到了哪个节点
 int head, e[N], ne[N], idx;
 // 初始化
@@ -601,7 +595,7 @@ void visit(){
 
 ![image-20250911162019573](https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911162019573.png)
 
-```C++
+```cpp
 // e[]表示节点的值，l[]表示节点的左指针，r[]表示节点的右指针，idx表示当前用到了哪个节点
 int e[N], l[N], r[N], idx;
 // 初始化
@@ -640,14 +634,14 @@ void remove(int a){
 
 ### STL
 
-```C++
+```cpp
 stack<int> s;
 s.pop() ;  cout << s.top() ; s.size() ; s.push(x);
 ```
 
 ### 单调栈
 
-```C++
+```cpp
 // 核心思想是让栈中从栈底到栈顶单调 ,插入x 之前, 把比x 大的都倒出来
 for (int i =0 ;i< n;i ++){
     int x ;
@@ -661,7 +655,7 @@ for (int i =0 ;i< n;i ++){
 
 ### 表达式求值 （递归写法参考牛客题单）
 
-```C++
+```cpp
 stack<int> num;
 stack<char> op;
 void eval(){
@@ -708,7 +702,7 @@ int main(){
 
 ### STL
 
-```C++
+```cpp
 queue <elem> q;
 q.push( elem x );  elem q.front(); elem q.back();
 q.pop();
@@ -717,7 +711,7 @@ q.size();
 
 ### 循环队列
 
-```C++
+```cpp
 // hh 表示队头，tt表示队尾的后一个位置
 int q[N], hh = 0, tt = 0;
 // 向队尾插入一个数
@@ -734,7 +728,7 @@ if (hh != tt)
 
 ### 单调队列
 
-```C++
+```cpp
 //常见模型：找出滑动窗口中的最大值/最小值
 int hh = 0, tt = -1; // 队里面存的下标
 for (int i = 0; i < n; i ++ ){
@@ -750,7 +744,7 @@ for (int i = 0; i < n; i ++ ){
 
 https://www.acwing.com/problem/content/156/
 
-```C++
+```cpp
 #include<bits/stdc++.h>
 using namespace std;
 const int N = 1e6+10;
@@ -783,7 +777,7 @@ y 总的习惯是从 1 开始, 0的位置做通配符, 匹配的时候是p[i] ==
 
 ### KMP
 
-```C++
+```cpp
 // s[]是长文本，p[]是模式串，n是p的长度，m是s的长度
 int ne[N];
 char s[M] , p[N];
@@ -811,7 +805,7 @@ int main(){
 
 26度的树  例如插入a b c   ,son [idx] [char] = 指针 , 通过idx 可以确定编号的结尾
 
-```C++
+```cpp
 int son[N][26], cnt[N], idx;
 // 0号点既是根节点，又是空节点
 // son[idx][u]存储树中每个节点的子节点 idx是自己的编号， 每个u是对应字母的位置
@@ -840,7 +834,7 @@ int query(char *str){
 
 ## 并查集
 
-```C++
+```cpp
 int p[N] , sz[N];
 void init(int n){
     for(int i = 1; i<=n;i++) p[i]=i, // sz[i] = 1;
@@ -861,7 +855,7 @@ void merge(int a, int b){
 
 ## 堆
 
-```C++
+```cpp
 int h[N] , cnt; // 完全二叉树, 从1开始
 void down(int u){
     int t =  u ; 
@@ -896,7 +890,7 @@ priority_queue<elem ,vector<elem> , Cmp> q; // pritority_queue < elem , 底层�
 
 ### 链式哈希
 
-```C++
+```cpp
 int h[N] , e[N] , ne[N] , idx;
 void insert(int x){
     int k = (x % N + N) % N;
@@ -914,7 +908,7 @@ bool find(int x){
 
 ### 封闭哈希
 
-```C++
+```cpp
 int find(int x) {
     int t = (x % N + N) % N;
     while (h[t] != null && h[t] != x) {
@@ -929,7 +923,7 @@ int find(int x) {
 
 |i|1|2|3|4|5|6|7|8|9|10| |-|-|-|-|-|-|-|-|-|-|-| |s|a|b|c|d|e|f|g|h|i|j| |h|a*M|a*M+b*M^2|a*M+b*M^2 +c*M^3|..|..|..|..|..|..|..| |p|M|M^2|M^3|M^4|M^5|..|..|..|..|..|
 
-```C++
+```cpp
 typedef unsigned long long ull; // ull 刚好溢出相当于取模
 const int M = 131;
 char str[N]; ull h[N],p[N];// h 装hash , p 装进制
@@ -968,7 +962,7 @@ struct edge{
 
 ### DFS
 
-```C++
+```cpp
 int n , path[N];
 bool vis[N];
 void dfs(int u){
@@ -999,7 +993,7 @@ dfs(初始状态)
 
 ### BFS (PFS 换优先队列即可）
 
-```C++
+```cpp
 int bfs(){
     queue<type> q;
     q.push(start);// 初始化，包括初始元素入队， 初始点赋值等
@@ -1032,7 +1026,7 @@ void bfs(elem :state){
 
 dfs( i )返回 以 i 为中心， 连通的大小
 
-```C++
+```cpp
 int h[N],e[M] , ne[M] , idx , ans = N , n;
 bool vis[N];
 void add(int a , int b){
@@ -1069,7 +1063,7 @@ int main(){
 
 ### 拓扑排序 (可以自定义队列， 也可以用一个vector 记录一下结果）
 
-```C++
+```cpp
 bool topsort(){
     int hh = 0, tt = -1;
     // din[i] 存储点i的入度
@@ -1101,7 +1095,7 @@ bool topsort(){
 
 `朴素版`时间复杂度 $O(n^2+m)$ n表示点数,m表示边数（忽略即可）
 
-```C++
+```cpp
 int dijkstra(){ // g[][] 邻接矩阵形式
     memset(dis, 0x3f, sizeof dis);
     dis[1] = 0;
@@ -1155,7 +1149,7 @@ int dijkstra(){
 
 `堆优化版`时间复杂度$O(mlogn)$ n表示点数,m表示边数
 
-```C++
+```cpp
 int dijkstra(){
     memset(dist, 0x3f, sizeof dist);
     dist[1] = 0;
@@ -1181,7 +1175,7 @@ int dijkstra(){
 
 ### Bellman-Ford 算法
 
-```C++
+```cpp
 int n, m;       // n表示点数，m表示边数
 int dist[N], back[N];// dist[x]存储1到x的最短路距离, back 表示备份
 struct Edge {    // 边，a表示出点，b表示入点，w表示边的权重
@@ -1205,7 +1199,7 @@ int bellman_ford(){
 
 ### spfa 算法 (`队列`优化版的Bell-Ford算法) (负权边)
 
-```C++
+```cpp
 int h[M] , w[M] , ne[M] , idx, e[M] , dist[N], // cnt[N];
 bool vis[N];
 queue<int> q;
@@ -1233,7 +1227,7 @@ int spfa(){
 
 `spfa`判断负环
 
-```C++
+```cpp
 bool spfa(){
     memset(dist, 0x3f, sizeof dist);
     dist[1] = 0;
@@ -1261,7 +1255,7 @@ bool spfa(){
 
 ### floyd算法
 
-```C++
+```cpp
 void init(){
     for (int i = 1; i <= n; i ++ )
         for (int j = 1; j <= n; j ++ )
@@ -1316,7 +1310,7 @@ int prim(){
 
 ### Kruskal
 
-```C++
+```cpp
 int n, m;       // n是点数，m是边数
 int p[N];       // 并查集的父节点数组
 struct Edge{    // 存储边
@@ -1351,7 +1345,7 @@ int kruskal(){
 
 ### 染色法二分图
 
-```C++
+```cpp
 int color[N];      // -1 means black , 0 means not write , 1 means white
 bool dfs(int u, int c){ // try to use c to write node u  ; return  bin-graph ?
     color[u] = c;
@@ -1384,7 +1378,7 @@ bool check(){
 
 用于求二分图的最大匹配
 
-```C++
+```cpp
 int n1, n2;     // n1表示第一个集合中的点数，n2表示第二个集合中的点数
 int h[N], e[M], ne[M], idx;
 //邻接表存储所有边匈牙利算法中只会用到从第一个集合指向第二个集合的边，所以这里只用存一个方向的边
@@ -1415,7 +1409,7 @@ for (int i = 1; i <= n1; i ++ ){
 
 ## 试除法判定质数
 
-```C++
+```cpp
 bool is_prime(int x){
     if (x < 2) return false;
     for (int i = 2; i <= x / i; i ++ )
@@ -1429,7 +1423,7 @@ bool is_prime(int x){
 
 $n=p*1^{a*1} * p*2^{a*2} *p*3^{a*3}    …..    p*n^{a*n} $        $p_i$ 是质数
 
-```C++
+```cpp
 void divide(int x){
     for (int i = 2; i <= x / i; i ++ )
         if (x % i == 0){
@@ -1445,7 +1439,7 @@ void divide(int x){
 
 ### 朴素筛
 
-```C++
+```cpp
 int primes[N], cnt; // primes[]存储所有素数
 bool st[N];         // st[x]存储x是否被筛掉
 void get_primes(int n){
@@ -1460,7 +1454,7 @@ void get_primes(int n){
 
 ### 线性筛
 
-```C++
+```cpp
 int primes[N], cnt; // primes[]存储所有素数
 bool st[N];         // st[x]存储x是否被筛掉
 void get_primes(int n){
@@ -1480,7 +1474,7 @@ void get_primes(int n){
 
 约数 n = a * b   ,求所有的a和b
 
-```C++
+```cpp
 vector<int> get_divisors(int x){
     vector<int> res;
     for (int i = 1; i <= x / i; i ++ )
@@ -1501,7 +1495,7 @@ vector<int> get_divisors(int x){
 
 约数之和：$ (p*1^0 + p*1^1 + … + p*1^{c*1}) * … * (p*k^0 + p*k^1 + … + p*k^{c*k})$
 
-```C++
+```cpp
 // 先分解质因数 
 long long res = 1 ;unordered_map <int,int> primes
 for(auto p : primes){
@@ -1514,7 +1508,7 @@ for(auto p : primes){
 
 ## 欧几里得算法
 
-```C++
+```cpp
 int gcd(int a, int b){
     return b ? gcd(b, a % b) : a;
 }
@@ -1522,7 +1516,7 @@ int gcd(int a, int b){
 
 ## 求欧拉函数
 
-```C++
+```cpp
 int phi(int x){
     int res = x;
     for (int i = 2; i <= x / i; i ++ )
@@ -1537,7 +1531,7 @@ int phi(int x){
 
 ## 筛法求欧拉函数
 
-```C++
+```cpp
 int primes[N], cnt;     // primes[]存储所有素数
 int euler[N];           // 存储每个数的欧拉函数
 bool st[N];         // st[x]存储x是否被筛掉
@@ -1564,7 +1558,7 @@ void get_eulers(int n){
 
 ## 快速幂
 
-```C++
+```cpp
 求 m^k mod p，时间复杂度 O(logk)。
 int qmi(int m, int k, int p) {
     int res = 1 % p, t = m;
@@ -1579,7 +1573,7 @@ int qmi(int m, int k, int p) {
 
 ## 扩展欧几里得
 
-```C++
+```cpp
 // 求x, y，使得ax + by = gcd(a, b)
 int exgcd(int a, int b, int &x, int &y){
     if (!b){
@@ -1594,7 +1588,7 @@ int exgcd(int a, int b, int &x, int &y){
 
 ## 高斯消元
 
-```C++
+```cpp
 // a[N][N]是增广矩阵
 int gauss(){
     int c, r;
@@ -1629,7 +1623,7 @@ int gauss(){
 
 ## 递推法求组合数
 
-```C++
+```cpp
 // c[a][b] 表示从a个苹果中选b个的方案数
 for (int i = 0; i < N; i ++ )
     for (int j = 0; j <= i; j ++ )
@@ -1639,7 +1633,7 @@ for (int i = 0; i < N; i ++ )
 
 ## 通过预处理逆元的方式求组合数
 
-```C++
+```cpp
 //首先预处理出所有阶乘取模的余数fact[N]，以及所有阶乘取模的逆元infact[N]
 //如果取模的数是质数，可以用费马小定理求逆元
 int qmi(int a, int k, int p) {   // 快速幂模板
@@ -1661,7 +1655,7 @@ for (int i = 1; i < N; i ++ ){
 
 ## Lucas定理
 
-```C++
+```cpp
 //若p是质数，则对于任意整数 1 <= m <= n，有：
 //    C(n, m) = C(n % p, m % p) * C(n / p, m / p) (mod p)
 
@@ -1693,7 +1687,7 @@ int lucas(LL a, LL b, int p){
 
 ## 分解质因数法求组合数
 
-```C++
+```cpp
 /*  当我们需要求出组合数的真实值，而非对某个数的余数时，分解质因数的方式比较好用：
     1. 筛法求出范围内的所有质数
     2. 通过 C(a, b) = a! / b! / (a - b)! 这个公式求出每个质因子的次数。 n! 中p的次数是 n / p + n / p^2 + n / p^3 + ...
@@ -1744,7 +1738,7 @@ for (int i = 0; i < cnt; i ++ )     // 用高精度乘法将所有质因子相�
 
 ## 卡特兰数
 
-```C++
+```cpp
 给定n个0和n个1，它们按照某种顺序排成长度为2n的序列，满足任意前缀中0的个数都不少于1的个数的序列的数量为： Cat(n) = C(2n, n) / (n + 1)
 ```
 
@@ -1826,7 +1820,7 @@ SG(G) = SG(G1) ^ SG(G2) ^ … ^ SG(Gm)
 
 > n 件物品, 容量 m 的背包,  第i件物品, 体积为v[i] , 价值为w[i]  求 能够拿取的最大价值
 
-```C++
+```cpp
 /*  f[i][j] 表示  前i个物品,总体积为j的最大价值
     1. 第i件物品放不下时             f[i][j] = f[i-1][j];
     2. 第i件物品放得下时,考虑拿或不拿 f[i][j] = max(f[i-1][j-v[i]]+w[i],f[i-1][j])
@@ -1854,7 +1848,7 @@ int main(){
 
 状态转移方程:  二维:  dp[i][j] = max(dp[i-1][j] , dp[i-1][j - w[i]] + c[i] ); 一维:  dp[j]    =  max(dp       [j] , dp       [j - w[i]] + c[i] );   **从后往前, 防止覆盖**
 
-```C++
+```cpp
 #include <bits/stdc++.h>
 using namespace std;
 const int N = 1e3 + 10;
@@ -1874,8 +1868,8 @@ int main(){
 
 > n `种` 物品, 容量 m 的背包,  第i件物品, 体积为v[i] , 价值为w[i] , `物品不限量`  求 能够拿取的最大价值
 
-```C++
-cin >> n >> m;
+```cpp
+    cin >> n >> m;
     for (int i = 1; i <= n; i++) cin >> v[i] >> w[i];
     for (int i = 1; i <= n; i++)        // 枚举所有物品
         for (int j = m; v[i] <= j; j--) // 枚举所有体积
@@ -1885,8 +1879,8 @@ cin >> n >> m;
 
 状态转移方程:  二维:  dp[i][j] = max(dp[i-1][j] , dp[i] ****[j - w[i]] + c[i] ); 一维:  dp    [j] = max(dp       [j] , dp     ****[j ****- ****w[i]] + c[i] ); **从前往后**
 
-```C++
-cin >> n >> m;
+```cpp
+    cin >> n >> m;
     for (int i = 1; i <= n; i++) cin >> v[i] >> w[i];
     for (int i = 1; i <= n; i++)        // 枚举所有物品
         for (int j = v[i]; j <= m; j++) // 枚举所有体积
@@ -1897,8 +1891,8 @@ cin >> n >> m;
 
 > N `种` 物品, 容量 m 的背包,  第i件物品, 体积为v[i] , 价值为w[i] , `物品上限为n[i]`  求 能够拿取的最大价值
 
-```C++
-cin >> n >> m;
+```cpp
+   cin >> n >> m;
     for (int i = 1; i <= n; i++) cin >> v[i] >> w[i] >> s[i];
     for (int i = 1; i <= n; i++)        // 枚举所有物品
         for (int j = m; v[i] <= j; j--) // 枚举所有体积
@@ -1908,7 +1902,7 @@ cin >> n >> m;
 
 二进制优化 ; 数字n可以表示成为2进制, 比如说15 = 1 + 2 + 4 + 8  所以相当于拿物品的时候, 可以一次拿多个, 不需要单次+1 去枚举 相当于 **把 s 个物品, 打包成 1, 2 , 4 , 8 , … , 这些组, 然后变成01背包问题**
 
-```C++
+```cpp
 int f[N]; // f[j] 背包j容量的最优解
 int n, m, vv[N], ww[N], ss[N] , cnt = 1;
 cin >> n >> m;
@@ -1938,8 +1932,8 @@ TODO 代码
 
 上述问题的组合, 在分类跟新下一个物品 (分类讨论即可)
 
-```C++
-cin >> n >> m;
+```cpp
+ cin >> n >> m;
  vector<good> goods;
  goods.push_back({INF, INF, INF});
  for (int i = 1; i <= n; i++){
@@ -1972,7 +1966,7 @@ cin >> n >> m;
 
 > N `组` 物品, 容量 m 的背包,  第i组第j件物品, 体积为v[i][j] , 价值为w[i][j] , `每组只能拿一个物品`  求 能够拿取的最大价值
 
-```C++
+```cpp
 int n, m;
 int g[N];               // 下标是组号, 内容是组的大小
 int vv[N][N], cc[N][N]; // 第一个标号是组, 第二个标号是对应组中第i个物品, 值是对应的v,w 
@@ -1987,8 +1981,8 @@ cout << f[m];
 
 > N `个` 物品, 体积 V , 最大负重W 的背包,  第i件物品, 体积为v[i] , 重量为w[i] 价值为c[j] ,  `每组只能拿一个物品`  求 能够拿取的最大价值
 
-```C++
-cin >> gn >> gv >> gw;
+```cpp
+    cin >> gn >> gv >> gw;
     for (int i = 1; i <= gn; i++){
         int v, w, c;
         cin >> v >> w >> c;
@@ -2007,8 +2001,8 @@ cin >> gn >> gv >> gw;
 
 ### 数字三角形
 
-```C++
-for (int i = 1; i <= n; i++)
+```cpp
+    for (int i = 1; i <= n; i++)
         for (int j = 1; j <= i; j++) cin >> a[i][j];
     for (int i = 0; i <= n; i++)
         for (int j = 0; j <= i + 1; j++) f[i][j] = -INF; // 因为值可以取负的, 这里要格外注意
@@ -2030,8 +2024,8 @@ for (int i = 1; i <= n; i++)
 
 表示:  f[i] = max length(以 a[i] 结尾的最长上升子序列) 转移:    双指针, j <  i **a[j] < a[i] 时 , f[i] = max(f[i] , f[j] + 1)**
 
-```C++
-for (int i = 2; i <= n; i++){   
+```cpp
+    for (int i = 2; i <= n; i++){   
         f[i] = 1;// 这个可能更新不到, 但是最小是1
         for (int j = 1; j < i; j++)
             if (a[j] < a[i])
@@ -2049,7 +2043,7 @@ for (int i = 2; i <= n; i++){
 
 这里的【替换】就蕴含了一个贪心的思想，对于同样长度的子串，我当然希望它的末端越小越好，这样以后我也有更多机会拓展。
 
-```C++
+```cpp
 int n; cin >> n;
 vector<int>arr(n);
 for (int i = 0; i < n; ++i)cin >> arr[i];
@@ -2072,8 +2066,8 @@ cout << stk.size() << endl;
 
 ![image.png](https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911161552253.png)
 
-```C++
-for(int i  = 1 ;i<=n;i++)
+```cpp
+    for(int i  = 1 ;i<=n;i++)
         for(int j = 1 ;j<=m;j++)
         {
             f[i][j] = max(f[i-1][j] , f[i][j-1]);
@@ -2086,7 +2080,7 @@ for(int i  = 1 ;i<=n;i++)
 
 属性 : f[i][j] 表示 a[1~ i ] 到 b[1~ j] 的最小操作数 转移 : 对最后一位做修改 1 . 删除操作: 删掉 x 之后匹配, 在此之前a[1~**i - 1**]和b[1~ **j**   ] 匹配  2 . 增加操作: 增加 x 之后匹配, 在此之前a[1~**i**     ]和b[1~ **j-1**] 匹配 3 . 修改操作: 修改 x 之后匹配, 在此之前a[1~**i - 1**]和b[1~ **j-1**] 匹配
 
-```C++
+```cpp
 void match(const char *A, const char *B){
     int n = strlen(A + 1) , m = strlen(B + 1); // 0 当做哨兵使用  
     for (int i = 0; i <= n; i++)    f[i][0] = i;
@@ -2109,8 +2103,8 @@ void match(const char *A, const char *B){
 
 属性 : f[i][j] 表示合并 i ~ j 区间的最小代价 转移 :  1 . f[l][r] = f[l][m] +f[m+1][r] + a[l]+ … + a[r];  (这里要用到**前缀和**) 2 . 增加操作: 增加 x 之后匹配, 在此之前a[1~**i**     ]和 b[1~ **j-1** ] 匹配 3 . 修改操作: 修改 x 之后匹配, 在此之前a[1~**i - 1**]和 b[1~ **j-1** ] 匹配
 
-```C++
-for (int len = 2; len <= n; len++)
+```cpp
+    for (int len = 2; len <= n; len++)
         for (int l = 1; l + len - 1 <= n; l++){
             int r = l + len - 1; f[l][r] = INF; 
             for (int k = l; k <= r; k++)
@@ -2129,8 +2123,8 @@ for (int len = 2; len <= n; len++)
 
 **思路1 [完全背包]: 把1,2,3,..n 看做n种物品(数量无限) , 问体积为n的总方案数** 属性 : f[i][j] 表示前 **i** 个整数(1,2,…,i)恰好拼成  **j**  的方案数 转移 :  f[i][j]   = f[i - 1][j] + f[i - 1][j - i] + f[i - 1][j - 2 * i] + …; f[i][j-i] = f[i-1][j-1]+ f[i-1][j-2 * i] + … ;  `把集合选0个i，1个i，2个i，…全部加起来` 故 : f[i][j] = f[i][j-i] + f[i-1][j] ; 这里使用完全背包滚动数组即可
 
-```C++
-int n ; cin >> n;
+```cpp
+    int n ; cin >> n;
     f[0] = 1;
     for (int i = 1;i<=n;i++) 
         for(int j = i ;j<=n;j++)
@@ -2140,8 +2134,8 @@ int n ; cin >> n;
 
 **思路2 总和为i , 用 j 个数表示的方案数** 属性: f[i][j] 表示 总和为 i 用 j个数表示 转移: f[i][j]  = 方案中最小值为1和方案中最小值大于1 f[i][j]  = f[i-1][j-1]            + f[i-j][j] (每个值都 -1 , 一共减去j , 方案数不变)
 
-```C++
-int n;cin >> n;
+```cpp
+    int n;cin >> n;
     f[0][0] = 1;
     for (int i = 1; i <= n; i++)
         for (int j = 1; j <= i; j++)
@@ -2158,7 +2152,7 @@ int n;cin >> n;
 
 可以不用讨论那么多细枝末节，只需要知道，当i为0时其左边整数不能为0，就够了。
 
-```C++
+```cpp
 # include <iostream>
 # include <cmath>
 using namespace std;
@@ -2207,7 +2201,7 @@ int main(){
 
 ![image.png](https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911161552574.png)
 
-```C++
+```cpp
 void initOdds(){
     for (int i = 0; i < 1 << n; i++){
         odd1[i] = true;
@@ -2238,7 +2232,7 @@ void initOdds(){
 
 属性: f[state][j] 表示state 点被用过 , 目前停留在j上面 , state 用**位**表示状态 转移: f[state][j] = f[state_k][k] + wei[k][j]  `state_k 表示去除j之后的集合,state_k 包含k`
 
-```C++
+```cpp
 cin >> n;
 for (int i = 0; i < n; i++)
     for (int j = 0; j < n; j++)
@@ -2254,7 +2248,7 @@ for (int state = 0; state < (1 << n); state++) // state
               // state_k 包含k 不包含j state_k = i - (1<<j) 而且 ,state_k >> k & 1
                 if (state_k >> k & 1)
                     f[state][id] = min(f[state_k][k]+ g[k][id] , f[state][id]); 
-            }cout << f[(1<< n) - 1][n-1]; //2 ^ n - 1 全为1,表示所有点都在state中
+            }cout << f[(1<< n) - 1][n-1]; //2 ^ n - 1 全为1,表示所有点都在state中 
 ```
 
 ## 树形dp
@@ -2263,7 +2257,7 @@ for (int state = 0; state < (1 << n); state++) // state
 
 属性 : f[u][0] 表示选择u为根结点的子树 , 不包括(u)结点           f[u][1] 表示  选择u为根结点的子树 ,    包括(u)结点 转移 :  dfs 遍历 , 选择u的时候,  那么 f[u][1] += 所有子节点f[s][0]                      不选择u的时候,   那么 f[u][0] += max(所有子节点f[s][0]  , 所有子节点f[s][1])
 
-```C++
+```cpp
 void dfs(int u){
     f[u][1] = happy[u];
     for (int i = h[u]; ~i; i = ne[i]){
@@ -2273,7 +2267,7 @@ void dfs(int u){
         f[u][1] += f[j][0];
     }
 }//找root 开一个数组,找谁没有father就行,或者说输入的时候记录一下谁有father
-ans = max(f[root][1] , f[root][0]);
+ans = max(f[root][1] , f[root][0]); 
 ```
 
 ## 记忆化搜索
@@ -2282,7 +2276,7 @@ ans = max(f[root][1] , f[root][0]);
 
 递归版
 
-```C++
+```cpp
 int fib(int n ){
   if (n < 3 )
       return 1;
@@ -2291,7 +2285,7 @@ int fib(int n ){
 
 记忆化数组版
 
-```C++
+```cpp
 int a[N];
 int fib(int n){
   if (a[n]) return a[n] ; // 有结果无需再次递归
@@ -2304,7 +2298,7 @@ int fib(int n){
 
 属性 f[i][j] 表示从 i ,  j 出发, 最长的距离 转移 :  f[i +dx][j+dy] 四个方向 比当前矮 f[i][j] = max ( f[i + dx][j + dy] + 1  , f[i][j] );
 
-```C++
+```cpp
 int dp(int x, int y){
     int &v = f[x][y];
     if (~v) return v;
@@ -2326,7 +2320,7 @@ int dp(int x, int y){
 
 1. 运算符重载
 
-```C++
+```cpp
 typedef struct Coord{ // pair 也是默认这种排序
   int l , r ;
   bool operator < (const Coord & other ) const{
@@ -2336,7 +2330,7 @@ typedef struct Coord{ // pair 也是默认这种排序
 
 1. 函数指针
 
-```C++
+```cpp
 typedef struct Coord{
   int l ,r ;
 }Coord;
@@ -2351,7 +2345,7 @@ sort(coords.begin() , coords.end() , cmp);
 
 匿名函数相当于 return 一个函数指针，功能同2 [&] , [*] , [ ] 的区别请自行搜索
 
-```C++
+```cpp
 std::sort(begin, end, [](const Coord& a, const Coord& b) {
     // 自定义比较逻辑
     return a . l < b . l; // 例如：按升序排序
@@ -2374,7 +2368,7 @@ int main(){
 
 ![image.png](https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911161552639.png)
 
-```C++
+```cpp
 #include<bits/stdc++.h>
 using namespace std;
 const int N =1e5+10;
@@ -2417,7 +2411,7 @@ int main(){
 
 ![image.png](https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911161552707.png)
 
-```C++
+```cpp
 #include<bits/stdc++.h>
 using namespace std;
 const int N =1e5+10;
@@ -2460,7 +2454,7 @@ int main(){
 
 ![image.png](https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911161552773.png)
 
-```C++
+```cpp
 #include <bits/stdc++.h>
 using namespace std;
 const int N = 1e5 + 10;
@@ -2509,7 +2503,7 @@ int main(){
 
 用哈夫曼贪心和动态规划都可以
 
-```C++
+```cpp
 #include <bits/stdc++.h>
 using namespace std;
 const int N = 1e5 + 10;
@@ -2541,7 +2535,7 @@ int main(){
 
 操作系统中进程的 短作业优先算法
 
-```C++
+```cpp
 #include<bits/stdc++.h>
 using namespace std;
 const int N =1e5+10;
@@ -2573,4 +2567,3 @@ int main(){
 ### 耍杂技的牛 （国王游戏，合并数字等都是）
 
 写表达式，进行运算符重载，代码意义不大，都是尝试交换，然后取最优
-
