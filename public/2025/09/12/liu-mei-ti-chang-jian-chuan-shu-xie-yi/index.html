@@ -5,9 +5,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="流媒体常见传输协议, HiBlog">
-    <meta name="description" content="流媒体传输协议: RTP, RTCP, RTSP, SRTP, SRTCP原文链接: https://blog.csdn.net/feeltouch/article/details/82957377
+    <meta name="description" content="流媒体传输协议: RTP,
+RTCP, RTSP, SRTP, SRTCP
+原文链接:
+https://blog.csdn.net/feeltouch/article/details/82957377
 
-总结:   RTSP发起/终结流媒体会">
+
+image-20250911202">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -386,14 +390,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.8k
+                    5.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    21 分
+                    20 分
                 </div>
                 
 
@@ -416,61 +420,125 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="流媒体传输协议-RTP-RTCP-RTSP-SRTP-SRTCP"><a href="#流媒体传输协议-RTP-RTCP-RTSP-SRTP-SRTCP" class="headerlink" title="流媒体传输协议: RTP, RTCP, RTSP, SRTP, SRTCP"></a>流媒体传输协议: RTP, RTCP, RTSP, SRTP, SRTCP</h2><p>原文链接: <a target="_blank" rel="noopener" href="https://blog.csdn.net/feeltouch/article/details/82957377">https://blog.csdn.net/feeltouch/article/details/82957377</a></p>
-<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911202430413.png" alt="image-20250911202430413"></p>
-<p><strong>总结:</strong>   RTSP发起/终结流媒体会话，RTP负责传输流媒体数据，RTCP对RTP进行控制以实现同步等功能。<br><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911213208723.png" alt="image-20250911213208723" style="zoom: 67%;"></p>
-<h3 id="一、RTP（实时传输协议，位于传输层）"><a href="#一、RTP（实时传输协议，位于传输层）" class="headerlink" title="一、RTP（实时传输协议，位于传输层）"></a>一、RTP（实时传输协议，位于传输层）</h3><h4 id="（一）简介和工作机制"><a href="#（一）简介和工作机制" class="headerlink" title="（一）简介和工作机制"></a>（一）简介和工作机制</h4><p>1.<strong>工作场景</strong>：适用于一对一或一对多的传输情况，核心目的是提供时间信息以实现流同步。</p>
-<p>2.<strong>传输基础</strong>：通常基于 UDP 工作，也可运行于 TCP 或者 ATM 等其他协议之上。由于多媒体实时传输存在数据到达时间不可预料的问题，而流媒体传输又要求数据适时到达，所以 RTP 应运而生。</p>
+                <h2 id="流媒体传输协议-rtp-rtcp-rtsp-srtp-srtcp">流媒体传输协议: RTP,
+RTCP, RTSP, SRTP, SRTCP</h2>
+<p>原文链接:
+https://blog.csdn.net/feeltouch/article/details/82957377</p>
+<figure>
+<img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911202430413.png" alt="image-20250911202430413">
+<figcaption aria-hidden="true">image-20250911202430413</figcaption>
+</figure>
+<p><strong>总结:</strong>
+RTSP发起/终结流媒体会话，RTP负责传输流媒体数据，RTCP对RTP进行控制以实现同步等功能。
+<img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911213208723.png" alt="image-20250911213208723" style="zoom: 67%;"></p>
+<h3 id="一rtp实时传输协议位于传输层">一、RTP（实时传输协议，位于传输层）</h3>
+<h4 id="一简介和工作机制">（一）简介和工作机制</h4>
+<p>1.<strong>工作场景</strong>：适用于一对一或一对多的传输情况，核心目的是提供时间信息以实现流同步。</p>
+<p>2.<strong>传输基础</strong>：通常基于 UDP 工作，也可运行于 TCP 或者
+ATM
+等其他协议之上。由于多媒体实时传输存在数据到达时间不可预料的问题，而流媒体传输又要求数据适时到达，所以
+RTP 应运而生。</p>
 <p>3.<strong>提供信息</strong>：提供时间标签、序列号以及其他控制位，这些信息有助于接收端正确处理和播放媒体数据。</p>
-<h4 id="（二）报文结构及各字段含义"><a href="#（二）报文结构及各字段含义" class="headerlink" title="（二）报文结构及各字段含义"></a>（二）报文结构及各字段含义</h4><p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911203331331.png" alt="image-20250911203331331"></p>
+<h4 id="二报文结构及各字段含义">（二）报文结构及各字段含义</h4>
+<figure>
+<img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911203331331.png" alt="image-20250911203331331">
+<figcaption aria-hidden="true">image-20250911203331331</figcaption>
+</figure>
 <ul>
 <li>1.<strong>版本（V）</strong>：2 位，用于标识 RTP 协议的版本。</li>
-<li>2.<strong>填充标识（P）</strong>：1 位，用于指示是否对数据包进行填充。</li>
+<li>2.<strong>填充标识（P）</strong>：1
+位，用于指示是否对数据包进行填充。</li>
 <li>3.<strong>扩展（X）</strong>：1 位，用于标识是否有扩展头。</li>
-<li>4.<strong>CSRC 计数（CC）</strong>：4 位，用来统计 CSRC（贡献源标识符）的个数。</li>
+<li>4.<strong>CSRC 计数（CC）</strong>：4 位，用来统计
+CSRC（贡献源标识符）的个数。</li>
 <li><blockquote>
-<p>∙<strong>应用场景</strong>：在多方会议（多个参会者音频混合）、音频混音（多个麦克风输入混音）、视频切换（多个摄像头画面切换或拼接）等场景中，多个音视频源会被混合或转发，接收端需要借助 CSRC 知道当前数据包来自哪些原始源，以实现正确同步音视频、实现回声消除（AEC）以及音频混音处理等功能。</p>
-</blockquote>
-</li>
-<li>5.<strong>标记（M）</strong>：1 位，用于标记重要包，例如视频中的关键帧等。</li>
-<li>6.<strong>载荷类型（PT）</strong>：7 位，用来标识编码器类型，接收端依据此信息找出对应的解码器，从而正确解码媒体数据。</li>
-<li>7.<strong>序列号</strong>：16 位，类似于 TCP 的序列号，用于标识数据包的顺序。但仅靠序列号不能确保数据按正确顺序播放，因为数据中间可能存在缺失，还需要结合时间戳来确定播放时间。</li>
+<p>∙<strong>应用场景</strong>：在多方会议（多个参会者音频混合）、音频混音（多个麦克风输入混音）、视频切换（多个摄像头画面切换或拼接）等场景中，多个音视频源会被混合或转发，接收端需要借助
+CSRC
+知道当前数据包来自哪些原始源，以实现正确同步音视频、实现回声消除（AEC）以及音频混音处理等功能。</p>
+</blockquote></li>
+<li>5.<strong>标记（M）</strong>：1
+位，用于标记重要包，例如视频中的关键帧等。</li>
+<li>6.<strong>载荷类型（PT）</strong>：7
+位，用来标识编码器类型，接收端依据此信息找出对应的解码器，从而正确解码媒体数据。</li>
+<li>7.<strong>序列号</strong>：16 位，类似于 TCP
+的序列号，用于标识数据包的顺序。但仅靠序列号不能确保数据按正确顺序播放，因为数据中间可能存在缺失，还需要结合时间戳来确定播放时间。</li>
 <li>8.<strong>时间戳</strong>：用于确定数据在正确的时间播放，与序列号配合，保证媒体数据的准确播放顺序。</li>
-<li>9.<strong>SSRC（同步源标识符）</strong>：标识同步源，在 RTP 会话（如实时会议、直播）中，每个参与媒体传输的设备（如麦克风、摄像机、混音器）或软件进程都会被分配一个唯一的 SSRC 值（通常随机生成）。接收端通过 SSRC 快速识别数据包的来源，将来自不同源的媒体流（如音频、视频）正确分组，例如在多人视频会议中，可据此区分不同参会者的视频流和音频流。∙<strong>与 CSRC 的区别</strong>：SSRC 标识设备（如单个摄像头、麦克风等），而 CSRC 标识设备里的多个子输入（如多个麦克风输入、多个摄像头画面等）。</li>
+<li>9.<strong>SSRC（同步源标识符）</strong>：标识同步源，在 RTP
+会话（如实时会议、直播）中，每个参与媒体传输的设备（如麦克风、摄像机、混音器）或软件进程都会被分配一个唯一的
+SSRC 值（通常随机生成）。接收端通过 SSRC
+快速识别数据包的来源，将来自不同源的媒体流（如音频、视频）正确分组，例如在多人视频会议中，可据此区分不同参会者的视频流和音频流。∙<strong>与
+CSRC 的区别</strong>：SSRC 标识设备（如单个摄像头、麦克风等），而 CSRC
+标识设备里的多个子输入（如多个麦克风输入、多个摄像头画面等）。</li>
 </ul>
-<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911205247541.png" alt="image-20250911205247541"></p>
-<h4 id="（三）相关补充说明"><a href="#（三）相关补充说明" class="headerlink" title="（三）相关补充说明"></a>（三）相关补充说明</h4><p>RTP 通常用于单一路音频/视频流（如一个人的麦克风或摄像头），但在多方会议、音频混音、视频切换等场景下，多个音视频源会被混合或转发，此时接收端需要借助 CSRC 来处理相关问题，以确保媒体数据的正确播放和处理。</p>
-<h3 id="二、RTCP（实时传输控制协议）"><a href="#二、RTCP（实时传输控制协议）" class="headerlink" title="二、RTCP（实时传输控制协议）"></a>二、RTCP（实时传输控制协议）</h3><h4 id="（一）简介及工作机制"><a href="#（一）简介及工作机制" class="headerlink" title="（一）简介及工作机制"></a>（一）简介及工作机制</h4><p>1.<strong>与 RTP 的关系</strong>：RTCP 并非 RTP 的严格意义上的“控制器”，但它是 RTP 的核心配套协议。RTP 负责实时媒体数据的传输（如音频、视频帧），提供数据标识（序列号、时间戳、SSRC）、封装和实时性保障（如低延迟传输），但不保证可靠传输（丢包、乱序需上层处理）。</p>
-<p>2.<strong>主要功能</strong>：RTCP 不传输媒体数据，而是通过周期性控制包实现对 RTP 传输的监控和管理，是 RTP 的“辅助工具”。其主要功能包括监听服务质量（如接收端通过 RTCP 向发送端反馈丢包率、网络抖动等指标，发送端据此调整传输策略）、交换会话用户信息（如在多播或多方会议场景中，跟踪参与会话的节点状态）等，以确保 RTP 传输的稳定性和可靠性。</p>
-<h4 id="（二）与-RTP-的协同工作"><a href="#（二）与-RTP-的协同工作" class="headerlink" title="（二）与 RTP 的协同工作"></a>（二）与 RTP 的协同工作</h4><p>RTP 和 RTCP 协同工作，共同构成实时多媒体传输的基础框架。RTP 负责媒体数据的传输，而 RTCP 负责对 RTP 传输进行监控和管理，两者相互配合，保障了实时音视频通话、直播、视频会议等场景的流畅运行。</p>
-<h3 id="RTSP-应用层"><a href="#RTSP-应用层" class="headerlink" title="RTSP (应用层)"></a>RTSP (应用层)</h3><h4 id="工作机理及简介"><a href="#工作机理及简介" class="headerlink" title="工作机理及简介"></a>工作机理及简介</h4><p>旨在为IP网络上的实时音视频流提供<strong>可控传输</strong>服务。它通过标准的请求-响应模型，实现对流媒体的播放、暂停、快进、录制等操作的控制，是视频监控、视频会议、在线直播等场景的核心控制协议之一。</p>
-<h4 id="RTSP的核心作用"><a href="#RTSP的核心作用" class="headerlink" title="RTSP的核心作用"></a><strong>RTSP的核心作用</strong></h4><p>RTSP的本质是“<strong>流媒体服务器的远程控制接口</strong>”，其核心功能包括：</p>
+<figure>
+<img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911205247541.png" alt="image-20250911205247541">
+<figcaption aria-hidden="true">image-20250911205247541</figcaption>
+</figure>
+<h4 id="三相关补充说明">（三）相关补充说明</h4>
+<p>RTP
+通常用于单一路音频/视频流（如一个人的麦克风或摄像头），但在多方会议、音频混音、视频切换等场景下，多个音视频源会被混合或转发，此时接收端需要借助
+CSRC 来处理相关问题，以确保媒体数据的正确播放和处理。</p>
+<h3 id="二rtcp实时传输控制协议">二、RTCP（实时传输控制协议）</h3>
+<h4 id="一简介及工作机制">（一）简介及工作机制</h4>
+<p>1.<strong>与 RTP 的关系</strong>：RTCP 并非 RTP
+的严格意义上的“控制器”，但它是 RTP 的核心配套协议。RTP
+负责实时媒体数据的传输（如音频、视频帧），提供数据标识（序列号、时间戳、SSRC）、封装和实时性保障（如低延迟传输），但不保证可靠传输（丢包、乱序需上层处理）。</p>
+<p>2.<strong>主要功能</strong>：RTCP
+不传输媒体数据，而是通过周期性控制包实现对 RTP 传输的监控和管理，是 RTP
+的“辅助工具”。其主要功能包括监听服务质量（如接收端通过 RTCP
+向发送端反馈丢包率、网络抖动等指标，发送端据此调整传输策略）、交换会话用户信息（如在多播或多方会议场景中，跟踪参与会话的节点状态）等，以确保
+RTP 传输的稳定性和可靠性。</p>
+<h4 id="二与-rtp-的协同工作">（二）与 RTP 的协同工作</h4>
+<p>RTP 和 RTCP 协同工作，共同构成实时多媒体传输的基础框架。RTP
+负责媒体数据的传输，而 RTCP 负责对 RTP
+传输进行监控和管理，两者相互配合，保障了实时音视频通话、直播、视频会议等场景的流畅运行。</p>
+<h3 id="rtsp-应用层">RTSP (应用层)</h3>
+<h4 id="工作机理及简介">工作机理及简介</h4>
+<p>旨在为IP网络上的实时音视频流提供<strong>可控传输</strong>服务。它通过标准的请求-响应模型，实现对流媒体的播放、暂停、快进、录制等操作的控制，是视频监控、视频会议、在线直播等场景的核心控制协议之一。</p>
+<h4 id="rtsp的核心作用"><strong>RTSP的核心作用</strong></h4>
+<p>RTSP的本质是“<strong>流媒体服务器的远程控制接口</strong>”，其核心功能包括：</p>
 <ul>
 <li>∙<strong>会话管理</strong>：建立、维护和终止客户端与服务器之间的流媒体会话（如通过<code>SETUP</code>初始化传输、<code>TEARDOWN</code>结束会话）；</li>
 <li>∙<strong>播放控制</strong>：支持播放（<code>PLAY</code>）、暂停（<code>PAUSE</code>）、停止（<code>TEARDOWN</code>）、快进/快退（<code>SEEK</code>）等操作，允许用户按需调整播放进度；</li>
 <li>∙<strong>多流同步</strong>：通过<code>SDP</code>（会话描述协议）协调音频、视频等多路流的传输，确保音画同步；</li>
 <li>∙<strong>传输模式选择</strong>：支持单播（Unicast，一对一传输）、组播（Multicast，一对多传输）等模式，适应不同网络环境和用户规模。</li>
 </ul>
-<h4 id="RTSP的工作原理概述"><a href="#RTSP的工作原理概述" class="headerlink" title="RTSP的工作原理概述"></a><strong>RTSP的工作原理概述</strong></h4><p>RTSP的工作流程通常分为以下步骤（以“客户端拉取流媒体”为例）：</p>
+<h4 id="rtsp的工作原理概述"><strong>RTSP的工作原理概述</strong></h4>
+<p>RTSP的工作流程通常分为以下步骤（以“客户端拉取流媒体”为例）：</p>
 <p>1.<strong>发现资源</strong>：客户端通过HTTP或其他方式获取流媒体的<code>SDP</code>描述文件（包含媒体格式、传输地址等信息）；</p>
 <p>2.<strong>建立连接</strong>：客户端向服务器发送<code>DESCRIBE</code>请求，获取流媒体的详细信息（如编码格式、分辨率）；</p>
 <p>3.<strong>初始化传输</strong>：客户端发送<code>SETUP</code>请求，指定传输模式（如UDP/RTP）和端口，服务器返回<code>Session ID</code>（会话标识）；</p>
 <p>4.<strong>启动传输</strong>：客户端发送<code>PLAY</code>请求，服务器开始通过RTP协议发送流媒体数据，同时通过RTCP协议反馈传输质量（如丢包率、延迟）；</p>
 <p>5.<strong>控制与终止</strong>：客户端可通过<code>PAUSE</code>暂停、<code>SEEK</code>跳转，最终通过<code>TEARDOWN</code>终止会话，释放资源。</p>
-<h4 id="RTSP报文结构"><a href="#RTSP报文结构" class="headerlink" title="RTSP报文结构"></a>RTSP报文结构</h4><p>RTSP（Real Time Streaming Protocol，实时流协议）报文分为请求报文和响应报文两类：</p>
+<h4 id="rtsp报文结构">RTSP报文结构</h4>
+<p>RTSP（Real Time Streaming
+Protocol，实时流协议）报文分为请求报文和响应报文两类：</p>
 <ul>
-<li>∙<strong>请求报文</strong>：从客户端向服务器发送，用于向服务器提出各种请求操作。</li>
-<li>∙<strong>响应报文</strong>：从服务器到客户端，作为对请求报文的回应。</li>
-<li><p>∙<strong>报文组成</strong>：由于RTSP是面向正文的（text - oriented），报文中每个字段都是ASCII码串，长度不确定。RTSP报文由开始行、首部行和实体主体三部分构成。</p>
+<li><p>∙<strong>请求报文</strong>：从客户端向服务器发送，用于向服务器提出各种请求操作。</p></li>
+<li><p>∙<strong>响应报文</strong>：从服务器到客户端，作为对请求报文的回应。</p></li>
+<li><p>∙<strong>报文组成</strong>：由于RTSP是面向正文的（text -
+oriented），报文中每个字段都是ASCII码串，长度不确定。RTSP报文由开始行、首部行和实体主体三部分构成。</p>
 <ul>
-<li>∙<strong>请求报文</strong>：开始行是请求行，其结构可参考相关示意图</li>
-<li>∙<strong>响应报文</strong>：开始行是状态行，其结构也可参考相关示意图</li>
+<li><p>∙<strong>请求报文</strong>：开始行是请求行，其结构可参考相关示意图</p></li>
+<li><p>∙<strong>响应报文</strong>：开始行是状态行，其结构也可参考相关示意图</p>
+<table>
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr>
+<th><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911212231324.png" alt="image-20250911212231324" style="zoom:40%;"></th>
+<th><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911212238443.png" alt="image-20250911212238443" style="zoom:40%;"></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<pre><code>| &lt;img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911212231324.png" alt="image-20250911212231324" style="zoom:40%;" /&gt; | &lt;img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911212238443.png" alt="image-20250911212238443" style="zoom:40%;" /&gt; |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-</code></pre><h3 id="RTSP请求报文方法"><a href="#RTSP请求报文方法" class="headerlink" title="RTSP请求报文方法"></a>RTSP请求报文方法</h3><p>RTSP请求报文包含多种方法，用于实现不同的功能：</p>
+<h3 id="rtsp请求报文方法">RTSP请求报文方法</h3>
+<p>RTSP请求报文包含多种方法，用于实现不同的功能：</p>
 <p>1.<strong>OPTIONS</strong>：用于获得服务器提供的可用方法，客户端通过此方法了解服务器支持的操作。</p>
 <p>2.<strong>DESCRIBE</strong>：客户端使用该方法向服务器请求得到媒体初始化描述信息，服务器回应的主要是SDP（会话描述协议）信息。</p>
 <p>3.<strong>SETUP</strong>：客户端提醒服务器建立会话，并确定传输模式，为后续的媒体传输做准备。</p>
@@ -480,75 +548,154 @@
 <p>7.<strong>PAUSE</strong>：临时停止流，但不释放服务器资源，方便后续继续播放。</p>
 <p>8.<strong>GET_PARAMETER</strong>：取得流控制参数，不过某些服务器可能不支持该方法。</p>
 <p>9.<strong>SET_PARAMETER</strong>：设置流控制参数，同样某些服务器可能不支持该方法。</p>
-<h4 id="RTSP交互过程"><a href="#RTSP交互过程" class="headerlink" title="RTSP交互过程"></a>RTSP交互过程</h4><p>用C表示RTSP客户端，S表示RTSP服务端，标准的RTSP交互流程如下：</p>
-<p>1.<strong>询问可用方法</strong>：∙C -&gt; S: OPTION request（客户端询问服务器有哪些方法可用）∙S -&gt; C: OPTION response（服务器回应信息中包括提供的所有可用方法）</p>
-<p>2.<strong>获取媒体初始化描述信息</strong>：∙C -&gt; S: DESCRIBE request（客户端要求得到服务器提供的媒体初始化描述信息）∙S -&gt; C: DESCRIBE response（服务器回应媒体初始化描述信息，主要是SDP）</p>
-<p>3.<strong>建立会话</strong>：∙C -&gt; S: SETUP request（客户端设置会话属性以及传输模式，提醒服务器建立会话）∙S -&gt; C: SETUP response（服务器建立会话，返回会话标识符及会话相关信息）</p>
-<p>4.<strong>播放媒体流</strong>：∙C -&gt; S: PLAY request（客户端请求播放）∙S -&gt; C: PLAY response（服务器回应请求信息）∙S -&gt; C: 发送流媒体数据（服务器开始向客户端发送流媒体数据）</p>
-<p>5.<strong>关闭会话</strong>：∙C -&gt; S: TEARDOWN request（客户端请求关闭会话）∙S -&gt; C: TEARDOWN response（服务器回应请求）</p>
+<h4 id="rtsp交互过程">RTSP交互过程</h4>
+<p>用C表示RTSP客户端，S表示RTSP服务端，标准的RTSP交互流程如下：</p>
+<p>1.<strong>询问可用方法</strong>：∙C -&gt; S: OPTION
+request（客户端询问服务器有哪些方法可用）∙S -&gt; C: OPTION
+response（服务器回应信息中包括提供的所有可用方法）</p>
+<p>2.<strong>获取媒体初始化描述信息</strong>：∙C -&gt; S: DESCRIBE
+request（客户端要求得到服务器提供的媒体初始化描述信息）∙S -&gt; C:
+DESCRIBE response（服务器回应媒体初始化描述信息，主要是SDP）</p>
+<p>3.<strong>建立会话</strong>：∙C -&gt; S: SETUP
+request（客户端设置会话属性以及传输模式，提醒服务器建立会话）∙S -&gt; C:
+SETUP response（服务器建立会话，返回会话标识符及会话相关信息）</p>
+<p>4.<strong>播放媒体流</strong>：∙C -&gt; S: PLAY
+request（客户端请求播放）∙S -&gt; C: PLAY
+response（服务器回应请求信息）∙S -&gt; C:
+发送流媒体数据（服务器开始向客户端发送流媒体数据）</p>
+<p>5.<strong>关闭会话</strong>：∙C -&gt; S: TEARDOWN
+request（客户端请求关闭会话）∙S -&gt; C: TEARDOWN
+response（服务器回应请求）</p>
 <p>其中，第3步（建立会话）和第4步（播放媒体流）是必需的步骤。</p>
-<h4 id="RTSP与HTTP的比较"><a href="#RTSP与HTTP的比较" class="headerlink" title="RTSP与HTTP的比较"></a>RTSP与HTTP的比较</h4><ul>
+<h4 id="rtsp与http的比较">RTSP与HTTP的比较</h4>
+<ul>
 <li>∙<strong>功能相似性</strong>：HTTP和RTSP在功能上有相似重叠的地方，RTSP采用了HTTP/1.1大多数的状态码，并且增加了RTSP特定的状态码。</li>
 <li>∙<strong>请求方法对比</strong>：∙<strong>HTTP协议</strong>：定义了8种可能的请求方法，包括GET（检索URI中标识资源的一个简单请求）、HEAD（与GET方法相同，服务器只返回状态行和头标，并不返回请求文档）、POST（服务器接受被写入客户端输出流中的数据的请求）、PUT（服务器保存请求数据作为指定URI新内容的请求）、DELETE（服务器删除URI中命名的资源的请求）、OPTIONS（关于服务器支持的请求方法信息的请求）、TRACE（Web服务器反馈Http请求和其头标的请求）、CONNECT（已文档化但当前未实现的一个方法，预留做隧道处理）。∙<strong>RTSP协议</strong>：有自己特定的请求方法，如上述的OPTIONS、DESCRIBE等多种方法。</li>
 <li>∙<strong>协议规范</strong>：RTSP和HTTP的协议规范分别在RFC2326和RFC2616有详细描述。</li>
-<li>∙<strong>MMS协议</strong>：MMS（Microsoft Media Server）协议为微软的私有协议，未公开协议，采用私有自定义控制结构体来发送命令，不像HTTP和RTSP协议采用发送文本命令控制。</li>
+<li>∙<strong>MMS协议</strong>：MMS（Microsoft Media
+Server）协议为微软的私有协议，未公开协议，采用私有自定义控制结构体来发送命令，不像HTTP和RTSP协议采用发送文本命令控制。</li>
 </ul>
-<h4 id="RTP、RTSP与RTCP的区别总结"><a href="#RTP、RTSP与RTCP的区别总结" class="headerlink" title="RTP、RTSP与RTCP的区别总结"></a>RTP、RTSP与RTCP的区别总结</h4><p>用一句话简单概括：RTSP发起/终结流媒体会话，RTP负责传输流媒体数据，RTCP对RTP进行控制以实现同步等功能。</p>
-<h2 id="流媒体传输协议-RTP-RTCP-RTSP-SRTP-SRTCP-1"><a href="#流媒体传输协议-RTP-RTCP-RTSP-SRTP-SRTCP-1" class="headerlink" title="流媒体传输协议: RTP, RTCP, RTSP, SRTP, SRTCP"></a>流媒体传输协议: RTP, RTCP, RTSP, SRTP, SRTCP</h2><p>原文链接: <a target="_blank" rel="noopener" href="https://blog.csdn.net/feeltouch/article/details/82957377">https://blog.csdn.net/feeltouch/article/details/82957377</a></p>
-<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911202430413.png" alt="image-20250911202430413"></p>
-<p><strong>总结:</strong>   RTSP发起/终结流媒体会话，RTP负责传输流媒体数据，RTCP对RTP进行控制以实现同步等功能。<br><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911213208723.png" alt="image-20250911213208723" style="zoom: 67%;"></p>
-<h3 id="一、RTP（实时传输协议，位于传输层）-1"><a href="#一、RTP（实时传输协议，位于传输层）-1" class="headerlink" title="一、RTP（实时传输协议，位于传输层）"></a>一、RTP（实时传输协议，位于传输层）</h3><h4 id="（一）简介和工作机制-1"><a href="#（一）简介和工作机制-1" class="headerlink" title="（一）简介和工作机制"></a>（一）简介和工作机制</h4><p>1.<strong>工作场景</strong>：适用于一对一或一对多的传输情况，核心目的是提供时间信息以实现流同步。</p>
-<p>2.<strong>传输基础</strong>：通常基于 UDP 工作，也可运行于 TCP 或者 ATM 等其他协议之上。由于多媒体实时传输存在数据到达时间不可预料的问题，而流媒体传输又要求数据适时到达，所以 RTP 应运而生。</p>
+<h4 id="rtprtsp与rtcp的区别总结">RTP、RTSP与RTCP的区别总结</h4>
+<p>用一句话简单概括：RTSP发起/终结流媒体会话，RTP负责传输流媒体数据，RTCP对RTP进行控制以实现同步等功能。</p>
+<h2 id="流媒体传输协议-rtp-rtcp-rtsp-srtp-srtcp-1">流媒体传输协议: RTP,
+RTCP, RTSP, SRTP, SRTCP</h2>
+<p>原文链接:
+https://blog.csdn.net/feeltouch/article/details/82957377</p>
+<figure>
+<img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911202430413.png" alt="image-20250911202430413">
+<figcaption aria-hidden="true">image-20250911202430413</figcaption>
+</figure>
+<p><strong>总结:</strong>
+RTSP发起/终结流媒体会话，RTP负责传输流媒体数据，RTCP对RTP进行控制以实现同步等功能。
+<img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911213208723.png" alt="image-20250911213208723" style="zoom: 67%;"></p>
+<h3 id="一rtp实时传输协议位于传输层-1">一、RTP（实时传输协议，位于传输层）</h3>
+<h4 id="一简介和工作机制-1">（一）简介和工作机制</h4>
+<p>1.<strong>工作场景</strong>：适用于一对一或一对多的传输情况，核心目的是提供时间信息以实现流同步。</p>
+<p>2.<strong>传输基础</strong>：通常基于 UDP 工作，也可运行于 TCP 或者
+ATM
+等其他协议之上。由于多媒体实时传输存在数据到达时间不可预料的问题，而流媒体传输又要求数据适时到达，所以
+RTP 应运而生。</p>
 <p>3.<strong>提供信息</strong>：提供时间标签、序列号以及其他控制位，这些信息有助于接收端正确处理和播放媒体数据。</p>
-<h4 id="（二）报文结构及各字段含义-1"><a href="#（二）报文结构及各字段含义-1" class="headerlink" title="（二）报文结构及各字段含义"></a>（二）报文结构及各字段含义</h4><p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911203331331.png" alt="image-20250911203331331"></p>
+<h4 id="二报文结构及各字段含义-1">（二）报文结构及各字段含义</h4>
+<figure>
+<img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911203331331.png" alt="image-20250911203331331">
+<figcaption aria-hidden="true">image-20250911203331331</figcaption>
+</figure>
 <ul>
 <li>1.<strong>版本（V）</strong>：2 位，用于标识 RTP 协议的版本。</li>
-<li>2.<strong>填充标识（P）</strong>：1 位，用于指示是否对数据包进行填充。</li>
+<li>2.<strong>填充标识（P）</strong>：1
+位，用于指示是否对数据包进行填充。</li>
 <li>3.<strong>扩展（X）</strong>：1 位，用于标识是否有扩展头。</li>
-<li>4.<strong>CSRC 计数（CC）</strong>：4 位，用来统计 CSRC（贡献源标识符）的个数。</li>
+<li>4.<strong>CSRC 计数（CC）</strong>：4 位，用来统计
+CSRC（贡献源标识符）的个数。</li>
 <li><blockquote>
-<p>∙<strong>应用场景</strong>：在多方会议（多个参会者音频混合）、音频混音（多个麦克风输入混音）、视频切换（多个摄像头画面切换或拼接）等场景中，多个音视频源会被混合或转发，接收端需要借助 CSRC 知道当前数据包来自哪些原始源，以实现正确同步音视频、实现回声消除（AEC）以及音频混音处理等功能。</p>
-</blockquote>
-</li>
-<li>5.<strong>标记（M）</strong>：1 位，用于标记重要包，例如视频中的关键帧等。</li>
-<li>6.<strong>载荷类型（PT）</strong>：7 位，用来标识编码器类型，接收端依据此信息找出对应的解码器，从而正确解码媒体数据。</li>
-<li>7.<strong>序列号</strong>：16 位，类似于 TCP 的序列号，用于标识数据包的顺序。但仅靠序列号不能确保数据按正确顺序播放，因为数据中间可能存在缺失，还需要结合时间戳来确定播放时间。</li>
+<p>∙<strong>应用场景</strong>：在多方会议（多个参会者音频混合）、音频混音（多个麦克风输入混音）、视频切换（多个摄像头画面切换或拼接）等场景中，多个音视频源会被混合或转发，接收端需要借助
+CSRC
+知道当前数据包来自哪些原始源，以实现正确同步音视频、实现回声消除（AEC）以及音频混音处理等功能。</p>
+</blockquote></li>
+<li>5.<strong>标记（M）</strong>：1
+位，用于标记重要包，例如视频中的关键帧等。</li>
+<li>6.<strong>载荷类型（PT）</strong>：7
+位，用来标识编码器类型，接收端依据此信息找出对应的解码器，从而正确解码媒体数据。</li>
+<li>7.<strong>序列号</strong>：16 位，类似于 TCP
+的序列号，用于标识数据包的顺序。但仅靠序列号不能确保数据按正确顺序播放，因为数据中间可能存在缺失，还需要结合时间戳来确定播放时间。</li>
 <li>8.<strong>时间戳</strong>：用于确定数据在正确的时间播放，与序列号配合，保证媒体数据的准确播放顺序。</li>
-<li>9.<strong>SSRC（同步源标识符）</strong>：标识同步源，在 RTP 会话（如实时会议、直播）中，每个参与媒体传输的设备（如麦克风、摄像机、混音器）或软件进程都会被分配一个唯一的 SSRC 值（通常随机生成）。接收端通过 SSRC 快速识别数据包的来源，将来自不同源的媒体流（如音频、视频）正确分组，例如在多人视频会议中，可据此区分不同参会者的视频流和音频流。∙<strong>与 CSRC 的区别</strong>：SSRC 标识设备（如单个摄像头、麦克风等），而 CSRC 标识设备里的多个子输入（如多个麦克风输入、多个摄像头画面等）。</li>
+<li>9.<strong>SSRC（同步源标识符）</strong>：标识同步源，在 RTP
+会话（如实时会议、直播）中，每个参与媒体传输的设备（如麦克风、摄像机、混音器）或软件进程都会被分配一个唯一的
+SSRC 值（通常随机生成）。接收端通过 SSRC
+快速识别数据包的来源，将来自不同源的媒体流（如音频、视频）正确分组，例如在多人视频会议中，可据此区分不同参会者的视频流和音频流。∙<strong>与
+CSRC 的区别</strong>：SSRC 标识设备（如单个摄像头、麦克风等），而 CSRC
+标识设备里的多个子输入（如多个麦克风输入、多个摄像头画面等）。</li>
 </ul>
-<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911205247541.png" alt="image-20250911205247541"></p>
-<h4 id="（三）相关补充说明-1"><a href="#（三）相关补充说明-1" class="headerlink" title="（三）相关补充说明"></a>（三）相关补充说明</h4><p>RTP 通常用于单一路音频/视频流（如一个人的麦克风或摄像头），但在多方会议、音频混音、视频切换等场景下，多个音视频源会被混合或转发，此时接收端需要借助 CSRC 来处理相关问题，以确保媒体数据的正确播放和处理。</p>
-<h3 id="二、RTCP（实时传输控制协议）-1"><a href="#二、RTCP（实时传输控制协议）-1" class="headerlink" title="二、RTCP（实时传输控制协议）"></a>二、RTCP（实时传输控制协议）</h3><h4 id="（一）简介及工作机制-1"><a href="#（一）简介及工作机制-1" class="headerlink" title="（一）简介及工作机制"></a>（一）简介及工作机制</h4><p>1.<strong>与 RTP 的关系</strong>：RTCP 并非 RTP 的严格意义上的“控制器”，但它是 RTP 的核心配套协议。RTP 负责实时媒体数据的传输（如音频、视频帧），提供数据标识（序列号、时间戳、SSRC）、封装和实时性保障（如低延迟传输），但不保证可靠传输（丢包、乱序需上层处理）。</p>
-<p>2.<strong>主要功能</strong>：RTCP 不传输媒体数据，而是通过周期性控制包实现对 RTP 传输的监控和管理，是 RTP 的“辅助工具”。其主要功能包括监听服务质量（如接收端通过 RTCP 向发送端反馈丢包率、网络抖动等指标，发送端据此调整传输策略）、交换会话用户信息（如在多播或多方会议场景中，跟踪参与会话的节点状态）等，以确保 RTP 传输的稳定性和可靠性。</p>
-<h4 id="（二）与-RTP-的协同工作-1"><a href="#（二）与-RTP-的协同工作-1" class="headerlink" title="（二）与 RTP 的协同工作"></a>（二）与 RTP 的协同工作</h4><p>RTP 和 RTCP 协同工作，共同构成实时多媒体传输的基础框架。RTP 负责媒体数据的传输，而 RTCP 负责对 RTP 传输进行监控和管理，两者相互配合，保障了实时音视频通话、直播、视频会议等场景的流畅运行。</p>
-<h3 id="RTSP-应用层-1"><a href="#RTSP-应用层-1" class="headerlink" title="RTSP (应用层)"></a>RTSP (应用层)</h3><h4 id="工作机理及简介-1"><a href="#工作机理及简介-1" class="headerlink" title="工作机理及简介"></a>工作机理及简介</h4><p>旨在为IP网络上的实时音视频流提供<strong>可控传输</strong>服务。它通过标准的请求-响应模型，实现对流媒体的播放、暂停、快进、录制等操作的控制，是视频监控、视频会议、在线直播等场景的核心控制协议之一。</p>
-<h4 id="RTSP的核心作用-1"><a href="#RTSP的核心作用-1" class="headerlink" title="RTSP的核心作用"></a><strong>RTSP的核心作用</strong></h4><p>RTSP的本质是“<strong>流媒体服务器的远程控制接口</strong>”，其核心功能包括：</p>
+<figure>
+<img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911205247541.png" alt="image-20250911205247541">
+<figcaption aria-hidden="true">image-20250911205247541</figcaption>
+</figure>
+<h4 id="三相关补充说明-1">（三）相关补充说明</h4>
+<p>RTP
+通常用于单一路音频/视频流（如一个人的麦克风或摄像头），但在多方会议、音频混音、视频切换等场景下，多个音视频源会被混合或转发，此时接收端需要借助
+CSRC 来处理相关问题，以确保媒体数据的正确播放和处理。</p>
+<h3 id="二rtcp实时传输控制协议-1">二、RTCP（实时传输控制协议）</h3>
+<h4 id="一简介及工作机制-1">（一）简介及工作机制</h4>
+<p>1.<strong>与 RTP 的关系</strong>：RTCP 并非 RTP
+的严格意义上的“控制器”，但它是 RTP 的核心配套协议。RTP
+负责实时媒体数据的传输（如音频、视频帧），提供数据标识（序列号、时间戳、SSRC）、封装和实时性保障（如低延迟传输），但不保证可靠传输（丢包、乱序需上层处理）。</p>
+<p>2.<strong>主要功能</strong>：RTCP
+不传输媒体数据，而是通过周期性控制包实现对 RTP 传输的监控和管理，是 RTP
+的“辅助工具”。其主要功能包括监听服务质量（如接收端通过 RTCP
+向发送端反馈丢包率、网络抖动等指标，发送端据此调整传输策略）、交换会话用户信息（如在多播或多方会议场景中，跟踪参与会话的节点状态）等，以确保
+RTP 传输的稳定性和可靠性。</p>
+<h4 id="二与-rtp-的协同工作-1">（二）与 RTP 的协同工作</h4>
+<p>RTP 和 RTCP 协同工作，共同构成实时多媒体传输的基础框架。RTP
+负责媒体数据的传输，而 RTCP 负责对 RTP
+传输进行监控和管理，两者相互配合，保障了实时音视频通话、直播、视频会议等场景的流畅运行。</p>
+<h3 id="rtsp-应用层-1">RTSP (应用层)</h3>
+<h4 id="工作机理及简介-1">工作机理及简介</h4>
+<p>旨在为IP网络上的实时音视频流提供<strong>可控传输</strong>服务。它通过标准的请求-响应模型，实现对流媒体的播放、暂停、快进、录制等操作的控制，是视频监控、视频会议、在线直播等场景的核心控制协议之一。</p>
+<h4 id="rtsp的核心作用-1"><strong>RTSP的核心作用</strong></h4>
+<p>RTSP的本质是“<strong>流媒体服务器的远程控制接口</strong>”，其核心功能包括：</p>
 <ul>
 <li>∙<strong>会话管理</strong>：建立、维护和终止客户端与服务器之间的流媒体会话（如通过<code>SETUP</code>初始化传输、<code>TEARDOWN</code>结束会话）；</li>
 <li>∙<strong>播放控制</strong>：支持播放（<code>PLAY</code>）、暂停（<code>PAUSE</code>）、停止（<code>TEARDOWN</code>）、快进/快退（<code>SEEK</code>）等操作，允许用户按需调整播放进度；</li>
 <li>∙<strong>多流同步</strong>：通过<code>SDP</code>（会话描述协议）协调音频、视频等多路流的传输，确保音画同步；</li>
 <li>∙<strong>传输模式选择</strong>：支持单播（Unicast，一对一传输）、组播（Multicast，一对多传输）等模式，适应不同网络环境和用户规模。</li>
 </ul>
-<h4 id="RTSP的工作原理概述-1"><a href="#RTSP的工作原理概述-1" class="headerlink" title="RTSP的工作原理概述"></a><strong>RTSP的工作原理概述</strong></h4><p>RTSP的工作流程通常分为以下步骤（以“客户端拉取流媒体”为例）：</p>
+<h4 id="rtsp的工作原理概述-1"><strong>RTSP的工作原理概述</strong></h4>
+<p>RTSP的工作流程通常分为以下步骤（以“客户端拉取流媒体”为例）：</p>
 <p>1.<strong>发现资源</strong>：客户端通过HTTP或其他方式获取流媒体的<code>SDP</code>描述文件（包含媒体格式、传输地址等信息）；</p>
 <p>2.<strong>建立连接</strong>：客户端向服务器发送<code>DESCRIBE</code>请求，获取流媒体的详细信息（如编码格式、分辨率）；</p>
 <p>3.<strong>初始化传输</strong>：客户端发送<code>SETUP</code>请求，指定传输模式（如UDP/RTP）和端口，服务器返回<code>Session ID</code>（会话标识）；</p>
 <p>4.<strong>启动传输</strong>：客户端发送<code>PLAY</code>请求，服务器开始通过RTP协议发送流媒体数据，同时通过RTCP协议反馈传输质量（如丢包率、延迟）；</p>
 <p>5.<strong>控制与终止</strong>：客户端可通过<code>PAUSE</code>暂停、<code>SEEK</code>跳转，最终通过<code>TEARDOWN</code>终止会话，释放资源。</p>
-<h4 id="RTSP报文结构-1"><a href="#RTSP报文结构-1" class="headerlink" title="RTSP报文结构"></a>RTSP报文结构</h4><p>RTSP（Real Time Streaming Protocol，实时流协议）报文分为请求报文和响应报文两类：</p>
+<h4 id="rtsp报文结构-1">RTSP报文结构</h4>
+<p>RTSP（Real Time Streaming
+Protocol，实时流协议）报文分为请求报文和响应报文两类：</p>
 <ul>
-<li>∙<strong>请求报文</strong>：从客户端向服务器发送，用于向服务器提出各种请求操作。</li>
-<li>∙<strong>响应报文</strong>：从服务器到客户端，作为对请求报文的回应。</li>
-<li><p>∙<strong>报文组成</strong>：由于RTSP是面向正文的（text - oriented），报文中每个字段都是ASCII码串，长度不确定。RTSP报文由开始行、首部行和实体主体三部分构成。</p>
+<li><p>∙<strong>请求报文</strong>：从客户端向服务器发送，用于向服务器提出各种请求操作。</p></li>
+<li><p>∙<strong>响应报文</strong>：从服务器到客户端，作为对请求报文的回应。</p></li>
+<li><p>∙<strong>报文组成</strong>：由于RTSP是面向正文的（text -
+oriented），报文中每个字段都是ASCII码串，长度不确定。RTSP报文由开始行、首部行和实体主体三部分构成。</p>
 <ul>
-<li>∙<strong>请求报文</strong>：开始行是请求行，其结构可参考相关示意图</li>
-<li>∙<strong>响应报文</strong>：开始行是状态行，其结构也可参考相关示意图</li>
+<li><p>∙<strong>请求报文</strong>：开始行是请求行，其结构可参考相关示意图</p></li>
+<li><p>∙<strong>响应报文</strong>：开始行是状态行，其结构也可参考相关示意图</p>
+<table>
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr>
+<th><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911212231324.png" alt="image-20250911212231324" style="zoom:40%;"></th>
+<th><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911212238443.png" alt="image-20250911212238443" style="zoom:40%;"></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<pre><code>| &lt;img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911212231324.png" alt="image-20250911212231324" style="zoom:40%;" /&gt; | &lt;img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911212238443.png" alt="image-20250911212238443" style="zoom:40%;" /&gt; |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-</code></pre><h3 id="RTSP请求报文方法-1"><a href="#RTSP请求报文方法-1" class="headerlink" title="RTSP请求报文方法"></a>RTSP请求报文方法</h3><p>RTSP请求报文包含多种方法，用于实现不同的功能：</p>
+<h3 id="rtsp请求报文方法-1">RTSP请求报文方法</h3>
+<p>RTSP请求报文包含多种方法，用于实现不同的功能：</p>
 <p>1.<strong>OPTIONS</strong>：用于获得服务器提供的可用方法，客户端通过此方法了解服务器支持的操作。</p>
 <p>2.<strong>DESCRIBE</strong>：客户端使用该方法向服务器请求得到媒体初始化描述信息，服务器回应的主要是SDP（会话描述协议）信息。</p>
 <p>3.<strong>SETUP</strong>：客户端提醒服务器建立会话，并确定传输模式，为后续的媒体传输做准备。</p>
@@ -558,20 +705,35 @@
 <p>7.<strong>PAUSE</strong>：临时停止流，但不释放服务器资源，方便后续继续播放。</p>
 <p>8.<strong>GET_PARAMETER</strong>：取得流控制参数，不过某些服务器可能不支持该方法。</p>
 <p>9.<strong>SET_PARAMETER</strong>：设置流控制参数，同样某些服务器可能不支持该方法。</p>
-<h4 id="RTSP交互过程-1"><a href="#RTSP交互过程-1" class="headerlink" title="RTSP交互过程"></a>RTSP交互过程</h4><p>用C表示RTSP客户端，S表示RTSP服务端，标准的RTSP交互流程如下：</p>
-<p>1.<strong>询问可用方法</strong>：∙C -&gt; S: OPTION request（客户端询问服务器有哪些方法可用）∙S -&gt; C: OPTION response（服务器回应信息中包括提供的所有可用方法）</p>
-<p>2.<strong>获取媒体初始化描述信息</strong>：∙C -&gt; S: DESCRIBE request（客户端要求得到服务器提供的媒体初始化描述信息）∙S -&gt; C: DESCRIBE response（服务器回应媒体初始化描述信息，主要是SDP）</p>
-<p>3.<strong>建立会话</strong>：∙C -&gt; S: SETUP request（客户端设置会话属性以及传输模式，提醒服务器建立会话）∙S -&gt; C: SETUP response（服务器建立会话，返回会话标识符及会话相关信息）</p>
-<p>4.<strong>播放媒体流</strong>：∙C -&gt; S: PLAY request（客户端请求播放）∙S -&gt; C: PLAY response（服务器回应请求信息）∙S -&gt; C: 发送流媒体数据（服务器开始向客户端发送流媒体数据）</p>
-<p>5.<strong>关闭会话</strong>：∙C -&gt; S: TEARDOWN request（客户端请求关闭会话）∙S -&gt; C: TEARDOWN response（服务器回应请求）</p>
+<h4 id="rtsp交互过程-1">RTSP交互过程</h4>
+<p>用C表示RTSP客户端，S表示RTSP服务端，标准的RTSP交互流程如下：</p>
+<p>1.<strong>询问可用方法</strong>：∙C -&gt; S: OPTION
+request（客户端询问服务器有哪些方法可用）∙S -&gt; C: OPTION
+response（服务器回应信息中包括提供的所有可用方法）</p>
+<p>2.<strong>获取媒体初始化描述信息</strong>：∙C -&gt; S: DESCRIBE
+request（客户端要求得到服务器提供的媒体初始化描述信息）∙S -&gt; C:
+DESCRIBE response（服务器回应媒体初始化描述信息，主要是SDP）</p>
+<p>3.<strong>建立会话</strong>：∙C -&gt; S: SETUP
+request（客户端设置会话属性以及传输模式，提醒服务器建立会话）∙S -&gt; C:
+SETUP response（服务器建立会话，返回会话标识符及会话相关信息）</p>
+<p>4.<strong>播放媒体流</strong>：∙C -&gt; S: PLAY
+request（客户端请求播放）∙S -&gt; C: PLAY
+response（服务器回应请求信息）∙S -&gt; C:
+发送流媒体数据（服务器开始向客户端发送流媒体数据）</p>
+<p>5.<strong>关闭会话</strong>：∙C -&gt; S: TEARDOWN
+request（客户端请求关闭会话）∙S -&gt; C: TEARDOWN
+response（服务器回应请求）</p>
 <p>其中，第3步（建立会话）和第4步（播放媒体流）是必需的步骤。</p>
-<h4 id="RTSP与HTTP的比较-1"><a href="#RTSP与HTTP的比较-1" class="headerlink" title="RTSP与HTTP的比较"></a>RTSP与HTTP的比较</h4><ul>
+<h4 id="rtsp与http的比较-1">RTSP与HTTP的比较</h4>
+<ul>
 <li>∙<strong>功能相似性</strong>：HTTP和RTSP在功能上有相似重叠的地方，RTSP采用了HTTP/1.1大多数的状态码，并且增加了RTSP特定的状态码。</li>
 <li>∙<strong>请求方法对比</strong>：∙<strong>HTTP协议</strong>：定义了8种可能的请求方法，包括GET（检索URI中标识资源的一个简单请求）、HEAD（与GET方法相同，服务器只返回状态行和头标，并不返回请求文档）、POST（服务器接受被写入客户端输出流中的数据的请求）、PUT（服务器保存请求数据作为指定URI新内容的请求）、DELETE（服务器删除URI中命名的资源的请求）、OPTIONS（关于服务器支持的请求方法信息的请求）、TRACE（Web服务器反馈Http请求和其头标的请求）、CONNECT（已文档化但当前未实现的一个方法，预留做隧道处理）。∙<strong>RTSP协议</strong>：有自己特定的请求方法，如上述的OPTIONS、DESCRIBE等多种方法。</li>
 <li>∙<strong>协议规范</strong>：RTSP和HTTP的协议规范分别在RFC2326和RFC2616有详细描述。</li>
-<li>∙<strong>MMS协议</strong>：MMS（Microsoft Media Server）协议为微软的私有协议，未公开协议，采用私有自定义控制结构体来发送命令，不像HTTP和RTSP协议采用发送文本命令控制。</li>
+<li>∙<strong>MMS协议</strong>：MMS（Microsoft Media
+Server）协议为微软的私有协议，未公开协议，采用私有自定义控制结构体来发送命令，不像HTTP和RTSP协议采用发送文本命令控制。</li>
 </ul>
-<h4 id="RTP、RTSP与RTCP的区别总结-1"><a href="#RTP、RTSP与RTCP的区别总结-1" class="headerlink" title="RTP、RTSP与RTCP的区别总结"></a>RTP、RTSP与RTCP的区别总结</h4><p>用一句话简单概括：RTSP发起/终结流媒体会话，RTP负责传输流媒体数据，RTCP对RTP进行控制以实现同步等功能。</p>
+<h4 id="rtprtsp与rtcp的区别总结-1">RTP、RTSP与RTCP的区别总结</h4>
+<p>用一句话简单概括：RTSP发起/终结流媒体会话，RTP负责传输流媒体数据，RTCP对RTP进行控制以实现同步等功能。</p>
 
                 
             </div>

@@ -5,7 +5,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="拜读孟哥学位论文(2), HiBlog">
-    <meta name="description" content="综述部分阅读主要介绍了以下几个方面:
+    <meta name="description" content="综述部分阅读
+主要介绍了以下几个方面:
 
 应用层的优化
 
@@ -13,17 +14,15 @@
 协议设计
 结合网络情况自适应调整, 例如自适应编码
 
-
 传输层的优化
 
 拥塞控制优化
 丢包恢复优化
 
-
 网络层的优化
 
 优化路由器(调整缓冲区大小)
-优化路由器(管">
+优化路由器(管理">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -432,31 +431,34 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="综述部分阅读"><a href="#综述部分阅读" class="headerlink" title="综述部分阅读"></a>综述部分阅读</h2><p>主要介绍了以下几个方面:</p>
-<ol>
+                <h2 id="综述部分阅读">综述部分阅读</h2>
+<p>主要介绍了以下几个方面:</p>
+<ol type="1">
 <li><p>应用层的优化</p>
-<ol>
+<ol type="1">
 <li>编码器解码器的优化</li>
 <li>协议设计</li>
 <li>结合网络情况自适应调整, 例如自适应编码</li>
-</ol>
-</li>
+</ol></li>
 <li><p>传输层的优化</p>
-<ol>
+<ol type="1">
 <li>拥塞控制优化</li>
 <li>丢包恢复优化</li>
-</ol>
-</li>
+</ol></li>
 <li><p>网络层的优化</p>
-<ol>
+<ol type="1">
 <li>优化路由器(调整缓冲区大小)</li>
 <li>优化路由器(管理队列和算法控制延迟)</li>
 <li>端网直接消息传递</li>
 </ol>
-<h3 id="数据通路应用层相关工作"><a href="#数据通路应用层相关工作" class="headerlink" title="数据通路应用层相关工作"></a>数据通路应用层相关工作</h3></li>
+<h3 id="数据通路应用层相关工作">数据通路应用层相关工作</h3></li>
 </ol>
-<div class="table-container">
 <table>
+<colgroup>
+<col style="width: 49%">
+<col style="width: 12%">
+<col style="width: 37%">
+</colgroup>
 <thead>
 <tr>
 <th><strong>学界/业界方案</strong></th>
@@ -466,24 +468,29 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>- Swift (NSDI’22)</strong> <strong>CGEncoder (MMSys’20)</strong> <strong>VP9 (Google’13)</strong></td>
+<td><strong>- Swift (NSDI’22)</strong> <strong>CGEncoder
+(MMSys’20)</strong> <strong>VP9 (Google’13)</strong></td>
 <td><strong>实时编解码器</strong></td>
 <td><strong>通过更新编解码设计在弱网等情况下依然保证内容解码</strong></td>
 </tr>
 <tr>
-<td><strong>BB (SIGCOMM’14)</strong> <strong>Pensieve (SIGCOMM’17)</strong> <strong>Puffer (NSDI’20)</strong></td>
+<td><strong>BB (SIGCOMM’14)</strong> <strong>Pensieve
+(SIGCOMM’17)</strong> <strong>Puffer (NSDI’20)</strong></td>
 <td><strong>自适应码率算法</strong></td>
 <td><strong>通过让码率适配带宽，以降低卡顿</strong></td>
 </tr>
 <tr>
-<td><strong>RTP/RTCP (RFC8888)</strong> <strong>RTSP (RFC7826)</strong> <strong>DTP (ICNP’21)</strong></td>
+<td><strong>RTP/RTCP (RFC8888)</strong> <strong>RTSP (RFC7826)</strong>
+<strong>DTP (ICNP’21)</strong></td>
 <td><strong>多媒体传输协议</strong></td>
 <td><strong>通过协议设计来传递应用需要的信息</strong></td>
 </tr>
 </tbody>
 </table>
-</div>
-<h4 id="编码解码相关工作"><a href="#编码解码相关工作" class="headerlink" title="编码解码相关工作"></a>编码解码相关工作</h4><p>因为视频一帧一帧之间有关联, 因此可以根据这些关联, 把视频进行压缩, 以节约带宽成本, 再利用这些关联, 把视频还原回来. 这便是编码器和解码器.</p>
+<h4 id="编码解码相关工作">编码解码相关工作</h4>
+<p>因为视频一帧一帧之间有关联, 因此可以根据这些关联, 把视频进行压缩,
+以节约带宽成本, 再利用这些关联, 把视频还原回来.
+这便是编码器和解码器.</p>
 <p>目前比较常见的编码器还是以 H.264 为主, 优化工作主要集中在两个方面</p>
 <ul>
 <li>优化编码器的性能</li>
@@ -491,29 +498,47 @@
 </ul>
 <blockquote>
 <p>谷歌的VP9编码器, 包含在 WebRTC 实时音视频传输框架</p>
-<p>评估图像或视频质量的指标 :  SSIM , PSNR</p>
+<p>评估图像或视频质量的指标 : SSIM , PSNR</p>
 </blockquote>
-<p>由于接编码需要硬件支持, 目前已经有专门的芯片做这方面的工作,  但是现在新兴的接编码机制并不一定适配硬件, 因此 <code>H.264 编码</code> 20 年来一直是最为广泛的编解码机制</p>
-<h4 id="自适应码率优化"><a href="#自适应码率优化" class="headerlink" title="自适应码率优化"></a>自适应码率优化</h4><p>自适应码率算法早在实时多媒体传输诞生时便被提出. 例如 Buffer-based 算法</p>
-<p>其创新性的提出, 通过估计在点播多媒体视频中客户端缓冲区的情况, 来调整码率.</p>
+<p>由于接编码需要硬件支持, 目前已经有专门的芯片做这方面的工作,
+但是现在新兴的接编码机制并不一定适配硬件, 因此 <code>H.264 编码</code>
+20 年来一直是最为广泛的编解码机制</p>
+<h4 id="自适应码率优化">自适应码率优化</h4>
+<p>自适应码率算法早在实时多媒体传输诞生时便被提出. 例如 Buffer-based
+算法</p>
+<p>其创新性的提出, 通过估计在点播多媒体视频中客户端缓冲区的情况,
+来调整码率.</p>
 <ul>
 <li>客户端缓冲区较低时, 就降低编码码率来尽快发新内容</li>
 <li>客户端缓冲区较高时, 就增加编码码率来提高内容质量</li>
 </ul>
 <blockquote>
-<p>个人思考 : 可以用机器学习预测的方法, 来进行自适应码率的优化, 可以对缓冲区的变化, 以及网速的变化进行数据挖掘, 训练模型</p>
-<p>孟哥说了一句, 在应用层不关注自适应码率工作, 我没太懂这个东西, 但是他又把这个内容放到应用层, 我觉着有点奇怪.</p>
+<p>个人思考 : 可以用机器学习预测的方法, 来进行自适应码率的优化,
+可以对缓冲区的变化, 以及网速的变化进行数据挖掘, 训练模型</p>
 </blockquote>
-<h4 id="多媒体传输协议设计"><a href="#多媒体传输协议设计" class="headerlink" title="多媒体传输协议设计"></a>多媒体传输协议设计</h4><p>设计新的应用层协议, 也是近年来的重要研究工作.  应用最广的协议是 RTP/RTCP(基于 UDP)</p>
+<blockquote>
+<p>孟哥说了一句, 在应用层不关注自适应码率工作, 我没太懂这个东西,
+但是他又把这个内容放到应用层, 我觉着有点奇怪.</p>
+</blockquote>
+<h4 id="多媒体传输协议设计">多媒体传输协议设计</h4>
+<p>设计新的应用层协议, 也是近年来的重要研究工作. 应用最广的协议是
+RTP/RTCP(基于 UDP)</p>
 <ul>
 <li>RTP 协议从服务器向客户端发送数据包(数据通路)</li>
 <li>RTCP负责从客户端向服务器反馈网络状态, 视频状态等信息(控制通路)</li>
 </ul>
 <blockquote>
-<p>两种控制方式, 这里是在应用层进行了控制, 还有一种是在传输层进行控制(RTSP等), 应用层不做控制,减去应用层的控制开销.</p>
+<p>两种控制方式, 这里是在应用层进行了控制,
+还有一种是在传输层进行控制(RTSP等),
+应用层不做控制,减去应用层的控制开销.</p>
 </blockquote>
-<h3 id="数据通路传输层相关工作"><a href="#数据通路传输层相关工作" class="headerlink" title="数据通路传输层相关工作"></a>数据通路传输层相关工作</h3><div class="table-container">
+<h3 id="数据通路传输层相关工作">数据通路传输层相关工作</h3>
 <table>
+<colgroup>
+<col style="width: 70%">
+<col style="width: 7%">
+<col style="width: 22%">
+</colgroup>
 <thead>
 <tr>
 <th><strong>学界/业界方案</strong></th>
@@ -523,34 +548,48 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>Sprout (NSDI’13)、GCC (MMSys’16)、</strong> <strong>NADA (RFC8698)、SCREAM (RFC8298)、</strong> <strong>Copa (NSDI’18)、Vivace (NSDI’18)</strong></td>
+<td><strong>Sprout (NSDI’13)、GCC (MMSys’16)、</strong> <strong>NADA
+(RFC8698)、SCREAM (RFC8298)、</strong> <strong>Copa (NSDI’18)、Vivace
+(NSDI’18)</strong></td>
 <td><strong>拥塞控制</strong></td>
 <td><strong>通过让发送速率适配带宽以减少延迟</strong></td>
 </tr>
 <tr>
-<td><strong>WebRTC (ICIP’13)、AdaptFEC (MM’19)、</strong> <strong>StreamMelt (NSDI’23)、TLP (RFC8985)</strong></td>
+<td><strong>WebRTC (ICIP’13)、AdaptFEC (MM’19)、</strong>
+<strong>StreamMelt (NSDI’23)、TLP (RFC8985)</strong></td>
 <td><strong>丢包恢复</strong></td>
 <td><strong>通过减少重传来减少端到端延迟</strong></td>
 </tr>
 </tbody>
 </table>
-</div>
-<h4 id="拥塞控制"><a href="#拥塞控制" class="headerlink" title="拥塞控制"></a>拥塞控制</h4><p>经典的算法有 Reno 和 Cubic , 但是这些算法都是尽可能挤占队列来提升网络资源利用率</p>
-<p>谷歌 2016 年提出的 BBR 算法, 通过测量链路中的带宽瓶颈和往返时延, 判断有多少数据报文在网络中, 以此为速率发送数据包, 就不至于一直挤占瓶颈.</p>
-<h4 id="丢包恢复"><a href="#丢包恢复" class="headerlink" title="丢包恢复"></a>丢包恢复</h4><p>丢包恢复目的是为了保证可靠传输.</p>
-<p>TCP 区别于 UDP     便是 TCP 有丢包恢复.</p>
+<h4 id="拥塞控制">拥塞控制</h4>
+<p>经典的算法有 Reno 和 Cubic ,
+但是这些算法都是尽可能挤占队列来提升网络资源利用率</p>
+<p>谷歌 2016 年提出的 BBR 算法, 通过测量链路中的带宽瓶颈和往返时延,
+判断有多少数据报文在网络中, 以此为速率发送数据包,
+就不至于一直挤占瓶颈.</p>
+<h4 id="丢包恢复">丢包恢复</h4>
+<p>丢包恢复目的是为了保证可靠传输.</p>
+<p>TCP 区别于 UDP 便是 TCP 有丢包恢复.</p>
 <p>TCP 使用<code>重传超时(RTO)</code>进行判断是否丢包</p>
 <p>其次是通过<code>引入冗余</code>的方式进行丢包恢复. 比如说校验码.</p>
 <blockquote>
-<p>例如 :  发 3 个包, 然后把校验码放到第四个包里, 如果有问题就立即nak.</p>
+<p>例如 : 发 3 个包, 然后把校验码放到第四个包里,
+如果有问题就立即nak.</p>
 </blockquote>
-<p>还可以动态调整冗余包的数量, 丢的多了, 就多发点冗余包, 保证其可以接收到</p>
+<p>还可以动态调整冗余包的数量, 丢的多了, 就多发点冗余包,
+保证其可以接收到</p>
 <blockquote>
 <p>例如: FEC技术, Bolot 和 USF 算法分别根据历史丢包进行参数调整</p>
 </blockquote>
 <p>万物都可 AI , 也可以 AI预测</p>
-<h3 id="数据通路网络层相关工作"><a href="#数据通路网络层相关工作" class="headerlink" title="数据通路网络层相关工作"></a>数据通路网络层相关工作</h3><div class="table-container">
+<h3 id="数据通路网络层相关工作">数据通路网络层相关工作</h3>
 <table>
+<colgroup>
+<col style="width: 59%">
+<col style="width: 12%">
+<col style="width: 28%">
+</colgroup>
 <thead>
 <tr>
 <th><strong>学界/业界方案</strong></th>
@@ -570,16 +609,20 @@
 <td><strong>设置合适的队列大小以降低延迟</strong></td>
 </tr>
 <tr>
-<td><strong>XCP (SIGCOMM’02)、RCP (INFOCOM’08)、Kickass (ICNP’16)、ABC (NSDI’20)</strong></td>
+<td><strong>XCP (SIGCOMM’02)、RCP (INFOCOM’08)、Kickass (ICNP’16)、ABC
+(NSDI’20)</strong></td>
 <td><strong>端网消息传递</strong></td>
 <td><strong>携带更多维度的网内状态以便决策</strong></td>
 </tr>
 </tbody>
 </table>
-</div>
-<p>广域网存在可部署问题, 因为不存在一个实体控制一条路径上所有设备的情况.</p>
-<h4 id="主动队列管理"><a href="#主动队列管理" class="headerlink" title="主动队列管理"></a>主动队列管理</h4><p>较早的主动队列管理算法 : RED, 其通过在早期以概率性随机丢弃的方式告诉当前网络恶化的情况</p>
-<p>目前边缘路由器上部署的默认主动管理队列算法是 2012 年提出的 CoDel, 主要解决的问题是:</p>
+<p>广域网存在可部署问题,
+因为不存在一个实体控制一条路径上所有设备的情况.</p>
+<h4 id="主动队列管理">主动队列管理</h4>
+<p>较早的主动队列管理算法 : RED,
+其通过在早期以概率性随机丢弃的方式告诉当前网络恶化的情况</p>
+<p>目前边缘路由器上部署的默认主动管理队列算法是 2012 年提出的 CoDel,
+主要解决的问题是:</p>
 <ul>
 <li>根据队列长度的估计</li>
 <li>难以适应不同带宽的路由器</li>
@@ -588,15 +631,19 @@
 <blockquote>
 <p>就是说, 我们不关注队列长度, 我们关注在队列中的停留时间.</p>
 </blockquote>
-<h4 id="队列大小优化"><a href="#队列大小优化" class="headerlink" title="队列大小优化"></a>队列大小优化</h4><p>队列过小会导致面对突发流量频繁丢包</p>
-<p>队列过大会导致速率调整不好时,  导致排队时延过长</p>
+<h4 id="队列大小优化">队列大小优化</h4>
+<p>队列过小会导致面对突发流量频繁丢包</p>
+<p>队列过大会导致速率调整不好时, 导致排队时延过长</p>
 <blockquote>
 <p>ABS 自适应队列大小</p>
 </blockquote>
-<p>以及理论分析 :  例如瓶颈队列的大小应该不小于带宽延时积</p>
-<h4 id="端网消息传递"><a href="#端网消息传递" class="headerlink" title="端网消息传递"></a>端网消息传递</h4><p>设计新的协议, 在端主机和网络设备之间进行更好的消息传递, 来控制延迟</p>
+<p>以及理论分析 : 例如瓶颈队列的大小应该不小于带宽延时积</p>
+<h4 id="端网消息传递">端网消息传递</h4>
+<p>设计新的协议, 在端主机和网络设备之间进行更好的消息传递,
+来控制延迟</p>
 <blockquote>
-<p>实际很难做到, 因为需要同时改变服务器(阿里,腾讯)和中间路由器(华为), 从现实角度很难调和</p>
+<p>实际很难做到, 因为需要同时改变服务器(阿里,腾讯)和中间路由器(华为),
+从现实角度很难调和</p>
 </blockquote>
 
                 

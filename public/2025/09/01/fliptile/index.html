@@ -6,9 +6,12 @@
     <meta charset="utf-8">
     <meta name="keywords" content="Fliptile, HiBlog">
     <meta name="description" content="题目链接
+
 https://vjudge.net/problem/POJ-3279
 
-题目描述Farmer John knows that an intellectually satisfied cow is a happy cow who ">
+题目描述
+Farmer John knows that an intellectually satisfied cow is a happy cow
+wh">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -387,7 +390,7 @@ https://vjudge.net/problem/POJ-3279
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    955
+                    958
                 </div>
                 
 
@@ -417,16 +420,45 @@ https://vjudge.net/problem/POJ-3279
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a>题目链接</h2><blockquote>
-<p><a target="_blank" rel="noopener" href="https://vjudge.net/problem/POJ-3279">https://vjudge.net/problem/POJ-3279</a></p>
+                <h2 id="题目链接">题目链接</h2>
+<blockquote>
+<p>https://vjudge.net/problem/POJ-3279</p>
 </blockquote>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Farmer John knows that an intellectually satisfied cow is a happy cow who will give more milk. He has arranged a brainy activity for cows in which they manipulate an <em>M</em> × <em>N</em> grid (1 ≤ <em>M</em> ≤ 15; 1 ≤ <em>N</em> ≤ 15) of square tiles, each of which is colored black on one side and white on the other side.</p>
-<p>As one would guess, when a single white tile is flipped, it changes to black; when a single black tile is flipped, it changes to white. The cows are rewarded when they flip the tiles so that each tile has the white side face up. However, the cows have rather large hooves and when they try to flip a certain tile, they also flip all the adjacent tiles (tiles that share a full edge with the flipped tile). Since the flips are tiring, the cows want to minimize the number of flips they have to make.</p>
-<p>Help the cows determine the minimum number of flips required, and the locations to flip to achieve that minimum. If there are multiple ways to achieve the task with the minimum amount of flips, return the one with the least lexicographical ordering in the output when considered as a string. If the task is impossible, print one line with the word “IMPOSSIBLE”.</p>
-<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>Line 1: Two space-separated integers: <em>M</em> and <em>N</em><br>Lines 2..<em>M</em>+1: Line <em>i</em>+1 describes the colors (left to right) of row i of the grid with <em>N</em> space-separated integers which are 1 for black and 0 for white</p>
-<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>Lines 1..<em>M</em>: Each line contains <em>N</em> space-separated integers, each specifying how many times to flip that particular location.</p>
-<h3 id="Sample"><a href="#Sample" class="headerlink" title="Sample"></a>Sample</h3><div class="table-container">
+<h2 id="题目描述">题目描述</h2>
+<p>Farmer John knows that an intellectually satisfied cow is a happy cow
+who will give more milk. He has arranged a brainy activity for cows in
+which they manipulate an <em>M</em> × <em>N</em> grid (1 ≤ <em>M</em> ≤
+15; 1 ≤ <em>N</em> ≤ 15) of square tiles, each of which is colored black
+on one side and white on the other side.</p>
+<p>As one would guess, when a single white tile is flipped, it changes
+to black; when a single black tile is flipped, it changes to white. The
+cows are rewarded when they flip the tiles so that each tile has the
+white side face up. However, the cows have rather large hooves and when
+they try to flip a certain tile, they also flip all the adjacent tiles
+(tiles that share a full edge with the flipped tile). Since the flips
+are tiring, the cows want to minimize the number of flips they have to
+make.</p>
+<p>Help the cows determine the minimum number of flips required, and the
+locations to flip to achieve that minimum. If there are multiple ways to
+achieve the task with the minimum amount of flips, return the one with
+the least lexicographical ordering in the output when considered as a
+string. If the task is impossible, print one line with the word
+“IMPOSSIBLE”.</p>
+<h3 id="input">Input</h3>
+<p>Line 1: Two space-separated integers: <em>M</em> and <em>N</em> Lines
+2..<em>M</em>+1: Line <em>i</em>+1 describes the colors (left to right)
+of row i of the grid with <em>N</em> space-separated integers which are
+1 for black and 0 for white</p>
+<h3 id="output">Output</h3>
+<p>Lines 1..<em>M</em>: Each line contains <em>N</em> space-separated
+integers, each specifying how many times to flip that particular
+location.</p>
+<h3 id="sample">Sample</h3>
 <table>
+<colgroup>
+<col style="width: 55%">
+<col style="width: 44%">
+</colgroup>
 <thead>
 <tr>
 <th>Input</th>
@@ -435,18 +467,25 @@ https://vjudge.net/problem/POJ-3279
 </thead>
 <tbody>
 <tr>
-<td><code>4 4</code><br><code>1 0 0 1</code><br><code>0 1 1 0</code><br><code>0 1 1 0</code><br> <code>1 0 0 1</code></td>
+<td><code>4 4</code><br><code>1 0 0 1</code><br><code>0 1 1 0</code><br><code>0 1 1 0</code><br>
+<code>1 0 0 1</code></td>
 <td><code>0 0 0 0</code><br><code>1 0 0 1</code><br><code>1 0 0 1</code><br><code>0 0 0 0</code></td>
 </tr>
 </tbody>
 </table>
-</div>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>题目意思大概是说,  棋盘上有很多 黑色砖和白色砖 ,然后每次可以翻转一块砖, 但是翻转这个砖之后, 这个砖上下左右都会翻转.  现在要求最少的步数, 翻转得到最后结果.</p>
+<h2 id="思路">思路</h2>
+<p>题目意思大概是说, 棋盘上有很多 黑色砖和白色砖
+,然后每次可以翻转一块砖, 但是翻转这个砖之后, 这个砖上下左右都会翻转.
+现在要求最少的步数, 翻转得到最后结果.</p>
 <blockquote>
-<p>这个题有点像我之前做过的一道题, 牛客的  牛可乐的翻转游戏, 这个题也是状压枚举</p>
-<p>但是那个题只需要求最少步数, 这个题需要记录一下中间结果 , 字典序有点烦人, 一直wa了很久, 后面看到一个题解, 只需要反过来存就行了.</p>
+<p>这个题有点像我之前做过的一道题, 牛客的 牛可乐的翻转游戏,
+这个题也是状压枚举</p>
+<p>但是那个题只需要求最少步数, 这个题需要记录一下中间结果 ,
+字典序有点烦人, 一直wa了很久, 后面看到一个题解,
+只需要反过来存就行了.</p>
 </blockquote>
-<h2 id="AC-代码"><a href="#AC-代码" class="headerlink" title="AC 代码"></a>AC 代码</h2><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">#include &lt;iostream&gt;
+<h2 id="ac-代码">AC 代码</h2>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">#include &lt;iostream&gt;
 #include &lt;cstring&gt;
 using namespace std;
 
@@ -521,9 +560,13 @@ signed main()
 }
 
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>状态压缩基本上就是用一个int 或者 long long 存不同的状态, 然后枚举这些状态看看最后是否符合题意.</p>
-<p>这个题卡了我好久, 感觉话都在代码和注释里了, 本来觉着写博客我会认真写, 但是写完题感觉真的燃尽了hh</p>
-<p>今天先这样吧, 明天还有一道题,明天再总结了, 一个月有100-120道训练量其实就不错了, 感觉还要留一点时间给科研.</p>
+<h2 id="总结">总结</h2>
+<p>状态压缩基本上就是用一个int 或者 long long 存不同的状态,
+然后枚举这些状态看看最后是否符合题意.</p>
+<p>这个题卡了我好久, 感觉话都在代码和注释里了, 本来觉着写博客我会认真写,
+但是写完题感觉真的燃尽了hh</p>
+<p>今天先这样吧, 明天还有一道题,明天再总结了,
+一个月有100-120道训练量其实就不错了, 感觉还要留一点时间给科研.</p>
 
                 
             </div>

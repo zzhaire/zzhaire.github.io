@@ -5,9 +5,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="读论文 Learning in situ : a randomized experiment in video streaming(1), HiBlog">
-    <meta name="description" content="读论文 Learning in situ : a randomized experiment in video streaming (1)文章信息
+    <meta name="description" content="读论文
+Learning in situ : a randomized experiment in video streaming (1)
+文章信息
+
 作者 :
-Francis Y. Yan    Hudson Ayers     Chenzh">
+Francis Y. Yan Hudson Ayers Chenzhi Zhu">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -420,114 +423,147 @@ Francis Y. Yan    Hudson Ayers     Chenzh">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="读论文-Learning-in-situ-a-randomized-experiment-in-video-streaming-1"><a href="#读论文-Learning-in-situ-a-randomized-experiment-in-video-streaming-1" class="headerlink" title="读论文 Learning in situ : a randomized experiment in video streaming (1)"></a>读论文 Learning in situ : a randomized experiment in video streaming (1)</h2><h3 id="文章信息"><a href="#文章信息" class="headerlink" title="文章信息"></a>文章信息</h3><ul>
+                <h2 id="读论文-learning-in-situ-a-randomized-experiment-in-video-streaming-1">读论文
+Learning in situ : a randomized experiment in video streaming (1)</h2>
+<h3 id="文章信息">文章信息</h3>
+<ul>
 <li><p>作者 :</p>
-<p>Francis Y. Yan    Hudson Ayers     Chenzhi Zhu     Sadjad Fouladi</p>
-<p>James Hong       Keyi Zhang           Philip Levis       Keith Winstein</p>
-</li>
-<li>单位 : 斯坦福大学, 清华大学</li>
-<li>会议 :  NSDI’20</li>
-<li>题目 :  Learning in situ : a randomized experiment in video streaming</li>
+<p>Francis Y. Yan Hudson Ayers Chenzhi Zhu Sadjad Fouladi</p>
+<p>James Hong Keyi Zhang Philip Levis Keith Winstein</p></li>
+<li><p>单位 : 斯坦福大学, 清华大学</p></li>
+<li><p>会议 : NSDI’20</p></li>
+<li><p>题目 : Learning in situ : a randomized experiment in video
+streaming</p></li>
 </ul>
-<h3 id="文献综述部分"><a href="#文献综述部分" class="headerlink" title="文献综述部分"></a>文献综述部分</h3><h4 id="研究领域背景"><a href="#研究领域背景" class="headerlink" title="研究领域背景"></a>研究领域背景</h4><p>视频流媒体是互联网上最重要的应用之一，占据了约75%的互联网流量。自适应比特率（ABR）算法是视频流媒体的核心技术之一，其目标是在不确定的网络环境下，通过选择不同压缩质量的视频片段，优化用户的观看体验（QoE）。ABR算法需要在多个目标之间进行权衡，包括最小化启动时间、减少播放中断（缓冲）、最大化视频质量以及减少视频质量的波动（尤其是突然的质量变化）。现有ABR算法可以分为几类：</p>
-<ol>
+<h3 id="文献综述部分">文献综述部分</h3>
+<h4 id="研究领域背景">研究领域背景</h4>
+<p>视频流媒体是互联网上最重要的应用之一，占据了约75%的互联网流量。自适应比特率（ABR）算法是视频流媒体的核心技术之一，其目标是在不确定的网络环境下，通过选择不同压缩质量的视频片段，优化用户的观看体验（QoE）。ABR算法需要在多个目标之间进行权衡，包括最小化启动时间、减少播放中断（缓冲）、最大化视频质量以及减少视频质量的波动（尤其是突然的质量变化）。现有ABR算法可以分为几类：</p>
+<ol type="1">
 <li><strong>基于速率的方法</strong>：主要关注将视频比特率与网络吞吐量匹配。</li>
 <li><strong>基于缓冲区的方法</strong>：通过调整播放缓冲区的时长来优化用户体验。</li>
 <li><strong>基于控制理论的方法</strong>：通过预测未来的吞吐量，在预期的QoE框架下选择最优的视频片段。</li>
 </ol>
 <p>近年来，随着机器学习技术的快速发展，许多ABR算法开始采用统计和机器学习方法，以处理多种输入信号并适应广泛的客户端环境。然而，这些算法在实际互联网环境中的表现仍然面临挑战，尤其是在处理统计不确定性、网络路径的多样性以及用户行为的复杂性时。</p>
 <hr>
-<h4 id="研究目的"><a href="#研究目的" class="headerlink" title="研究目的"></a>研究目的</h4><p>本文旨在回答以下关键问题：如何设计一个基于机器学习的ABR算法，使其在复杂的实际互联网环境中表现稳健？为此，研究团队设计并实施了一个名为<strong>Puffer</strong>的实时流媒体网站，作为公开的随机对照试验平台。Puffer的目标是：</p>
-<ol>
+<h4 id="研究目的">研究目的</h4>
+<p>本文旨在回答以下关键问题：如何设计一个基于机器学习的ABR算法，使其在复杂的实际互联网环境中表现稳健？为此，研究团队设计并实施了一个名为<strong>Puffer</strong>的实时流媒体网站，作为公开的随机对照试验平台。Puffer的目标是：</p>
+<ol type="1">
 <li><strong>评估现有ABR算法的性能</strong>：通过大规模的真实用户数据，比较不同算法在实际环境中的表现。</li>
 <li><strong>设计和验证一种新的ABR算法</strong>：提出了一种名为<strong>Fugu</strong>的算法，结合经典控制理论和机器学习方法，以实现在真实环境中的稳健性能。</li>
 <li><strong>量化统计不确定性</strong>：研究实际互联网环境中统计噪声对算法性能评估的影响，特别是在检测小幅度性能改进时的挑战。</li>
 </ol>
 <hr>
-<h4 id="论文结论"><a href="#论文结论" class="headerlink" title="论文结论"></a>论文结论</h4><ol>
-<li><strong>Fugu算法的表现</strong>：<ul>
+<h4 id="论文结论">论文结论</h4>
+<ol type="1">
+<li><strong>Fugu算法的表现</strong>：
+<ul>
 <li>Fugu在减少播放中断时间（除了一种特殊情况）、提高视频质量和减少视频质量波动方面显著优于其他算法。</li>
 <li>Fugu用户在观看视频时的停留时间平均增加了5%-9%，尤其是在长时间观看（超过3小时）的用户中，这一现象更为明显。</li>
-</ul>
-</li>
-<li><strong>学习机制的重要性</strong>：<ul>
-<li>在实际环境中（in situ）训练机器学习模型是实现稳健性能的关键。与在模拟环境中训练的模型相比，真实环境中的训练能够更好地捕捉复杂的网络动态和用户行为。</li>
+</ul></li>
+<li><strong>学习机制的重要性</strong>：
+<ul>
+<li>在实际环境中（in
+situ）训练机器学习模型是实现稳健性能的关键。与在模拟环境中训练的模型相比，真实环境中的训练能够更好地捕捉复杂的网络动态和用户行为。</li>
 <li>Fugu的成功依赖于其设计的几个关键特性，包括基于概率的预测、深度神经网络的使用以及对低级别拥塞控制统计信息的输入。</li>
-</ul>
-</li>
-<li><strong>统计不确定性的影响</strong>：<ul>
+</ul></li>
+<li><strong>统计不确定性的影响</strong>：
+<ul>
 <li>实际互联网环境中的统计噪声和重尾分布使得检测小幅度的性能改进变得非常困难。例如，即使经过一年的实验，20%的性能改进也可能无法被可靠地检测到。</li>
 <li>这一发现对机器学习算法的设计和部署提出了挑战，尤其是在需要快速迭代和优化的工业环境中。</li>
-</ul>
-</li>
-<li><strong>研究的局限性</strong>：<ul>
+</ul></li>
+<li><strong>研究的局限性</strong>：
+<ul>
 <li>Puffer的实验规模（约60个并发流）与工业级视频流平台（如YouTube）的规模相比仍然较小，因此研究结果可能无法完全推广到大规模部署环境。</li>
 <li>Fugu的稳健性在面对未来网络环境的变化时仍然存在不确定性，尤其是在缺乏持续再训练的情况下。</li>
-</ul>
-</li>
-<li><strong>未来研究方向</strong>：<ul>
+</ul></li>
+<li><strong>未来研究方向</strong>：
+<ul>
 <li>需要进一步探索如何在实际环境中减少统计噪声的影响，或者设计更精确的模拟器来捕捉真实互联网的动态。</li>
 <li>未来的研究可以考虑如何在客户端实现Fugu的核心思想，尤其是在客户端能够访问低级别网络统计信息的情况下。</li>
-</ul>
-</li>
+</ul></li>
 </ol>
 <hr>
 <p>本文通过大规模的真实用户实验，验证了结合经典控制理论和机器学习方法的Fugu算法在实际互联网环境中的稳健性能。研究结果表明，在真实环境中训练和验证机器学习模型是实现高性能ABR算法的关键，同时也揭示了统计不确定性对算法评估的重大影响。这些发现为未来设计和部署稳健的机器学习算法提供了重要的指导意义。</p>
-<h3 id="核心设计部分"><a href="#核心设计部分" class="headerlink" title="核心设计部分"></a>核心设计部分</h3><p>视频流中的一个关键算法问题是自适 应比特率选择（ABR）</p>
+<h3 id="核心设计部分">核心设计部分</h3>
+<p>视频流中的一个关键算法问题是自适 应比特率选择（ABR）</p>
 <pre class="line-numbers language-none"><code class="language-none">本文设计了一种名为Fugu的控制算法,  用于比特率选择, 在真实部署环境中进行适当的训练<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250914115544010.png" alt="image-20250914115544010"></p>
-<h3 id="1-目标函数"><a href="#1-目标函数" class="headerlink" title="1. 目标函数"></a>1. 目标函数</h3><p>Fugu的目标函数是最大化视频质量（QoE，Quality of Experience）。具体来说，目标函数量化了以下三个因素的线性组合：</p>
-<ol>
-<li><strong>视频质量（Video Quality）</strong>：使用SSIM（Structural Similarity Index）来衡量，而不是传统的比特率。</li>
-<li><strong>视频质量变化（Video Quality Variation）</strong>：衡量视频质量的波动程度。</li>
-<li><p><strong>停顿时间（Stall Time）</strong>：衡量视频播放中的卡顿时间。</p>
+<figure>
+<img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250914115544010.png" alt="image-20250914115544010">
+<figcaption aria-hidden="true">image-20250914115544010</figcaption>
+</figure>
+<h3 id="目标函数">1. 目标函数</h3>
+<p>Fugu的目标函数是最大化视频质量（QoE，Quality of
+Experience）。具体来说，目标函数量化了以下三个因素的线性组合：</p>
+<ol type="1">
+<li><p><strong>视频质量（Video Quality）</strong>：使用SSIM（Structural
+Similarity Index）来衡量，而不是传统的比特率。</p></li>
+<li><p><strong>视频质量变化（Video Quality
+Variation）</strong>：衡量视频质量的波动程度。</p></li>
+<li><p><strong>停顿时间（Stall
+Time）</strong>：衡量视频播放中的卡顿时间。</p>
 <p>具体公式为 :</p>
-<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250914120200786.png" alt="image-20250914120200786"></p>
-</li>
+<figure>
+<img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250914120200786.png" alt="image-20250914120200786">
+<figcaption aria-hidden="true">image-20250914120200786</figcaption>
+</figure></li>
 </ol>
 <p>λ 和 μ 是表示 视频质量变化 和 重新缓冲轨迹的权重</p>
 <p>与一些传统方法不同，Fugu不使用视频的平均压缩比作为代理指标，而是直接优化感知质量（SSIM），这已被证明与人类对视频质量的主观评价有更好的相关性。</p>
-<h4 id="2-TTP（Transmission-Time-Predictor）"><a href="#2-TTP（Transmission-Time-Predictor）" class="headerlink" title="2. TTP（Transmission Time Predictor）"></a><strong>2. TTP（Transmission Time Predictor）</strong></h4><p>TTP是Fugu的核心组件之一，负责预测视频块的传输时间。以下是TTP的详细分析：</p>
-<h5 id="2-1-TTP的设计特点"><a href="#2-1-TTP的设计特点" class="headerlink" title="2.1 TTP的设计特点"></a><strong>2.1 TTP的设计特点</strong></h5><ol>
+<h4 id="ttptransmission-time-predictor"><strong>2. TTP（Transmission
+Time Predictor）</strong></h4>
+<p>TTP是Fugu的核心组件之一，负责预测视频块的传输时间。以下是TTP的详细分析：</p>
+<h5 id="ttp的设计特点"><strong>2.1 TTP的设计特点</strong></h5>
+<ol type="1">
 <li><strong>预测传输时间而非吞吐量</strong>：传统方法通常预测吞吐量，然后通过线性关系推断传输时间。而TTP直接预测传输时间，这在实际中更为准确，因为传输时间与块大小的关系是非线性的（受拥塞控制和网络路径容量的影响）。</li>
 <li><strong>概率分布输出</strong>：TTP输出的是传输时间的概率分布，而不是单点估计。这使得Fugu能够更好地处理不确定性，从而做出更优的决策。</li>
 <li><strong>输入信号</strong>：TTP的输入包括低级拥塞控制统计（如RTT、CWND、飞行中的数据包数）和块大小。这些信号帮助TTP更准确地建模实际网络行为。</li>
 </ol>
-<h5 id="2-2-TTP的训练"><a href="#2-2-TTP的训练" class="headerlink" title="2.2 TTP的训练"></a><strong>2.2 TTP的训练</strong></h5><ul>
+<h5 id="ttp的训练"><strong>2.2 TTP的训练</strong></h5>
+<ul>
 <li><strong>训练数据</strong>：TTP使用从实际部署环境中（Puffer）记录的真实数据进行训练。</li>
 <li><strong>训练方法</strong>：采用监督学习，最小化预测的概率分布与实际传输时间的交叉熵损失。具体来说，使用随机梯度下降（SGD）进行优化。</li>
 <li><strong>网络结构</strong>：TTP是一个全连接神经网络，包含两个隐藏层，每层有64个神经元。输入是过去8个块的信号，输出是21个时间区间的概率分布。</li>
 </ul>
-<h4 id="2-3-消融研究"><a href="#2-3-消融研究" class="headerlink" title="2.3 消融研究"></a><strong>2.3 消融研究</strong></h4><p>论文通过消融研究验证了TTP各个特征的重要性：</p>
-<ol>
+<h4 id="消融研究"><strong>2.3 消融研究</strong></h4>
+<p>论文通过消融研究验证了TTP各个特征的重要性：</p>
+<ol type="1">
 <li><strong>概率分布输出</strong>：相比于单点估计（如中位值），概率分布输出显著提高了预测精度和整体性能。</li>
 <li><strong>块大小的显式考虑</strong>：相比于传统的吞吐量预测器，显式预测传输时间与块大小的关系显著提高了预测精度。</li>
 <li><strong>低级拥塞控制统计</strong>：这些信号对预测传输时间起到了重要作用，移除它们会显著降低性能。</li>
 </ol>
 <hr>
-<h4 id="3-MPC（Model-Predictive-Control）"><a href="#3-MPC（Model-Predictive-Control）" class="headerlink" title="3. MPC（Model Predictive Control）"></a><strong>3. MPC（Model Predictive Control）</strong></h4><p>Fugu使用MPC作为其控制策略，结合TTP的预测结果来优化未来的QoE。以下是MPC的详细分析：</p>
-<h5 id="3-1-MPC的设计"><a href="#3-1-MPC的设计" class="headerlink" title="3.1 MPC的设计"></a><strong>3.1 MPC的设计</strong></h5><ol>
-<li><strong>随机优化</strong>：MPC控制器通过查询TTP获取传输时间的预测分布，并通过值迭代（Value Iteration）计算最优的块选择序列（未来H步的计划）。</li>
+<h4 id="mpcmodel-predictive-control"><strong>3. MPC（Model Predictive
+Control）</strong></h4>
+<p>Fugu使用MPC作为其控制策略，结合TTP的预测结果来优化未来的QoE。以下是MPC的详细分析：</p>
+<h5 id="mpc的设计"><strong>3.1 MPC的设计</strong></h5>
+<ol type="1">
+<li><strong>随机优化</strong>：MPC控制器通过查询TTP获取传输时间的预测分布，并通过值迭代（Value
+Iteration）计算最优的块选择序列（未来H步的计划）。</li>
 <li><strong>实时更新</strong>：在发送每个块后，控制器会更新输入信号并重新规划未来的块选择。</li>
 <li><strong>优化目标</strong>：MPC的目标是最大化累积的QoE，具体是视频质量、视频质量变化和停顿时间的加权和。</li>
 </ol>
-<h5 id="3-2-MPC的优势"><a href="#3-2-MPC的优势" class="headerlink" title="3.2 MPC的优势"></a><strong>3.2 MPC的优势</strong></h5><ol>
+<h5 id="mpc的优势"><strong>3.2 MPC的优势</strong></h5>
+<ol type="1">
 <li><strong>结合预测与控制</strong>：MPC将TTP的预测结果与经典的控制策略相结合，能够在动态变化的网络环境中做出最优决策。</li>
 <li><strong>鲁棒性</strong>：通过考虑传输时间的概率分布，MPC能够更好地应对不确定性，从而提高整体鲁棒性。</li>
 </ol>
 <hr>
-<h4 id="4-训练和消融研究"><a href="#4-训练和消融研究" class="headerlink" title="4. 训练和消融研究"></a><strong>4. 训练和消融研究</strong></h4><h5 id="4-1-训练"><a href="#4-1-训练" class="headerlink" title="4.1 训练"></a><strong>4.1 训练</strong></h5><ul>
+<h4 id="训练和消融研究"><strong>4. 训练和消融研究</strong></h4>
+<h5 id="训练"><strong>4.1 训练</strong></h5>
+<ul>
 <li><strong>数据来源</strong>：TTP的训练数据来自Puffer的真实部署环境，记录了块的大小、实际传输时间以及低级拥塞控制统计。</li>
 <li><strong>监督学习</strong>：TTP通过监督学习训练，目标是最小化预测的概率分布与实际传输时间的交叉熵损失。</li>
 </ul>
-<h5 id="4-2-消融研究"><a href="#4-2-消融研究" class="headerlink" title="4.2 消融研究"></a><strong>4.2 消融研究</strong></h5><p>论文通过消融实验验证了TTP各个特征的重要性：</p>
-<ol>
+<h5 id="消融研究-1"><strong>4.2 消融研究</strong></h5>
+<p>论文通过消融实验验证了TTP各个特征的重要性：</p>
+<ol type="1">
 <li><strong>概率分布输出</strong>：移除概率分布输出，改用单点估计（如中位值）会导致预测精度下降，并显著增加停顿率。</li>
 <li><strong>块大小的显式考虑</strong>：移除块大小的显式预测，改用传统的吞吐量预测器会导致预测精度显著下降。</li>
 <li><strong>低级拥塞控制统计</strong>：移除这些信号会导致预测精度下降，从而影响整体性能。</li>
 </ol>
 <hr>
-<h4 id="5-总结"><a href="#5-总结" class="headerlink" title="5. 总结"></a><strong>5. 总结</strong></h4><p>Fugu的设计结合了经典控制理论（MPC）和机器学习（TTP），通过在实际部署环境中训练模型，实现了对视频质量的鲁棒优化。TTP作为Fugu的核心组件，通过显式预测传输时间、输出概率分布以及考虑低级拥塞控制统计，显著提高了预测精度和整体性能。MPC则通过结合TTP的预测结果，实现了对未来的优化决策。</p>
+<h4 id="总结"><strong>5. 总结</strong></h4>
+<p>Fugu的设计结合了经典控制理论（MPC）和机器学习（TTP），通过在实际部署环境中训练模型，实现了对视频质量的鲁棒优化。TTP作为Fugu的核心组件，通过显式预测传输时间、输出概率分布以及考虑低级拥塞控制统计，显著提高了预测精度和整体性能。MPC则通过结合TTP的预测结果，实现了对未来的优化决策。</p>
 
                 
             </div>

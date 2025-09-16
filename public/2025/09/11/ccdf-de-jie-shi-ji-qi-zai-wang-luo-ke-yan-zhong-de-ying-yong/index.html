@@ -5,8 +5,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="CCDF的解释及其在网络科研中的应用, HiBlog">
-    <meta name="description" content="CCDF（Complementary Cumulative Distribution Function，互补累积分布函数）是一种用来描述数据分布的统计工具。我们可以用一个很通俗的方式来理解它：
-先从“累积分布”说起想象你有一堆数据（比如上面">
+    <meta name="description" content="CCDF（Complementary Cumulative Distribution
+Function，互补累积分布函数）是一种用来描述数据分布的统计工具。我们可以用一个很通俗的方式来理解它：
+先从“累积分布”说起
+想象你有一堆数据（比如上">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -385,7 +387,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    594
+                    596
                 </div>
                 
 
@@ -415,20 +417,45 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>CCDF（Complementary Cumulative Distribution Function，互补累积分布函数）是一种用来描述数据分布的统计工具。我们可以用一个很通俗的方式来理解它：</p>
-<h3 id="先从“累积分布”说起"><a href="#先从“累积分布”说起" class="headerlink" title="先从“累积分布”说起"></a>先从“累积分布”说起</h3><p>想象你有一堆数据（比如上面图中可能记录的是不同网络下的延迟、帧率等），如果你想看看 “有多少比例的数据 <strong>小于等于</strong> 某个值”，这时候画出来的曲线就叫「累积分布函数（CDF）」。</p>
-<p>举个例子：假设你测了一批手机的电量，CDF 就能告诉你 “电量 ≤ 20% 的手机占多少比例”“电量 ≤ 50% 的手机占多少比例” 等等。</p>
-<h3 id="再看“互补”是什么意思"><a href="#再看“互补”是什么意思" class="headerlink" title="再看“互补”是什么意思"></a>再看“互补”是什么意思</h3><p>CCDF 则是 <strong>CDF 的“反面”</strong> ：它关注的是 “有多少比例的数据 <strong>大于等于</strong> 某个值”。</p>
-<p>还是拿刚才的手机电量举例：CCDF 就会回答 “电量 ≥ 20% 的手机占多少比例”“电量 ≥ 50% 的手机占多少比例”……</p>
+                <p>CCDF（Complementary Cumulative Distribution
+Function，互补累积分布函数）是一种用来描述数据分布的统计工具。我们可以用一个很通俗的方式来理解它：</p>
+<h3 id="先从累积分布说起">先从“累积分布”说起</h3>
+<p>想象你有一堆数据（比如上面图中可能记录的是不同网络下的延迟、帧率等），如果你想看看
+“有多少比例的数据 <strong>小于等于</strong>
+某个值”，这时候画出来的曲线就叫「累积分布函数（CDF）」。</p>
+<p>举个例子：假设你测了一批手机的电量，CDF 就能告诉你 “电量 ≤ 20%
+的手机占多少比例”“电量 ≤ 50% 的手机占多少比例” 等等。</p>
+<h3 id="再看互补是什么意思">再看“互补”是什么意思</h3>
+<p>CCDF 则是 <strong>CDF 的“反面”</strong> ：它关注的是
+“有多少比例的数据 <strong>大于等于</strong> 某个值”。</p>
+<p>还是拿刚才的手机电量举例：CCDF 就会回答 “电量 ≥ 20%
+的手机占多少比例”“电量 ≥ 50% 的手机占多少比例”……</p>
 <p>换句话说，CCDF = 1 - CDF。</p>
-<h3 id="结合图来理解"><a href="#结合图来理解" class="headerlink" title="结合图来理解"></a>结合图来理解</h3><p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911104014312.png" alt="image-20250911104014312"></p>
-<p>看你贴的这三张图，横轴分别是 RTT（往返时延）、帧延迟、帧率，纵轴是 CCDF（对数坐标）。每一条线代表一种网络（WiFi、4G、有线网）。</p>
+<h3 id="结合图来理解">结合图来理解</h3>
+<figure>
+<img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911104014312.png" alt="image-20250911104014312">
+<figcaption aria-hidden="true">image-20250911104014312</figcaption>
+</figure>
+<p>看你贴的这三张图，横轴分别是 RTT（往返时延）、帧延迟、帧率，纵轴是
+CCDF（对数坐标）。每一条线代表一种网络（WiFi、4G、有线网）。</p>
 <ul>
-<li><strong>∙</strong>当你沿着某条线往左上方看时，比如看 “有线网” 那条黄线在 RTT=0.2s 处的 CCDF 值很高（接近 10⁰，也就是 1），这就表示：<strong>在有线网测试里，有大约 100% 的情况下，RTT 都 ≥ 0.2s</strong>（当然实际场景里 RTT 不会这么固定，这里只是举例子理解概念）。</li>
-<li><strong>∙</strong>再看 WiFi（红方块线），同样在 RTT=0.2s 左右，它的 CCDF 明显比有线网低——意味着 “WiFi 下 RTT ≥ 0.2s 的情况占比更少”，或者说 “WiFi 下 RTT 更容易出现比 0.2s 小的情况”。</li>
+<li><strong>∙</strong>当你沿着某条线往左上方看时，比如看 “有线网”
+那条黄线在 RTT=0.2s 处的 CCDF 值很高（接近 10⁰，也就是
+1），这就表示：<strong>在有线网测试里，有大约 100% 的情况下，RTT 都 ≥
+0.2s</strong>（当然实际场景里 RTT
+不会这么固定，这里只是举例子理解概念）。</li>
+<li><strong>∙</strong>再看 WiFi（红方块线），同样在 RTT=0.2s 左右，它的
+CCDF 明显比有线网低——意味着 “WiFi 下 RTT ≥ 0.2s 的情况占比更少”，或者说
+“WiFi 下 RTT 更容易出现比 0.2s 小的情况”。</li>
 </ul>
-<h3 id="总结一下-CCDF-的作用"><a href="#总结一下-CCDF-的作用" class="headerlink" title="总结一下 CCDF 的作用"></a>总结一下 CCDF 的作用</h3><p>它最方便的地方，是能让你一眼看出 “<strong>极端情况出现的比例</strong>” 有多大。比如你想知道 “延迟特别大（比如 RTT 超过 1s）的情况占比多少”，看 CCDF 在 RTT=1s 处的数值，就能知道有多少比例的数据满足 “≥1s”。</p>
-<p>所以在这三张图里，你可以对比 WiFi、4G、有线网在不同指标（延迟、帧率）下，“表现差（数值大）” 的情况占比有多高——从而判断哪种网络在延迟、帧率稳定性上更优~</p>
+<h3 id="总结一下-ccdf-的作用">总结一下 CCDF 的作用</h3>
+<p>它最方便的地方，是能让你一眼看出
+“<strong>极端情况出现的比例</strong>” 有多大。比如你想知道
+“延迟特别大（比如 RTT 超过 1s）的情况占比多少”，看 CCDF 在 RTT=1s
+处的数值，就能知道有多少比例的数据满足 “≥1s”。</p>
+<p>所以在这三张图里，你可以对比
+WiFi、4G、有线网在不同指标（延迟、帧率）下，“表现差（数值大）”
+的情况占比有多高——从而判断哪种网络在延迟、帧率稳定性上更优~</p>
 
                 
             </div>

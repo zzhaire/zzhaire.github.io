@@ -6,12 +6,17 @@
     <meta charset="utf-8">
     <meta name="keywords" content="棋盘游戏, HiBlog">
     <meta name="description" content="棋盘游戏
+
 链接: https://vjudge.net/problem/POJ-1321
 
 题目描述
-ac 代码#include &amp;lt;iostream&amp;gt;
-using namespace std;
-const int N = 10;">
+
+
+image-20250830184724751
+
+ac 代码
+#include &amp;lt;iostream&amp;gt;
+using nam">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -386,7 +391,7 @@ const int N = 10;">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    323
+                    325
                 </div>
                 
 
@@ -416,11 +421,17 @@ const int N = 10;">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="棋盘游戏"><a href="#棋盘游戏" class="headerlink" title="棋盘游戏"></a>棋盘游戏</h1><blockquote>
-<p>链接: <a target="_blank" rel="noopener" href="https://vjudge.net/problem/POJ-1321">https://vjudge.net/problem/POJ-1321</a></p>
+                <h1 id="棋盘游戏">棋盘游戏</h1>
+<blockquote>
+<p>链接: https://vjudge.net/problem/POJ-1321</p>
 </blockquote>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250830184724751.png" alt="image-20250830184724751"></p>
-<h2 id="ac-代码"><a href="#ac-代码" class="headerlink" title="ac 代码"></a>ac 代码</h2><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">#include &lt;iostream&gt;
+<h2 id="题目描述">题目描述</h2>
+<figure>
+<img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250830184724751.png" alt="image-20250830184724751">
+<figcaption aria-hidden="true">image-20250830184724751</figcaption>
+</figure>
+<h2 id="ac-代码">ac 代码</h2>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">#include &lt;iostream&gt;
 using namespace std;
 const int N = 10;
 
@@ -476,7 +487,10 @@ signed main()
         // memset(a, 0, sizeof a);
     }
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>这个题很经典的搜索题, 但是和皇后游戏不一样, 这个题不是每一行都确定要放棋子的, 所以要搜索两种状态, 一种是该行放棋子, 一种是该行不放棋子.</p>
+<h2 id="思路">思路</h2>
+<p>这个题很经典的搜索题, 但是和皇后游戏不一样,
+这个题不是每一行都确定要放棋子的, 所以要搜索两种状态, 一种是该行放棋子,
+一种是该行不放棋子.</p>
 <p>大概就是</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">for(列 : 每一列元素) {
       dfs(放棋子, 剩余棋子)
