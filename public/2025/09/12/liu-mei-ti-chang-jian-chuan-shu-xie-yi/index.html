@@ -1,0 +1,1507 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="流媒体常见传输协议, HiBlog">
+    <meta name="description" content="流媒体传输协议: RTP, RTCP, RTSP, SRTP, SRTCP原文链接: https://blog.csdn.net/feeltouch/article/details/82957377
+
+总结:   RTSP发起/终结流媒体会">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>流媒体常见传输协议 | HiBlog</title>
+    <link rel="icon" type="image/png" href="/hello.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/hello.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">HiBlog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/hello.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">HiBlog</div>
+        <div class="logo-desc">
+            
+            Record some notes and share them with everyone.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">流媒体常见传输协议</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%B5%81%E5%AA%92%E4%BD%93%E4%BC%A0%E8%BE%93/">
+                                <span class="chip bg-color">流媒体传输</span>
+                            </a>
+                        
+                            <a href="/tags/%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE/">
+                                <span class="chip bg-color">传输协议</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E7%BD%91%E7%BB%9C%E7%A7%91%E7%A0%94/" class="post-category">
+                                网络科研
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2025-09-12
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2025-09-16
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    5.8k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    21 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="流媒体传输协议-RTP-RTCP-RTSP-SRTP-SRTCP"><a href="#流媒体传输协议-RTP-RTCP-RTSP-SRTP-SRTCP" class="headerlink" title="流媒体传输协议: RTP, RTCP, RTSP, SRTP, SRTCP"></a>流媒体传输协议: RTP, RTCP, RTSP, SRTP, SRTCP</h2><p>原文链接: <a target="_blank" rel="noopener" href="https://blog.csdn.net/feeltouch/article/details/82957377">https://blog.csdn.net/feeltouch/article/details/82957377</a></p>
+<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911202430413.png" alt="image-20250911202430413"></p>
+<p><strong>总结:</strong>   RTSP发起/终结流媒体会话，RTP负责传输流媒体数据，RTCP对RTP进行控制以实现同步等功能。<br><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911213208723.png" alt="image-20250911213208723" style="zoom: 67%;"></p>
+<h3 id="一、RTP（实时传输协议，位于传输层）"><a href="#一、RTP（实时传输协议，位于传输层）" class="headerlink" title="一、RTP（实时传输协议，位于传输层）"></a>一、RTP（实时传输协议，位于传输层）</h3><h4 id="（一）简介和工作机制"><a href="#（一）简介和工作机制" class="headerlink" title="（一）简介和工作机制"></a>（一）简介和工作机制</h4><p>1.<strong>工作场景</strong>：适用于一对一或一对多的传输情况，核心目的是提供时间信息以实现流同步。</p>
+<p>2.<strong>传输基础</strong>：通常基于 UDP 工作，也可运行于 TCP 或者 ATM 等其他协议之上。由于多媒体实时传输存在数据到达时间不可预料的问题，而流媒体传输又要求数据适时到达，所以 RTP 应运而生。</p>
+<p>3.<strong>提供信息</strong>：提供时间标签、序列号以及其他控制位，这些信息有助于接收端正确处理和播放媒体数据。</p>
+<h4 id="（二）报文结构及各字段含义"><a href="#（二）报文结构及各字段含义" class="headerlink" title="（二）报文结构及各字段含义"></a>（二）报文结构及各字段含义</h4><p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911203331331.png" alt="image-20250911203331331"></p>
+<ul>
+<li>1.<strong>版本（V）</strong>：2 位，用于标识 RTP 协议的版本。</li>
+<li>2.<strong>填充标识（P）</strong>：1 位，用于指示是否对数据包进行填充。</li>
+<li>3.<strong>扩展（X）</strong>：1 位，用于标识是否有扩展头。</li>
+<li>4.<strong>CSRC 计数（CC）</strong>：4 位，用来统计 CSRC（贡献源标识符）的个数。</li>
+<li><blockquote>
+<p>∙<strong>应用场景</strong>：在多方会议（多个参会者音频混合）、音频混音（多个麦克风输入混音）、视频切换（多个摄像头画面切换或拼接）等场景中，多个音视频源会被混合或转发，接收端需要借助 CSRC 知道当前数据包来自哪些原始源，以实现正确同步音视频、实现回声消除（AEC）以及音频混音处理等功能。</p>
+</blockquote>
+</li>
+<li>5.<strong>标记（M）</strong>：1 位，用于标记重要包，例如视频中的关键帧等。</li>
+<li>6.<strong>载荷类型（PT）</strong>：7 位，用来标识编码器类型，接收端依据此信息找出对应的解码器，从而正确解码媒体数据。</li>
+<li>7.<strong>序列号</strong>：16 位，类似于 TCP 的序列号，用于标识数据包的顺序。但仅靠序列号不能确保数据按正确顺序播放，因为数据中间可能存在缺失，还需要结合时间戳来确定播放时间。</li>
+<li>8.<strong>时间戳</strong>：用于确定数据在正确的时间播放，与序列号配合，保证媒体数据的准确播放顺序。</li>
+<li>9.<strong>SSRC（同步源标识符）</strong>：标识同步源，在 RTP 会话（如实时会议、直播）中，每个参与媒体传输的设备（如麦克风、摄像机、混音器）或软件进程都会被分配一个唯一的 SSRC 值（通常随机生成）。接收端通过 SSRC 快速识别数据包的来源，将来自不同源的媒体流（如音频、视频）正确分组，例如在多人视频会议中，可据此区分不同参会者的视频流和音频流。∙<strong>与 CSRC 的区别</strong>：SSRC 标识设备（如单个摄像头、麦克风等），而 CSRC 标识设备里的多个子输入（如多个麦克风输入、多个摄像头画面等）。</li>
+</ul>
+<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911205247541.png" alt="image-20250911205247541"></p>
+<h4 id="（三）相关补充说明"><a href="#（三）相关补充说明" class="headerlink" title="（三）相关补充说明"></a>（三）相关补充说明</h4><p>RTP 通常用于单一路音频/视频流（如一个人的麦克风或摄像头），但在多方会议、音频混音、视频切换等场景下，多个音视频源会被混合或转发，此时接收端需要借助 CSRC 来处理相关问题，以确保媒体数据的正确播放和处理。</p>
+<h3 id="二、RTCP（实时传输控制协议）"><a href="#二、RTCP（实时传输控制协议）" class="headerlink" title="二、RTCP（实时传输控制协议）"></a>二、RTCP（实时传输控制协议）</h3><h4 id="（一）简介及工作机制"><a href="#（一）简介及工作机制" class="headerlink" title="（一）简介及工作机制"></a>（一）简介及工作机制</h4><p>1.<strong>与 RTP 的关系</strong>：RTCP 并非 RTP 的严格意义上的“控制器”，但它是 RTP 的核心配套协议。RTP 负责实时媒体数据的传输（如音频、视频帧），提供数据标识（序列号、时间戳、SSRC）、封装和实时性保障（如低延迟传输），但不保证可靠传输（丢包、乱序需上层处理）。</p>
+<p>2.<strong>主要功能</strong>：RTCP 不传输媒体数据，而是通过周期性控制包实现对 RTP 传输的监控和管理，是 RTP 的“辅助工具”。其主要功能包括监听服务质量（如接收端通过 RTCP 向发送端反馈丢包率、网络抖动等指标，发送端据此调整传输策略）、交换会话用户信息（如在多播或多方会议场景中，跟踪参与会话的节点状态）等，以确保 RTP 传输的稳定性和可靠性。</p>
+<h4 id="（二）与-RTP-的协同工作"><a href="#（二）与-RTP-的协同工作" class="headerlink" title="（二）与 RTP 的协同工作"></a>（二）与 RTP 的协同工作</h4><p>RTP 和 RTCP 协同工作，共同构成实时多媒体传输的基础框架。RTP 负责媒体数据的传输，而 RTCP 负责对 RTP 传输进行监控和管理，两者相互配合，保障了实时音视频通话、直播、视频会议等场景的流畅运行。</p>
+<h3 id="RTSP-应用层"><a href="#RTSP-应用层" class="headerlink" title="RTSP (应用层)"></a>RTSP (应用层)</h3><h4 id="工作机理及简介"><a href="#工作机理及简介" class="headerlink" title="工作机理及简介"></a>工作机理及简介</h4><p>旨在为IP网络上的实时音视频流提供<strong>可控传输</strong>服务。它通过标准的请求-响应模型，实现对流媒体的播放、暂停、快进、录制等操作的控制，是视频监控、视频会议、在线直播等场景的核心控制协议之一。</p>
+<h4 id="RTSP的核心作用"><a href="#RTSP的核心作用" class="headerlink" title="RTSP的核心作用"></a><strong>RTSP的核心作用</strong></h4><p>RTSP的本质是“<strong>流媒体服务器的远程控制接口</strong>”，其核心功能包括：</p>
+<ul>
+<li>∙<strong>会话管理</strong>：建立、维护和终止客户端与服务器之间的流媒体会话（如通过<code>SETUP</code>初始化传输、<code>TEARDOWN</code>结束会话）；</li>
+<li>∙<strong>播放控制</strong>：支持播放（<code>PLAY</code>）、暂停（<code>PAUSE</code>）、停止（<code>TEARDOWN</code>）、快进/快退（<code>SEEK</code>）等操作，允许用户按需调整播放进度；</li>
+<li>∙<strong>多流同步</strong>：通过<code>SDP</code>（会话描述协议）协调音频、视频等多路流的传输，确保音画同步；</li>
+<li>∙<strong>传输模式选择</strong>：支持单播（Unicast，一对一传输）、组播（Multicast，一对多传输）等模式，适应不同网络环境和用户规模。</li>
+</ul>
+<h4 id="RTSP的工作原理概述"><a href="#RTSP的工作原理概述" class="headerlink" title="RTSP的工作原理概述"></a><strong>RTSP的工作原理概述</strong></h4><p>RTSP的工作流程通常分为以下步骤（以“客户端拉取流媒体”为例）：</p>
+<p>1.<strong>发现资源</strong>：客户端通过HTTP或其他方式获取流媒体的<code>SDP</code>描述文件（包含媒体格式、传输地址等信息）；</p>
+<p>2.<strong>建立连接</strong>：客户端向服务器发送<code>DESCRIBE</code>请求，获取流媒体的详细信息（如编码格式、分辨率）；</p>
+<p>3.<strong>初始化传输</strong>：客户端发送<code>SETUP</code>请求，指定传输模式（如UDP/RTP）和端口，服务器返回<code>Session ID</code>（会话标识）；</p>
+<p>4.<strong>启动传输</strong>：客户端发送<code>PLAY</code>请求，服务器开始通过RTP协议发送流媒体数据，同时通过RTCP协议反馈传输质量（如丢包率、延迟）；</p>
+<p>5.<strong>控制与终止</strong>：客户端可通过<code>PAUSE</code>暂停、<code>SEEK</code>跳转，最终通过<code>TEARDOWN</code>终止会话，释放资源。</p>
+<h4 id="RTSP报文结构"><a href="#RTSP报文结构" class="headerlink" title="RTSP报文结构"></a>RTSP报文结构</h4><p>RTSP（Real Time Streaming Protocol，实时流协议）报文分为请求报文和响应报文两类：</p>
+<ul>
+<li>∙<strong>请求报文</strong>：从客户端向服务器发送，用于向服务器提出各种请求操作。</li>
+<li>∙<strong>响应报文</strong>：从服务器到客户端，作为对请求报文的回应。</li>
+<li><p>∙<strong>报文组成</strong>：由于RTSP是面向正文的（text - oriented），报文中每个字段都是ASCII码串，长度不确定。RTSP报文由开始行、首部行和实体主体三部分构成。</p>
+<ul>
+<li>∙<strong>请求报文</strong>：开始行是请求行，其结构可参考相关示意图</li>
+<li>∙<strong>响应报文</strong>：开始行是状态行，其结构也可参考相关示意图</li>
+</ul>
+</li>
+</ul>
+<pre><code>| &lt;img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911212231324.png" alt="image-20250911212231324" style="zoom:40%;" /&gt; | &lt;img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911212238443.png" alt="image-20250911212238443" style="zoom:40%;" /&gt; |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+</code></pre><h3 id="RTSP请求报文方法"><a href="#RTSP请求报文方法" class="headerlink" title="RTSP请求报文方法"></a>RTSP请求报文方法</h3><p>RTSP请求报文包含多种方法，用于实现不同的功能：</p>
+<p>1.<strong>OPTIONS</strong>：用于获得服务器提供的可用方法，客户端通过此方法了解服务器支持的操作。</p>
+<p>2.<strong>DESCRIBE</strong>：客户端使用该方法向服务器请求得到媒体初始化描述信息，服务器回应的主要是SDP（会话描述协议）信息。</p>
+<p>3.<strong>SETUP</strong>：客户端提醒服务器建立会话，并确定传输模式，为后续的媒体传输做准备。</p>
+<p>4.<strong>TEARDOWN</strong>：由客户端发起关闭请求，用于终止当前的RTSP会话。</p>
+<p>5.<strong>ANNOUNCE</strong>：用于更新会话描述信息，当会话的相关信息发生变化时使用。</p>
+<p>6.<strong>PLAY</strong>：客户端发送播放请求，要求服务器开始播放媒体流。</p>
+<p>7.<strong>PAUSE</strong>：临时停止流，但不释放服务器资源，方便后续继续播放。</p>
+<p>8.<strong>GET_PARAMETER</strong>：取得流控制参数，不过某些服务器可能不支持该方法。</p>
+<p>9.<strong>SET_PARAMETER</strong>：设置流控制参数，同样某些服务器可能不支持该方法。</p>
+<h4 id="RTSP交互过程"><a href="#RTSP交互过程" class="headerlink" title="RTSP交互过程"></a>RTSP交互过程</h4><p>用C表示RTSP客户端，S表示RTSP服务端，标准的RTSP交互流程如下：</p>
+<p>1.<strong>询问可用方法</strong>：∙C -&gt; S: OPTION request（客户端询问服务器有哪些方法可用）∙S -&gt; C: OPTION response（服务器回应信息中包括提供的所有可用方法）</p>
+<p>2.<strong>获取媒体初始化描述信息</strong>：∙C -&gt; S: DESCRIBE request（客户端要求得到服务器提供的媒体初始化描述信息）∙S -&gt; C: DESCRIBE response（服务器回应媒体初始化描述信息，主要是SDP）</p>
+<p>3.<strong>建立会话</strong>：∙C -&gt; S: SETUP request（客户端设置会话属性以及传输模式，提醒服务器建立会话）∙S -&gt; C: SETUP response（服务器建立会话，返回会话标识符及会话相关信息）</p>
+<p>4.<strong>播放媒体流</strong>：∙C -&gt; S: PLAY request（客户端请求播放）∙S -&gt; C: PLAY response（服务器回应请求信息）∙S -&gt; C: 发送流媒体数据（服务器开始向客户端发送流媒体数据）</p>
+<p>5.<strong>关闭会话</strong>：∙C -&gt; S: TEARDOWN request（客户端请求关闭会话）∙S -&gt; C: TEARDOWN response（服务器回应请求）</p>
+<p>其中，第3步（建立会话）和第4步（播放媒体流）是必需的步骤。</p>
+<h4 id="RTSP与HTTP的比较"><a href="#RTSP与HTTP的比较" class="headerlink" title="RTSP与HTTP的比较"></a>RTSP与HTTP的比较</h4><ul>
+<li>∙<strong>功能相似性</strong>：HTTP和RTSP在功能上有相似重叠的地方，RTSP采用了HTTP/1.1大多数的状态码，并且增加了RTSP特定的状态码。</li>
+<li>∙<strong>请求方法对比</strong>：∙<strong>HTTP协议</strong>：定义了8种可能的请求方法，包括GET（检索URI中标识资源的一个简单请求）、HEAD（与GET方法相同，服务器只返回状态行和头标，并不返回请求文档）、POST（服务器接受被写入客户端输出流中的数据的请求）、PUT（服务器保存请求数据作为指定URI新内容的请求）、DELETE（服务器删除URI中命名的资源的请求）、OPTIONS（关于服务器支持的请求方法信息的请求）、TRACE（Web服务器反馈Http请求和其头标的请求）、CONNECT（已文档化但当前未实现的一个方法，预留做隧道处理）。∙<strong>RTSP协议</strong>：有自己特定的请求方法，如上述的OPTIONS、DESCRIBE等多种方法。</li>
+<li>∙<strong>协议规范</strong>：RTSP和HTTP的协议规范分别在RFC2326和RFC2616有详细描述。</li>
+<li>∙<strong>MMS协议</strong>：MMS（Microsoft Media Server）协议为微软的私有协议，未公开协议，采用私有自定义控制结构体来发送命令，不像HTTP和RTSP协议采用发送文本命令控制。</li>
+</ul>
+<h4 id="RTP、RTSP与RTCP的区别总结"><a href="#RTP、RTSP与RTCP的区别总结" class="headerlink" title="RTP、RTSP与RTCP的区别总结"></a>RTP、RTSP与RTCP的区别总结</h4><p>用一句话简单概括：RTSP发起/终结流媒体会话，RTP负责传输流媒体数据，RTCP对RTP进行控制以实现同步等功能。</p>
+<h2 id="流媒体传输协议-RTP-RTCP-RTSP-SRTP-SRTCP-1"><a href="#流媒体传输协议-RTP-RTCP-RTSP-SRTP-SRTCP-1" class="headerlink" title="流媒体传输协议: RTP, RTCP, RTSP, SRTP, SRTCP"></a>流媒体传输协议: RTP, RTCP, RTSP, SRTP, SRTCP</h2><p>原文链接: <a target="_blank" rel="noopener" href="https://blog.csdn.net/feeltouch/article/details/82957377">https://blog.csdn.net/feeltouch/article/details/82957377</a></p>
+<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911202430413.png" alt="image-20250911202430413"></p>
+<p><strong>总结:</strong>   RTSP发起/终结流媒体会话，RTP负责传输流媒体数据，RTCP对RTP进行控制以实现同步等功能。<br><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911213208723.png" alt="image-20250911213208723" style="zoom: 67%;"></p>
+<h3 id="一、RTP（实时传输协议，位于传输层）-1"><a href="#一、RTP（实时传输协议，位于传输层）-1" class="headerlink" title="一、RTP（实时传输协议，位于传输层）"></a>一、RTP（实时传输协议，位于传输层）</h3><h4 id="（一）简介和工作机制-1"><a href="#（一）简介和工作机制-1" class="headerlink" title="（一）简介和工作机制"></a>（一）简介和工作机制</h4><p>1.<strong>工作场景</strong>：适用于一对一或一对多的传输情况，核心目的是提供时间信息以实现流同步。</p>
+<p>2.<strong>传输基础</strong>：通常基于 UDP 工作，也可运行于 TCP 或者 ATM 等其他协议之上。由于多媒体实时传输存在数据到达时间不可预料的问题，而流媒体传输又要求数据适时到达，所以 RTP 应运而生。</p>
+<p>3.<strong>提供信息</strong>：提供时间标签、序列号以及其他控制位，这些信息有助于接收端正确处理和播放媒体数据。</p>
+<h4 id="（二）报文结构及各字段含义-1"><a href="#（二）报文结构及各字段含义-1" class="headerlink" title="（二）报文结构及各字段含义"></a>（二）报文结构及各字段含义</h4><p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911203331331.png" alt="image-20250911203331331"></p>
+<ul>
+<li>1.<strong>版本（V）</strong>：2 位，用于标识 RTP 协议的版本。</li>
+<li>2.<strong>填充标识（P）</strong>：1 位，用于指示是否对数据包进行填充。</li>
+<li>3.<strong>扩展（X）</strong>：1 位，用于标识是否有扩展头。</li>
+<li>4.<strong>CSRC 计数（CC）</strong>：4 位，用来统计 CSRC（贡献源标识符）的个数。</li>
+<li><blockquote>
+<p>∙<strong>应用场景</strong>：在多方会议（多个参会者音频混合）、音频混音（多个麦克风输入混音）、视频切换（多个摄像头画面切换或拼接）等场景中，多个音视频源会被混合或转发，接收端需要借助 CSRC 知道当前数据包来自哪些原始源，以实现正确同步音视频、实现回声消除（AEC）以及音频混音处理等功能。</p>
+</blockquote>
+</li>
+<li>5.<strong>标记（M）</strong>：1 位，用于标记重要包，例如视频中的关键帧等。</li>
+<li>6.<strong>载荷类型（PT）</strong>：7 位，用来标识编码器类型，接收端依据此信息找出对应的解码器，从而正确解码媒体数据。</li>
+<li>7.<strong>序列号</strong>：16 位，类似于 TCP 的序列号，用于标识数据包的顺序。但仅靠序列号不能确保数据按正确顺序播放，因为数据中间可能存在缺失，还需要结合时间戳来确定播放时间。</li>
+<li>8.<strong>时间戳</strong>：用于确定数据在正确的时间播放，与序列号配合，保证媒体数据的准确播放顺序。</li>
+<li>9.<strong>SSRC（同步源标识符）</strong>：标识同步源，在 RTP 会话（如实时会议、直播）中，每个参与媒体传输的设备（如麦克风、摄像机、混音器）或软件进程都会被分配一个唯一的 SSRC 值（通常随机生成）。接收端通过 SSRC 快速识别数据包的来源，将来自不同源的媒体流（如音频、视频）正确分组，例如在多人视频会议中，可据此区分不同参会者的视频流和音频流。∙<strong>与 CSRC 的区别</strong>：SSRC 标识设备（如单个摄像头、麦克风等），而 CSRC 标识设备里的多个子输入（如多个麦克风输入、多个摄像头画面等）。</li>
+</ul>
+<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911205247541.png" alt="image-20250911205247541"></p>
+<h4 id="（三）相关补充说明-1"><a href="#（三）相关补充说明-1" class="headerlink" title="（三）相关补充说明"></a>（三）相关补充说明</h4><p>RTP 通常用于单一路音频/视频流（如一个人的麦克风或摄像头），但在多方会议、音频混音、视频切换等场景下，多个音视频源会被混合或转发，此时接收端需要借助 CSRC 来处理相关问题，以确保媒体数据的正确播放和处理。</p>
+<h3 id="二、RTCP（实时传输控制协议）-1"><a href="#二、RTCP（实时传输控制协议）-1" class="headerlink" title="二、RTCP（实时传输控制协议）"></a>二、RTCP（实时传输控制协议）</h3><h4 id="（一）简介及工作机制-1"><a href="#（一）简介及工作机制-1" class="headerlink" title="（一）简介及工作机制"></a>（一）简介及工作机制</h4><p>1.<strong>与 RTP 的关系</strong>：RTCP 并非 RTP 的严格意义上的“控制器”，但它是 RTP 的核心配套协议。RTP 负责实时媒体数据的传输（如音频、视频帧），提供数据标识（序列号、时间戳、SSRC）、封装和实时性保障（如低延迟传输），但不保证可靠传输（丢包、乱序需上层处理）。</p>
+<p>2.<strong>主要功能</strong>：RTCP 不传输媒体数据，而是通过周期性控制包实现对 RTP 传输的监控和管理，是 RTP 的“辅助工具”。其主要功能包括监听服务质量（如接收端通过 RTCP 向发送端反馈丢包率、网络抖动等指标，发送端据此调整传输策略）、交换会话用户信息（如在多播或多方会议场景中，跟踪参与会话的节点状态）等，以确保 RTP 传输的稳定性和可靠性。</p>
+<h4 id="（二）与-RTP-的协同工作-1"><a href="#（二）与-RTP-的协同工作-1" class="headerlink" title="（二）与 RTP 的协同工作"></a>（二）与 RTP 的协同工作</h4><p>RTP 和 RTCP 协同工作，共同构成实时多媒体传输的基础框架。RTP 负责媒体数据的传输，而 RTCP 负责对 RTP 传输进行监控和管理，两者相互配合，保障了实时音视频通话、直播、视频会议等场景的流畅运行。</p>
+<h3 id="RTSP-应用层-1"><a href="#RTSP-应用层-1" class="headerlink" title="RTSP (应用层)"></a>RTSP (应用层)</h3><h4 id="工作机理及简介-1"><a href="#工作机理及简介-1" class="headerlink" title="工作机理及简介"></a>工作机理及简介</h4><p>旨在为IP网络上的实时音视频流提供<strong>可控传输</strong>服务。它通过标准的请求-响应模型，实现对流媒体的播放、暂停、快进、录制等操作的控制，是视频监控、视频会议、在线直播等场景的核心控制协议之一。</p>
+<h4 id="RTSP的核心作用-1"><a href="#RTSP的核心作用-1" class="headerlink" title="RTSP的核心作用"></a><strong>RTSP的核心作用</strong></h4><p>RTSP的本质是“<strong>流媒体服务器的远程控制接口</strong>”，其核心功能包括：</p>
+<ul>
+<li>∙<strong>会话管理</strong>：建立、维护和终止客户端与服务器之间的流媒体会话（如通过<code>SETUP</code>初始化传输、<code>TEARDOWN</code>结束会话）；</li>
+<li>∙<strong>播放控制</strong>：支持播放（<code>PLAY</code>）、暂停（<code>PAUSE</code>）、停止（<code>TEARDOWN</code>）、快进/快退（<code>SEEK</code>）等操作，允许用户按需调整播放进度；</li>
+<li>∙<strong>多流同步</strong>：通过<code>SDP</code>（会话描述协议）协调音频、视频等多路流的传输，确保音画同步；</li>
+<li>∙<strong>传输模式选择</strong>：支持单播（Unicast，一对一传输）、组播（Multicast，一对多传输）等模式，适应不同网络环境和用户规模。</li>
+</ul>
+<h4 id="RTSP的工作原理概述-1"><a href="#RTSP的工作原理概述-1" class="headerlink" title="RTSP的工作原理概述"></a><strong>RTSP的工作原理概述</strong></h4><p>RTSP的工作流程通常分为以下步骤（以“客户端拉取流媒体”为例）：</p>
+<p>1.<strong>发现资源</strong>：客户端通过HTTP或其他方式获取流媒体的<code>SDP</code>描述文件（包含媒体格式、传输地址等信息）；</p>
+<p>2.<strong>建立连接</strong>：客户端向服务器发送<code>DESCRIBE</code>请求，获取流媒体的详细信息（如编码格式、分辨率）；</p>
+<p>3.<strong>初始化传输</strong>：客户端发送<code>SETUP</code>请求，指定传输模式（如UDP/RTP）和端口，服务器返回<code>Session ID</code>（会话标识）；</p>
+<p>4.<strong>启动传输</strong>：客户端发送<code>PLAY</code>请求，服务器开始通过RTP协议发送流媒体数据，同时通过RTCP协议反馈传输质量（如丢包率、延迟）；</p>
+<p>5.<strong>控制与终止</strong>：客户端可通过<code>PAUSE</code>暂停、<code>SEEK</code>跳转，最终通过<code>TEARDOWN</code>终止会话，释放资源。</p>
+<h4 id="RTSP报文结构-1"><a href="#RTSP报文结构-1" class="headerlink" title="RTSP报文结构"></a>RTSP报文结构</h4><p>RTSP（Real Time Streaming Protocol，实时流协议）报文分为请求报文和响应报文两类：</p>
+<ul>
+<li>∙<strong>请求报文</strong>：从客户端向服务器发送，用于向服务器提出各种请求操作。</li>
+<li>∙<strong>响应报文</strong>：从服务器到客户端，作为对请求报文的回应。</li>
+<li><p>∙<strong>报文组成</strong>：由于RTSP是面向正文的（text - oriented），报文中每个字段都是ASCII码串，长度不确定。RTSP报文由开始行、首部行和实体主体三部分构成。</p>
+<ul>
+<li>∙<strong>请求报文</strong>：开始行是请求行，其结构可参考相关示意图</li>
+<li>∙<strong>响应报文</strong>：开始行是状态行，其结构也可参考相关示意图</li>
+</ul>
+</li>
+</ul>
+<pre><code>| &lt;img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911212231324.png" alt="image-20250911212231324" style="zoom:40%;" /&gt; | &lt;img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911212238443.png" alt="image-20250911212238443" style="zoom:40%;" /&gt; |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+</code></pre><h3 id="RTSP请求报文方法-1"><a href="#RTSP请求报文方法-1" class="headerlink" title="RTSP请求报文方法"></a>RTSP请求报文方法</h3><p>RTSP请求报文包含多种方法，用于实现不同的功能：</p>
+<p>1.<strong>OPTIONS</strong>：用于获得服务器提供的可用方法，客户端通过此方法了解服务器支持的操作。</p>
+<p>2.<strong>DESCRIBE</strong>：客户端使用该方法向服务器请求得到媒体初始化描述信息，服务器回应的主要是SDP（会话描述协议）信息。</p>
+<p>3.<strong>SETUP</strong>：客户端提醒服务器建立会话，并确定传输模式，为后续的媒体传输做准备。</p>
+<p>4.<strong>TEARDOWN</strong>：由客户端发起关闭请求，用于终止当前的RTSP会话。</p>
+<p>5.<strong>ANNOUNCE</strong>：用于更新会话描述信息，当会话的相关信息发生变化时使用。</p>
+<p>6.<strong>PLAY</strong>：客户端发送播放请求，要求服务器开始播放媒体流。</p>
+<p>7.<strong>PAUSE</strong>：临时停止流，但不释放服务器资源，方便后续继续播放。</p>
+<p>8.<strong>GET_PARAMETER</strong>：取得流控制参数，不过某些服务器可能不支持该方法。</p>
+<p>9.<strong>SET_PARAMETER</strong>：设置流控制参数，同样某些服务器可能不支持该方法。</p>
+<h4 id="RTSP交互过程-1"><a href="#RTSP交互过程-1" class="headerlink" title="RTSP交互过程"></a>RTSP交互过程</h4><p>用C表示RTSP客户端，S表示RTSP服务端，标准的RTSP交互流程如下：</p>
+<p>1.<strong>询问可用方法</strong>：∙C -&gt; S: OPTION request（客户端询问服务器有哪些方法可用）∙S -&gt; C: OPTION response（服务器回应信息中包括提供的所有可用方法）</p>
+<p>2.<strong>获取媒体初始化描述信息</strong>：∙C -&gt; S: DESCRIBE request（客户端要求得到服务器提供的媒体初始化描述信息）∙S -&gt; C: DESCRIBE response（服务器回应媒体初始化描述信息，主要是SDP）</p>
+<p>3.<strong>建立会话</strong>：∙C -&gt; S: SETUP request（客户端设置会话属性以及传输模式，提醒服务器建立会话）∙S -&gt; C: SETUP response（服务器建立会话，返回会话标识符及会话相关信息）</p>
+<p>4.<strong>播放媒体流</strong>：∙C -&gt; S: PLAY request（客户端请求播放）∙S -&gt; C: PLAY response（服务器回应请求信息）∙S -&gt; C: 发送流媒体数据（服务器开始向客户端发送流媒体数据）</p>
+<p>5.<strong>关闭会话</strong>：∙C -&gt; S: TEARDOWN request（客户端请求关闭会话）∙S -&gt; C: TEARDOWN response（服务器回应请求）</p>
+<p>其中，第3步（建立会话）和第4步（播放媒体流）是必需的步骤。</p>
+<h4 id="RTSP与HTTP的比较-1"><a href="#RTSP与HTTP的比较-1" class="headerlink" title="RTSP与HTTP的比较"></a>RTSP与HTTP的比较</h4><ul>
+<li>∙<strong>功能相似性</strong>：HTTP和RTSP在功能上有相似重叠的地方，RTSP采用了HTTP/1.1大多数的状态码，并且增加了RTSP特定的状态码。</li>
+<li>∙<strong>请求方法对比</strong>：∙<strong>HTTP协议</strong>：定义了8种可能的请求方法，包括GET（检索URI中标识资源的一个简单请求）、HEAD（与GET方法相同，服务器只返回状态行和头标，并不返回请求文档）、POST（服务器接受被写入客户端输出流中的数据的请求）、PUT（服务器保存请求数据作为指定URI新内容的请求）、DELETE（服务器删除URI中命名的资源的请求）、OPTIONS（关于服务器支持的请求方法信息的请求）、TRACE（Web服务器反馈Http请求和其头标的请求）、CONNECT（已文档化但当前未实现的一个方法，预留做隧道处理）。∙<strong>RTSP协议</strong>：有自己特定的请求方法，如上述的OPTIONS、DESCRIBE等多种方法。</li>
+<li>∙<strong>协议规范</strong>：RTSP和HTTP的协议规范分别在RFC2326和RFC2616有详细描述。</li>
+<li>∙<strong>MMS协议</strong>：MMS（Microsoft Media Server）协议为微软的私有协议，未公开协议，采用私有自定义控制结构体来发送命令，不像HTTP和RTSP协议采用发送文本命令控制。</li>
+</ul>
+<h4 id="RTP、RTSP与RTCP的区别总结-1"><a href="#RTP、RTSP与RTCP的区别总结-1" class="headerlink" title="RTP、RTSP与RTCP的区别总结"></a>RTP、RTSP与RTCP的区别总结</h4><p>用一句话简单概括：RTSP发起/终结流媒体会话，RTP负责传输流媒体数据，RTCP对RTP进行控制以实现同步等功能。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">zheyuanzhang</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://zzhaire.github.io/2025/09/12/liu-mei-ti-chang-jian-chuan-shu-xie-yi/">https://zzhaire.github.io/2025/09/12/liu-mei-ti-chang-jian-chuan-shu-xie-yi/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">zheyuanzhang</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%B5%81%E5%AA%92%E4%BD%93%E4%BC%A0%E8%BE%93/">
+                                    <span class="chip bg-color">流媒体传输</span>
+                                </a>
+                            
+                                <a href="/tags/%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE/">
+                                    <span class="chip bg-color">传输协议</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'tBaBeOeMvOKCIZHcLuK8rXe0-gzGzoHsz',
+        appKey: 'KTxKGaCDtSVuailXk3ptjMs7',
+        serverURLs: 'https://tbabeoem.lc-cn-n1-shared.com',
+        notify: 'true' === 'true',
+        verify: 'true' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '15',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+<!--酷Q推送-->
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2025/09/15/du-lun-wen-leaning-in-situ-a-randomized-experiment-in-video-streaming/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="读论文 Learning in situ : a randomized experiment in video streaming(1)">
+                        
+                        <span class="card-title">读论文 Learning in situ : a randomized experiment in video streaming(1)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            读论文&nbsp;Learning&nbsp;in&nbsp;situ&nbsp;:&nbsp;a&nbsp;randomized&nbsp;experiment&nbsp;in&nbsp;...
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-09-15
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%BD%91%E7%BB%9C%E7%A7%91%E7%A0%94/" class="post-category">
+                                    网络科研
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%B5%81%E5%AA%92%E4%BD%93%E4%BC%A0%E8%BE%93/">
+                        <span class="chip bg-color">流媒体传输</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%87%AA%E9%80%82%E5%BA%94%E7%A0%81%E7%8E%87/">
+                        <span class="chip bg-color">自适应码率</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%AF%BB%E8%AE%BA%E6%96%87/">
+                        <span class="chip bg-color">读论文</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2025/09/11/wen-xian-zong-shu-qian-suo-xu-de-ji-chu-zhi-shi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="文献综述前所需的基础知识">
+                        
+                        <span class="card-title">文献综述前所需的基础知识</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            这些是你研究中会频繁用到的核心内容，建议优先补充：&nbsp;1.&nbsp;计算机网络进阶（重点：传输层&nbsp;&amp;&nbsp;...
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-09-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%BD%91%E7%BB%9C%E7%A7%91%E7%A0%94/" class="post-category">
+                                    网络科研
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%B5%81%E5%AA%92%E4%BD%93%E4%BC%A0%E8%BE%93/">
+                        <span class="chip bg-color">流媒体传输</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97/">
+                        <span class="chip bg-color">学习指南</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('500')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: HiBlog<br />'
+            + '文章作者: zzhaire<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2025</span>
+            
+            <a href="/about" target="_blank">zzhaire</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">49.9k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/zzhaire" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:zzhaire5@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1642249956" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1642249956" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

@@ -9,10 +9,9 @@
 链接: https://vjudge.net/problem/POJ-1321
 
 题目描述
-ac 代码
-#include &amp;lt;iostream&amp;gt;
+ac 代码#include &amp;lt;iostream&amp;gt;
 using namespace std;
-const int N = 10">
+const int N = 10;">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -421,8 +420,7 @@ const int N = 10">
 <p>链接: <a target="_blank" rel="noopener" href="https://vjudge.net/problem/POJ-1321">https://vjudge.net/problem/POJ-1321</a></p>
 </blockquote>
 <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250830184724751.png" alt="image-20250830184724751"></p>
-<h2 id="ac-代码"><a href="#ac-代码" class="headerlink" title="ac 代码"></a>ac 代码</h2><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">
-#include &lt;iostream&gt;
+<h2 id="ac-代码"><a href="#ac-代码" class="headerlink" title="ac 代码"></a>ac 代码</h2><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">#include &lt;iostream&gt;
 using namespace std;
 const int N = 10;
 
@@ -477,15 +475,13 @@ signed main()
         cout &lt;&lt; ans &lt;&lt; endl;
         // memset(a, 0, sizeof a);
     }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>这个题很经典的搜索题, 但是和皇后游戏不一样, 这个题不是每一行都确定要放棋子的, 所以要搜索两种状态, 一种是该行放棋子, 一种是该行不放棋子.</p>
 <p>大概就是</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">for(列 : 每一列元素) {
       dfs(放棋子, 剩余棋子)
       dfs(不放棋子, 剩余棋子)
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>慢慢的感觉暴搜就是要不重不漏 , 选好枚举办法很重要</p>
 <p>这个题看题解了, 不过顺思路也可以理解</p>
 
@@ -866,18 +862,17 @@ signed main()
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2025/08/30/qi-pan-you-xi/">
+                <a href="/2025/09/01/dungeon-master/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="棋盘游戏">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Dungeon Master">
                         
-                        <span class="card-title">棋盘游戏</span>
+                        <span class="card-title">Dungeon Master</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -887,9 +882,9 @@ signed main()
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-30
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-09-01
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -902,12 +897,15 @@ signed main()
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/dfs/">
-                        <span class="chip bg-color">dfs</span>
+                    <a href="/tags/bfs/">
+                        <span class="chip bg-color">bfs</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%90%9C%E7%B4%A2/">
+                        <span class="chip bg-color">搜索</span>
                     </a>
                     
                 </div>
@@ -1137,7 +1135,7 @@ signed main()
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">7.4k</span>
+                        class="white-color">49.9k</span>
             
             
             
