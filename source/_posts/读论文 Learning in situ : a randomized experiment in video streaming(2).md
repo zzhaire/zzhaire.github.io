@@ -10,7 +10,7 @@ tags:
 - 自适应码率
 - 读论文
 title: '读论文 Learning in situ : a randomized experiment in video streaming(2)'
-updated: '2025-09-16T13:43:14.351+08:00'
+updated: '2025-09-16T14:26:02.235+08:00'
 ---
 ## 核心模块展开
 
@@ -29,7 +29,7 @@ Data Aggregation（数据聚合）模块是Fugu系统的"数据中枢"，负责�
 - **数据分发**：同时支持实时流处理和离线分析
 - **质量控制**：确保数据完整性、一致性和时效性
 
-####二、信号聚合输入（采集的信号类型）
+#### 二、信号聚合输入（采集的信号类型）
 
 ##### 1. 网络传输层信号
 
@@ -430,13 +430,13 @@ def MPC_decision(inputs):
             instant_qoe = chunk['ssim'] 
                          - |chunk['ssim'] - inputs['last_chunk']['ssim']|
                          - 100 * max(0, t - inputs['buffer'])
-      
+    
             # 计算未来价值（简化版）
             future_value = estimate_future_value(
                 buffer = inputs['buffer'] - t + chunk_duration,
                 last_chunk = chunk
             )
-      
+    
             # 加权累加
             total_qoe += prob * (instant_qoe + future_value)
   
@@ -444,7 +444,7 @@ def MPC_decision(inputs):
         if total_qoe > best_qoe:
             best_qoe = total_qoe
             best_chunk = chunk
-      
+    
     return best_chunk
 ```
 
