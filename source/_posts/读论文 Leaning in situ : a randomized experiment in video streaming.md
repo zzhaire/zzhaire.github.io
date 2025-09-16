@@ -2,7 +2,7 @@
 abbrlink: '读论文 Learning in situ : a randomized experiment in video streaming'
 author: zheyuanzhang
 categories:
-- - 科研
+- - 网络科研
 date: '2025-09-15T16:33:06.626041+08:00'
 excerpt: 读论文 Learning in situ : a randomized experiment in ...
 tags:
@@ -10,7 +10,7 @@ tags:
 - 自适应码率
 - 读论文
 title: '读论文 Learning in situ : a randomized experiment in video streaming(1)'
-updated: '2025-09-16T09:04:31.163+08:00'
+updated: '2025-09-16T13:42:47.282+08:00'
 ---
 ## 读论文 Learning in situ : a randomized experiment in video streaming (1)
 
