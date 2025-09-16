@@ -2,7 +2,7 @@
 abbrlink: '读论文 Learning in situ : a randomized experiment in video streaming'
 author: zheyuanzhang
 categories:
-- - 科研
+- - 网络科研
 date: '2025-09-16T09:05:06.161104+08:00'
 excerpt: 核心模块展开 Data Aggregation 模块深度解析 一、模块定位与核心功能 1. 系统角色...
 tags:
@@ -10,7 +10,7 @@ tags:
 - 自适应码率
 - 读论文
 title: '读论文 Learning in situ : a randomized experiment in video streaming(2)'
-updated: '2025-09-16T09:39:15.247+08:00'
+updated: '2025-09-16T13:43:14.351+08:00'
 ---
 ## 核心模块展开
 
@@ -423,28 +423,28 @@ def MPC_decision(inputs):
     # 遍历所有可选视频块
     for chunk in inputs['options']:
         total_qoe = 0
-    
+  
         # 考虑所有可能的传输时间
         for t, prob in zip(time_bins, inputs['prediction']):
             # 计算即时QoE
             instant_qoe = chunk['ssim'] 
                          - |chunk['ssim'] - inputs['last_chunk']['ssim']|
                          - 100 * max(0, t - inputs['buffer'])
-        
+      
             # 计算未来价值（简化版）
             future_value = estimate_future_value(
                 buffer = inputs['buffer'] - t + chunk_duration,
                 last_chunk = chunk
             )
-        
+      
             # 加权累加
             total_qoe += prob * (instant_qoe + future_value)
-    
+  
         # 保留最优解
         if total_qoe > best_qoe:
             best_qoe = total_qoe
             best_chunk = chunk
-        
+      
     return best_chunk
 ```
 
