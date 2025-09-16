@@ -2,8 +2,7 @@
 abbrlink: Datawhale人工智能培养方案
 author: zyuan
 categories:
-- - 科研
-- - AI
+- - AI学习
 date: '2025-09-16T11:00:54.547712+08:00'
 excerpt: Datawhale人工智能培养方案  组里的研究基本上围绕流媒体传输, 但是发现大家好像都在用 ai...
 tags:
@@ -11,7 +10,7 @@ tags:
 - NLP
 - 计划表
 title: Datawhale人工智能培养方案
-updated: '2025-09-16T11:03:53.410+08:00'
+updated: '2025-09-16T13:37:49.897+08:00'
 ---
 # **Datawhale人工智能培养方案**
 
