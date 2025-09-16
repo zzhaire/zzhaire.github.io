@@ -1,23 +1,18 @@
 ---
-abbrlink: ''
-author: null
-categories: []
-cover: false
-coverImg: null
+abbrlink: '读论文 Learning in situ : a randomized experiment in video streaming'
+author: zheyuanzhang
+categories:
+- - 科研
 date: '2025-09-15T16:33:06.626041+08:00'
 excerpt: 读论文 Learning in situ : a randomized experiment in ...
-img: null
-keywords: null
-mathjax: false
-password: null
-summary: null
-tags: []
-title: title
-toc: true
-top: false
-updated: '2025-09-15T17:09:07.863+08:00'
+tags:
+- 流媒体传输
+- 自适应码率
+- 读论文
+title: '读论文 Learning in situ : a randomized experiment in video streaming(1)'
+updated: '2025-09-16T09:04:31.163+08:00'
 ---
-## 读论文 Learning in situ : a randomized experiment in video streaming
+## 读论文 Learning in situ : a randomized experiment in video streaming (1)
 
 ### 文章信息
 
@@ -83,7 +78,6 @@ updated: '2025-09-15T17:09:07.863+08:00'
 ```
 本文设计了一种名为Fugu的控制算法,  用于比特率选择, 在真实部署环境中进行适当的训练
 ```
-
 
 ![image-20250914115544010](https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250914115544010.png)
 
