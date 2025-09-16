@@ -2,13 +2,14 @@
 abbrlink: CCDF的解释
 author: zheyuanzhang
 categories:
-- - 科研
+- - 网络科研
 date: '2025-09-11T10:38:22.347599+08:00'
+excerpt: CCDF（Complementary Cumulative Distribution Functio...
 tags:
 - 性能评估
 - 术语解释
 title: CCDF的解释及其在网络科研中的应用
-updated: '2025-09-11T16:03:35.431+08:00'
+updated: '2025-09-16T13:37:23.374+08:00'
 ---
 CCDF（Complementary Cumulative Distribution Function，互补累积分布函数）是一种用来描述数据分布的统计工具。我们可以用一个很通俗的方式来理解它：
 
