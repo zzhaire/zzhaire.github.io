@@ -10,7 +10,7 @@ tags:
 - 自适应码率
 - 读论文
 title: '读论文 Learning in situ : a randomized experiment in video streaming(2)'
-updated: '2025-09-16T14:26:02.235+08:00'
+updated: '2025-09-16T14:26:58.283+08:00'
 ---
 ## 核心模块展开
 
@@ -141,7 +141,7 @@ message TTPInput {
 
 **数据延迟**：<50ms(P99)
 
-### 3. 与离线存储的接口
+##### 3. 与离线存储的接口
 
 **数据流向**：DataAgg → HBase
 
