@@ -8,7 +8,7 @@ excerpt: pots  题目链接 :  https://vjudge.net/problem/POJ-3414 ...
 tags:
 - bfs
 title: '刷题 :  pots'
-updated: '2025-10-11T10:58:54.693+08:00'
+updated: '2025-10-11T19:06:21.388+08:00'
 ---
 ## pots
 
