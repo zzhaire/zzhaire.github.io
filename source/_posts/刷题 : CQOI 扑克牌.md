@@ -8,7 +8,7 @@ excerpt: CQOI 扑克牌  链接: https://ac.nowcoder.com/acm/problem/...
 tags:
 - 二分答案
 title: '刷题 : CQOI 扑克牌'
-updated: '2025-10-14T20:36:04.794+08:00'
+updated: '2025-10-14T21:35:42.596+08:00'
 ---
 ## CQOI 扑克牌
 
@@ -16,7 +16,10 @@ updated: '2025-10-14T20:36:04.794+08:00'
 
 ## 题目描述
 
-> ​	$\hspace{15pt}$本题转译自 [CQOI2010] 扑克牌。
+> ```
+> ```
+>
+> $\hspace{15pt}$本题转译自 [CQOI2010] 扑克牌。
 
 $\hspace{15pt}$你有 $n$ 种牌，第 $i$ 种牌的数目为 $c_i$ 。另外有 $m$ 张特殊的 $\texttt{Joker}$ 牌。你有如下方法来组成一套牌：
 $\hspace{23pt}\bullet\,$不使用 $\texttt{Joker}$ 牌，$n$ 种牌各一张;
@@ -27,7 +30,7 @@ $\hspace{15pt}$现在，给出 $n, m$ 和 $c_i$，你的任务是组成尽量多
 ### 输入描述:
 
 > 第一行输入两个整数 n,m(2≤n≤50; 0≤m≤ $5×10^8 $) 代表牌的种数和 Joker的个数。
-> 
+>
 > 第二行输入 $n$ 个整数 $c_1, c_2, \cdots, c_n \left(0 \leq c_i \leq 5 \times 10^8 \right)$ 代表每种牌的张数
 
 ### 输出描述:
@@ -48,10 +51,6 @@ $\hspace{15pt}$现在，给出 $n, m$ 和 $c_i$，你的任务是组成尽量多
 ```
 3
 ```
-
-
-
-
 
 ## 解题思路
 
@@ -134,5 +133,3 @@ signed main()
     cout << bin_search(0, r + m) << "\n";
 }
 ```
-
-
