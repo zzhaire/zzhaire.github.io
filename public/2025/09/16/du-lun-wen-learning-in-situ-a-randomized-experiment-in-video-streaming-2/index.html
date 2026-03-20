@@ -5,13 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="读论文 Learning in situ : a randomized experiment in video streaming(2), HiBlog">
-    <meta name="description" content="核心模块展开
-Data Aggregation
-模块深度解析
-一、模块定位与核心功能
-1. 系统角色
-Data
-Aggregation（数据聚合）模块是Fugu系统的”数据中枢”，负责实时采集、清洗和整合视频流传输全链路的关键数据。如图6所">
+    <meta name="description" content="核心模块展开Data Aggregation 模块深度解析一、模块定位与核心功能1. 系统角色Data Aggregation（数据聚合）模块是Fugu系统的”数据中枢”，负责实时采集、清洗和整合视频流传输全链路的关键数据。如图6所示，它作">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -424,135 +418,128 @@ Aggregation（数据聚合）模块是Fugu系统的”数据中枢”，负责�
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="核心模块展开">核心模块展开</h2>
-<h3 id="data-aggregation-模块深度解析">Data Aggregation
-模块深度解析</h3>
-<h4 id="一模块定位与核心功能">一、模块定位与核心功能</h4>
-<h5 id="系统角色">1. 系统角色</h5>
-<p>Data
-Aggregation（数据聚合）模块是Fugu系统的”数据中枢”，负责实时采集、清洗和整合视频流传输全链路的关键数据。如图6所示，它作为系统基础组件，为上层预测和控制模块提供数据支撑：</p>
-<h5 id="核心职责">2. 核心职责</h5>
-<ul>
+                <h2 id="核心模块展开"><a href="#核心模块展开" class="headerlink" title="核心模块展开"></a>核心模块展开</h2><h3 id="Data-Aggregation-模块深度解析"><a href="#Data-Aggregation-模块深度解析" class="headerlink" title="Data Aggregation 模块深度解析"></a>Data Aggregation 模块深度解析</h3><h4 id="一、模块定位与核心功能"><a href="#一、模块定位与核心功能" class="headerlink" title="一、模块定位与核心功能"></a>一、模块定位与核心功能</h4><h5 id="1-系统角色"><a href="#1-系统角色" class="headerlink" title="1. 系统角色"></a>1. 系统角色</h5><p>Data Aggregation（数据聚合）模块是Fugu系统的”数据中枢”，负责实时采集、清洗和整合视频流传输全链路的关键数据。如图6所示，它作为系统基础组件，为上层预测和控制模块提供数据支撑：</p>
+<h5 id="2-核心职责"><a href="#2-核心职责" class="headerlink" title="2. 核心职责"></a>2. 核心职责</h5><ul>
 <li><strong>实时数据采集</strong>：从TCP/IP协议栈到应用层的全栈监控</li>
 <li><strong>数据预处理</strong>：异常检测、时间对齐、特征编码</li>
 <li><strong>数据分发</strong>：同时支持实时流处理和离线分析</li>
 <li><strong>质量控制</strong>：确保数据完整性、一致性和时效性</li>
 </ul>
-<h4 id="二信号聚合输入采集的信号类型">二、信号聚合输入（采集的信号类型）</h4>
-<h5 id="网络传输层信号">1. 网络传输层信号</h5>
+<h4 id="二、信号聚合输入（采集的信号类型）"><a href="#二、信号聚合输入（采集的信号类型）" class="headerlink" title="二、信号聚合输入（采集的信号类型）"></a>二、信号聚合输入（采集的信号类型）</h4><h5 id="1-网络传输层信号"><a href="#1-网络传输层信号" class="headerlink" title="1. 网络传输层信号"></a>1. 网络传输层信号</h5><div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">信号类型</th>
-<th style="text-align: left;">数据来源</th>
-<th style="text-align: left;">采集频率</th>
-<th style="text-align: left;">用途</th>
+<th style="text-align:left">信号类型</th>
+<th style="text-align:left">数据来源</th>
+<th style="text-align:left">采集频率</th>
+<th style="text-align:left">用途</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">TCP RTT</td>
-<td style="text-align: left;">Linux内核<code>tcp_info</code></td>
-<td style="text-align: left;">每ACK包</td>
-<td style="text-align: left;">网络延迟评估</td>
+<td style="text-align:left">TCP RTT</td>
+<td style="text-align:left">Linux内核<code>tcp_info</code></td>
+<td style="text-align:left">每ACK包</td>
+<td style="text-align:left">网络延迟评估</td>
 </tr>
 <tr>
-<td style="text-align: left;">拥塞窗口</td>
-<td style="text-align: left;"><code>tcpi_snd_cwnd</code></td>
-<td style="text-align: left;">每数据包</td>
-<td style="text-align: left;">发送容量监控</td>
+<td style="text-align:left">拥塞窗口</td>
+<td style="text-align:left"><code>tcpi_snd_cwnd</code></td>
+<td style="text-align:left">每数据包</td>
+<td style="text-align:left">发送容量监控</td>
 </tr>
 <tr>
-<td style="text-align: left;">未确认数据</td>
-<td style="text-align: left;"><code>tcpi_unacked</code></td>
-<td style="text-align: left;">每ACK包</td>
-<td style="text-align: left;">网络负载评估</td>
+<td style="text-align:left">未确认数据</td>
+<td style="text-align:left"><code>tcpi_unacked</code></td>
+<td style="text-align:left">每ACK包</td>
+<td style="text-align:left">网络负载评估</td>
 </tr>
 <tr>
-<td style="text-align: left;">传输速率</td>
-<td style="text-align: left;"><code>tcpi_delivery_rate</code></td>
-<td style="text-align: left;">每RTT</td>
-<td style="text-align: left;">吞吐量估计</td>
+<td style="text-align:left">传输速率</td>
+<td style="text-align:left"><code>tcpi_delivery_rate</code></td>
+<td style="text-align:left">每RTT</td>
+<td style="text-align:left">吞吐量估计</td>
 </tr>
 <tr>
-<td style="text-align: left;">丢包重传</td>
-<td style="text-align: left;"><code>tcpi_lost</code></td>
-<td style="text-align: left;">每RTO</td>
-<td style="text-align: left;">网络健康度</td>
+<td style="text-align:left">丢包重传</td>
+<td style="text-align:left"><code>tcpi_lost</code></td>
+<td style="text-align:left">每RTO</td>
+<td style="text-align:left">网络健康度</td>
 </tr>
 </tbody>
 </table>
-<h5 id="视频应用层信号">2. 视频应用层信号</h5>
+</div>
+<h5 id="2-视频应用层信号"><a href="#2-视频应用层信号" class="headerlink" title="2. 视频应用层信号"></a>2. 视频应用层信号</h5><div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">信号类型</th>
-<th style="text-align: left;">采集点</th>
-<th style="text-align: left;">示例值</th>
-<th style="text-align: left;">用途</th>
+<th style="text-align:left">信号类型</th>
+<th style="text-align:left">采集点</th>
+<th style="text-align:left">示例值</th>
+<th style="text-align:left">用途</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">视频块大小</td>
-<td style="text-align: left;">编码器输出</td>
-<td style="text-align: left;">1.8MB</td>
-<td style="text-align: left;">传输需求评估</td>
+<td style="text-align:left">视频块大小</td>
+<td style="text-align:left">编码器输出</td>
+<td style="text-align:left">1.8MB</td>
+<td style="text-align:left">传输需求评估</td>
 </tr>
 <tr>
-<td style="text-align: left;">SSIM质量</td>
-<td style="text-align: left;">编码质量分析</td>
-<td style="text-align: left;">0.92</td>
-<td style="text-align: left;">用户体验量化</td>
+<td style="text-align:left">SSIM质量</td>
+<td style="text-align:left">编码质量分析</td>
+<td style="text-align:left">0.92</td>
+<td style="text-align:left">用户体验量化</td>
 </tr>
 <tr>
-<td style="text-align: left;">编码参数</td>
-<td style="text-align: left;">编码配置</td>
-<td style="text-align: left;">CRF=23</td>
-<td style="text-align: left;">质量基准</td>
+<td style="text-align:left">编码参数</td>
+<td style="text-align:left">编码配置</td>
+<td style="text-align:left">CRF=23</td>
+<td style="text-align:left">质量基准</td>
 </tr>
 <tr>
-<td style="text-align: left;">块传输时间</td>
-<td style="text-align: left;">发送-ACK时差</td>
-<td style="text-align: left;">1.2s</td>
-<td style="text-align: left;">性能分析</td>
+<td style="text-align:left">块传输时间</td>
+<td style="text-align:left">发送-ACK时差</td>
+<td style="text-align:left">1.2s</td>
+<td style="text-align:left">性能分析</td>
 </tr>
 </tbody>
 </table>
-<h5 id="客户端状态信号">3. 客户端状态信号</h5>
+</div>
+<h5 id="3-客户端状态信号"><a href="#3-客户端状态信号" class="headerlink" title="3. 客户端状态信号"></a>3. 客户端状态信号</h5><div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">信号类型</th>
-<th style="text-align: left;">采集方式</th>
-<th style="text-align: left;">精度</th>
-<th style="text-align: left;">用途</th>
+<th style="text-align:left">信号类型</th>
+<th style="text-align:left">采集方式</th>
+<th style="text-align:left">精度</th>
+<th style="text-align:left">用途</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">缓冲区水平</td>
-<td style="text-align: left;">JS定时上报</td>
-<td style="text-align: left;">0.1s</td>
-<td style="text-align: left;">卡顿风险预警</td>
+<td style="text-align:left">缓冲区水平</td>
+<td style="text-align:left">JS定时上报</td>
+<td style="text-align:left">0.1s</td>
+<td style="text-align:left">卡顿风险预警</td>
 </tr>
 <tr>
-<td style="text-align: left;">卡顿事件</td>
-<td style="text-align: left;">播放器事件</td>
-<td style="text-align: left;">ms级</td>
-<td style="text-align: left;">QoE评估</td>
+<td style="text-align:left">卡顿事件</td>
+<td style="text-align:left">播放器事件</td>
+<td style="text-align:left">ms级</td>
+<td style="text-align:left">QoE评估</td>
 </tr>
 <tr>
-<td style="text-align: left;">用户操作</td>
-<td style="text-align: left;">交互监听</td>
-<td style="text-align: left;">-</td>
-<td style="text-align: left;">行为分析</td>
+<td style="text-align:left">用户操作</td>
+<td style="text-align:left">交互监听</td>
+<td style="text-align:left">-</td>
+<td style="text-align:left">行为分析</td>
 </tr>
 </tbody>
 </table>
-<h4 id="三输出信号处理后的数据">三、输出信号（处理后的数据）</h4>
-<h5 id="实时特征流">1. 实时特征流</h5>
-<pre class="line-numbers language-none"><code class="language-none">message RealTimeFeatures {
+</div>
+<h4 id="三、输出信号（处理后的数据）"><a href="#三、输出信号（处理后的数据）" class="headerlink" title="三、输出信号（处理后的数据）"></a>三、输出信号（处理后的数据）</h4><h5 id="1-实时特征流"><a href="#1-实时特征流" class="headerlink" title="1. 实时特征流"></a>1. 实时特征流</h5><pre class="line-numbers language-none"><code class="language-none">message RealTimeFeatures {
     // 网络特征
     float smoothed_rtt = 1;      // 平滑RTT(EWMA)
     float bandwidth_est = 2;      // 带宽估计(Mbps)
@@ -566,40 +553,39 @@ Aggregation（数据聚合）模块是Fugu系统的”数据中枢”，负责�
     float buffer_level = 6;       // 当前缓冲区(秒)
     bool is_stalling = 7;         // 是否正在卡顿
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h5 id="聚合统计数据">2. 聚合统计数据</h5>
+<h5 id="2-聚合统计数据"><a href="#2-聚合统计数据" class="headerlink" title="2. 聚合统计数据"></a>2. 聚合统计数据</h5><div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">指标类型</th>
-<th style="text-align: left;">计算方式</th>
-<th style="text-align: left;">输出频率</th>
-<th style="text-align: left;">用途</th>
+<th style="text-align:left">指标类型</th>
+<th style="text-align:left">计算方式</th>
+<th style="text-align:left">输出频率</th>
+<th style="text-align:left">用途</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">会话QoE</td>
-<td style="text-align: left;">SSIM - 4×卡顿时间</td>
-<td style="text-align: left;">会话结束</td>
-<td style="text-align: left;">整体评估</td>
+<td style="text-align:left">会话QoE</td>
+<td style="text-align:left">SSIM - 4×卡顿时间</td>
+<td style="text-align:left">会话结束</td>
+<td style="text-align:left">整体评估</td>
 </tr>
 <tr>
-<td style="text-align: left;">网络质量</td>
-<td style="text-align: left;">吞吐量/RTT比值</td>
-<td style="text-align: left;">每分钟</td>
-<td style="text-align: left;">路径评分</td>
+<td style="text-align:left">网络质量</td>
+<td style="text-align:left">吞吐量/RTT比值</td>
+<td style="text-align:left">每分钟</td>
+<td style="text-align:left">路径评分</td>
 </tr>
 <tr>
-<td style="text-align: left;">编码效率</td>
-<td style="text-align: left;">大小/SSIM比</td>
-<td style="text-align: left;">每10块</td>
-<td style="text-align: left;">参数优化</td>
+<td style="text-align:left">编码效率</td>
+<td style="text-align:left">大小/SSIM比</td>
+<td style="text-align:left">每10块</td>
+<td style="text-align:left">参数优化</td>
 </tr>
 </tbody>
 </table>
-<h4 id="四模块间接口规范">四、模块间接口规范</h4>
-<h5 id="与ttp预测器的接口">1. 与TTP预测器的接口</h5>
-<p><strong>数据流向</strong>：DataAgg → TTP</p>
+</div>
+<h4 id="四、模块间接口规范"><a href="#四、模块间接口规范" class="headerlink" title="四、模块间接口规范"></a>四、模块间接口规范</h4><h5 id="1-与TTP预测器的接口"><a href="#1-与TTP预测器的接口" class="headerlink" title="1. 与TTP预测器的接口"></a>1. 与TTP预测器的接口</h5><p><strong>数据流向</strong>：DataAgg → TTP</p>
 <p><strong>传输协议</strong>：gRPC流</p>
 <p><strong>消息格式</strong>：</p>
 <pre class="line-numbers language-json" data-language="json"><code class="language-json">message TTPInput {
@@ -610,8 +596,7 @@ Aggregation（数据聚合）模块是Fugu系统的”数据中枢”，负责�
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>QPS限制</strong>：≤1000请求/秒</p>
 <p><strong>超时设置</strong>：200ms</p>
-<h5 id="与mpc控制器的接口">2. 与MPC控制器的接口</h5>
-<p><strong>数据流向</strong>：DataAgg → MPC</p>
+<h5 id="2-与MPC控制器的接口"><a href="#2-与MPC控制器的接口" class="headerlink" title="2. 与MPC控制器的接口"></a>2. 与MPC控制器的接口</h5><p><strong>数据流向</strong>：DataAgg → MPC</p>
 <p><strong>传输协议</strong>：ZeroMQ PUB/SUB</p>
 <p><strong>消息格式</strong>：</p>
 <pre class="line-numbers language-json" data-language="json"><code class="language-json">{
@@ -628,8 +613,7 @@ Aggregation（数据聚合）模块是Fugu系统的”数据中枢”，负责�
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>传输频率</strong>：每视频块(约2秒)</p>
 <p><strong>数据延迟</strong>：&lt;50ms(P99)</p>
-<h5 id="与离线存储的接口">3. 与离线存储的接口</h5>
-<p><strong>数据流向</strong>：DataAgg → HBase</p>
+<h5 id="3-与离线存储的接口"><a href="#3-与离线存储的接口" class="headerlink" title="3. 与离线存储的接口"></a>3. 与离线存储的接口</h5><p><strong>数据流向</strong>：DataAgg → HBase</p>
 <p><strong>存储格式</strong>：</p>
 <pre class="line-numbers language-none"><code class="language-none">CREATE TABLE raw_metrics (
     rowkey STRING PRIMARY KEY,  # session_id|timestamp
@@ -639,52 +623,40 @@ Aggregation（数据聚合）模块是Fugu系统的”数据中枢”，负责�
 ) COMPRESSION='SNAPPY'<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>写入批次</strong>：每100条或1秒</p>
 <p><strong>数据保留</strong>：30天滚动</p>
-<h4 id="五关键数据流图示">五、关键数据流图示</h4>
-<pre class="line-numbers language-none"><code class="language-none">[TCP Kernel] → [Raw Metrics] → [实时清洗] → [特征提取]
+<h4 id="五、关键数据流图示"><a href="#五、关键数据流图示" class="headerlink" title="五、关键数据流图示"></a>五、关键数据流图示</h4><pre class="line-numbers language-none"><code class="language-none">[TCP Kernel] → [Raw Metrics] → [实时清洗] → [特征提取]
     ↑____________↓                     ↓
 [Player Client]                     [TTP/MPC]
                                       ↓
                                 [离线存储]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="六设计思考总结">六、设计思考总结</h4>
-<h5 id="信号选择原则">1. 信号选择原则</h5>
-<ul>
+<h4 id="六、设计思考总结"><a href="#六、设计思考总结" class="headerlink" title="六、设计思考总结"></a>六、设计思考总结</h4><h5 id="1-信号选择原则"><a href="#1-信号选择原则" class="headerlink" title="1. 信号选择原则"></a>1. 信号选择原则</h5><ul>
 <li><strong>必要性</strong>：只采集影响QoE的关键指标</li>
 <li><strong>可观测性</strong>：优先选择内核直接暴露的指标</li>
 <li><strong>成本效益</strong>：平衡数据价值与采集开销</li>
 </ul>
-<h5 id="接口设计哲学">2. 接口设计哲学</h5>
-<ul>
+<h5 id="2-接口设计哲学"><a href="#2-接口设计哲学" class="headerlink" title="2. 接口设计哲学"></a>2. 接口设计哲学</h5><ul>
 <li><strong>松耦合</strong>：模块间仅通过定义良好的接口交互</li>
 <li><strong>可扩展</strong>：字段采用protobuf可选设计</li>
 <li><strong>容错性</strong>：所有接口具备降级方案</li>
 </ul>
-<h5 id="演进方向">3. 演进方向</h5>
-<ul>
+<h5 id="3-演进方向"><a href="#3-演进方向" class="headerlink" title="3. 演进方向"></a>3. 演进方向</h5><ul>
 <li><strong>智能采样</strong>：动态调整采集频率</li>
 <li><strong>边缘计算</strong>：在客户端预聚合</li>
 <li><strong>联邦聚合</strong>：跨会话隐私保护汇总</li>
 </ul>
 <p>该模块通过精心选择的信号聚合和高效的接口设计，为Fugu系统提供了高质量的数据基础，平衡了实时性、准确性和系统开销。</p>
-<h3 id="puffer-video-server-模块">Puffer Video Server 模块</h3>
-<h4 id="一核心输入输出">一、核心输入输出</h4>
-<h5 id="输入信号来自两个模块">输入信号（来自两个模块）：</h5>
-<ol type="1">
+<h3 id="Puffer-Video-Server-模块"><a href="#Puffer-Video-Server-模块" class="headerlink" title="Puffer Video Server 模块"></a>Puffer Video Server 模块</h3><h4 id="一、核心输入输出"><a href="#一、核心输入输出" class="headerlink" title="一、核心输入输出"></a>一、核心输入输出</h4><h5 id="输入信号（来自两个模块）："><a href="#输入信号（来自两个模块）：" class="headerlink" title="输入信号（来自两个模块）："></a>输入信号（来自两个模块）：</h5><ol>
 <li><strong>来自MPC控制器</strong>：当前应发送的视频块规格（码率/分辨率）优先级标记（如紧急补发）特殊指令（如插入关键帧）</li>
 <li><strong>来自DataAgg</strong>：实时网络状态（当前RTT、拥塞窗口等）客户端缓冲区状态历史传输性能数据</li>
 </ol>
-<h5 id="输出信号到两个模块">输出信号（到两个模块）：</h5>
-<ol type="1">
+<h5 id="输出信号（到两个模块）："><a href="#输出信号（到两个模块）：" class="headerlink" title="输出信号（到两个模块）："></a>输出信号（到两个模块）：</h5><ol>
 <li><strong>反馈给DataAgg</strong>：实际发送的视频块信息（大小/码率）精确传输耗时（从发送到ACK）TCP层状态快照（发送时的cwnd/rtt）</li>
 <li><strong>服务客户端</strong>：视频数据块（HTTP分片或WebSocket流）播放清单（如HLS的m3u8文件）控制指令（如码率切换通知）</li>
 </ol>
-<h4 id="二模块连接图示">二、模块连接图示</h4>
-<pre class="line-numbers language-none"><code class="language-none">[MPC控制器] → 指令 → [Puffer Server] → 视频流 → [客户端]
+<h4 id="二、模块连接图示"><a href="#二、模块连接图示" class="headerlink" title="二、模块连接图示"></a>二、模块连接图示</h4><pre class="line-numbers language-none"><code class="language-none">[MPC控制器] → 指令 → [Puffer Server] → 视频流 → [客户端]
                 ↑_________↓
             [DataAgg] ←───┘
                传输报告<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="三典型数据示例">三、典型数据示例</h4>
-<h5 id="从mpc接收的指令">1. 从MPC接收的指令</h5>
-<pre class="line-numbers language-none"><code class="language-none">{
+<h4 id="三、典型数据示例"><a href="#三、典型数据示例" class="headerlink" title="三、典型数据示例"></a>三、典型数据示例</h4><h5 id="1-从MPC接收的指令"><a href="#1-从MPC接收的指令" class="headerlink" title="1. 从MPC接收的指令"></a>1. 从MPC接收的指令</h5><pre class="line-numbers language-none"><code class="language-none">{
   "action": "send_chunk",
   "chunk_id": 1002,
   "bitrate": 2500,
@@ -692,8 +664,7 @@ Aggregation（数据聚合）模块是Fugu系统的”数据中枢”，负责�
   "is_keyframe": false,
   "priority": "normal"
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h5 id="向dataagg发送的报告">2. 向DataAgg发送的报告</h5>
-<pre class="line-numbers language-none"><code class="language-none">{
+<h5 id="2-向DataAgg发送的报告"><a href="#2-向DataAgg发送的报告" class="headerlink" title="2. 向DataAgg发送的报告"></a>2. 向DataAgg发送的报告</h5><pre class="line-numbers language-none"><code class="language-none">{
   "timestamp": 1630000000.123,
   "chunk_id": 1002,
   "size_bytes": 1854321,
@@ -703,33 +674,24 @@ Aggregation（数据聚合）模块是Fugu系统的”数据中枢”，负责�
     "rtt": 45
   }
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="四关键特性总结">四、关键特性总结</h4>
-<ol type="1">
+<h4 id="四、关键特性总结"><a href="#四、关键特性总结" class="headerlink" title="四、关键特性总结"></a>四、关键特性总结</h4><ol>
 <li><strong>简单职责</strong>：听MPC的话（执行码率决策）向DataAgg说实话（如实反馈传输情况）给客户端喂饭（稳定发送视频数据）</li>
 <li><strong>不负责</strong>：不做决策（MPC负责）不存历史（DataAgg负责）不处理异常（由控制环处理）</li>
 <li><strong>核心价值</strong>：精准执行控制指令提供低延迟传输保证数据完整性</li>
 </ol>
-<h3 id="ttp-transmission-time-predictor-模块解析">TTP (Transmission Time
-Predictor) 模块解析</h3>
-<h4 id="一核心输入输出-1">一、核心输入输出</h4>
-<h5 id="输入信号来自两个模块-1">输入信号（来自两个模块）：</h5>
-<ol type="1">
+<h3 id="TTP-Transmission-Time-Predictor-模块解析"><a href="#TTP-Transmission-Time-Predictor-模块解析" class="headerlink" title="TTP (Transmission Time Predictor) 模块解析"></a>TTP (Transmission Time Predictor) 模块解析</h3><h4 id="一、核心输入输出-1"><a href="#一、核心输入输出-1" class="headerlink" title="一、核心输入输出"></a>一、核心输入输出</h4><h5 id="输入信号（来自两个模块）：-1"><a href="#输入信号（来自两个模块）：-1" class="headerlink" title="输入信号（来自两个模块）："></a>输入信号（来自两个模块）：</h5><ol>
 <li><strong>来自DataAgg</strong>：实时TCP状态（RTT、拥塞窗口、未确认包数）历史传输时间序列（最近8个块的传输耗时）待发送块的大小</li>
 <li><strong>来自MPC控制器</strong>：预测请求触发信号预测时间范围要求（默认5步）</li>
 </ol>
-<h5 id="输出信号到mpc控制器">输出信号（到MPC控制器）：</h5>
-<ul>
+<h5 id="输出信号（到MPC控制器）："><a href="#输出信号（到MPC控制器）：" class="headerlink" title="输出信号（到MPC控制器）："></a>输出信号（到MPC控制器）：</h5><ul>
 <li>传输时间概率分布（21个时间区间的概率值）</li>
 <li>预测置信度评分（0-1范围）</li>
 <li>异常状态标记（如预测不可靠警告）</li>
 </ul>
-<h4 id="二模块连接图示-1">二、模块连接图示</h4>
-<pre class="line-numbers language-none"><code class="language-none">[DataAgg] → 网络状态 → [TTP] → 预测结果 → [MPC]
+<h4 id="二、模块连接图示-1"><a href="#二、模块连接图示-1" class="headerlink" title="二、模块连接图示"></a>二、模块连接图示</h4><pre class="line-numbers language-none"><code class="language-none">[DataAgg] → 网络状态 → [TTP] → 预测结果 → [MPC]
                 ↑____________↓
               [历史传输数据]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h4 id="三典型数据示例-1">三、典型数据示例</h4>
-<h5 id="从dataagg接收的输入">1. 从DataAgg接收的输入</h5>
-<pre class="line-numbers language-none"><code class="language-none">{
+<h4 id="三、典型数据示例-1"><a href="#三、典型数据示例-1" class="headerlink" title="三、典型数据示例"></a>三、典型数据示例</h4><h5 id="1-从DataAgg接收的输入"><a href="#1-从DataAgg接收的输入" class="headerlink" title="1. 从DataAgg接收的输入"></a>1. 从DataAgg接收的输入</h5><pre class="line-numbers language-none"><code class="language-none">{
   "tcp_state": {
     "rtt": 45,
     "min_rtt": 30,
@@ -740,8 +702,7 @@ Predictor) 模块解析</h3>
   "chunk_size": 1854321,
   "history": [1200, 950, 1100, 1350, 900, 1150, 1250, 1000]
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h5 id="向mpc输出的预测">2. 向MPC输出的预测</h5>
-<pre class="line-numbers language-none"><code class="language-none">{
+<h5 id="2-向MPC输出的预测"><a href="#2-向MPC输出的预测" class="headerlink" title="2. 向MPC输出的预测"></a>2. 向MPC输出的预测</h5><pre class="line-numbers language-none"><code class="language-none">{
   "prob_distribution": [
     0.01, 0.05, 0.15, 0.20, 0.18, 
     0.12, 0.08, 0.06, 0.04, 0.03,
@@ -754,45 +715,36 @@ Predictor) 模块解析</h3>
     "[1.25,1.75)", "[1.75,2.25)", ..., "[9.75,∞)"
   ]
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="四关键特性总结-1">四、关键特性总结</h4>
-<ol type="1">
+<h4 id="四、关键特性总结-1"><a href="#四、关键特性总结-1" class="headerlink" title="四、关键特性总结"></a>四、关键特性总结</h4><ol>
 <li><strong>简单职责</strong>：吃进网络状态数据吐出传输时间概率不参与决策（MPC负责）</li>
 <li><strong>核心能力</strong>：处理原始TCP指标（不依赖人工特征）输出完整概率分布（非单点预测）考虑块大小影响（关键创新）</li>
 <li><strong>不负责</strong>：不存储长期历史（DataAgg负责）不做决策优化（MPC负责）不处理执行异常（Server负责）</li>
 </ol>
-<h4 id="五网络架构设计">五、网络架构设计</h4>
-<h5 id="整体结构">1. 整体结构</h5>
-<p>TTP采用<strong>前馈神经网络</strong>架构，包含3个全连接隐藏层：</p>
+<h4 id="五、网络架构设计"><a href="#五、网络架构设计" class="headerlink" title="五、网络架构设计"></a>五、网络架构设计</h4><h5 id="1-整体结构"><a href="#1-整体结构" class="headerlink" title="1. 整体结构"></a>1. 整体结构</h5><p>TTP采用<strong>前馈神经网络</strong>架构，包含3个全连接隐藏层：</p>
 <pre class="line-numbers language-none"><code class="language-none">输入层(12维) → 隐藏层1(64神经元) → 隐藏层2(64神经元) → 输出层(21维)
                       ↓                         ↓
                   ReLU激活                  Softmax归一化<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h5 id="输入层设计">2. 输入层设计</h5>
-<p><strong>12维输入特征</strong>：</p>
-<ol type="1">
-<li><strong>TCP即时状态</strong>（5维）：当前RTT /
-最小RTT拥塞窗口大小（cwnd）在途数据量（in_flight）传输速率（delivery_rate）</li>
+<h5 id="2-输入层设计"><a href="#2-输入层设计" class="headerlink" title="2. 输入层设计"></a>2. 输入层设计</h5><p><strong>12维输入特征</strong>：</p>
+<ol>
+<li><strong>TCP即时状态</strong>（5维）：当前RTT / 最小RTT拥塞窗口大小（cwnd）在途数据量（in_flight）传输速率（delivery_rate）</li>
 <li><strong>历史传输</strong>（5维）：过去4个块的传输时间（滑动窗口）传输时间移动平均</li>
 <li><strong>块特征</strong>（2维）：当前块大小（MB）大小变化率（Δsize）</li>
 </ol>
-<h5 id="输出层设计">3. 输出层设计</h5>
-<p><strong>21维概率分布</strong>：</p>
+<h5 id="3-输出层设计"><a href="#3-输出层设计" class="headerlink" title="3. 输出层设计"></a>3. 输出层设计</h5><p><strong>21维概率分布</strong>：</p>
 <ul>
 <li>对应21个时间区间（从[0,0.25s)到[9.75s,∞)）</li>
 <li>使用Softmax确保∑prob=1</li>
 <li>特殊处理尾部区间（避免概率消失）</li>
 </ul>
-<h5 id="训练策略详解">4. 训练策略详解</h5>
-<h6 id="损失函数">1. 损失函数</h6>
-<p>采用<strong>加权交叉熵</strong>：</p>
+<h5 id="4-训练策略详解"><a href="#4-训练策略详解" class="headerlink" title="4. 训练策略详解"></a>4. 训练策略详解</h5><h6 id="1-损失函数"><a href="#1-损失函数" class="headerlink" title="1. 损失函数"></a>1. 损失函数</h6><p>采用<strong>加权交叉熵</strong>：</p>
 <pre class="line-numbers language-none"><code class="language-none">L=−∑b=121wb⋅yblog(pb)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>其中权重<code>w_b</code>：</p>
 <ul>
 <li>对关键区间（1-5s）赋予更高权重</li>
 <li>长尾区间（&gt;5s）适当降权</li>
 </ul>
-<h6 id="数据准备">2. 数据准备</h6>
-<p><strong>预处理流程</strong>：</p>
-<ol type="1">
+<h6 id="2-数据准备"><a href="#2-数据准备" class="headerlink" title="2. 数据准备"></a>2. 数据准备</h6><p><strong>预处理流程</strong>：</p>
+<ol>
 <li>标准化：<code>x_norm = (x - μ) / σ  # 各特征独立标准化</code></li>
 <li>增强：随机丢包模拟（0-5%）时延抖动注入（±20%）块大小扰动（±10%）</li>
 </ol>
@@ -802,66 +754,58 @@ Predictor) 模块解析</h3>
 <li>20%中度拥塞</li>
 <li>10%极端情况</li>
 </ul>
-<h5 id="优化配置">3. 优化配置</h5>
+<h5 id="3-优化配置"><a href="#3-优化配置" class="headerlink" title="3. 优化配置"></a>3. 优化配置</h5><div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">参数</th>
-<th style="text-align: left;">设置值</th>
-<th style="text-align: left;">说明</th>
+<th style="text-align:left">参数</th>
+<th style="text-align:left">设置值</th>
+<th style="text-align:left">说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">优化器</td>
-<td style="text-align: left;">AdamW</td>
-<td style="text-align: left;">带权重衰减</td>
+<td style="text-align:left">优化器</td>
+<td style="text-align:left">AdamW</td>
+<td style="text-align:left">带权重衰减</td>
 </tr>
 <tr>
-<td style="text-align: left;">初始LR</td>
-<td style="text-align: left;">3e-4</td>
-<td style="text-align: left;">余弦退火</td>
+<td style="text-align:left">初始LR</td>
+<td style="text-align:left">3e-4</td>
+<td style="text-align:left">余弦退火</td>
 </tr>
 <tr>
-<td style="text-align: left;">Batch Size</td>
-<td style="text-align: left;">512</td>
-<td style="text-align: left;">梯度累积</td>
+<td style="text-align:left">Batch Size</td>
+<td style="text-align:left">512</td>
+<td style="text-align:left">梯度累积</td>
 </tr>
 <tr>
-<td style="text-align: left;">训练轮次</td>
-<td style="text-align: left;">50</td>
-<td style="text-align: left;">早停机制</td>
+<td style="text-align:left">训练轮次</td>
+<td style="text-align:left">50</td>
+<td style="text-align:left">早停机制</td>
 </tr>
 </tbody>
 </table>
-<h3 id="mpc模块解析">MPC模块解析</h3>
-<h4 id="一输入输出速查表">一、输入输出速查表</h4>
-<table style="width:100%;">
-<colgroup>
-<col style="width: 7%">
-<col style="width: 70%">
-<col style="width: 21%">
-</colgroup>
+</div>
+<h3 id="MPC模块解析"><a href="#MPC模块解析" class="headerlink" title="MPC模块解析"></a>MPC模块解析</h3><h4 id="一、输入输出速查表"><a href="#一、输入输出速查表" class="headerlink" title="一、输入输出速查表"></a>一、输入输出速查表</h4><div class="table-container">
+<table>
 <thead>
 <tr>
-<th style="text-align: left;">模块</th>
-<th style="text-align: left;">输入</th>
-<th style="text-align: left;">输出</th>
+<th style="text-align:left">模块</th>
+<th style="text-align:left">输入</th>
+<th style="text-align:left">输出</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong>MPC控制器</strong></td>
-<td style="text-align: left;">1. 当前缓冲区水平（秒） 2.
-上一个视频块信息（大小/质量） 3. TTP预测的传输时间概率分布 4.
-可用视频块的SSIM和大小列表</td>
-<td style="text-align: left;">最优视频块选择（包括码率和对应SSIM）</td>
+<td style="text-align:left"><strong>MPC控制器</strong></td>
+<td style="text-align:left">1. 当前缓冲区水平（秒） 2. 上一个视频块信息（大小/质量） 3. TTP预测的传输时间概率分布 4. 可用视频块的SSIM和大小列表</td>
+<td style="text-align:left">最优视频块选择（包括码率和对应SSIM）</td>
 </tr>
 </tbody>
 </table>
-<h4 id="二算法三步走">二、算法三步走</h4>
-<h5 id="状态采集输入处理">1. 状态采集（输入处理）</h5>
-<pre class="line-numbers language-json" data-language="json"><code class="language-json">inputs = {
+</div>
+<h4 id="二、算法三步走"><a href="#二、算法三步走" class="headerlink" title="二、算法三步走"></a>二、算法三步走</h4><h5 id="1-状态采集（输入处理）"><a href="#1-状态采集（输入处理）" class="headerlink" title="1. 状态采集（输入处理）"></a>1. 状态采集（输入处理）</h5><pre class="line-numbers language-json" data-language="json"><code class="language-json">inputs = {
     'buffer': 5.2,       # 当前缓冲区秒数（如5.2秒）
     'last_chunk': {       # 上一个发送的视频块
         'size': 1.8e6,    # 字节数
@@ -874,8 +818,7 @@ Predictor) 模块解析</h3>
         ... 
     ]
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h5 id="核心决策流程">2. 核心决策流程</h5>
-<p><strong>伪代码实现</strong>：</p>
+<h5 id="2-核心决策流程"><a href="#2-核心决策流程" class="headerlink" title="2. 核心决策流程"></a>2. 核心决策流程</h5><p><strong>伪代码实现</strong>：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">def MPC_decision(inputs):
     best_qoe = -inf
     best_chunk = None
@@ -906,16 +849,13 @@ Predictor) 模块解析</h3>
             best_chunk = chunk
     
     return best_chunk<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h5 id="输出执行">3. 输出执行</h5>
-<p>选择具有最高期望QoE的视频块，立即发送给客户端</p>
-<h4 id="三关键设计精简说明">三、关键设计精简说明</h4>
-<ol type="1">
+<h5 id="3-输出执行"><a href="#3-输出执行" class="headerlink" title="3. 输出执行"></a>3. 输出执行</h5><p>选择具有最高期望QoE的视频块，立即发送给客户端</p>
+<h4 id="三、关键设计精简说明"><a href="#三、关键设计精简说明" class="headerlink" title="三、关键设计精简说明"></a>三、关键设计精简说明</h4><ol>
 <li><strong>预测时域</strong>：仅预测未来5步（约10秒）但只执行第1步决策，然后重新规划</li>
 <li><strong>状态离散化</strong>：<code># 缓冲区离散化（0.5秒步长） buffer_bins = [0, 0.5, 1.0, ..., 15.0]   # SSIM离散化（0.05步长）  ssim_bins = [0.70, 0.75, ..., 1.00]</code></li>
 <li><strong>紧急处理</strong>：当缓冲区&lt;2秒时：<code>if current_buffer &lt; 2.0:    return min_size_chunk  # 强制最低码率</code></li>
 </ol>
-<h4 id="四与ttp的交互图示">四、与TTP的交互图示</h4>
-<pre class="line-numbers language-none"><code class="language-none">[TCP状态] → TTP → [传输时间概率] → MPC → [视频块选择]
+<h4 id="四、与TTP的交互图示"><a href="#四、与TTP的交互图示" class="headerlink" title="四、与TTP的交互图示"></a>四、与TTP的交互图示</h4><pre class="line-numbers language-none"><code class="language-none">[TCP状态] → TTP → [传输时间概率] → MPC → [视频块选择]
               ↑____________反馈数据____________↓<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
                 
@@ -1575,7 +1515,7 @@ Predictor) 模块解析</h3>
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2025</span>
+                <span id="year">2025-2026</span>
             
             <a href="/about" target="_blank">zzhaire</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
@@ -1584,7 +1524,7 @@ Predictor) 模块解析</h3>
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">49.9k</span>
+                        class="white-color">94.8k</span>
             
             
             
@@ -1790,6 +1730,14 @@ $(function () {
     <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
     <script src="/js/matery.js"></script>
 
+    
+        <!-- <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script> -->
+        <script src='/libs/mermaid/mermaid.min.js'></script>
+        <script>
+          if (window.mermaid) {
+            mermaid.initialize({theme: 'forest'});
+          }
+        </script>
     
 
     

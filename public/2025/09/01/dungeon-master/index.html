@@ -6,12 +6,9 @@
     <meta charset="utf-8">
     <meta name="keywords" content="Dungeon Master, HiBlog">
     <meta name="description" content="题目链接
-
 https://vjudge.net/problem/POJ-2251
 
-题目描述
-You are trapped in a 3D dungeon and need to find the quickest way
-out! T">
+题目描述You are trapped in a 3D dungeon and need to find the quickest way out! The">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -390,7 +387,7 @@ out! T">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    713
+                    711
                 </div>
                 
 
@@ -420,43 +417,22 @@ out! T">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="题目链接">题目链接</h2>
-<blockquote>
-<p>https://vjudge.net/problem/POJ-2251</p>
+                <h2 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a>题目链接</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://vjudge.net/problem/POJ-2251">https://vjudge.net/problem/POJ-2251</a></p>
 </blockquote>
-<h2 id="题目描述">题目描述</h2>
-<p>You are trapped in a 3D dungeon and need to find the quickest way
-out! The dungeon is composed of unit cubes which may or may not be
-filled with rock. It takes one minute to move one unit north, south,
-east, west, up or down. You cannot move diagonally and the maze is
-surrounded by solid rock on all sides.</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>You are trapped in a 3D dungeon and need to find the quickest way out! The dungeon is composed of unit cubes which may or may not be filled with rock. It takes one minute to move one unit north, south, east, west, up or down. You cannot move diagonally and the maze is surrounded by solid rock on all sides.</p>
 <p>Is an escape possible? If yes, how long will it take?</p>
-<h3 id="input">Input</h3>
-<p>The input consists of a number of dungeons. Each dungeon description
-starts with a line containing three integers L, R and C (all limited to
-30 in size). L is the number of levels making up the dungeon. R and C
-are the number of rows and columns making up the plan of each level.
-Then there will follow L blocks of R lines each containing C characters.
-Each character describes one cell of the dungeon. A cell full of rock is
-indicated by a ‘#’ and empty cells are represented by a ‘.’. Your
-starting position is indicated by ‘S’ and the exit by the letter ‘E’.
-There’s a single blank line after each level. Input is terminated by
-three zeroes for L, R and C.</p>
-<h3 id="output">Output</h3>
-<p>Each maze generates one line of output. If it is possible to reach
-the exit, print a line of the form</p>
+<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>The input consists of a number of dungeons. Each dungeon description starts with a line containing three integers L, R and C (all limited to 30 in size).<br>L is the number of levels making up the dungeon.<br>R and C are the number of rows and columns making up the plan of each level.<br>Then there will follow L blocks of R lines each containing C characters. Each character describes one cell of the dungeon. A cell full of rock is indicated by a ‘#’ and empty cells are represented by a ‘.’. Your starting position is indicated by ‘S’ and the exit by the letter ‘E’. There’s a single blank line after each level. Input is terminated by three zeroes for L, R and C.</p>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>Each maze generates one line of output. If it is possible to reach the exit, print a line of the form</p>
 <blockquote>
 <p>Escaped in x minute(s).</p>
 </blockquote>
-<p>where x is replaced by the shortest time it takes to escape. If it is
-not possible to escape, print the line</p>
+<p>where x is replaced by the shortest time it takes to escape.<br>If it is not possible to escape, print the line</p>
 <blockquote>
 <p>Trapped!</p>
 </blockquote>
-<h2 id="思路">思路</h2>
-<p>中文意思大概就是走迷宫, 3D 迷宫, 很经典的bfs 题目, 没有什么难度</p>
-<h2 id="ac-代码">AC 代码</h2>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>中文意思大概就是走迷宫, 3D 迷宫, 很经典的bfs 题目, 没有什么难度</p>
+<h2 id="AC-代码"><a href="#AC-代码" class="headerlink" title="AC 代码"></a>AC 代码</h2><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">
 #include &lt;iostream&gt;
 #include &lt;queue&gt;
 #include &lt;cstring&gt;
@@ -549,10 +525,7 @@ signed main()
             cout &lt;&lt; "Trapped!" &lt;&lt; endl;
     }
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="吐槽一句">吐槽一句</h2>
-<p>这个oj 有点老了, auto [x , y] : 这种都识别不了, 有点烦人,
-而且也不能使用万能头, 不过也好, 帮我培养一下代码习惯, 刷题的第二题,
-加油</p>
+<h2 id="吐槽一句"><a href="#吐槽一句" class="headerlink" title="吐槽一句"></a>吐槽一句</h2><p>这个oj 有点老了, auto [x , y] : 这种都识别不了, 有点烦人, 而且也不能使用万能头, 不过也好, 帮我培养一下代码习惯, 刷题的第二题, 加油</p>
 
                 
             </div>
@@ -1199,7 +1172,7 @@ signed main()
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2025</span>
+                <span id="year">2025-2026</span>
             
             <a href="/about" target="_blank">zzhaire</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
@@ -1208,7 +1181,7 @@ signed main()
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">49.9k</span>
+                        class="white-color">94.8k</span>
             
             
             
@@ -1414,6 +1387,14 @@ $(function () {
     <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
     <script src="/js/matery.js"></script>
 
+    
+        <!-- <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script> -->
+        <script src='/libs/mermaid/mermaid.min.js'></script>
+        <script>
+          if (window.mermaid) {
+            mermaid.initialize({theme: 'forest'});
+          }
+        </script>
     
 
     

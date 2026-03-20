@@ -6,12 +6,9 @@
     <meta charset="utf-8">
     <meta name="keywords" content="Catch That Cow, HiBlog">
     <meta name="description" content="题目链接
-
 https://vjudge.net/problem/POJ-3278
 
-题目描述
-Farmer John has been informed of the location of a fugitive cow and
-want">
+题目描述Farmer John has been informed of the location of a fugitive cow and wants ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -390,7 +387,7 @@ want">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    679
+                    676
                 </div>
                 
 
@@ -420,28 +417,15 @@ want">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="题目链接">题目链接</h2>
-<blockquote>
-<p>https://vjudge.net/problem/POJ-3278</p>
+                <h2 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a>题目链接</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://vjudge.net/problem/POJ-3278">https://vjudge.net/problem/POJ-3278</a></p>
 </blockquote>
-<h2 id="题目描述">题目描述</h2>
-<p>Farmer John has been informed of the location of a fugitive cow and
-wants to catch her immediately. He starts at a point <em>N</em> (0 ≤
-<em>N</em> ≤ 100,000) on a number line and the cow is at a point
-<em>K</em> (0 ≤ <em>K</em> ≤ 100,000) on the same number line. Farmer
-John has two modes of transportation: walking and teleporting.</p>
-<p>* Walking: FJ can move from any point <em>X</em> to the points <em>X
-</em>- 1 or <em>X </em>+ 1 in a single minute * Teleporting: FJ can move
-from any point <em>X</em> to the point 2 × <em>X</em> in a single
-minute.</p>
-<p>If the cow, unaware of its pursuit, does not move at all, how long
-does it take for Farmer John to retrieve it?</p>
-<h3 id="input">Input</h3>
-<p>Line 1: Two space-separated integers: <em>N</em> and <em>K</em></p>
-<h3 id="output">Output</h3>
-<p>Line 1: The least amount of time, in minutes, it takes for Farmer
-John to catch the fugitive cow.</p>
-<h3 id="sample">Sample</h3>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Farmer John has been informed of the location of a fugitive cow and wants to catch her immediately. He starts at a point <em>N</em> (0 ≤ <em>N</em> ≤ 100,000) on a number line and the cow is at a point <em>K</em> (0 ≤ <em>K</em> ≤ 100,000) on the same number line. Farmer John has two modes of transportation: walking and teleporting.</p>
+<p>* Walking: FJ can move from any point <em>X</em> to the points <em>X </em>- 1 or <em>X </em>+ 1 in a single minute<br>* Teleporting: FJ can move from any point <em>X</em> to the point 2 × <em>X</em> in a single minute.</p>
+<p>If the cow, unaware of its pursuit, does not move at all, how long does it take for Farmer John to retrieve it?</p>
+<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>Line 1: Two space-separated integers: <em>N</em> and <em>K</em></p>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>Line 1: The least amount of time, in minutes, it takes for Farmer John to catch the fugitive cow.</p>
+<h3 id="Sample"><a href="#Sample" class="headerlink" title="Sample"></a>Sample</h3><div class="table-container">
 <table>
 <thead>
 <tr>
@@ -456,21 +440,15 @@ John to catch the fugitive cow.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="hint">Hint</h3>
-<p>The fastest way for Farmer John to reach the fugitive cow is to move
-along the following path: 5-10-9-18-17, which takes 4 minutes.</p>
-<h2 id="思路">思路</h2>
-<blockquote>
-<p>题目意思大概是 有一个农夫, 农夫在一个点上面, 能做的操作有 乘以2 ,
-或者 + 1 , - 1 , 然后要到达另一个点, 求最少的操作次数</p>
-<p>一开始想着贪心乘法, 然后再尝试 + 1 , -1 去移动到关键位置,
-后面看了下测试样例, 发现没有规律</p>
+</div>
+<h3 id="Hint"><a href="#Hint" class="headerlink" title="Hint"></a>Hint</h3><p>The fastest way for Farmer John to reach the fugitive cow is to move along the following path: 5-10-9-18-17, which takes 4 minutes.</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><blockquote>
+<p>题目意思大概是 有一个农夫, 农夫在一个点上面, 能做的操作有 乘以2 , 或者 + 1 , - 1 , 然后要到达另一个点, 求最少的操作次数</p>
+<p>一开始想着贪心乘法, 然后再尝试 + 1  ,  -1 去移动到关键位置, 后面看了下测试样例, 发现没有规律</p>
 </blockquote>
-<p>不过正常BFS的话, 肯定要超时, 不过好在可以记录VIS[] 确保快速剪肢,
-整体时间复杂度不会超过数组长度, 大概是1e6的大小, 时间复杂度为<span class="math inline"><em>O</em>(<em>n</em>)</span> .</p>
+<p>不过正常BFS的话, 肯定要超时, 不过好在可以记录VIS[] 确保快速剪肢, 整体时间复杂度不会超过数组长度, 大概是1e6的大小, 时间复杂度为$O(n)$ .</p>
 <p>然后也是bfs 的写法, 这里需要枚举好下一个状态进入节点</p>
-<h2 id="ac-代码">AC 代码</h2>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">#include &lt;iostream&gt;
+<h2 id="AC-代码"><a href="#AC-代码" class="headerlink" title="AC 代码"></a>AC 代码</h2><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">#include &lt;iostream&gt;
 #include &lt;vector&gt;
 #include &lt;queue&gt;
 using namespace std;
@@ -519,8 +497,7 @@ signed main()
     cin &gt;&gt; n &gt;&gt; k;
     cout &lt;&lt; bfs() &lt;&lt; endl;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="其他">其他</h2>
-<p>做了第三道搜索题了,感觉基本上最短路径就是用BFS搜索</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>做了第三道搜索题了,感觉基本上最短路径就是用BFS搜索</p>
 <p>然后整个算法基本上大概如下:</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">q.push(初始节点)
 while(q.size())
@@ -532,8 +509,7 @@ while(q.size())
              q.push(next);
     }
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>具体情况具体题目决定, 有时候要在节点里记录步长.
-后面可能要用到优先队列, 换掉这里的queue 就行了</p>
+<p>具体情况具体题目决定, 有时候要在节点里记录步长. 后面可能要用到优先队列, 换掉这里的queue 就行了</p>
 
                 
             </div>
@@ -1184,7 +1160,7 @@ while(q.size())
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2025</span>
+                <span id="year">2025-2026</span>
             
             <a href="/about" target="_blank">zzhaire</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
@@ -1193,7 +1169,7 @@ while(q.size())
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">49.9k</span>
+                        class="white-color">94.8k</span>
             
             
             
@@ -1399,6 +1375,14 @@ $(function () {
     <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
     <script src="/js/matery.js"></script>
 
+    
+        <!-- <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script> -->
+        <script src='/libs/mermaid/mermaid.min.js'></script>
+        <script>
+          if (window.mermaid) {
+            mermaid.initialize({theme: 'forest'});
+          }
+        </script>
     
 
     

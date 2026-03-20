@@ -5,14 +5,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="acwing 算法基础课模板, HiBlog">
-    <meta name="description" content="1. 基本模板
-△ C++ STL 用法
-vector 变长数组，倍增的思想
+    <meta name="description" content="1. 基本模板△ C++ STL 用法vector 变长数组，倍增的思想
     size()  返回元素个数
     empty()  返回是否为空
     clear()  清空
     front()/back()
-    pus">
+    push_">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -391,14 +389,14 @@ vector 变长数组，倍增的思想
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    15.9k
+                    15.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    79 分
+                    78 分
                 </div>
                 
 
@@ -421,9 +419,7 @@ vector 变长数组，倍增的思想
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="基本模板">1. 基本模板</h2>
-<h3 id="c-stl-用法">△ C++ STL 用法</h3>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">vector 变长数组，倍增的思想
+                <h2 id="1-基本模板"><a href="#1-基本模板" class="headerlink" title="1. 基本模板"></a>1. 基本模板</h2><h3 id="△-C-STL-用法"><a href="#△-C-STL-用法" class="headerlink" title="△ C++ STL 用法"></a>△ C++ STL 用法</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">vector 变长数组，倍增的思想
     size()  返回元素个数
     empty()  返回是否为空
     clear()  清空
@@ -521,8 +517,7 @@ bitset, 圧位
     reset()  把所有位变成0
     flip()  等价于~
     flip(k) 把第k位取<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="常用函数">常用函数</h3>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">#include&lt;cmath&gt;
+<h3 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">#include&lt;cmath&gt;
 pow(2,3)乘方运算
 sqrt()
 abs()
@@ -544,8 +539,7 @@ log10()
 #include&lt;algorithm&gt;
   fill(intArray,intArray+10,1)
   fill<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="快速排序">快速排序</h3>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int arr[N];
+<h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int arr[N];
 void quickSort(int l, int r){
     if (r &lt;= l) return; 
     int i = l - 1, j = r + 1;
@@ -557,8 +551,7 @@ void quickSort(int l, int r){
     }
     quickSort(l, j) , quickSort(j + 1, r);
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="归并排序">归并排序</h3>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">void mergeSort(int l ,int r){
+<h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">void mergeSort(int l ,int r){
     if (r&lt;=l)return;
     int mid = l + r &gt;&gt;1;
     mergeSort(l,mid), mergeSort(mid + 1,r);
@@ -584,14 +577,9 @@ void merge_sort(int q[], int l, int r){
     while (j &lt;= r) tmp[k ++ ] = q[j ++ ];
     for (i = l, j = 0; i &lt;= r; i ++, j ++ ) q[i] = tmp[j];
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<figure>
-<img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/202501021052764.png" alt="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/202501021052764.png">
-<figcaption aria-hidden="true">https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/202501021052764.png</figcaption>
-</figure>
-<p>从j 后面开始比, 比如说 2 开始比, 2 比 3 小, 那么 3,5,7,9 都是逆序 mid
-- i + 1 个逆序对</p>
-<h3 id="整数二分">整数二分</h3>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">bool check(int x) {/* ... */} // 检查x是否满足某种性质
+<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/202501021052764.png" alt="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/202501021052764.png"></p>
+<p>从j 后面开始比, 比如说 2 开始比, 2 比 3 小, 那么 3,5,7,9 都是逆序 mid - i + 1 个逆序对</p>
+<h3 id="整数二分"><a href="#整数二分" class="headerlink" title="整数二分"></a>整数二分</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">bool check(int x) {/* ... */} // 检查x是否满足某种性质
 // 区间[l, r]被划分成[l, mid]和[mid + 1, r]时使用：
 int bsearch_1(int l, int r){
     while (l &lt; r){
@@ -618,10 +606,8 @@ int bsearch_2(int l, int r){
             // 找 a[s] &lt;= x  的第一个位置
             // 和  upper_bound(begin() , end() , x);不一样一个返回前面，一个返回后面
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>这个板子和low/upper_bound不一样,
-注意判断边界是<code>等于</code>还是<code>不等于</code></p>
-<h3 id="二分答案">二分答案</h3>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">bool check(){};
+<p>这个板子和low/upper_bound不一样, 注意判断边界是<code>等于</code>还是<code>不等于</code></p>
+<h3 id="二分答案"><a href="#二分答案" class="headerlink" title="二分答案"></a>二分答案</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">bool check(){};
 int bsearch(int l ,int r ){
      int ans;
      while(l &lt;= r ){ // 上面就是 l &lt;= r 了, 和二分查找板子有所不同
@@ -633,8 +619,7 @@ int bsearch(int l ,int r ){
          l = m + 1;
      }return ans;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="三分">三分</h3>
-<p>三分用来求单峰函数, 通过逼近法, 得到单峰值</p>
+<h3 id="三分"><a href="#三分" class="headerlink" title="三分"></a>三分</h3><p>三分用来求单峰函数, 通过逼近法, 得到单峰值</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">for (int i = 1; i &lt;= 1000; i++) {
         double lm = l + (r - l) / 3, rm = r - (r - l) / 3;
         if (check(lm) &gt;= check(rm))l = lm;
@@ -643,8 +628,7 @@ int bsearch(int l ,int r ){
 int t = n &gt;&gt;1 ; // 从1 开始
 if (t &amp; 1) x = t + 1 &gt;&gt;1 , y = t+x;       // 上取整
 else       x = t &gt;&gt; 1    , y = t+x+1 ;    // 下取整<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="浮点二分">浮点二分</h3>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">bool check(double x) {/* ... */} // 检查x是否满足某种性质
+<h3 id="浮点二分"><a href="#浮点二分" class="headerlink" title="浮点二分"></a>浮点二分</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">bool check(double x) {/* ... */} // 检查x是否满足某种性质
 double bsearch_3(double l, double r){
     const double eps = 1e-6;   // eps 表示精度，取决于题目对精度的要求
     while (r - l &gt; eps){
@@ -654,10 +638,8 @@ double bsearch_3(double l, double r){
     }
     return l;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>注意, 三次方根, 不需要分情况讨论, 单调函数何须讨论, 需要记住条件从
-<code>[-inf,+inf ]</code> 讨论即可</p>
-<h3 id="高精度加减乘除">高精度加减乘除</h3>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">vector&lt;int&gt; add(vector&lt;int&gt; &amp;A, vector&lt;int&gt; &amp;B){
+<p>注意, 三次方根, 不需要分情况讨论, 单调函数何须讨论, 需要记住条件从 <code>[-inf,+inf ]</code>  讨论即可</p>
+<h3 id="高精度加减乘除"><a href="#高精度加减乘除" class="headerlink" title="高精度加减乘除"></a>高精度加减乘除</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">vector&lt;int&gt; add(vector&lt;int&gt; &amp;A, vector&lt;int&gt; &amp;B){
     if (A.size() &lt; B.size()) return add(B, A);
     vector&lt;int&gt; C;
     int t = 0;
@@ -735,54 +717,35 @@ int above(vector&lt;int&gt;&amp;a ,vector&lt;int&gt;&amp;b){
         }
     }return 0;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="前缀和差分">前缀和差分</h3>
-<h4 id="一维前缀和">一维前缀和</h4>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">// 构造s
+<h3 id="前缀和差分"><a href="#前缀和差分" class="headerlink" title="前缀和差分"></a>前缀和差分</h3><h4 id="一维前缀和"><a href="#一维前缀和" class="headerlink" title="一维前缀和"></a>一维前缀和</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">// 构造s
 s[i]  = s[i-1] + a[i]
 // a[l] +... + a[r]
 s[r] - s[l-1] == a[l] + a[l+1] + ... + a[r];<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<figure>
-<img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/202501021432446.png" alt="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/202501021432446.png">
-<figcaption aria-hidden="true">https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/202501021432446.png</figcaption>
-</figure>
-<h4 id="二维前缀和">二维前缀和</h4>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">// 构造s
+<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/202501021432446.png" alt="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/202501021432446.png"></p>
+<h4 id="二维前缀和"><a href="#二维前缀和" class="headerlink" title="二维前缀和"></a>二维前缀和</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">// 构造s
 s[y][x]  = s[y-1][x] + s[y][x-1] - s[y-1][x-1] + a[y][x]
 // a[y1][x1] + ... + a[y2][x2]
 矩阵元素求和 = s[y2][x2] - s[y2][x1-1] - s[y1-1][x2] + s[y1-1][x1-1]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<figure>
-<img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/202501021501573.png" alt="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/202501021501573.png">
-<figcaption aria-hidden="true">https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/202501021501573.png</figcaption>
-</figure>
-<h4 id="一维差分">一维差分</h4>
-<figure>
-<img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/202501021537516.png" alt="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/202501021537516.png">
-<figcaption aria-hidden="true">https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/202501021537516.png</figcaption>
-</figure>
+<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/202501021501573.png" alt="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/202501021501573.png"></p>
+<h4 id="一维差分"><a href="#一维差分" class="headerlink" title="一维差分"></a>一维差分</h4><p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/202501021537516.png" alt="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/202501021537516.png"></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">//构造
 a[i] = s[i] - s[i-1]
 //给区间[l, r]中的每个数加上c：
 a[l] += c, a[r + 1] -= c 
 //还原
 s[i] = s[i-1] + a[i];<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="二维差分">二维差分</h4>
-<figure>
-<img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/202501021549145.png" alt="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/202501021549145.png">
-<figcaption aria-hidden="true">https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/202501021549145.png</figcaption>
-</figure>
+<h4 id="二维差分"><a href="#二维差分" class="headerlink" title="二维差分"></a>二维差分</h4><p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/202501021549145.png" alt="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/202501021549145.png"></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">//构造
 a[y][x] = s[y][x] - s[y-1][x] - s[y][x-1] + s[y-1][x-1];
 //矩阵内每个元素加c
 a[y1][x1]+=c , a[y2+1][x1]-=c , a[y1][x2+1]-=c; a[y2+1][x2+1]+=c;
 //还原
 s[y][x] = s[y-1][x] + s[y][x-1] -s[y-1][x-1] + a[y][x];<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="双指针">双指针</h3>
-<blockquote>
+<h3 id="双指针"><a href="#双指针" class="headerlink" title="双指针"></a>双指针</h3><blockquote>
 <p>此类问题, 尽可能让其不要回溯, 否则会变成O(n^2)的算法</p>
 </blockquote>
 <ul>
-<li>acwing799<code>最长连续不重复子序列</code>给定一个长度为 n
-的整数序列，请找出最长的不包含重复的数的连续区间，输出它的长度。</li>
+<li>acwing799<code>最长连续不重复子序列</code>给定一个长度为 n 的整数序列，请找出最长的不包含重复的数的连续区间，输出它的长度。</li>
 </ul>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int a[N] , vis[N];
 int main(){
@@ -803,18 +766,15 @@ int main(){
 <li>acwing2816判断子序列…</li>
 </ul>
 <blockquote>
-<p>常见问题分类： (1) 对于一个序列，用两个指针维护一段区间 (2)
-对于两个序列，维护某种次序，比如归并排序中合并两个有序序列的操作</p>
+<p>常见问题分类：  (1) 对于一个序列，用两个指针维护一段区间  (2) 对于两个序列，维护某种次序，比如归并排序中合并两个有序序列的操作</p>
 </blockquote>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">for (int i = 0, j = 0; i &lt; n; i ++ ){
     while (j &lt; i &amp;&amp; check(i, j)) j ++ ;
     // 具体问题的逻辑
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="位运算">位运算</h3>
-<ul>
+<h3 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h3><ul>
 <li>求n 的低k位数字: <code>n&gt;&gt; k &amp; 1</code></li>
-<li>返回n的最后一位1: <code>n = n &amp; -n</code> （返回的是二进制 ，
-例如说 0110 ， 返回 0010）</li>
+<li>返回n的最后一位1: <code>n = n &amp; -n</code> （返回的是二进制 ， 例如说 0110 ， 返回 0010）</li>
 </ul>
 <p>例: 统计int k中1的个数 (太优美了)</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int getK(int k){
@@ -822,9 +782,7 @@ int main(){
     for(int i = k ; i ; i-= i&amp;-i) cnt++;
     return cnt;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="离散化和区间合并">离散化和区间合并</h3>
-<h4 id="离散化">离散化</h4>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+<h3 id="离散化和区间合并"><a href="#离散化和区间合并" class="headerlink" title="离散化和区间合并"></a>离散化和区间合并</h3><h4 id="离散化"><a href="#离散化" class="headerlink" title="离散化"></a>离散化</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
 using namespace std;
 const int N = 300010; //n次插入和m次查询相关数据量的上界
 int n, m;
@@ -887,8 +845,7 @@ int find(int x){ // 找到第一个大于等于x的位置
     }
     return r + 1; // 映射到1, 2, ...n
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="区间合并">区间合并</h4>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">// 将所有存在交集的区间合并
+<h4 id="区间合并"><a href="#区间合并" class="headerlink" title="区间合并"></a>区间合并</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">// 将所有存在交集的区间合并
 typedef pair&lt; int , int&gt; PII;
 void merge(vector&lt;PII&gt; &amp;segs){
     vector&lt;PII&gt; res;
@@ -903,13 +860,7 @@ void merge(vector&lt;PII&gt; &amp;segs){
     if (st != -2e9) res.push_back({st, ed});
     segs = res;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="基本数据结构">2. 基本数据结构</h2>
-<h3 id="链表">链表</h3>
-<h4 id="单链表">单链表</h4>
-<figure>
-<img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911161918895.png" alt="image-20250911161918895">
-<figcaption aria-hidden="true">image-20250911161918895</figcaption>
-</figure>
+<h2 id="2-基本数据结构"><a href="#2-基本数据结构" class="headerlink" title="2. 基本数据结构"></a>2. 基本数据结构</h2><h3 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h3><h4 id="单链表"><a href="#单链表" class="headerlink" title="单链表"></a>单链表</h4><p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911161918895.png" alt="image-20250911161918895"></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">// head存储链表头，e[]存储节点的值，ne[]存储节点的next指针，idx表示当前用到了哪个节点
 int head, e[N], ne[N], idx;
 // 初始化
@@ -936,11 +887,7 @@ void visit(){
     for(int i = head ; i != -1; i = ne[i])
         cout &lt;&lt;e[i]&lt;&lt;" ";
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="双链表">双链表</h4>
-<figure>
-<img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911162019573.png" alt="image-20250911162019573">
-<figcaption aria-hidden="true">image-20250911162019573</figcaption>
-</figure>
+<h4 id="双链表"><a href="#双链表" class="headerlink" title="双链表"></a>双链表</h4><p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911162019573.png" alt="image-20250911162019573"></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">// e[]表示节点的值，l[]表示节点的左指针，r[]表示节点的右指针，idx表示当前用到了哪个节点
 int e[N], l[N], r[N], idx;
 // 初始化
@@ -971,13 +918,10 @@ void remove(int a){
     l[r[a]] = l[a];
     r[l[a]] = r[a];
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="栈">栈</h3>
-<p>保持左闭右开的习惯</p>
-<h4 id="stl">STL</h4>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">stack&lt;int&gt; s;
+<h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3><p>保持左闭右开的习惯</p>
+<h4 id="STL"><a href="#STL" class="headerlink" title="STL"></a>STL</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">stack&lt;int&gt; s;
 s.pop() ;  cout &lt;&lt; s.top() ; s.size() ; s.push(x);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h4 id="单调栈">单调栈</h4>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">// 核心思想是让栈中从栈底到栈顶单调 ,插入x 之前, 把比x 大的都倒出来
+<h4 id="单调栈"><a href="#单调栈" class="headerlink" title="单调栈"></a>单调栈</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">// 核心思想是让栈中从栈底到栈顶单调 ,插入x 之前, 把比x 大的都倒出来
 for (int i =0 ;i&lt; n;i ++){
     int x ;
     cin &gt;&gt;x;
@@ -986,9 +930,7 @@ for (int i =0 ;i&lt; n;i ++){
     else cout &lt;&lt;-1&lt;&lt;" "; 
     s[tt++] = x;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="表达式求值-递归写法参考牛客题单">表达式求值
-（递归写法参考牛客题单）</h4>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">stack&lt;int&gt; num;
+<h4 id="表达式求值-（递归写法参考牛客题单）"><a href="#表达式求值-（递归写法参考牛客题单）" class="headerlink" title="表达式求值 （递归写法参考牛客题单）"></a>表达式求值 （递归写法参考牛客题单）</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">stack&lt;int&gt; num;
 stack&lt;char&gt; op;
 void eval(){
     auto b = num.top(); num.pop();
@@ -1028,14 +970,11 @@ int main(){
     cout &lt;&lt; num.top() &lt;&lt; endl;
     return 0;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="队列">队列</h3>
-<h4 id="stl-1">STL</h4>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">queue &lt;elem&gt; q;
+<h3 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h3><h4 id="STL-1"><a href="#STL-1" class="headerlink" title="STL"></a>STL</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">queue &lt;elem&gt; q;
 q.push( elem x );  elem q.front(); elem q.back();
 q.pop();
 q.size();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="循环队列">循环队列</h4>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">// hh 表示队头，tt表示队尾的后一个位置
+<h4 id="循环队列"><a href="#循环队列" class="headerlink" title="循环队列"></a>循环队列</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">// hh 表示队头，tt表示队尾的后一个位置
 int q[N], hh = 0, tt = 0;
 // 向队尾插入一个数
 q[tt ++ ] = x;
@@ -1047,18 +986,15 @@ if (hh == N) hh = 0;
 q[hh];
 // 判断队列是否为空，如果hh != tt，则表示不为空
 if (hh != tt)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="单调队列">单调队列</h4>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">//常见模型：找出滑动窗口中的最大值/最小值
+<h4 id="单调队列"><a href="#单调队列" class="headerlink" title="单调队列"></a>单调队列</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">//常见模型：找出滑动窗口中的最大值/最小值
 int hh = 0, tt = -1; // 队里面存的下标
 for (int i = 0; i &lt; n; i ++ ){
     while (hh &lt;= tt &amp;&amp; check_out(q[hh])) hh ++ ;  // 判断队头是否滑出窗口 , 改成if 也可以, 因为只前进一格
     while (hh &lt;= tt &amp;&amp; check(q[tt], i)) tt -- ;
     q[ ++ tt] = i;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="滑动窗口">滑动窗口</h4>
-<p>总体思路和单调栈类似，
-整个窗口里都是从小到大排序，只不过这里存的是下标（方便固定窗口大小）</p>
-<p>https://www.acwing.com/problem/content/156/</p>
+<h4 id="滑动窗口"><a href="#滑动窗口" class="headerlink" title="滑动窗口"></a>滑动窗口</h4><p>总体思路和单调栈类似， 整个窗口里都是从小到大排序，只不过这里存的是下标（方便固定窗口大小）</p>
+<p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/156/">https://www.acwing.com/problem/content/156/</a></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
 using namespace std;
 const int N = 1e6+10;
@@ -1083,11 +1019,8 @@ int main(){
         if ( k  - 1 &lt;= i) cout &lt;&lt; a[q.front()] &lt;&lt;" ";
     }
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="串">串</h3>
-<p>y 总的习惯是从 1 开始, 0的位置做通配符, 匹配的时候是p[i] ==
-p[j+1]</p>
-<h4 id="kmp">KMP</h4>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">// s[]是长文本，p[]是模式串，n是p的长度，m是s的长度
+<h3 id="串"><a href="#串" class="headerlink" title="串"></a>串</h3><p>y 总的习惯是从 1 开始, 0的位置做通配符, 匹配的时候是p[i] == p[j+1]</p>
+<h4 id="KMP"><a href="#KMP" class="headerlink" title="KMP"></a>KMP</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">// s[]是长文本，p[]是模式串，n是p的长度，m是s的长度
 int ne[N];
 char s[M] , p[N];
 int main(){
@@ -1108,9 +1041,7 @@ int main(){
         }
     }
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="trie树">Trie树</h3>
-<p>26度的树 例如插入a b c ,son [idx] [char] = 指针 , 通过idx
-可以确定编号的结尾</p>
+<h3 id="Trie树"><a href="#Trie树" class="headerlink" title="Trie树"></a>Trie树</h3><p>26度的树  例如插入a b c   ,son [idx] [char] = 指针 , 通过idx 可以确定编号的结尾</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int son[N][26], cnt[N], idx;
 // 0号点既是根节点，又是空节点
 // son[idx][u]存储树中每个节点的子节点 idx是自己的编号， 每个u是对应字母的位置
@@ -1135,8 +1066,7 @@ int query(char *str){
     }
     return cnt[p];
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="并查集">并查集</h3>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int p[N] , sz[N];
+<h3 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int p[N] , sz[N];
 void init(int n){
     for(int i = 1; i&lt;=n;i++) p[i]=i, // sz[i] = 1;
 }
@@ -1152,8 +1082,7 @@ void merge(int a, int b){
     }else
         return ;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="堆">堆</h3>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int h[N] , cnt; // 完全二叉树, 从1开始
+<h3 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int h[N] , cnt; // 完全二叉树, 从1开始
 void down(int u){
     int t =  u ; 
     if (u * 2 &lt;= cnt &amp;&amp; h[u*2] &lt; h[t] ) t = u*2;
@@ -1181,9 +1110,7 @@ bool operator()(const elem &amp; a , const elem &amp; b) {
   }
 };
 priority_queue&lt;elem ,vector&lt;elem&gt; , Cmp&gt; q; // pritority_queue &lt; elem , 底层数据结构， 比较类&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="哈希表">哈希表</h3>
-<h4 id="链式哈希">链式哈希</h4>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int h[N] , e[N] , ne[N] , idx;
+<h3 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h3><h4 id="链式哈希"><a href="#链式哈希" class="headerlink" title="链式哈希"></a>链式哈希</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int h[N] , e[N] , ne[N] , idx;
 void insert(int x){
     int k = (x % N + N) % N;
     e[idx] = x;  ne[idx] = h[k];
@@ -1196,8 +1123,7 @@ bool find(int x){
     }
     return false;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="封闭哈希">封闭哈希</h4>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int find(int x) {
+<h4 id="封闭哈希"><a href="#封闭哈希" class="headerlink" title="封闭哈希"></a>封闭哈希</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int find(int x) {
     int t = (x % N + N) % N;
     while (h[t] != null &amp;&amp; h[t] != x) {
         t++;
@@ -1205,11 +1131,7 @@ bool find(int x){
     }
     return t;  //如果这个位置是空的, 则返回的是他应该存储的位置
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="字符串哈希">字符串哈希</h4>
-<figure>
-<img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911163602575.png" alt="image-20250911163602575">
-<figcaption aria-hidden="true">image-20250911163602575</figcaption>
-</figure>
+<h4 id="字符串哈希"><a href="#字符串哈希" class="headerlink" title="字符串哈希"></a>字符串哈希</h4><p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911163602575.png" alt="image-20250911163602575"></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">typedef unsigned long long ull; // ull 刚好溢出相当于取模
 const int M = 131;
 char str[N]; ull h[N],p[N];// h 装hash , p 装进制
@@ -1218,8 +1140,7 @@ void Khash(){
     for(int i = 1 ;i&lt;=n;i++) 
         p[i] = p[i-1] * M  , h[i] = h[i-1] * M + str[i]; 
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="图论">3. 图论</h2>
-<p>包括普通的树</p>
+<h2 id="3-图论"><a href="#3-图论" class="headerlink" title="3. 图论"></a>3. 图论</h2><p>包括普通的树</p>
 <p><strong>存储</strong></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">//邻接矩阵
 int g[N][N];
@@ -1238,8 +1159,7 @@ int h[N] , idx;// head不变
 struct edge{
   int to , ne , w ; // w表示边的权重
 }e[N];<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="dfs">DFS</h3>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int n , path[N];
+<h3 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int n , path[N];
 bool vis[N];
 void dfs(int u){
     if (u == n){ // 递归基
@@ -1265,8 +1185,7 @@ void dfs( elem :state){
         //还原现场 (如果只需要一个结果, 不需要还原现场)
 }
 dfs(初始状态)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="bfs-pfs-换优先队列即可">BFS (PFS 换优先队列即可）</h3>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int bfs(){
+<h3 id="BFS-PFS-换优先队列即可）"><a href="#BFS-PFS-换优先队列即可）" class="headerlink" title="BFS (PFS 换优先队列即可）"></a>BFS (PFS 换优先队列即可）</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int bfs(){
     queue&lt;type&gt; q;
     q.push(start);// 初始化，包括初始元素入队， 初始点赋值等
     while(q.size()){
@@ -1293,9 +1212,7 @@ void bfs(elem :state){
 }
 树的重心<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
-<p>给定一颗树，树中包含 n 个结点（编号 1∼n）和 n−1
-条无向边。请你找到树的重心，并输出将重心删除后，剩余各个连通块中点数的最大值。
-重心定义：重心是指树中的一个结点，如果将这个点删除后，剩余各个连通块中点数的最大值最小，那么这个节点被称为树的重心。</p>
+<p>给定一颗树，树中包含 n 个结点（编号 1∼n）和 n−1 条无向边。请你找到树的重心，并输出将重心删除后，剩余各个连通块中点数的最大值。  重心定义：重心是指树中的一个结点，如果将这个点删除后，剩余各个连通块中点数的最大值最小，那么这个节点被称为树的重心。</p>
 </blockquote>
 <p>dfs( i )返回 以 i 为中心， 连通的大小</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int h[N],e[M] , ne[M] , idx , ans = N , n;
@@ -1330,9 +1247,7 @@ int main(){
     }
     dfs(1); cout &lt;&lt;ans;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="拓扑排序-可以自定义队列-也可以用一个vector-记录一下结果">拓扑排序
-(可以自定义队列， 也可以用一个vector 记录一下结果）</h3>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">bool topsort(){
+<h3 id="拓扑排序-可以自定义队列，-也可以用一个vector-记录一下结果）"><a href="#拓扑排序-可以自定义队列，-也可以用一个vector-记录一下结果）" class="headerlink" title="拓扑排序 (可以自定义队列， 也可以用一个vector 记录一下结果）"></a>拓扑排序 (可以自定义队列， 也可以用一个vector 记录一下结果）</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">bool topsort(){
     int hh = 0, tt = -1;
     // din[i] 存储点i的入度
     for (int i = 1; i &lt;= n; i ++ )
@@ -1347,25 +1262,14 @@ int main(){
     // 如果所有点都入队了，说明存在拓扑序列；否则不存在拓扑序列。
     return tt == n - 1;// 也可以用vector 存，看是否有n个点
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="最短路径">最短路径</h3>
-<p>迪杰斯特拉是用最短的边去更新其他 而spfa是上次更新的终点去更新其他边
-贝尔曼则是非常暴力的每次更新所有边</p>
-<p>|<strong>算法</strong>|<strong>时间复杂度</strong>|<strong>限制/特点</strong>|<strong>其他说明</strong>|
-|-|-|-|-|
-|<strong>Dijkstra</strong>|O((n+m)logm)|不能有负权边|常用于单源最短路径，若有负权边需考虑其他算法|
-|<strong>Bellman-Ford（邻接矩阵）</strong>|O(n^3)|不能有负权环|适用于含负权边但无负权环的场景|
-|<strong>SPFA</strong>|O(k×m)|不能有负权环|一种基于 Bellman-Ford
-的优化算法|
-|<strong>Floyd</strong>|O(n^3)|可求多源最短路径|通常用于求所有点对最短路径|</p>
+<h3 id="最短路径"><a href="#最短路径" class="headerlink" title="最短路径"></a>最短路径</h3><p>迪杰斯特拉是用最短的边去更新其他 而spfa是上次更新的终点去更新其他边 贝尔曼则是非常暴力的每次更新所有边</p>
+<p>|<strong>算法</strong>|<strong>时间复杂度</strong>|<strong>限制/特点</strong>|<strong>其他说明</strong>| |-|-|-|-| |<strong>Dijkstra</strong>|O((n+m)logm)|不能有负权边|常用于单源最短路径，若有负权边需考虑其他算法| |<strong>Bellman-Ford（邻接矩阵）</strong>|O(n^3)|不能有负权环|适用于含负权边但无负权环的场景| |<strong>SPFA</strong>|O(k×m)|不能有负权环|一种基于 Bellman-Ford 的优化算法| |<strong>Floyd</strong>|O(n^3)|可求多源最短路径|通常用于求所有点对最短路径|</p>
 <ul>
 <li><strong>n</strong>：图中的顶点数</li>
 <li><strong>m</strong>：图中的边数</li>
-<li><strong>k</strong>：算法运行过程中某些边被松弛的平均次数（SPFA
-分析中常用）</li>
+<li><strong>k</strong>：算法运行过程中某些边被松弛的平均次数（SPFA 分析中常用）</li>
 </ul>
-<h4 id="dijkstra-算法">dijkstra 算法</h4>
-<p><code>朴素版</code>时间复杂度 <span class="math inline"><em>O</em>(<em>n</em><sup>2</sup> + <em>m</em>)</span>
-n表示点数,m表示边数（忽略即可）</p>
+<h4 id="dijkstra-算法"><a href="#dijkstra-算法" class="headerlink" title="dijkstra 算法"></a>dijkstra 算法</h4><p><code>朴素版</code>时间复杂度 $O(n^2+m)$ n表示点数,m表示边数（忽略即可）</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int dijkstra(){ // g[][] 邻接矩阵形式
     memset(dis, 0x3f, sizeof dis);
     dis[1] = 0;
@@ -1415,8 +1319,7 @@ int dijkstra(){
         return -1;
     return dis[n];
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><code>堆优化版</code>时间复杂度<span class="math inline"><em>O</em>(<em>m</em><em>l</em><em>o</em><em>g</em><em>n</em>)</span>
-n表示点数,m表示边数</p>
+<p><code>堆优化版</code>时间复杂度$O(mlogn)$ n表示点数,m表示边数</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int dijkstra(){
     memset(dist, 0x3f, sizeof dist);
     dist[1] = 0;
@@ -1438,8 +1341,7 @@ n表示点数,m表示边数</p>
     if (dist[n] &gt;= 0x3f3f3f3f) return -1; // 这边要写大于等于
     else return dist[n];
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="bellman-ford-算法">Bellman-Ford 算法</h4>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int n, m;       // n表示点数，m表示边数
+<h4 id="Bellman-Ford-算法"><a href="#Bellman-Ford-算法" class="headerlink" title="Bellman-Ford 算法"></a>Bellman-Ford 算法</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int n, m;       // n表示点数，m表示边数
 int dist[N], back[N];// dist[x]存储1到x的最短路距离, back 表示备份
 struct Edge {    // 边，a表示出点，b表示入点，w表示边的权重
     int a, b, w;
@@ -1458,9 +1360,7 @@ int bellman_ford(){
     if (dist[n] &gt; 0x3f3f3f3f / 2) return -1;
     return dist[n];
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="spfa-算法-队列优化版的bell-ford算法-负权边">spfa 算法
-(<code>队列</code>优化版的Bell-Ford算法) (负权边)</h4>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int h[M] , w[M] , ne[M] , idx, e[M] , dist[N], // cnt[N];
+<h4 id="spfa-算法-队列优化版的Bell-Ford算法-负权边"><a href="#spfa-算法-队列优化版的Bell-Ford算法-负权边" class="headerlink" title="spfa 算法 (队列优化版的Bell-Ford算法) (负权边)"></a>spfa 算法 (<code>队列</code>优化版的Bell-Ford算法) (负权边)</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int h[M] , w[M] , ne[M] , idx, e[M] , dist[N], // cnt[N];
 bool vis[N];
 queue&lt;int&gt; q;
 // 求1号点到n号点的最短路距离，如果从1号点无法走到n号点则返回-1
@@ -1507,8 +1407,7 @@ int spfa(){
     }}}}
     return false;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="floyd算法">floyd算法</h4>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">void init(){
+<h4 id="floyd算法"><a href="#floyd算法" class="headerlink" title="floyd算法"></a>floyd算法</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">void init(){
     for (int i = 1; i &lt;= n; i ++ )
         for (int j = 1; j &lt;= n; j ++ )
             if (i == j) d[i][j] = 0;
@@ -1522,9 +1421,7 @@ void floyd()
             for (int j = 1; j &lt;= n; j ++ )
                 d[i][j] = min(d[i][j], d[i][k] + d[k][j]);
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="最小生成树">最小生成树</h3>
-<h4 id="prim">prim</h4>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">朴素版
+<h3 id="最小生成树"><a href="#最小生成树" class="headerlink" title="最小生成树"></a>最小生成树</h3><h4 id="prim"><a href="#prim" class="headerlink" title="prim"></a>prim</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">朴素版
 int n;      // n表示点数
 int g[N][N];        // 邻接矩阵，存储所有边
 int dist[N];        // 存储其他点到当前最小生成树的距离
@@ -1550,10 +1447,8 @@ int prim(){
     return res;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>上面代码的时间复杂度为 O(n^2)。</p>
-<p>与Dijkstra类似，Prim算法也可以用堆优化，优先队列代替堆，优化的Prim算法时间复杂度O(mlogn)。适用于稀疏图，但是稀疏图的时候求最小生成树，Kruskal
-算法更加实用。</p>
-<h4 id="kruskal">Kruskal</h4>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int n, m;       // n是点数，m是边数
+<p>与Dijkstra类似，Prim算法也可以用堆优化，优先队列代替堆，优化的Prim算法时间复杂度O(mlogn)。适用于稀疏图，但是稀疏图的时候求最小生成树，Kruskal 算法更加实用。</p>
+<h4 id="Kruskal"><a href="#Kruskal" class="headerlink" title="Kruskal"></a>Kruskal</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int n, m;       // n是点数，m是边数
 int p[N];       // 并查集的父节点数组
 struct Edge{    // 存储边
     int a, b, w;
@@ -1581,9 +1476,7 @@ int kruskal(){
     if (cnt &lt; n - 1) return INF;
     return res;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="其他">其他</h3>
-<h4 id="染色法二分图">染色法二分图</h4>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int color[N];      // -1 means black , 0 means not write , 1 means white
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><h4 id="染色法二分图"><a href="#染色法二分图" class="headerlink" title="染色法二分图"></a>染色法二分图</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int color[N];      // -1 means black , 0 means not write , 1 means white
 bool dfs(int u, int c){ // try to use c to write node u  ; return  bin-graph ?
     color[u] = c;
     for (int i = h[u]; i != -1; i = ne[i]){
@@ -1609,9 +1502,7 @@ bool check(){
             }
     return flag;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="旬牙利-todo没理解-直接答案抄过来了">旬牙利 TODO(没理解，
-直接答案抄过来了）</h4>
-<p>用于求二分图的最大匹配</p>
+<h4 id="旬牙利-TODO-没理解，-直接答案抄过来了）"><a href="#旬牙利-TODO-没理解，-直接答案抄过来了）" class="headerlink" title="旬牙利 TODO(没理解， 直接答案抄过来了）"></a>旬牙利 TODO(没理解， 直接答案抄过来了）</h4><p>用于求二分图的最大匹配</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int n1, n2;     // n1表示第一个集合中的点数，n2表示第二个集合中的点数
 int h[N], e[M], ne[M], idx;
 //邻接表存储所有边匈牙利算法中只会用到从第一个集合指向第二个集合的边，所以这里只用存一个方向的边
@@ -1636,18 +1527,14 @@ for (int i = 1; i &lt;= n1; i ++ ){
     memset(st, false, sizeof st);
     if (find(i)) res ++ ;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="数论">4. 数论</h2>
-<h3 id="试除法判定质数">试除法判定质数</h3>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">bool is_prime(int x){
+<h2 id="4-数论"><a href="#4-数论" class="headerlink" title="4. 数论"></a>4. 数论</h2><h3 id="试除法判定质数"><a href="#试除法判定质数" class="headerlink" title="试除法判定质数"></a>试除法判定质数</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">bool is_prime(int x){
     if (x &lt; 2) return false;
     for (int i = 2; i &lt;= x / i; i ++ )
         if (x % i == 0)
             return false;
     return true;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="试除法分解质因数">试除法分解质因数</h3>
-<p>$n=p<em>1^{a</em>1} * p<em>2^{a</em>2} <em>p</em>3<sup>{a<em>3} …..
-p</em>n</sup>{a*n} $ <span class="math inline"><em>p</em><sub><em>i</em></sub></span> 是质数</p>
+<h3 id="试除法分解质因数"><a href="#试除法分解质因数" class="headerlink" title="试除法分解质因数"></a>试除法分解质因数</h3><p>$n=p<em>1^{a</em>1} <em> p</em>2^{a<em>2} </em>p<em>3^{a</em>3}    …..    p<em>n^{a</em>n} $        $p_i$ 是质数</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">void divide(int x){
     for (int i = 2; i &lt;= x / i; i ++ )
         if (x % i == 0){
@@ -1657,9 +1544,7 @@ p</em>n</sup>{a*n} $ <span class="math inline"><em>p</em><sub><em>i</em></sub></
         }
     if (x &gt; 1) cout &lt;&lt; x &lt;&lt; ' ' &lt;&lt; 1 &lt;&lt; endl;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="求素数">求素数</h3>
-<h4 id="朴素筛">朴素筛</h4>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int primes[N], cnt; // primes[]存储所有素数
+<h3 id="求素数"><a href="#求素数" class="headerlink" title="求素数"></a>求素数</h3><h4 id="朴素筛"><a href="#朴素筛" class="headerlink" title="朴素筛"></a>朴素筛</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int primes[N], cnt; // primes[]存储所有素数
 bool st[N];         // st[x]存储x是否被筛掉
 void get_primes(int n){
     for (int i = 2; i &lt;= n; i ++ ){
@@ -1669,8 +1554,7 @@ void get_primes(int n){
             st[j] = true;
     }
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="线性筛">线性筛</h4>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int primes[N], cnt; // primes[]存储所有素数
+<h4 id="线性筛"><a href="#线性筛" class="headerlink" title="线性筛"></a>线性筛</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int primes[N], cnt; // primes[]存储所有素数
 bool st[N];         // st[x]存储x是否被筛掉
 void get_primes(int n){
     for (int i = 2; i &lt;= n; i ++ ){
@@ -1681,9 +1565,7 @@ void get_primes(int n){
         }
     }
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="埃式筛不如线性筛">埃式筛(不如线性筛)</h4>
-<h3 id="试除法求约数">试除法求约数</h3>
-<p>约数 n = a * b ,求所有的a和b</p>
+<h4 id="埃式筛-不如线性筛"><a href="#埃式筛-不如线性筛" class="headerlink" title="埃式筛(不如线性筛)"></a>埃式筛(不如线性筛)</h4><h3 id="试除法求约数"><a href="#试除法求约数" class="headerlink" title="试除法求约数"></a>试除法求约数</h3><p>约数 n = a * b   ,求所有的a和b</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">vector&lt;int&gt; get_divisors(int x){
     vector&lt;int&gt; res;
     for (int i = 1; i &lt;= x / i; i ++ )
@@ -1694,12 +1576,9 @@ void get_primes(int n){
     sort(res.begin(), res.end());
     return res;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="约数个数和约数之和">约数个数和约数之和</h3>
-<p>如果 N = <span class="math inline"><em>p</em> * 1<sup><em>c</em> * 1</sup> * <em>p</em> * 2<sup><em>c</em> * 2</sup> * … * <em>p</em> * <em>k</em><sup><em>c</em> * <em>k</em></sup></span></p>
-<p>约数个数： <span class="math inline">$(c*1 + 1) \* (c*2 + 1) * … *
-(c_k + 1)$</span></p>
-<p>约数之和：$ (p<em>1^0 + p</em>1^1 + … + p<em>1^{c</em>1}) * … *
-(p<em>k^0 + p</em>k^1 + … + p<em>k^{c</em>k})$</p>
+<h3 id="约数个数和约数之和"><a href="#约数个数和约数之和" class="headerlink" title="约数个数和约数之和"></a>约数个数和约数之和</h3><p>如果 N = $p<em>1^{c</em>1} <em> p</em>2^{c<em>2}</em> … <em>p</em>k^{c*k}$</p>
+<p>约数个数： $(c<em>1 + 1) \</em> (c<em>2 + 1) </em> … * (c_k + 1)$</p>
+<p>约数之和：$ (p<em>1^0 + p</em>1^1 + … + p<em>1^{c</em>1}) <em> … </em> (p<em>k^0 + p</em>k^1 + … + p<em>k^{c</em>k})$</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">// 先分解质因数 
 long long res = 1 ;unordered_map &lt;int,int&gt; primes
 for(auto p : primes){
@@ -1708,12 +1587,10 @@ for(auto p : primes){
   while (b -- ) t = (t * a + 1) % mod;
   res = res * t % mod;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="欧几里得算法">欧几里得算法</h3>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int gcd(int a, int b){
+<h3 id="欧几里得算法"><a href="#欧几里得算法" class="headerlink" title="欧几里得算法"></a>欧几里得算法</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int gcd(int a, int b){
     return b ? gcd(b, a % b) : a;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h3 id="求欧拉函数">求欧拉函数</h3>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int phi(int x){
+<h3 id="求欧拉函数"><a href="#求欧拉函数" class="headerlink" title="求欧拉函数"></a>求欧拉函数</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int phi(int x){
     int res = x;
     for (int i = 2; i &lt;= x / i; i ++ )
         if (x % i == 0){
@@ -1723,8 +1600,7 @@ for(auto p : primes){
     if (x &gt; 1) res = res / x * (x - 1);
     return res;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="筛法求欧拉函数">筛法求欧拉函数</h3>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int primes[N], cnt;     // primes[]存储所有素数
+<h3 id="筛法求欧拉函数"><a href="#筛法求欧拉函数" class="headerlink" title="筛法求欧拉函数"></a>筛法求欧拉函数</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int primes[N], cnt;     // primes[]存储所有素数
 int euler[N];           // 存储每个数的欧拉函数
 bool st[N];         // st[x]存储x是否被筛掉
 
@@ -1746,8 +1622,7 @@ void get_eulers(int n){
         }
     }
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="快速幂">快速幂</h3>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">求 m^k mod p，时间复杂度 O(logk)。
+<h3 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a>快速幂</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">求 m^k mod p，时间复杂度 O(logk)。
 int qmi(int m, int k, int p) {
     int res = 1 % p, t = m;
     while (k){
@@ -1757,8 +1632,7 @@ int qmi(int m, int k, int p) {
     }
     return res;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="扩展欧几里得">扩展欧几里得</h3>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">// 求x, y，使得ax + by = gcd(a, b)
+<h3 id="扩展欧几里得"><a href="#扩展欧几里得" class="headerlink" title="扩展欧几里得"></a>扩展欧几里得</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">// 求x, y，使得ax + by = gcd(a, b)
 int exgcd(int a, int b, int &amp;x, int &amp;y){
     if (!b){
         x = 1; y = 0;
@@ -1768,8 +1642,7 @@ int exgcd(int a, int b, int &amp;x, int &amp;y){
     y -= (a/b) * x;
     return d;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="高斯消元">高斯消元</h3>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">// a[N][N]是增广矩阵
+<h3 id="高斯消元"><a href="#高斯消元" class="headerlink" title="高斯消元"></a>高斯消元</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">// a[N][N]是增广矩阵
 int gauss(){
     int c, r;
     for (c = 0, r = 0; c &lt; n; c ++ ){
@@ -1799,14 +1672,12 @@ int gauss(){
             a[i][n] -= a[i][j] * a[j][n];
     return 0; // 有唯一解
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="递推法求组合数">递推法求组合数</h3>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">// c[a][b] 表示从a个苹果中选b个的方案数
+<h3 id="递推法求组合数"><a href="#递推法求组合数" class="headerlink" title="递推法求组合数"></a>递推法求组合数</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">// c[a][b] 表示从a个苹果中选b个的方案数
 for (int i = 0; i &lt; N; i ++ )
     for (int j = 0; j &lt;= i; j ++ )
         if (!j) c[i][j] = 1;
         else c[i][j] = (c[i - 1][j] + c[i - 1][j - 1]) % mod;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="通过预处理逆元的方式求组合数">通过预处理逆元的方式求组合数</h3>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">//首先预处理出所有阶乘取模的余数fact[N]，以及所有阶乘取模的逆元infact[N]
+<h3 id="通过预处理逆元的方式求组合数"><a href="#通过预处理逆元的方式求组合数" class="headerlink" title="通过预处理逆元的方式求组合数"></a>通过预处理逆元的方式求组合数</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">//首先预处理出所有阶乘取模的余数fact[N]，以及所有阶乘取模的逆元infact[N]
 //如果取模的数是质数，可以用费马小定理求逆元
 int qmi(int a, int k, int p) {   // 快速幂模板
     int res = 1;
@@ -1823,8 +1694,7 @@ for (int i = 1; i &lt; N; i ++ ){
     fact[i] = (LL)fact[i - 1] * i % mod;
     infact[i] = (LL)infact[i - 1] * qmi(i, mod - 2, mod) % mod;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="lucas定理">Lucas定理</h3>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">//若p是质数，则对于任意整数 1 &lt;= m &lt;= n，有：
+<h3 id="Lucas定理"><a href="#Lucas定理" class="headerlink" title="Lucas定理"></a>Lucas定理</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">//若p是质数，则对于任意整数 1 &lt;= m &lt;= n，有：
 //    C(n, m) = C(n % p, m % p) * C(n / p, m / p) (mod p)
 
 int qmi(int a, int k, int p){  // 快速幂模板
@@ -1851,8 +1721,7 @@ int lucas(LL a, LL b, int p){
     if (a &lt; p &amp;&amp; b &lt; p) return C(a, b, p);
     return (LL)C(a % p, b % p, p) * lucas(a / p, b / p, p) % p;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="分解质因数法求组合数">分解质因数法求组合数</h3>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">/*  当我们需要求出组合数的真实值，而非对某个数的余数时，分解质因数的方式比较好用：
+<h3 id="分解质因数法求组合数"><a href="#分解质因数法求组合数" class="headerlink" title="分解质因数法求组合数"></a>分解质因数法求组合数</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">/*  当我们需要求出组合数的真实值，而非对某个数的余数时，分解质因数的方式比较好用：
     1. 筛法求出范围内的所有质数
     2. 通过 C(a, b) = a! / b! / (a - b)! 这个公式求出每个质因子的次数。 n! 中p的次数是 n / p + n / p^2 + n / p^3 + ...
     3. 用高精度乘法将所有质因子相乘
@@ -1898,65 +1767,48 @@ res.push_back(1);
 for (int i = 0; i &lt; cnt; i ++ )     // 用高精度乘法将所有质因子相乘
     for (int j = 0; j &lt; sum[i]; j ++ )
         res = mul(res, primes[i]);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="卡特兰数">卡特兰数</h3>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">给定n个0和n个1，它们按照某种顺序排成长度为2n的序列，满足任意前缀中0的个数都不少于1的个数的序列的数量为： Cat(n) = C(2n, n) / (n + 1)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="nim游戏">NIM游戏</h3>
-<p>给定N堆物品，第i堆物品有Ai个。两名玩家轮流行动，每次可以任选一堆，取走任意多个物品，可把一堆取光，但不能不取。取走最后一件物品者获胜。两人都采取最优策略，问先手是否必胜。</p>
+<h3 id="卡特兰数"><a href="#卡特兰数" class="headerlink" title="卡特兰数"></a>卡特兰数</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">给定n个0和n个1，它们按照某种顺序排成长度为2n的序列，满足任意前缀中0的个数都不少于1的个数的序列的数量为： Cat(n) = C(2n, n) / (n + 1)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="NIM游戏"><a href="#NIM游戏" class="headerlink" title="NIM游戏"></a>NIM游戏</h3><p>给定N堆物品，第i堆物品有Ai个。两名玩家轮流行动，每次可以任选一堆，取走任意多个物品，可把一堆取光，但不能不取。取走最后一件物品者获胜。两人都采取最优策略，问先手是否必胜。</p>
 <p>我们把这种游戏称为NIM博弈。把游戏过程中面临的状态称为局面。整局游戏第一个行动的称为先手，第二个行动的称为后手。若在某一局面下无论采取何种行动，都会输掉游戏，则称该局面必败。</p>
 <p>所谓采取最优策略是指，若在某一局面下存在某种行动，使得行动后对面面临必败局面，则优先采取该行动。同时，这样的局面被称为必胜。我们讨论的博弈问题一般都只考虑理想情况，即两人均无失误，都采取最优策略行动时游戏的结果。</p>
 <p>NIM博弈不存在平局，只有先手必胜和先手必败两种情况。</p>
 <p>定理： NIM博弈先手必胜，当且仅当 A1 ^ A2 ^ … ^ An != 0</p>
-<h3 id="公平组合游戏icg">公平组合游戏ICG</h3>
-<p>若一个游戏满足：</p>
+<h3 id="公平组合游戏ICG"><a href="#公平组合游戏ICG" class="headerlink" title="公平组合游戏ICG"></a>公平组合游戏ICG</h3><p>若一个游戏满足：</p>
 <p>由两名玩家交替行动；</p>
-<ol type="1">
+<ol>
 <li>在游戏进程的任意时刻，可以执行的合法行动与轮到哪名玩家无关；</li>
 <li>不能行动的玩家判负；</li>
 </ol>
 <p>则称该游戏为一个公平组合游戏。</p>
 <p>NIM博弈属于公平组合游戏，但城建的棋类游戏，比如围棋，就不是公平组合游戏。因为围棋交战双方分别只能落黑子和白子，胜负判定也比较复杂，不满足条件2和条件3。</p>
-<h3 id="有向图游戏">有向图游戏</h3>
-<p>给定一个有向无环图，图中有一个唯一的起点，在起点上放有一枚棋子。两名玩家交替地把这枚棋子沿有向边进行移动，每次可以移动一步，无法移动者判负。该游戏被称为有向图游戏。</p>
+<h3 id="有向图游戏"><a href="#有向图游戏" class="headerlink" title="有向图游戏"></a>有向图游戏</h3><p>给定一个有向无环图，图中有一个唯一的起点，在起点上放有一枚棋子。两名玩家交替地把这枚棋子沿有向边进行移动，每次可以移动一步，无法移动者判负。该游戏被称为有向图游戏。</p>
 <p>任何一个公平组合游戏都可以转化为有向图游戏。具体方法是，把每个局面看成图中的一个节点，并且从每个局面向沿着合法行动能够到达的下一个局面连有向边。</p>
-<h3 id="mex运算">Mex运算</h3>
-<p>设S表示一个非负整数集合。定义mex(S)为求出不属于集合S的最小非负整数的运算，即：</p>
+<h3 id="Mex运算"><a href="#Mex运算" class="headerlink" title="Mex运算"></a>Mex运算</h3><p>设S表示一个非负整数集合。定义mex(S)为求出不属于集合S的最小非负整数的运算，即：</p>
 <p>mex(S) = min{x}, x属于自然数，且x不属于S</p>
-<h3 id="sg函数">SG函数</h3>
-<p>在有向图游戏中，对于每个节点x，设从x出发共有k条有向边，分别到达节点y1,
-y2, …, yk，定义SG(x)为x的后继节点y1, y2, …, yk
-的SG函数值构成的集合再执行mex(S)运算的结果，即：</p>
+<h3 id="SG函数"><a href="#SG函数" class="headerlink" title="SG函数"></a>SG函数</h3><p>在有向图游戏中，对于每个节点x，设从x出发共有k条有向边，分别到达节点y1, y2, …, yk，定义SG(x)为x的后继节点y1, y2, …, yk 的SG函数值构成的集合再执行mex(S)运算的结果，即：</p>
 <p>SG(x) = mex({SG(y1), SG(y2), …, SG(yk)})</p>
-<p>特别地，整个有向图游戏G的SG函数值被定义为有向图游戏起点s的SG函数值，即SG(G)
-= SG(s)。</p>
-<h3 id="有向图游戏的和">有向图游戏的和</h3>
-<p>设G1, G2, …, Gm
-是m个有向图游戏。定义有向图游戏G，它的行动规则是任选某个有向图游戏Gi，并在Gi上行动一步。G被称为有向图游戏G1,
-G2, …, Gm的和。</p>
+<p>特别地，整个有向图游戏G的SG函数值被定义为有向图游戏起点s的SG函数值，即SG(G) = SG(s)。</p>
+<h3 id="有向图游戏的和"><a href="#有向图游戏的和" class="headerlink" title="有向图游戏的和"></a>有向图游戏的和</h3><p>设G1, G2, …, Gm 是m个有向图游戏。定义有向图游戏G，它的行动规则是任选某个有向图游戏Gi，并在Gi上行动一步。G被称为有向图游戏G1, G2, …, Gm的和。</p>
 <p>有向图游戏的和的SG函数值等于它包含的各个子游戏SG函数值的异或和，即：</p>
 <p>SG(G) = SG(G1) ^ SG(G2) ^ … ^ SG(Gm)</p>
-<h3 id="定理">定理</h3>
-<p>有向图游戏的某个局面必胜，当且仅当该局面对应节点的SG函数值大于0</p>
+<h3 id="定理"><a href="#定理" class="headerlink" title="定理"></a>定理</h3><p>有向图游戏的某个局面必胜，当且仅当该局面对应节点的SG函数值大于0</p>
 <p>有向图游戏的某个局面必败，当且仅当该局面对应节点的SG函数值等于0。</p>
-<h2 id="动态规划">5. 动态规划</h2>
-<p><strong>闫氏 DP 大法</strong></p>
-<ol type="1">
-<li>状态表示
-<ol type="1">
+<h2 id="5-动态规划"><a href="#5-动态规划" class="headerlink" title="5. 动态规划"></a>5. 动态规划</h2><p><strong>闫氏 DP 大法</strong></p>
+<ol>
+<li>状态表示<ol>
 <li>f (x,y,z,…) = 表示的集合</li>
 <li>f (x,y,z,…)的属性 min 或 max</li>
-</ol></li>
-<li>状态计算
-<ol type="1">
+</ol>
+</li>
+<li>状态计算<ol>
 <li>分类讨论</li>
 <li>递推方程 (后无效性原则)</li>
-</ol></li>
 </ol>
-<h3 id="背包问题">背包问题</h3>
-<p>这里包括了所有背包9讲的内容</p>
-<h4 id="背包">01 背包</h4>
-<blockquote>
-<p>n 件物品, 容量 m 的背包, 第i件物品, 体积为v[i] , 价值为w[i] 求
-能够拿取的最大价值</p>
+</li>
+</ol>
+<h3 id="背包问题"><a href="#背包问题" class="headerlink" title="背包问题"></a>背包问题</h3><p>这里包括了所有背包9讲的内容</p>
+<h4 id="01-背包"><a href="#01-背包" class="headerlink" title="01 背包"></a>01 背包</h4><blockquote>
+<p>n 件物品, 容量 m 的背包,  第i件物品, 体积为v[i] , 价值为w[i]  求 能够拿取的最大价值</p>
 </blockquote>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">/*  f[i][j] 表示  前i个物品,总体积为j的最大价值
     1. 第i件物品放不下时             f[i][j] = f[i-1][j];
@@ -1977,17 +1829,9 @@ int main(){
     cout &lt;&lt;f[n][m];
     return 0;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<figure>
-<img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image.png" alt="image.png">
-<figcaption aria-hidden="true">image.png</figcaption>
-</figure>
-<p>根据 <code>dp的后无效性原则</code> 每次都是在上一行的结果上更新,
-可以直接构造1维数组, 不断更新即可(这样会丢失中间过程,
-适合只需要结果的题) , <strong>注意更新的时候从后往前,
-防止覆盖数据</strong></p>
-<p>状态转移方程: 二维: dp[i][j] = max(dp[i-1][j] , dp[i-1][j - w[i]] +
-c[i] ); 一维: dp[j] = max(dp [j] , dp [j - w[i]] + c[i] );
-<strong>从后往前, 防止覆盖</strong></p>
+<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image.png" alt="image.png"></p>
+<p>根据  <code>dp的后无效性原则</code>  每次都是在上一行的结果上更新, 可以直接构造1维数组, 不断更新即可(这样会丢失中间过程, 适合只需要结果的题) , <strong>注意更新的时候从后往前, 防止覆盖数据</strong></p>
+<p>状态转移方程:  二维:  dp[i][j] = max(dp[i-1][j] , dp[i-1][j - w[i]] + c[i] ); 一维:  dp[j]    =  max(dp       [j] , dp       [j - w[i]] + c[i] );   <strong>从后往前, 防止覆盖</strong></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
 using namespace std;
 const int N = 1e3 + 10;
@@ -2001,10 +1845,8 @@ int main(){
             f[j] = max(f[j], f[j - v[i]] + w[i]);
     cout &lt;&lt; f[m];
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="完全背包">完全背包</h4>
-<blockquote>
-<p>n <code>种</code> 物品, 容量 m 的背包, 第i件物品, 体积为v[i] ,
-价值为w[i] , <code>物品不限量</code> 求 能够拿取的最大价值</p>
+<h4 id="完全背包"><a href="#完全背包" class="headerlink" title="完全背包"></a>完全背包</h4><blockquote>
+<p>n <code>种</code> 物品, 容量 m 的背包,  第i件物品, 体积为v[i] , 价值为w[i] , <code>物品不限量</code>  求 能够拿取的最大价值</p>
 </blockquote>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">cin &gt;&gt; n &gt;&gt; m;
     for (int i = 1; i &lt;= n; i++) cin &gt;&gt; v[i] &gt;&gt; w[i];
@@ -2012,18 +1854,14 @@ int main(){
         for (int j = m; v[i] &lt;= j; j--) // 枚举所有体积
             for (int k = 0; k &lt;= j / v[i]; k++) // 这里多个循环遍历拿k个物品
                 f[j] = max(f[j], f[j - k * v[i]] + k * w[i]);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>状态转移方程: 二维: dp[i][j] = max(dp[i-1][j] , dp[i] ****[j - w[i]]
-+ c[i] ); 一维: dp [j] = max(dp [j] , dp ****[j ****- ****w[i]] + c[i]
-); <strong>从前往后</strong></p>
+<p>状态转移方程:  二维:  dp[i][j] = max(dp[i-1][j] , dp[i] <strong><strong>[j - w[i]] + c[i] ); 一维:  dp    [j] = max(dp       [j] , dp     </strong></strong>[j <strong><strong>- </strong></strong>w[i]] + c[i] ); <strong>从前往后</strong></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">cin &gt;&gt; n &gt;&gt; m;
     for (int i = 1; i &lt;= n; i++) cin &gt;&gt; v[i] &gt;&gt; w[i];
     for (int i = 1; i &lt;= n; i++)        // 枚举所有物品
         for (int j = v[i]; j &lt;= m; j++) // 枚举所有体积
               f[j] = max(f[j] , f[j - v[i]] + w[i] );<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="多重背包">多重背包</h4>
-<blockquote>
-<p>N <code>种</code> 物品, 容量 m 的背包, 第i件物品, 体积为v[i] ,
-价值为w[i] , <code>物品上限为n[i]</code> 求 能够拿取的最大价值</p>
+<h4 id="多重背包"><a href="#多重背包" class="headerlink" title="多重背包"></a>多重背包</h4><blockquote>
+<p>N <code>种</code> 物品, 容量 m 的背包,  第i件物品, 体积为v[i] , 价值为w[i] , <code>物品上限为n[i]</code>  求 能够拿取的最大价值</p>
 </blockquote>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">cin &gt;&gt; n &gt;&gt; m;
     for (int i = 1; i &lt;= n; i++) cin &gt;&gt; v[i] &gt;&gt; w[i] &gt;&gt; s[i];
@@ -2031,10 +1869,7 @@ int main(){
         for (int j = m; v[i] &lt;= j; j--) // 枚举所有体积
             for (int k = 0; k &lt;= min( j / v[i] , s[i] ); k++) 
                 f[j] = max(f[j], f[j - k * v[i]] + k * w[i]);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>二进制优化 ; 数字n可以表示成为2进制, 比如说15 = 1 + 2 + 4 + 8
-所以相当于拿物品的时候, 可以一次拿多个, 不需要单次+1 去枚举 相当于
-<strong>把 s 个物品, 打包成 1, 2 , 4 , 8 , … , 这些组,
-然后变成01背包问题</strong></p>
+<p>二进制优化 ; 数字n可以表示成为2进制, 比如说15 = 1 + 2 + 4 + 8  所以相当于拿物品的时候, 可以一次拿多个, 不需要单次+1 去枚举 相当于 <strong>把 s 个物品, 打包成 1, 2 , 4 , 8 , … , 这些组, 然后变成01背包问题</strong></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int f[N]; // f[j] 背包j容量的最优解
 int n, m, vv[N], ww[N], ss[N] , cnt = 1;
 cin &gt;&gt; n &gt;&gt; m;
@@ -2052,16 +1887,10 @@ for (int i = 1; i &lt; cnt; i++)
     for (int j = m; vv[i] &lt;= j; j--)
         f[j] = max(f[j], f[j - vv[i]] + ww[i]);
 cout &lt;&lt; f[m];<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>单调队列优化: (单调队列看前面的板子)
-此部分可以跳过，属于男人8题的难度 f[j] = max(f[j] , f[j - k * vv[i]] + k
-* ww[i]; 上述为基本转移方程, 在此基础上枚举每个k对应的最大值,
-其实就是一个单调队列问题</p>
+<p>单调队列优化: (单调队列看前面的板子)  此部分可以跳过，属于男人8题的难度 f[j] = max(f[j] , f[j - k <em> vv[i]] +  k  </em>  ww[i]; 上述为基本转移方程, 在此基础上枚举每个k对应的最大值, 其实就是一个单调队列问题</p>
 <p>TODO 代码</p>
-<h4 id="混合背包问题">混合背包问题</h4>
-<blockquote>
-<p>N <code>种</code> 物品, 容量 m 的背包, 第i件物品, 体积为v[i] ,
-价值为w[i] , <code>物品有可能**无**限, 有可能**有**限</code> 求
-能够拿取的最大价值</p>
+<h4 id="混合背包问题"><a href="#混合背包问题" class="headerlink" title="混合背包问题"></a>混合背包问题</h4><blockquote>
+<p>N <code>种</code> 物品, 容量 m 的背包,  第i件物品, 体积为v[i] , 价值为w[i] , <code>物品有可能**无**限, 有可能**有**限</code>  求 能够拿取的最大价值</p>
 </blockquote>
 <p>上述问题的组合, 在分类跟新下一个物品 (分类讨论即可)</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">cin &gt;&gt; n &gt;&gt; m;
@@ -2091,11 +1920,8 @@ cout &lt;&lt; f[m];<span aria-hidden="true" class="line-numbers-rows"><span></sp
             for (int j = v; j &lt;= m; j++)
                 f[j] = max(f[j], f[j - v] + c);
   }  cout &lt;&lt; f[m];<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="分组背包问题">分组背包问题</h4>
-<blockquote>
-<p>N <code>组</code> 物品, 容量 m 的背包, 第i组第j件物品, 体积为v[i][j]
-, 价值为w[i][j] , <code>每组只能拿一个物品</code> 求
-能够拿取的最大价值</p>
+<h4 id="分组背包问题"><a href="#分组背包问题" class="headerlink" title="分组背包问题"></a>分组背包问题</h4><blockquote>
+<p>N <code>组</code> 物品, 容量 m 的背包,  第i组第j件物品, 体积为v[i][j] , 价值为w[i][j] , <code>每组只能拿一个物品</code>  求 能够拿取的最大价值</p>
 </blockquote>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int n, m;
 int g[N];               // 下标是组号, 内容是组的大小
@@ -2105,11 +1931,8 @@ for (int i = 1; i &lt;= n; i++)
         for (int k = 1; k &lt;= g[i]; k++)
             if (vv[i][k] &lt;= j)  f[j] = max(f[j], f[j - vv[i][k]] + cc[i][k]);
 cout &lt;&lt; f[m];<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="二维费用背包问题">二维费用背包问题</h4>
-<blockquote>
-<p>N <code>个</code> 物品, 体积 V , 最大负重W 的背包, 第i件物品,
-体积为v[i] , 重量为w[i] 价值为c[j] , <code>每组只能拿一个物品</code> 求
-能够拿取的最大价值</p>
+<h4 id="二维费用背包问题"><a href="#二维费用背包问题" class="headerlink" title="二维费用背包问题"></a>二维费用背包问题</h4><blockquote>
+<p>N <code>个</code> 物品, 体积 V , 最大负重W 的背包,  第i件物品, 体积为v[i] , 重量为w[i] 价值为c[j] ,  <code>每组只能拿一个物品</code>  求 能够拿取的最大价值</p>
 </blockquote>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">cin &gt;&gt; gn &gt;&gt; gv &gt;&gt; gw;
     for (int i = 1; i &lt;= gn; i++){
@@ -2119,15 +1942,12 @@ cout &lt;&lt; f[m];<span aria-hidden="true" class="line-numbers-rows"><span></sp
             for (int jw = gw; w &lt;= jw; jw--)
                 f[jv][jw] = max(f[jv][jw], f[jv - v][jw - w] + c);
     } cout &lt;&lt; f[gv][gw];<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="线性dp">线性DP</h3>
-<p>此类问题注意两个问题</p>
+<h3 id="线性DP"><a href="#线性DP" class="headerlink" title="线性DP"></a>线性DP</h3><p>此类问题注意两个问题</p>
 <ul>
-<li><strong>值是负的还是正的</strong>, 初始化的时候边界取负值,
-并初始化起点</li>
+<li><strong>值是负的还是正的</strong>, 初始化的时候边界取负值,  并初始化起点</li>
 <li><strong>状态转移</strong>方程式, 以及遍历顺序</li>
 </ul>
-<h4 id="数字三角形">数字三角形</h4>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">for (int i = 1; i &lt;= n; i++)
+<h4 id="数字三角形"><a href="#数字三角形" class="headerlink" title="数字三角形"></a>数字三角形</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">for (int i = 1; i &lt;= n; i++)
         for (int j = 1; j &lt;= i; j++) cin &gt;&gt; a[i][j];
     for (int i = 0; i &lt;= n; i++)
         for (int j = 0; j &lt;= i + 1; j++) f[i][j] = -INF; // 因为值可以取负的, 这里要格外注意
@@ -2141,12 +1961,8 @@ cout &lt;&lt; f[m];<span aria-hidden="true" class="line-numbers-rows"><span></sp
     for (int i = 1; i &lt;= n; i++) // 走到最下面一层, 不是走到f[n][n]
         res = max(f[n][i], res);
     cout &lt;&lt; res;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="lis-largest-increased-sequence-最长上升子序列">LIS (largest
-increased sequence) 最长上升子序列</h4>
-<p><strong>朴素版$ O(n^2)$</strong></p>
-<p>表示: f[i] = max length(以 a[i] 结尾的最长上升子序列) 转移: 双指针, j
-&lt; i <strong>a[j] &lt; a[i] 时 , f[i] = max(f[i] , f[j] +
-1)</strong></p>
+<h4 id="LIS-largest-increased-sequence-最长上升子序列"><a href="#LIS-largest-increased-sequence-最长上升子序列" class="headerlink" title="LIS (largest increased sequence) 最长上升子序列"></a>LIS (largest increased sequence) 最长上升子序列</h4><p><strong>朴素版$ O(n^2)$</strong></p>
+<p>表示:  f[i] = max length(以 a[i] 结尾的最长上升子序列) 转移:    双指针, j &lt;  i <strong>a[j] &lt; a[i] 时 , f[i] = max(f[i] , f[j] + 1)</strong></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">for (int i = 2; i &lt;= n; i++){   
         f[i] = 1;// 这个可能更新不到, 但是最小是1
         for (int j = 1; j &lt; i; j++)
@@ -2171,18 +1987,9 @@ for (int i = 1; i &lt; n; ++i) {
         *lower_bound(stk.begin(), stk.end(), arr[i]) = arr[i];
 }
 cout &lt;&lt; stk.size() &lt;&lt; endl;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="lcslargest-common-sequence-最长公共子序列">LCS(largest common
-sequence) 最长公共子序列</h4>
-<p>递归版本，数据结构讲过这个问题比较好理解
-（要写递归的话可以用记忆化数组，用map 记录）</p>
-<figure>
-<img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/202501201441307.png" alt="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/202501201441307.png">
-<figcaption aria-hidden="true">https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/202501201441307.png</figcaption>
-</figure>
-<figure>
-<img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911161552253.png" alt="image.png">
-<figcaption aria-hidden="true">image.png</figcaption>
-</figure>
+<h4 id="LCS-largest-common-sequence-最长公共子序列"><a href="#LCS-largest-common-sequence-最长公共子序列" class="headerlink" title="LCS(largest common sequence) 最长公共子序列"></a>LCS(largest common sequence) 最长公共子序列</h4><p>递归版本，数据结构讲过这个问题比较好理解 （要写递归的话可以用记忆化数组，用map 记录）</p>
+<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/202501201441307.png" alt="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/img/202501201441307.png"></p>
+<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911161552253.png" alt="image.png"></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">for(int i  = 1 ;i&lt;=n;i++)
         for(int j = 1 ;j&lt;=m;j++)
         {
@@ -2190,13 +1997,7 @@ sequence) 最长公共子序列</h4>
             if (A[i]==B[j]) f[i][j] = max(f[i][j] , f[i-1][j-1] + 1);
         }
     cout &lt;&lt;f[n][m];<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="最短编辑距离">最短编辑距离</h4>
-<p>属性 : f[i][j] 表示 a[1~ i ] 到 b[1~ j] 的最小操作数 转移 :
-对最后一位做修改 1 . 删除操作: 删掉 x 之后匹配, 在此之前a[1~<strong>i -
-1</strong>]和b[1~ <strong>j</strong> ] 匹配 2 . 增加操作: 增加 x
-之后匹配, 在此之前a[1~<strong>i</strong> ]和b[1~ <strong>j-1</strong>]
-匹配 3 . 修改操作: 修改 x 之后匹配, 在此之前a[1~<strong>i -
-1</strong>]和b[1~ <strong>j-1</strong>] 匹配</p>
+<h4 id="最短编辑距离"><a href="#最短编辑距离" class="headerlink" title="最短编辑距离"></a>最短编辑距离</h4><p>属性 : f[i][j] 表示 a[1~ i ] 到 b[1~ j] 的最小操作数 转移 : 对最后一位做修改 1 . 删除操作: 删掉 x 之后匹配, 在此之前a[1~<strong>i - 1</strong>]和b[1~ <strong>j</strong>   ] 匹配  2 . 增加操作: 增加 x 之后匹配, 在此之前a[1~<strong>i</strong>     ]和b[1~ <strong>j-1</strong>] 匹配 3 . 修改操作: 修改 x 之后匹配, 在此之前a[1~<strong>i - 1</strong>]和b[1~ <strong>j-1</strong>] 匹配</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">void match(const char *A, const char *B){
     int n = strlen(A + 1) , m = strlen(B + 1); // 0 当做哨兵使用  
     for (int i = 0; i &lt;= n; i++)    f[i][0] = i;
@@ -2209,15 +2010,8 @@ sequence) 最长公共子序列</h4>
             }
     cout &lt;&lt; f[n][m];
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="区间dp">区间DP</h3>
-<p>绝大多数区间问题先枚举区间长度, 再枚举区间左端点</p>
-<h4 id="石子合并">石子合并</h4>
-<p>属性 : f[i][j] 表示合并 i ~ j 区间的最小代价 转移 : 1 . f[l][r] =
-f[l][m] +f[m+1][r] + a[l]+ … + a[r]; (这里要用到<strong>前缀和</strong>)
-2 . 增加操作: 增加 x 之后匹配, 在此之前a[1~<strong>i</strong> ]和 b[1~
-<strong>j-1</strong> ] 匹配 3 . 修改操作: 修改 x 之后匹配,
-在此之前a[1~<strong>i - 1</strong>]和 b[1~ <strong>j-1</strong> ]
-匹配</p>
+<h3 id="区间DP"><a href="#区间DP" class="headerlink" title="区间DP"></a>区间DP</h3><p>绝大多数区间问题先枚举区间长度, 再枚举区间左端点</p>
+<h4 id="石子合并"><a href="#石子合并" class="headerlink" title="石子合并"></a>石子合并</h4><p>属性 : f[i][j] 表示合并 i ~ j 区间的最小代价 转移 :  1 . f[l][r] = f[l][m] +f[m+1][r] + a[l]+ … + a[r];  (这里要用到<strong>前缀和</strong>) 2 . 增加操作: 增加 x 之后匹配, 在此之前a[1~<strong>i</strong>     ]和 b[1~ <strong>j-1</strong> ] 匹配 3 . 修改操作: 修改 x 之后匹配, 在此之前a[1~<strong>i - 1</strong>]和 b[1~ <strong>j-1</strong> ] 匹配</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">for (int len = 2; len &lt;= n; len++)
         for (int l = 1; l + len - 1 &lt;= n; l++){
             int r = l + len - 1; f[l][r] = INF; 
@@ -2225,33 +2019,18 @@ f[l][m] +f[m+1][r] + a[l]+ … + a[r]; (这里要用到<strong>前缀和</strong
                 f[l][r] = min(f[l][r], f[l][k] + f[k + 1][r] + s[r] - s[l - 1]);
         }
     cout &lt;&lt; f[1][n] &lt;&lt; endl;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="计数dp">计数DP</h3>
-<h4 id="整数划分">整数划分</h4>
-<blockquote>
-<p>一个正整数n可以表示成若干个正整数之和 ,
-现在给定一个正整数n，请你求出n共有多少种不同的划分方法。</p>
+<h3 id="计数DP"><a href="#计数DP" class="headerlink" title="计数DP"></a>计数DP</h3><h4 id="整数划分"><a href="#整数划分" class="headerlink" title="整数划分"></a>整数划分</h4><blockquote>
+<p>一个正整数n可以表示成若干个正整数之和 , 现在给定一个正整数n，请你求出n共有多少种不同的划分方法。</p>
 </blockquote>
-<figure>
-<img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911161552318.png" alt="image.png">
-<figcaption aria-hidden="true">image.png</figcaption>
-</figure>
-<p><strong>思路1 <a href="#完全背包">完全背包</a>: 把1,2,3,..n
-看做n种物品(数量无限) , 问体积为n的总方案数</strong> 属性 : f[i][j]
-表示前 <strong>i</strong> 个整数(1,2,…,i)恰好拼成 <strong>j</strong>
-的方案数 转移 : f[i][j] = f[i - 1][j] + f[i - 1][j - i] + f[i - 1][j - 2
-* i] + …; f[i][j-i] = f[i-1][j-1]+ f[i-1][j-2 * i] + … ;
-<code>把集合选0个i，1个i，2个i，…全部加起来</code> 故 : f[i][j] =
-f[i][j-i] + f[i-1][j] ; 这里使用完全背包滚动数组即可</p>
+<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911161552318.png" alt="image.png"></p>
+<p><strong>思路1 [完全背包]: 把1,2,3,..n 看做n种物品(数量无限) , 问体积为n的总方案数</strong> 属性 : f[i][j] 表示前 <strong>i</strong> 个整数(1,2,…,i)恰好拼成  <strong>j</strong>  的方案数 转移 :  f[i][j]   = f[i - 1][j] + f[i - 1][j - i] + f[i - 1][j - 2 <em> i] + …; f[i][j-i] = f[i-1][j-1]+ f[i-1][j-2 </em> i] + … ;  <code>把集合选0个i，1个i，2个i，…全部加起来</code> 故 : f[i][j] = f[i][j-i] + f[i-1][j] ; 这里使用完全背包滚动数组即可</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int n ; cin &gt;&gt; n;
     f[0] = 1;
     for (int i = 1;i&lt;=n;i++) 
         for(int j = i ;j&lt;=n;j++)
             f[j]  = ( f[j-i] + f[j] )% mod;
     cout &lt;&lt;f[n];<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>思路2 总和为i , 用 j 个数表示的方案数</strong> 属性: f[i][j]
-表示 总和为 i 用 j个数表示 转移: f[i][j] =
-方案中最小值为1和方案中最小值大于1 f[i][j] = f[i-1][j-1] + f[i-j][j]
-(每个值都 -1 , 一共减去j , 方案数不变)</p>
+<p><strong>思路2 总和为i , 用 j 个数表示的方案数</strong> 属性: f[i][j] 表示 总和为 i 用 j个数表示 转移: f[i][j]  = 方案中最小值为1和方案中最小值大于1 f[i][j]  = f[i-1][j-1]            + f[i-j][j] (每个值都 -1 , 一共减去j , 方案数不变)</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int n;cin &gt;&gt; n;
     f[0][0] = 1;
     for (int i = 1; i &lt;= n; i++)
@@ -2261,8 +2040,7 @@ f[i][j-i] + f[i-1][j] ; 这里使用完全背包滚动数组即可</p>
     int res = 0;
     for (int i = 1; i &lt;= n; i++) res =(res + f[n][i]) % mod;
     cout &lt;&lt; res;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="数位统计dp">数位统计DP</h3>
-<p>可以不用vector存每一位， 直接计算某位的左边和右边的整数是多少。</p>
+<h3 id="数位统计DP"><a href="#数位统计DP" class="headerlink" title="数位统计DP"></a>数位统计DP</h3><p>可以不用vector存每一位，        直接计算某位的左边和右边的整数是多少。</p>
 <p>可以不用讨论那么多细枝末节，只需要知道，当i为0时其左边整数不能为0，就够了。</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"># include &lt;iostream&gt;
 # include &lt;cmath&gt;
@@ -2294,26 +2072,14 @@ int main(){
         cout &lt;&lt; endl;
     } return 0;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="状态压缩dp-这部分算hard难度了经典问题都很复杂">状态压缩DP
-（这部分算hard难度了，经典问题都很复杂）</h3>
-<h4 id="蒙德里安的梦想">蒙德里安的梦想</h4>
-<blockquote>
+<h3 id="状态压缩DP-（这部分算hard难度了，经典问题都很复杂）"><a href="#状态压缩DP-（这部分算hard难度了，经典问题都很复杂）" class="headerlink" title="状态压缩DP （这部分算hard难度了，经典问题都很复杂）"></a>状态压缩DP （这部分算hard难度了，经典问题都很复杂）</h3><h4 id="蒙德里安的梦想"><a href="#蒙德里安的梦想" class="headerlink" title="蒙德里安的梦想"></a>蒙德里安的梦想</h4><blockquote>
 <p>图片来自b站某博主的, 后序会把链接贴上 TODO</p>
 </blockquote>
-<figure>
-<img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911161552388.png" alt="image.png">
-<figcaption aria-hidden="true">image.png</figcaption>
-</figure>
+<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911161552388.png" alt="image.png"></p>
 <p>在此过程中保证不出现奇数个0</p>
-<figure>
-<img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911161552496.png" alt="image.png">
-<figcaption aria-hidden="true">image.png</figcaption>
-</figure>
+<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911161552496.png" alt="image.png"></p>
 <p>然后要保证不重叠1, 不出现连续的1</p>
-<figure>
-<img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911161552574.png" alt="image.png">
-<figcaption aria-hidden="true">image.png</figcaption>
-</figure>
+<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911161552574.png" alt="image.png"></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">void initOdds(){
     for (int i = 0; i &lt; 1 &lt;&lt; n; i++){
         odd1[i] = true;
@@ -2338,10 +2104,7 @@ int main(){
         }
     }return f[m][0];
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="哈密顿最短回路">哈密顿最短回路</h4>
-<p>属性: f[state][j] 表示state 点被用过 , 目前停留在j上面 , state
-用<strong>位</strong>表示状态 转移: f[state][j] = f[state_k][k] +
-wei[k][j] <code>state_k 表示去除j之后的集合,state_k 包含k</code></p>
+<h4 id="哈密顿最短回路"><a href="#哈密顿最短回路" class="headerlink" title="哈密顿最短回路"></a>哈密顿最短回路</h4><p>属性: f[state][j] 表示state 点被用过 , 目前停留在j上面 , state 用<strong>位</strong>表示状态 转移: f[state][j] = f[state_k][k] + wei[k][j]  <code>state_k 表示去除j之后的集合,state_k 包含k</code></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">cin &gt;&gt; n;
 for (int i = 0; i &lt; n; i++)
     for (int j = 0; j &lt; n; j++)
@@ -2358,12 +2121,7 @@ for (int state = 0; state &lt; (1 &lt;&lt; n); state++) // state
                 if (state_k &gt;&gt; k &amp; 1)
                     f[state][id] = min(f[state_k][k]+ g[k][id] , f[state][id]); 
             }cout &lt;&lt; f[(1&lt;&lt; n) - 1][n-1]; //2 ^ n - 1 全为1,表示所有点都在state中<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="树形dp">树形dp</h3>
-<h4 id="没有上司的舞会">没有上司的舞会</h4>
-<p>属性 : f[u][0] 表示选择u为根结点的子树 , 不包括(u)结点 f[u][1] 表示
-选择u为根结点的子树 , 包括(u)结点 转移 : dfs 遍历 , 选择u的时候, 那么
-f[u][1] += 所有子节点f[s][0] 不选择u的时候, 那么 f[u][0] +=
-max(所有子节点f[s][0] , 所有子节点f[s][1])</p>
+<h3 id="树形dp"><a href="#树形dp" class="headerlink" title="树形dp"></a>树形dp</h3><h4 id="没有上司的舞会"><a href="#没有上司的舞会" class="headerlink" title="没有上司的舞会"></a>没有上司的舞会</h4><p>属性 : f[u][0] 表示选择u为根结点的子树 , 不包括(u)结点           f[u][1] 表示  选择u为根结点的子树 ,    包括(u)结点 转移 :  dfs 遍历 , 选择u的时候,  那么 f[u][1] += 所有子节点f[s][0]                      不选择u的时候,   那么 f[u][0] += max(所有子节点f[s][0]  , 所有子节点f[s][1])</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">void dfs(int u){
     f[u][1] = happy[u];
     for (int i = h[u]; ~i; i = ne[i]){
@@ -2374,9 +2132,7 @@ max(所有子节点f[s][0] , 所有子节点f[s][1])</p>
     }
 }//找root 开一个数组,找谁没有father就行,或者说输入的时候记录一下谁有father
 ans = max(f[root][1] , f[root][0]);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="记忆化搜索">记忆化搜索</h3>
-<p>用递归写总是很简单的, 但是会存在超时问题 于是可以用数组记录中间结果,
-避免同一个问题重复递归 以fib 为例</p>
+<h3 id="记忆化搜索"><a href="#记忆化搜索" class="headerlink" title="记忆化搜索"></a>记忆化搜索</h3><p>用递归写总是很简单的, 但是会存在超时问题 于是可以用数组记录中间结果, 避免同一个问题重复递归 以fib 为例</p>
 <p>递归版</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int fib(int n ){
   if (n &lt; 3 )
@@ -2389,9 +2145,7 @@ int fib(int n){
   a[n] = fib(n-1) + fib(n-2);
   return a[n];
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="滑雪">滑雪</h4>
-<p>属性 f[i][j] 表示从 i , j 出发, 最长的距离 转移 : f[i +dx][j+dy]
-四个方向 比当前矮 f[i][j] = max ( f[i + dx][j + dy] + 1 , f[i][j] );</p>
+<h4 id="滑雪"><a href="#滑雪" class="headerlink" title="滑雪"></a>滑雪</h4><p>属性 f[i][j] 表示从 i ,  j 出发, 最长的距离 转移 :  f[i +dx][j+dy] 四个方向 比当前矮 f[i][j] = max ( f[i + dx][j + dy] + 1  , f[i][j] );</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int dp(int x, int y){
     int &amp;v = f[x][y];
     if (~v) return v;
@@ -2405,9 +2159,7 @@ int fib(int n){
     }
     return v;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="贪心算法">6. 贪心算法</h2>
-<p>这类问题往往需要借助排序, 修改排序函数就非常重要
-，重载时一般重载小于号</p>
+<h2 id="6-贪心算法"><a href="#6-贪心算法" class="headerlink" title="6. 贪心算法"></a>6. 贪心算法</h2><p>这类问题往往需要借助排序, 修改排序函数就非常重要 ，重载时一般重载小于号</p>
 <ul>
 <li>运算符重载</li>
 </ul>
@@ -2430,8 +2182,7 @@ sort(coords.begin() , coords.end() , cmp);<span aria-hidden="true" class="line-n
 <ul>
 <li>匿名函数</li>
 </ul>
-<p>匿名函数相当于 return 一个函数指针，功能同2 [&amp;] , [*] , [ ]
-的区别请自行搜索</p>
+<p>匿名函数相当于 return 一个函数指针，功能同2 [&amp;] , [*] , [ ] 的区别请自行搜索</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">std::sort(begin, end, [](const Coord&amp; a, const Coord&amp; b) {
     // 自定义比较逻辑
     return a . l &lt; b . l; // 例如：按升序排序
@@ -2444,15 +2195,10 @@ int main(){
     int c  = add(1,2);
     cout &lt;&lt;c &lt;&lt; endl; // 输出3
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="区间dp-1">区间dp</h3>
-<h4 id="区间选点">区间选点</h4>
-<blockquote>
+<h3 id="区间dp"><a href="#区间dp" class="headerlink" title="区间dp"></a>区间dp</h3><h4 id="区间选点"><a href="#区间选点" class="headerlink" title="区间选点"></a>区间选点</h4><blockquote>
 <p>选最少的点覆盖所有区间</p>
 </blockquote>
-<figure>
-<img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911161552639.png" alt="image.png">
-<figcaption aria-hidden="true">image.png</figcaption>
-</figure>
+<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911161552639.png" alt="image.png"></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
 using namespace std;
 const int N =1e5+10;
@@ -2481,18 +2227,12 @@ int main(){
             rr.push(pa.r);
     }cout &lt;&lt; rr.size();
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="最大不相交区间数量">最大不相交区间数量</h4>
-<p>同上 , 一模一样的代码</p>
-<h4 id="区间分组">区间分组</h4>
-<blockquote>
-<p>给定 N 个闭区间
-[ai,bi]，请你将这些区间分成若干组，使得每组内部的区间两两之间（包括端点）没有交集，并使得组数尽可能小。</p>
+<h4 id="最大不相交区间数量"><a href="#最大不相交区间数量" class="headerlink" title="最大不相交区间数量"></a>最大不相交区间数量</h4><p>同上  , 一模一样的代码</p>
+<h4 id="区间分组"><a href="#区间分组" class="headerlink" title="区间分组"></a>区间分组</h4><blockquote>
+<p>给定 N 个闭区间 [ai,bi]，请你将这些区间分成若干组，使得每组内部的区间两两之间（包括端点）没有交集，并使得组数尽可能小。</p>
 </blockquote>
 <p>输出最小组数。</p>
-<figure>
-<img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911161552707.png" alt="image.png">
-<figcaption aria-hidden="true">image.png</figcaption>
-</figure>
+<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911161552707.png" alt="image.png"></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
 using namespace std;
 const int N =1e5+10;
@@ -2523,17 +2263,12 @@ int main(){
             maxrs.push(pa.r);
     }cout &lt;&lt; maxrs.size();
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="区间覆盖">区间覆盖</h4>
-<blockquote>
-<p>给定 N 个区间 [ai,bi] 以及一个区间
-[s,t]，请你选择尽量少的区间，将指定区间完全覆盖。</p>
+<h4 id="区间覆盖"><a href="#区间覆盖" class="headerlink" title="区间覆盖"></a>区间覆盖</h4><blockquote>
+<p>给定 N 个区间 [ai,bi] 以及一个区间 [s,t]，请你选择尽量少的区间，将指定区间完全覆盖。</p>
 </blockquote>
 <p>输出最少区间数，如果无法完全覆盖则输出 −1。</p>
 <p>思路不太好想, 还是记一下比较好</p>
-<figure>
-<img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911161552773.png" alt="image.png">
-<figcaption aria-hidden="true">image.png</figcaption>
-</figure>
+<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20250911161552773.png" alt="image.png"></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
 using namespace std;
 const int N = 1e5 + 10;
@@ -2574,9 +2309,7 @@ int main(){
     system("pause");
     return 0;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="huffman-树">Huffman 树</h3>
-<h4 id="合并果子">合并果子</h4>
-<p>用哈夫曼贪心和动态规划都可以</p>
+<h3 id="Huffman-树"><a href="#Huffman-树" class="headerlink" title="Huffman 树"></a>Huffman 树</h3><h4 id="合并果子"><a href="#合并果子" class="headerlink" title="合并果子"></a>合并果子</h4><p>用哈夫曼贪心和动态规划都可以</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
 using namespace std;
 const int N = 1e5 + 10;
@@ -2598,9 +2331,7 @@ int main(){
     }cout &lt;&lt;cnt;
     return 0;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="排序不等式">排序不等式</h3>
-<h4 id="排队打水">排队打水</h4>
-<blockquote>
+<h3 id="排序不等式"><a href="#排序不等式" class="headerlink" title="排序不等式"></a>排序不等式</h3><h4 id="排队打水"><a href="#排队打水" class="headerlink" title="排队打水"></a>排队打水</h4><blockquote>
 <p>安排打水顺序, 使得等待时间最小</p>
 </blockquote>
 <p>操作系统中进程的 短作业优先算法</p>
@@ -2620,16 +2351,11 @@ int main(){
         time  +=  wait_time[i] * (n - 1 -i);
     }cout &lt;&lt;time;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="绝对值不等式">绝对值不等式</h3>
-<h4 id="仓库选址">仓库选址</h4>
-<blockquote>
+<h3 id="绝对值不等式"><a href="#绝对值不等式" class="headerlink" title="绝对值不等式"></a>绝对值不等式</h3><h4 id="仓库选址"><a href="#仓库选址" class="headerlink" title="仓库选址"></a>仓库选址</h4><blockquote>
 <p>数轴上选一个点, 其他数到这个点距离和的最小值</p>
 </blockquote>
 <p>取中点， 偶数取最中间两个任意一个（可以取端点）</p>
-<h3 id="推公式">推公式</h3>
-<h4 id="耍杂技的牛-国王游戏合并数字等都是">耍杂技的牛
-（国王游戏，合并数字等都是）</h4>
-<p>写表达式，进行运算符重载，代码意义不大，都是尝试交换，然后取最优</p>
+<h3 id="推公式"><a href="#推公式" class="headerlink" title="推公式"></a>推公式</h3><h4 id="耍杂技的牛-（国王游戏，合并数字等都是）"><a href="#耍杂技的牛-（国王游戏，合并数字等都是）" class="headerlink" title="耍杂技的牛 （国王游戏，合并数字等都是）"></a>耍杂技的牛 （国王游戏，合并数字等都是）</h4><p>写表达式，进行运算符重载，代码意义不大，都是尝试交换，然后取最优</p>
 
                 
             </div>
@@ -3284,7 +3010,7 @@ int main(){
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2025</span>
+                <span id="year">2025-2026</span>
             
             <a href="/about" target="_blank">zzhaire</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
@@ -3293,7 +3019,7 @@ int main(){
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">49.9k</span>
+                        class="white-color">94.8k</span>
             
             
             
@@ -3499,6 +3225,14 @@ $(function () {
     <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
     <script src="/js/matery.js"></script>
 
+    
+        <!-- <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script> -->
+        <script src='/libs/mermaid/mermaid.min.js'></script>
+        <script>
+          if (window.mermaid) {
+            mermaid.initialize({theme: 'forest'});
+          }
+        </script>
     
 
     

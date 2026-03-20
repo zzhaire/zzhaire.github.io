@@ -1,0 +1,1527 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="用 ai 快速读论文, HiBlog">
+    <meta name="description" content="如何用AI 辅助读论文 2025 年 10 月 16 日感觉看论文是一个很头大的事情, 英文看不懂, 专业词汇多, 对某一领域完全不了解…..
+一开始读论文, 我会精心挑选好一篇论文(怎么挑论文我后面还会再思考), 然后仔仔细细的从前往后读">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>用 ai 快速读论文 | HiBlog</title>
+    <link rel="icon" type="image/png" href="/hello.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/hello.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">HiBlog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/hello.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">HiBlog</div>
+        <div class="logo-desc">
+            
+            Record some notes and share them with everyone.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">用 ai 快速读论文</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%AF%BB%E8%AE%BA%E6%96%87/">
+                                <span class="chip bg-color">读论文</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E7%A7%91%E7%A0%94%E5%86%85%E5%8A%9F/" class="post-category">
+                                科研内功
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2025-10-16
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2025-10-16
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.4k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    8 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="如何用AI-辅助读论文-2025-年-10-月-16-日"><a href="#如何用AI-辅助读论文-2025-年-10-月-16-日" class="headerlink" title="如何用AI 辅助读论文 2025 年 10 月 16 日"></a>如何用AI 辅助读论文 2025 年 10 月 16 日</h2><p><strong>感觉看论文是一个很头大的事情, 英文看不懂, 专业词汇多, 对某一领域完全不了解…..</strong></p>
+<p><strong>一开始读论文, 我会精心挑选好一篇论文(怎么挑论文我后面还会再思考), 然后仔仔细细的从前往后读.</strong></p>
+<p><strong>但是发现自己读着读着就会没有耐心, 而且读完之后</strong></p>
+<p><strong>时间久了 , 这篇论文做了什么, 好像我也没有印象.</strong></p>
+<p><strong>应该是研究生 1 年级开学, 我意识到我需要做有痕的学习, 学过的一些东西要记录一下.</strong></p>
+<p><strong>如果有后面有需要, 可以快速找到当时自己的笔记, 避免浪费大量的时间.</strong></p>
+<p><strong>而且也可以避免一些理解的偏差. 于是我也在整理自己的博客.</strong></p>
+<h2 id="最近的读论文的感想"><a href="#最近的读论文的感想" class="headerlink" title="最近的读论文的感想"></a>最近的读论文的感想</h2><p><strong>自己这几天读论文, 感觉 ai 是越来越强大,  而且迭代越来越快. </strong></p>
+<p><strong>感觉要是按照传统的方法读论文, 自己肯定是跟不上迭代的速度. </strong></p>
+<p><strong>好像据我所知, 今年 icml 又投了 2000 多篇, 感觉是卷爆了.</strong></p>
+<p><strong>现在产出成果, 要和这帮人卷, 肯定是要付出更多的努力的</strong></p>
+<p><strong>而且策略上要进行调整. 过程要进行优化.</strong></p>
+<p><strong>无论是读论文, 还是写代码….</strong></p>
+<h2 id="回忆科研入门时"><a href="#回忆科研入门时" class="headerlink" title="回忆科研入门时"></a>回忆科研入门时</h2><p><strong>之前很早的时候, 看过 b 站有个课程, 大概告诉了我一下怎么进行科研阅读.</strong></p>
+<p><strong>当时还写了一篇科研入门来着.</strong></p>
+<blockquote>
+<p><strong> 刚翻看了一下笔记, 大概就是 </strong></p>
+<ol>
+<li><strong>从硕博的毕业论文里面找文献综述对本领域做最基础的了解</strong></li>
+<li><strong>阅读科研大牛的文献综述. 深化认知和对这个领域的了解</strong></li>
+<li><strong>不仅仅看自己领域的论文, 也看前沿领域论文, 开始实践, 设计实践.</strong></li>
+<li><strong>写论文.  </strong></li>
+</ol>
+</blockquote>
+<p><strong>好像我现在处于第 2-3 个阶段. 我需要读大量的文献, 来集思广益, 产生我的 idea. </strong></p>
+<p><strong>那么这个阶段怎么读论文呢, 刚好今天对着 gemini ,加上我今天读的三篇论文,  我总结一下我的一些想法.</strong></p>
+<h2 id="idea-之前如何快速读论文-AI-辅助下的高价值阅读流程-V-C-E-框架"><a href="#idea-之前如何快速读论文-AI-辅助下的高价值阅读流程-V-C-E-框架" class="headerlink" title="idea 之前如何快速读论文 - AI 辅助下的高价值阅读流程 (V-C-E 框架)"></a>idea 之前如何快速读论文 - AI 辅助下的高价值阅读流程 (V-C-E 框架)</h2><p><strong>思路可以概括为 V-C-E 框架: </strong><code>Value (价值)</code> -&gt; <code>Core (核心)</code>  -&gt; <code>Evidence(证据)</code>。</p>
+<h3 id="第一阶段：价值判断（Value-Assessment）-确定是否要继续读"><a href="#第一阶段：价值判断（Value-Assessment）-确定是否要继续读" class="headerlink" title="第一阶段：价值判断（Value Assessment）- 确定是否要继续读"></a>第一阶段：价值判断（Value Assessment）- <strong>确定是否要继续读</strong></h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>目标</strong></th>
+<th><strong>核心问题</strong></th>
+<th><strong>动作 (您和 AI 的协作)</strong></th>
+<th><strong>您的策略升级建议</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>P1. 定位与动机</strong></td>
+<td><strong>这篇文章是否解决了我的问题？</strong></td>
+<td><strong>您</strong>：阅读摘要、引言的最后一段（本文贡献）。<strong>AI 辅助</strong>：让 AI 快速<strong>总结</strong>论文的<strong>核心问题和动机</strong>。</td>
+<td><strong>不看综述</strong>：如果您对前置知识（如 TTA/RAG）熟悉，直接跳过。综述是写给评审看的，不是写给您看的。</td>
+</tr>
+<tr>
+<td><strong>P2. 锁定 Idea</strong></td>
+<td><strong>Idea 的核心新颖性是什么？</strong></td>
+<td><strong>您</strong>：快速扫过“方法”章节的<strong>导语</strong>。<strong>AI 辅助</strong>：让 AI<strong>提炼</strong>论文的<strong>核心 Idea</strong>（例如：“TLM 的核心是输入困惑度最小化”）。</td>
+<td><strong>立即停下</strong>：如果核心 Idea 不相关，立即停止阅读，节省时间。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="第二阶段：核心掌握（Core-Mastery）-理解“How”"><a href="#第二阶段：核心掌握（Core-Mastery）-理解“How”" class="headerlink" title="第二阶段：核心掌握（Core Mastery）- 理解“How”"></a>第二阶段：核心掌握（Core Mastery）- <strong>理解“How”</strong></h3><p><strong>这是最关键的阶段，目标是掌握方法的**</strong>机制<strong>和</strong>优势**。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>目标</strong></th>
+<th><strong>核心问题</strong></th>
+<th><strong>动作 (您和 AI 的协作)</strong></th>
+<th><strong>您的策略升级建议</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>P3. 机制学习</strong></td>
+<td><strong>它具体是怎么做到的？</strong></td>
+<td><strong>您</strong>：<strong>认真对照</strong>AI 提供的<strong>图表/流程解释</strong>。<strong>AI 辅助</strong>：让 AI<strong>“对着图讲”</strong>、<strong>“用比喻举例”</strong>。</td>
+<td><strong>公式的取舍</strong>：在 Idea 形成前，<strong>跳过</strong>具体的公式推导。只看<strong>损失函数或核心公式</strong>的<strong>定义</strong>（例如，TLM 是在最小化什么？)。</td>
+</tr>
+<tr>
+<td><strong>P4. 机制边界</strong></td>
+<td><strong>这个方法有什么局限性？</strong></td>
+<td><strong>您</strong>：阅读“方法”章节末尾的<strong>局限性讨论</strong>。<strong>AI 辅助</strong>：让 AI<strong>总结消融实验 (Ablation Study) 的结论</strong>。</td>
+<td><strong>聚焦消融</strong>：消融实验是<strong>最有价值</strong>的部分，它告诉你方法的<strong>脆弱点</strong>在哪里，这是你提出新 Idea 的<strong>最佳切入点</strong>。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="第三阶段：证据扫描（Evidence-Scanning）-确定实验设计"><a href="#第三阶段：证据扫描（Evidence-Scanning）-确定实验设计" class="headerlink" title="第三阶段：证据扫描（Evidence Scanning）- 确定实验设计"></a>第三阶段：证据扫描（Evidence Scanning）- <strong>确定实验设计</strong></h3><p><strong>这是** Idea 确定后**，验证可行性和SOTA对比时才需要大量投入的阶段。</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>目标</strong></th>
+<th><strong>核心问题</strong></th>
+<th><strong>动作 (您和 AI 的协作)</strong></th>
+<th><strong>您的策略升级建议</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>P5. 实验全貌</strong></td>
+<td><strong>他们做了哪些实验来证明我的 Idea？</strong></td>
+<td><strong>AI 辅助</strong>：让 AI 快速<strong>总结</strong>实验的<strong>三个要素</strong>：<strong>Baseline（对比方法）、Dataset（数据集）、Metrics（评估指标）</strong>。</td>
+<td><strong>精读</strong>：如果你决定采纳某个 Baseline 或数据集（如 ASB Benchmark），你需要<strong>精读</strong>它的<strong>设置细节</strong>，确保你的复现是准确的。</td>
+</tr>
+<tr>
+<td><strong>P6. 结果取舍</strong></td>
+<td><strong>结果是否支持我的 Idea？</strong></td>
+<td><strong>您</strong>：<strong>只看\</strong>*<em>结论和关键图表<strong>的</strong>趋势<strong>。</strong>AI 辅助<strong>：让 AI 总结</strong>关键发现*</em>（例如，ASB 发现 PoT Backdoor 成功率最高）。</td>
+<td><strong>忽略数字，关注趋势</strong>：<strong>无需记忆</strong>具体的性能百分比。只关注“我的方法 A 普遍优于 Baseline B”这种<strong>趋势性结论</strong>。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<p><strong>尤其是在**</strong>利用 AI 辅助处理复杂公式和图表<strong>方面。我的建议是在您的“放弃细看公式和实验结果”的策略中，加入</strong>“必须仔细看消融实验结论”<strong>和</strong>“必须仔细看评估指标”**这两块，以确保您的 Idea 具有创新性和可验证性。</p>
+<h2 id="我的总结"><a href="#我的总结" class="headerlink" title="我的总结"></a>我的总结</h2><p><strong>我的总结大概就是, 先看 摘要和文献综述, 以及结论, 然后结合你需要了解这个论文 idea 的程度, 让ai 帮你讲. </strong></p>
+<p><strong> 最后看一眼实验怎么做的. 符合 V - C  - E</strong></p>
+<p><strong>一篇完整的科技论文通常包含以下 8 个核心部分：</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>结构部分</strong></th>
+<th><strong>功能与目的</strong></th>
+<th><strong>您和 AI 的阅读重点 (您的策略)</strong></th>
+<th><strong>对应论文示例</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1. 标题 (Title) &amp; 作者信息</strong></td>
+<td><strong>简明扼要地概括论文的**</strong>核心内容和贡献**。</td>
+<td><strong>快速判断</strong>：确定主题是否相关。</td>
+<td><strong>AGrail:*</strong>Lifelong Agent Guardrail with…*（强调终身学习和安全防护）</td>
+</tr>
+<tr>
+<td><strong>2. 摘要 (Abstract)</strong></td>
+<td><strong>浓缩全文精华：**</strong>问题、方法、主要结果、结论**。</td>
+<td><strong>价值判断</strong>：这是您决定是否继续读下去的唯一依据。让 AI 辅助<strong>总结</strong>。</td>
+<td><strong>TLM: 提出 TTL 范式，通过最小化**</strong>输入困惑度**解决分布漂移。</td>
+</tr>
+<tr>
+<td><strong>3. 引言 (Introduction)</strong></td>
+<td><strong>四部曲：</strong>1. 背景 2. 现有工作不足（<strong>痛点</strong>） 3.<strong>本文贡献</strong>（Idea） 4. 论文组织结构。</td>
+<td><strong>定位痛点</strong>：精读<strong>痛点</strong>和<strong>本文贡献</strong>。引言的<strong>最后一段</strong>是金矿。</td>
+<td><strong>AGrail: 痛点是现有 Agent 防御缺乏**</strong>适应性<strong>和</strong>有效性**。</td>
+</tr>
+<tr>
+<td><strong>4. 相关工作 (Related Work) / 文献综述</strong></td>
+<td><strong>将本文工作置于现有研究的图谱中，证明**</strong>创新性**，并引用最相关的前置工作。</td>
+<td><strong>海量学习</strong>：如果您已经掌握，可以<strong>跳过</strong>。如果不熟悉，让 AI 总结<strong>局限性</strong>。</td>
+<td><strong>ASB: 综述现有基准**</strong>覆盖范围狭窄**（如缺乏 PoT 攻击评估）。</td>
+</tr>
+<tr>
+<td><strong>5. 方法论 (Methodology)</strong></td>
+<td><strong>本文的核心：</strong>详细解释提出的 Idea 和系统设计。</td>
+<td><strong>核心掌握</strong>：这是您<strong>花时间最多</strong>的部分。<strong>对照图表</strong>让 AI 辅助讲解<strong>设计流程</strong>和<strong>公式的定义</strong>。</td>
+<td><strong>TLM: 解释**</strong>输入困惑度<strong>损失、</strong>LoRA<strong>机制和</strong>样本高效策略**。</td>
+</tr>
+<tr>
+<td><strong>6. 实验与评估 (Experiments)</strong></td>
+<td><strong>三要素：</strong> <strong>设置</strong>（数据集、Baseline）、<strong>结果</strong>（表格、图表）、<strong>分析</strong>（消融实验）。</td>
+<td><strong>Idea 验证</strong>：<strong>粗略扫过</strong>结果表格，<strong>精读</strong> <strong>评估指标</strong>（如 ASB 的 NRP）和<strong>消融实验的结论</strong>。</td>
+<td><strong>ASB: 证明 Agent 在**</strong>PoT Backdoor<strong>攻击下的</strong>ASR**极高。</td>
+</tr>
+<tr>
+<td><strong>7. 结论 (Conclusion)</strong></td>
+<td><strong>再次总结**</strong>主要发现<strong>和</strong>未来展望**。</td>
+<td><strong>快速回顾</strong>：快速确认论文的主要贡献点，有时包含启发性的<strong>未来工作方向</strong>。</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>8. 附录 (Appendix)</strong></td>
+<td><strong>补充内容：详细的**</strong>Prompt<strong>、</strong>公式推导<strong>、</strong>额外实验<strong>、</strong>超参数**设置等。</td>
+<td><strong>设计实验时查阅</strong>：当您要<strong>复现</strong>某个 Baseline 或<strong>设计</strong>自己的 Prompt 模板时，需要查看附录。</td>
+<td><strong>AGrail: 附录中包含 Analyzer 和 Executor 的详细 Prompt 配置。</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="摘要和文献综述"><a href="#摘要和文献综述" class="headerlink" title="摘要和文献综述"></a>摘要和文献综述</h3><p><strong>这部分是论文的总结精华, 建议还是自己读, 因为没有什么难的专业术语, 不懂的话, 问问 ai 就好.  如果让 ai 总结, 很容易漏掉重要细节. 自己读也不会花很多时间. 而且读多了, 自己也明白了, 这部分很多时候都不需要读. 相关工作也属于这一部分.</strong></p>
+<h3 id="问题和设计"><a href="#问题和设计" class="headerlink" title="问题和设计"></a>问题和设计</h3><p><strong>一般在文章的方法论这一部分. 这个是文章的核心, 我的建议是 ai 辅读, 真的需要细化的时候, 就 ai 帮助多读一会, 因为这部分牵扯技术细节, 包括数学计算机等知识. 如果只是了解 idea 和创新点, 不需要太过分花时间 ,但是要自己设计模型和结构, 这个是很有必要仔细了解的.</strong></p>
+<h3 id="实验和结果"><a href="#实验和结果" class="headerlink" title="实验和结果"></a>实验和结果</h3><p><strong>这部分可以看看怎么设计实验的, 后续自己要写论文, 可能也需要这样设计实验. 然后还有评估的一些指标, 自己可能也要用, 或者说可以看看业内的大多数评估指标是什么. 结果看看就好, 摘要里读过了.</strong></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">zyuan</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://zzhaire.github.io/2025/10/16/yong-ai-kuai-su-du-lun-wen/">https://zzhaire.github.io/2025/10/16/yong-ai-kuai-su-du-lun-wen/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">zyuan</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E8%AF%BB%E8%AE%BA%E6%96%87/">
+                                    <span class="chip bg-color">读论文</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'tBaBeOeMvOKCIZHcLuK8rXe0-gzGzoHsz',
+        appKey: 'KTxKGaCDtSVuailXk3ptjMs7',
+        serverURLs: 'https://tbabeoem.lc-cn-n1-shared.com',
+        notify: 'true' === 'true',
+        verify: 'true' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '15',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+<!--酷Q推送-->
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2025/10/21/du-lun-wen-green-carbon-efficient-resource-scheduling-for-machine-learning-clusters/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="读论文: GREEN: Carbon-efficient Resource Scheduling for Machine Learning Clusters">
+                        
+                        <span class="card-title">读论文: GREEN: Carbon-efficient Resource Scheduling for Machine Learning Clusters</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            读论文:&nbsp;GREEN:&nbsp;Carbon-efficient&nbsp;Resource&nbsp;Scheduling&nbsp;f...
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-10-21
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%BD%91%E7%BB%9C%E7%A7%91%E7%A0%94/" class="post-category">
+                                    网络科研
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AF%BB%E8%AE%BA%E6%96%87/">
+                        <span class="chip bg-color">读论文</span>
+                    </a>
+                    
+                    <a href="/tags/DCN/">
+                        <span class="chip bg-color">DCN</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%B0%83%E5%BA%A6%E5%99%A8/">
+                        <span class="chip bg-color">调度器</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2025/10/16/du-lun-wen-agent-security-bench-asb/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="读论文 : AGENT SECURITY BENCH (ASB)">
+                        
+                        <span class="card-title">读论文 : AGENT SECURITY BENCH (ASB)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            读论文&nbsp;:&nbsp;AGENT&nbsp;SECURITY&nbsp;BENCH&nbsp;(ASB):&nbsp;FORMALIZING&nbsp;AND&nbsp;...
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-10-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/AI%E7%A7%91%E7%A0%94/" class="post-category">
+                                    AI科研
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AF%BB%E8%AE%BA%E6%96%87/">
+                        <span class="chip bg-color">读论文</span>
+                    </a>
+                    
+                    <a href="/tags/LLM%E5%AE%89%E5%85%A8/">
+                        <span class="chip bg-color">LLM安全</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('500')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: HiBlog<br />'
+            + '文章作者: zzhaire<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2025-2026</span>
+            
+            <a href="/about" target="_blank">zzhaire</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">94.8k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/zzhaire" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:zzhaire5@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1642249956" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1642249956" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+        <!-- <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script> -->
+        <script src='/libs/mermaid/mermaid.min.js'></script>
+        <script>
+          if (window.mermaid) {
+            mermaid.initialize({theme: 'forest'});
+          }
+        </script>
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

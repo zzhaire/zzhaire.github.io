@@ -6,9 +6,7 @@
     <meta charset="utf-8">
     <meta name="keywords" content="文献综述前所需的基础知识, HiBlog">
     <meta name="description" content="这些是你研究中会频繁用到的核心内容，建议优先补充：
-1.
-计算机网络进阶（重点：传输层 &amp;amp; 实时协议）
-你本科应该学过计算机网络基础（如OSI七层模型、TCP/IP），但实时多媒体传输更依赖传输层的细节和实时协议的设计，需要重点补充">
+1. 计算机网络进阶（重点：传输层 &amp;amp; 实时协议）你本科应该学过计算机网络基础（如OSI七层模型、TCP/IP），但实时多媒体传输更依赖传输层的细节和实时协议的设计，需要重点补充：">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -418,108 +416,83 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>这些是你研究中会频繁用到的核心内容，建议优先补充：</p>
-<h4 id="计算机网络进阶重点传输层-实时协议"><strong>1.
-计算机网络进阶（重点：传输层 &amp; 实时协议）</strong></h4>
-<p>你本科应该学过计算机网络基础（如OSI七层模型、TCP/IP），但实时多媒体传输更依赖<strong>传输层的细节</strong>和<strong>实时协议的设计</strong>，需要重点补充：</p>
-<p><strong>∙UDP vs TCP
-的本质区别</strong>（为什么实时传输用UDP？TCP的重传/拥塞控制如何影响延迟？）</p>
-<p><strong>∙RTP/RTCP
-协议</strong>（实时传输的核心协议！RTP负责媒体数据封装，RTCP负责反馈网络状态，WebRTC的核心依赖它）</p>
-<p><strong>∙QUIC
-协议（可选）</strong>（Google提出的基于UDP的可靠传输协议，部分新兴流媒体服务开始用它替代TCP，了解其设计思想对理解“低延迟可靠传输”有帮助）</p>
-<p><strong>∙NAT/防火墙穿透技术</strong>（ICE、STUN、TURN协议，WebRTC必须解决“两端如何直连”的问题，这是P2P实时通信的基础）</p>
+<h4 id="1-计算机网络进阶（重点：传输层-amp-实时协议）"><a href="#1-计算机网络进阶（重点：传输层-amp-实时协议）" class="headerlink" title="1. 计算机网络进阶（重点：传输层 &amp; 实时协议）"></a><strong>1. 计算机网络进阶（重点：传输层 &amp; 实时协议）</strong></h4><p>你本科应该学过计算机网络基础（如OSI七层模型、TCP/IP），但实时多媒体传输更依赖<strong>传输层的细节</strong>和<strong>实时协议的设计</strong>，需要重点补充：</p>
+<p><strong>∙**</strong>UDP vs TCP 的本质区别**（为什么实时传输用UDP？TCP的重传/拥塞控制如何影响延迟？）</p>
+<p><strong>∙**</strong>RTP/RTCP 协议**（实时传输的核心协议！RTP负责媒体数据封装，RTCP负责反馈网络状态，WebRTC的核心依赖它）</p>
+<p><strong>∙**</strong>QUIC 协议（可选）**（Google提出的基于UDP的可靠传输协议，部分新兴流媒体服务开始用它替代TCP，了解其设计思想对理解“低延迟可靠传输”有帮助）</p>
+<p><strong>∙**</strong>NAT/防火墙穿透技术**（ICE、STUN、TURN协议，WebRTC必须解决“两端如何直连”的问题，这是P2P实时通信的基础）</p>
 <p><strong>推荐学习资源</strong>：</p>
 <ul>
 <li>书籍：《计算机网络：自顶向下方法》（第7版，重点看传输层和网络层应用）、《WebRTC权威指南》（前几章讲协议基础）</li>
-<li>公开课：斯坦福CS144（计算机网络，重点看传输层和UDP应用）、YouTube上搜索“RTP
-RTCP explained”“NAT traversal basics”</li>
+<li>公开课：斯坦福CS144（计算机网络，重点看传输层和UDP应用）、YouTube上搜索“RTP RTCP explained”“NAT traversal basics”</li>
 </ul>
-<h4 id="操作系统底层重点网络io进程线程实时性优化"><strong>2.
-操作系统底层（重点：网络IO、进程/线程、实时性优化）</strong></h4>
-<p>实时多媒体传输对<strong>系统底层的性能</strong>极其敏感（比如音视频数据的收发、编解码的计算、网络包的处理），需要理解：</p>
+<h4 id="2-操作系统底层（重点：网络IO、进程-线程、实时性优化）"><a href="#2-操作系统底层（重点：网络IO、进程-线程、实时性优化）" class="headerlink" title="2. 操作系统底层（重点：网络IO、进程/线程、实时性优化）"></a><strong>2. 操作系统底层（重点：网络IO、进程/线程、实时性优化）</strong></h4><p>实时多媒体传输对<strong>系统底层的性能</strong>极其敏感（比如音视频数据的收发、编解码的计算、网络包的处理），需要理解：</p>
 <ul>
-<li><strong>∙网络IO模型</strong>（select/poll/epoll，WebRTC等实时系统常用epoll/kqueue实现高并发）</li>
-<li><strong>∙进程/线程与并发</strong>（实时传输可能涉及多线程处理音视频流，如何避免锁竞争？如何保证实时线程优先级？）</li>
-<li><strong>∙内存管理</strong>（音视频数据通常是连续的大块内存，如何高效分配/释放？避免内存拷贝？）</li>
-<li><strong>∙实时性保障</strong>（操作系统的调度策略，比如Linux的实时调度类SCHED_FIFO，如何减少系统调用延迟？）</li>
+<li><strong>∙**</strong>网络IO模型**（select/poll/epoll，WebRTC等实时系统常用epoll/kqueue实现高并发）</li>
+<li><strong>∙**</strong>进程/线程与并发**（实时传输可能涉及多线程处理音视频流，如何避免锁竞争？如何保证实时线程优先级？）</li>
+<li><strong>∙**</strong>内存管理**（音视频数据通常是连续的大块内存，如何高效分配/释放？避免内存拷贝？）</li>
+<li><strong>∙**</strong>实时性保障**（操作系统的调度策略，比如Linux的实时调度类SCHED_FIFO，如何减少系统调用延迟？）</li>
 </ul>
 <p><strong>推荐学习资源</strong>：</p>
 <ul>
 <li>书籍：《Linux多线程服务端编程》（陈硕，讲epoll和并发）、《深入理解计算机系统》（第3版，重点看第10章系统级IO、第12章并发编程）</li>
 <li>实践：在Linux下用C/C++写一个简单的UDP收发程序（比如模拟RTP包收发），观察网络IO和线程调用的延迟</li>
 </ul>
-<h4 id="编解码基础重点音视频压缩原理"><strong>3.
-编解码基础（重点：音视频压缩原理）</strong></h4>
-<p>实时传输的媒体数据（音频/视频）通常需要<strong>压缩</strong>（否则带宽爆炸），你需要理解：</p>
+<h4 id="3-编解码基础（重点：音视频压缩原理）"><a href="#3-编解码基础（重点：音视频压缩原理）" class="headerlink" title="3. 编解码基础（重点：音视频压缩原理）"></a><strong>3. 编解码基础（重点：音视频压缩原理）</strong></h4><p>实时传输的媒体数据（音频/视频）通常需要<strong>压缩</strong>（否则带宽爆炸），你需要理解：</p>
 <ul>
-<li><strong>∙音频编解码</strong>（如Opus：低延迟、抗丢包，WebRTC默认音频编解码器；了解其如何平衡音质和码率）</li>
-<li><strong>∙视频编解码</strong>（如VP8/VP9/H.264：WebRTC支持的常见视频编解码器；关键概念：帧类型（I/P/B帧）、GOP结构、码率控制）</li>
-<li><strong>∙码率自适应</strong>（为什么需要根据网络调整码率？如何通过带宽估计动态切换编解码参数？）</li>
+<li><strong>∙**</strong>音频编解码**（如Opus：低延迟、抗丢包，WebRTC默认音频编解码器；了解其如何平衡音质和码率）</li>
+<li><strong>∙**</strong>视频编解码**（如VP8/VP9/H.264：WebRTC支持的常见视频编解码器；关键概念：帧类型（I/P/B帧）、GOP结构、码率控制）</li>
+<li><strong>∙**</strong>码率自适应**（为什么需要根据网络调整码率？如何通过带宽估计动态切换编解码参数？）</li>
 </ul>
 <p><strong>推荐学习资源</strong>：</p>
 <ul>
-<li>书籍：《音视频开发进阶指南》（讲编解码基础和工程实践）、RFC文档（如RFC
-6716-Opus、RFC 6184-H.264 over RTP）</li>
+<li>书籍：《音视频开发进阶指南》（讲编解码基础和工程实践）、RFC文档（如RFC 6716-Opus、RFC 6184-H.264 over RTP）</li>
 <li>工具：用FFmpeg命令行（如<code>ffmpeg -i input.mp4 -c:v libvpx-vp9 output.webm</code>）观察不同编解码器的输出效果和码率</li>
 </ul>
-<h4 id="数学与算法基础重点网络优化相关"><strong>4.
-数学与算法基础（重点：网络优化相关）</strong></h4>
-<p>实时传输的优化（如拥塞控制、带宽预测）依赖一些数学工具和算法思想：</p>
+<h4 id="4-数学与算法基础（重点：网络优化相关）"><a href="#4-数学与算法基础（重点：网络优化相关）" class="headerlink" title="4. 数学与算法基础（重点：网络优化相关）"></a><strong>4. 数学与算法基础（重点：网络优化相关）</strong></h4><p>实时传输的优化（如拥塞控制、带宽预测）依赖一些数学工具和算法思想：</p>
 <ul>
-<li><strong>∙概率与统计</strong>（丢包率、延迟抖动的计算，网络状态的统计建模）</li>
-<li><strong>∙控制理论基础</strong>（GCC拥塞控制本质是一个反馈控制系统，理解PID控制、PID参数调节的直觉）</li>
-<li><strong>∙最优化基础</strong>（比如如何在带宽、延迟、丢包率之间做权衡？线性规划/贪心算法在码率分配中的应用）</li>
+<li><strong>∙**</strong>概率与统计**（丢包率、延迟抖动的计算，网络状态的统计建模）</li>
+<li><strong>∙**</strong>控制理论基础**（GCC拥塞控制本质是一个反馈控制系统，理解PID控制、PID参数调节的直觉）</li>
+<li><strong>∙**</strong>最优化基础**（比如如何在带宽、延迟、丢包率之间做权衡？线性规划/贪心算法在码率分配中的应用）</li>
 </ul>
-<h3 id="二次优先级但很有用的扩展知识根据研究方向选学"><strong>二、次优先级但很有用的扩展知识（根据研究方向选学）</strong></h3>
-<p>如果你的研究更偏向某个细分领域（比如“传输层拥塞控制”“编解码优化”），可以再补充：</p>
-<h4 id="拥塞控制算法重点gccbbr等"><strong>1.
-拥塞控制算法（重点：GCC、BBR等）</strong></h4>
-<ul>
-<li><strong>∙经典算法</strong>：TCP
-Reno/Tahoe（了解传统拥塞控制的思路）、Vegas（基于延迟的拥塞控制）</li>
-<li><strong>∙实时专用算法</strong>：GCC（Google Congestion
-Control，WebRTC默认算法，结合丢包率和延迟梯度估计带宽）、BBR（Google的高吞吐拥塞控制，部分流媒体服务在用）</li>
-<li><strong>∙学习目标</strong>：理解“如何通过RTCP反馈、网络测量数据（如RTT、丢包率）动态调整发送速率”</li>
+<h3 id="二、次优先级但很有用的扩展知识（根据研究方向选学）"><a href="#二、次优先级但很有用的扩展知识（根据研究方向选学）" class="headerlink" title="二、次优先级但很有用的扩展知识（根据研究方向选学）"></a><strong>二、次优先级但很有用的扩展知识（根据研究方向选学）</strong></h3><p>如果你的研究更偏向某个细分领域（比如“传输层拥塞控制”“编解码优化”），可以再补充：</p>
+<h4 id="1-拥塞控制算法（重点：GCC、BBR等）"><a href="#1-拥塞控制算法（重点：GCC、BBR等）" class="headerlink" title="1. 拥塞控制算法（重点：GCC、BBR等）"></a><strong>1. 拥塞控制算法（重点：GCC、BBR等）</strong></h4><ul>
+<li><strong>∙**</strong>经典算法**：TCP Reno/Tahoe（了解传统拥塞控制的思路）、Vegas（基于延迟的拥塞控制）</li>
+<li><strong>∙**</strong>实时专用算法**：GCC（Google Congestion Control，WebRTC默认算法，结合丢包率和延迟梯度估计带宽）、BBR（Google的高吞吐拥塞控制，部分流媒体服务在用）</li>
+<li><strong>∙**</strong>学习目标**：理解“如何通过RTCP反馈、网络测量数据（如RTT、丢包率）动态调整发送速率”</li>
 </ul>
-<h4 id="数据结构与算法重点高效处理媒体流"><strong>2.
-数据结构与算法（重点：高效处理媒体流）</strong></h4>
-<ul>
-<li><strong>∙队列与缓冲区</strong>（Jitter
-Buffer如何平滑网络抖动？滑动窗口在RTP序列号管理中的应用）</li>
-<li><strong>∙哈希表与查找</strong>（比如快速匹配SDP中的编解码参数、ICE候选地址的快速筛选）</li>
-<li><strong>∙排序与优先级</strong>（比如按优先级处理关键帧 vs
-非关键帧）</li>
+<h4 id="2-数据结构与算法（重点：高效处理媒体流）"><a href="#2-数据结构与算法（重点：高效处理媒体流）" class="headerlink" title="2. 数据结构与算法（重点：高效处理媒体流）"></a><strong>2. 数据结构与算法（重点：高效处理媒体流）</strong></h4><ul>
+<li><strong>∙**</strong>队列与缓冲区**（Jitter Buffer如何平滑网络抖动？滑动窗口在RTP序列号管理中的应用）</li>
+<li><strong>∙**</strong>哈希表与查找**（比如快速匹配SDP中的编解码参数、ICE候选地址的快速筛选）</li>
+<li><strong>∙**</strong>排序与优先级**（比如按优先级处理关键帧 vs 非关键帧）</li>
 </ul>
-<h4 id="工具链与开发技能"><strong>3. 工具链与开发技能</strong></h4>
-<ul>
-<li><strong>∙编程语言</strong>：C++（WebRTC核心代码用C++写的，音视频处理对性能要求高）、Python（快速验证算法、数据分析）、JavaScript（如果研究Web端实时通信）</li>
-<li><strong>∙调试工具</strong>：Wireshark（抓包分析RTP/RTCP/UDP包）、tcpdump（抓网络流量）、GDB（调试C++程序）、Chrome
-DevTools（调WebRTC的Web端示例）</li>
-<li><strong>∙开源项目</strong>：WebRTC源码（GitHub）、Janus（轻量级SFU服务器）、FFmpeg（音视频处理工具库）</li>
+<h4 id="3-工具链与开发技能"><a href="#3-工具链与开发技能" class="headerlink" title="3. 工具链与开发技能"></a><strong>3. 工具链与开发技能</strong></h4><ul>
+<li><strong>∙**</strong>编程语言**：C++（WebRTC核心代码用C++写的，音视频处理对性能要求高）、Python（快速验证算法、数据分析）、JavaScript（如果研究Web端实时通信）</li>
+<li><strong>∙**</strong>调试工具**：Wireshark（抓包分析RTP/RTCP/UDP包）、tcpdump（抓网络流量）、GDB（调试C++程序）、Chrome DevTools（调WebRTC的Web端示例）</li>
+<li><strong>∙**</strong>开源项目**：WebRTC源码（GitHub）、Janus（轻量级SFU服务器）、FFmpeg（音视频处理工具库）</li>
 </ul>
-<h3 id="三学习路径建议循序渐进"><strong>三、学习路径建议（循序渐进）</strong></h3>
-<ol type="1">
+<h3 id="三、学习路径建议（循序渐进）"><a href="#三、学习路径建议（循序渐进）" class="headerlink" title="三、学习路径建议（循序渐进）"></a><strong>三、学习路径建议（循序渐进）</strong></h3><ol>
 <li><p>短期（1-2个月）：补核心基础</p>
 <ul>
 <li><strong>∙</strong>优先学<strong>UDP/RTP/RTCP/NAT穿透</strong>（理解实时传输的基础协议）、<strong>网络IO模型</strong>（epoll等）、<strong>音视频编解码基础</strong>（Opus/H.264的概念）。</li>
 <li>用Wireshark抓一个WebRTC通话的包（或YouTube直播流），分析RTP/RTCP字段，加深对协议的理解。</li>
-</ul></li>
+</ul>
+</li>
 <li><p>中期（2-3个月）：深入关键模块</p>
 <ul>
 <li>选一个你最感兴趣的方向（比如“拥塞控制”或“编解码优化”），深入学习相关算法（如GCC、BBR，或VP9码率控制）。</li>
 <li>跑一个WebRTC的Demo（比如浏览器一对一通话），结合代码（如Pion（Go语言的WebRTC库）或aiortc（Python的WebRTC库））看信令和媒体流的交互。</li>
-</ul></li>
+</ul>
+</li>
 <li><p>长期（持续）：结合实践与前沿</p>
 <ul>
 <li>参与开源项目（比如给Janus提PR、复现一篇论文里的优化算法），或者自己写一个小工具（比如模拟网络丢包环境下的RTCP反馈）。</li>
-<li>*跟踪顶会论文（如ACM SIGCOMM、IEEE
-INFOCOM里关于实时传输的论文），了解学术界的最新优化思路。</li>
-</ul></li>
+<li>*跟踪顶会论文（如ACM SIGCOMM、IEEE INFOCOM里关于实时传输的论文），了解学术界的最新优化思路。</li>
+</ul>
+</li>
 </ol>
-<h3 id="总结"><strong>总结</strong></h3>
-<p>你本科的网络基础已经足够入门，但研究实时多媒体传输需要更<strong>底层（操作系统/网络协议）、更专精（编解码/拥塞控制）、更实践（工具/调试）</strong>的知识。建议按照“协议→系统→编解码→优化算法”的顺序逐步补足，优先掌握<strong>RTP/RTCP、UDP网络IO、音视频基础、GCC拥塞控制</strong>这几个核心点，再根据你的具体研究方向（比如“传输层优化”还是“编解码效率”）针对性深入。</p>
-<p>如果有具体的细分方向（比如“我想研究WebRTC的拥塞控制算法”或“我想优化音视频的编解码效率”），可以再细化补充学习内容～
-你现在已经有很好的基础了，接下来就是“带着问题学”，效率会更高！ 🚀</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h3><p>你本科的网络基础已经足够入门，但研究实时多媒体传输需要更<strong>底层（操作系统/网络协议）、更专精（编解码/拥塞控制）、更实践（工具/调试）</strong>的知识。建议按照“协议→系统→编解码→优化算法”的顺序逐步补足，优先掌握<strong>RTP/RTCP、UDP网络IO、音视频基础、GCC拥塞控制</strong>这几个核心点，再根据你的具体研究方向（比如“传输层优化”还是“编解码效率”）针对性深入。</p>
+<p>如果有具体的细分方向（比如“我想研究WebRTC的拥塞控制算法”或“我想优化音视频的编解码效率”），可以再细化补充学习内容～ 你现在已经有很好的基础了，接下来就是“带着问题学”，效率会更高！ 🚀</p>
 
                 
             </div>
@@ -1170,7 +1143,7 @@ INFOCOM里关于实时传输的论文），了解学术界的最新优化思路�
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2025</span>
+                <span id="year">2025-2026</span>
             
             <a href="/about" target="_blank">zzhaire</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
@@ -1179,7 +1152,7 @@ INFOCOM里关于实时传输的论文），了解学术界的最新优化思路�
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">49.9k</span>
+                        class="white-color">94.8k</span>
             
             
             
@@ -1385,6 +1358,14 @@ $(function () {
     <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
     <script src="/js/matery.js"></script>
 
+    
+        <!-- <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script> -->
+        <script src='/libs/mermaid/mermaid.min.js'></script>
+        <script>
+          if (window.mermaid) {
+            mermaid.initialize({theme: 'forest'});
+          }
+        </script>
     
 
     

@@ -1,0 +1,1505 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="组合数学第一次作业, HiBlog">
+    <meta name="description" content="组合数学第一次作业1首先每个盒子中放k 个球,  剩余 n - rk 个球
+此时转换问题为 n - rk 个球 放入 r 个盒子中的 可重组合
+共计 :  $C(n-rk + r  - 1 , r ) = C(n-(k-1)r -  1 ,">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>组合数学第一次作业 | HiBlog</title>
+    <link rel="icon" type="image/png" href="/hello.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/hello.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">HiBlog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/hello.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">HiBlog</div>
+        <div class="logo-desc">
+            
+            Record some notes and share them with everyone.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">组合数学第一次作业</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/">
+                                <span class="chip bg-color">组合数学</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/thu/" class="post-category">
+                                thu
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2025-10-11
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2025-10-11
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.7k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    15 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="组合数学第一次作业"><a href="#组合数学第一次作业" class="headerlink" title="组合数学第一次作业"></a>组合数学第一次作业</h1><h2 id="1"><a href="#1" class="headerlink" title="1"></a>1<img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20251007202142047.png" alt="image-20251007202142047"></h2><p>首先每个盒子中放k 个球,  剩余 n - rk 个球</p>
+<p>此时转换问题为 n - rk 个球 放入 r 个盒子中的 <strong>可重组合</strong></p>
+<p>共计 :  $C(n-rk + r  - 1 , r ) = C(n-(k-1)r -  1 , r )$</p>
+<h2 id="2"><a href="#2" class="headerlink" title="2"></a>2<img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20251007202606471.png" alt="image-20251007202606471"></h2><h3 id="方法一：补零方法"><a href="#方法一：补零方法" class="headerlink" title="方法一：补零方法"></a>方法一：补零方法</h3><ol>
+<li><p><strong>考虑数字 0 到 99,999 的补零五位数表示</strong>：</p>
+<p>总数字数：100,000。每个位（个位、十位、百位、千位、万位）上，每个数字 0-9 出现次数均等，为 100,000 / 10 = 10,000 次。</p>
+<p>因此，所有位上 0 出现的总次数：5 位 × 10,000 = 50,000。</p>
+</li>
+<li><p><strong>计算所有前导零的总数</strong>：</p>
+<ul>
+<li>数字 0：5 个前导零。</li>
+<li>1 位数字（1-9）：9 个数字 × 每个 4 个前导零 = 36。</li>
+<li>2 位数字（10-99）：90 个数字 × 每个 3 个前导零 = 270。</li>
+<li>3 位数字（100-999）：900 个数字 × 每个 2 个前导零 = 1,800。</li>
+<li>4 位数字（1000-9999）：9,000 个数字 × 每个 1 个前导零 = 9,000。</li>
+<li>5 位数字（10000-99999）：90,000 个数字 × 每个 0 个前导零 = 0。</li>
+</ul>
+<p>总前导零数：5 + 36 + 270 + 1,800 + 9,000 = 11,111。</p>
+</li>
+<li><strong>计算 0 到 99,999 的实际数字中 0 的出现次数</strong>：实际 0 出现次数 = 总 0 次数 - 前导零总数 = 50,000 - 11,111 = 38,889。数字 0 的贡献为 0，因此 1 到 99,999 的 0 出现次数也为 38,889。</li>
+<li><strong>添加 100,000 的 0 出现次数</strong>：100,000 的数字为 100000，包含 5 个 0。因此，1 到 100,000 的总 0 出现次数：38,889 + 5 = 38,894。</li>
+</ol>
+<h3 id="方法二：逐位计算方法"><a href="#方法二：逐位计算方法" class="headerlink" title="方法二：逐位计算方法"></a>方法二：逐位计算方法</h3><ul>
+<li><strong>个位（第 0 位）</strong>：个位为 0 当数字可被 10 整除。序列 10, 20, …, 100,000，项数：(100,000 - 10)/10 + 1 = 10,000。出现次数：10,000。</li>
+<li><p><strong>十位（第 1 位）</strong>：</p>
+<p>十位为 0 当 floor(n/10) mod 10 = 0 且 n ≥ 10。</p>
+<p>k = floor(n/10) 从 1 到 10,000，k mod 10 = 0 时（k=10,20,…,10,000），项数：1,000。</p>
+<p>但对应数字数：k=10 到 9,990（步进 10）有 999 个 k，</p>
+<p>每个对应 10 个数字；k=10,000 对应 1 个数字（100,000）。</p>
+<p>总数字数：999 × 10 + 1 = 9,991。出现次数：9,991。</p>
+</li>
+<li><strong>百位（第 2 位）</strong>：百位为 0 当 floor(n/100) mod 10 = 0 且 n ≥ 100。m = floor(n/100) 从 1 到 1,000，m mod 10 = 0 时（m=10,20,…,1,000），项数：100。但对应数字数：m=10 到 990（步进 10）有 99 个 m，每个对应 100 个数字；m=1,000 对应 1 个数字（100,000）。总数字数：99 × 100 + 1 = 9,901。出现次数：9,901。</li>
+<li><strong>千位（第 3 位）</strong>：千位为 0 当 floor(n/1,000) mod 10 = 0 且 n ≥ 1,000。p = floor(n/1,000) 从 1 到 100，p mod 10 = 0 时（p=10,20,…,100），项数：10。但对应数字数：p=10 到 90（步进 10）有 9 个 p，每个对应 1,000 个数字；p=100 对应 1 个数字（100,000）。总数字数：9 × 1,000 + 1 = 9,001。出现次数：9,001。</li>
+<li><strong>万位（第 4 位）</strong>：万位为 0 当 floor(n/10,000) mod 10 = 0 且 n ≥ 10,000。q = floor(n/10,000) 从 1 到 10，q mod 10 = 0 时只有 q=10（对应 n=100,000）。出现次数：1。</li>
+<li><strong>十万位（第 5 位）</strong>：100,000 的十万位为 1，不为 0，出现次数：0。</li>
+<li><strong>总出现次数</strong>：10,000（个位） + 9,991（十位） + 9,901（百位） + 9,001（千位） + 1（万位） + 0（十万位） = 38,894。</li>
+</ul>
+<h2 id="3"><a href="#3" class="headerlink" title="3 "></a>3 <img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20251007202940049.png" alt="image-20251007202940049"></h2><p>( 1 )  把女生当做隔板, 男生站在女生空隙里, $P(n+1 , m ) * n!$</p>
+<p>( 2 )  女生作为一个整体, 站在男生的空隙里  $(m + 1) <em> m! </em> n!$</p>
+<p>( 3 )  男生 A 和 女生 B 相邻时 :  把 AB当做一个整体, 整体有 AB 和 BA 两种排列.</p>
+<p>共计 $(m+n - 1) ! * 2 $</p>
+<p>总排列数为 $(m+n)!$</p>
+<p>所以共计 $(m+n)! - 2 (m+n-1)!$</p>
+<h2 id="4"><a href="#4" class="headerlink" title="4 "></a>4 <img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20251007203044119.png" alt="image-20251007203044119"></h2><p>( 1 ) 由于四边与坐标轴平行，每个长方形由其左下角点(x,y)和右上角点(u,v)唯一确定，</p>
+<p>其中x &lt; u 且 y &lt; v。x和u的取值范围是0到9，y和v的取值范围是0到7。</p>
+<ul>
+<li>对于每个左下角点(x,y)，右上角点(u,v)必须满足x &lt; u ≤ 9 且 y &lt; v ≤ 7。因此，u有(9 - x)种选择（从x+1到9），v有(7 - y)种选择（从y+1到7）。</li>
+<li>因此，对于固定(x,y)，长方形的数量为(9 - x) × (7 - y)。</li>
+<li>需要求和所有可能的x和y：x从0到9，y从0到7。总数为：</li>
+</ul>
+<script type="math/tex; mode=display">
+\sum_{x=0}^9\sum_{y=0}^7(9-x)\times(7-y)=1260</script><p>( 2 ) 对于正方形，同样由左下角点(x,y)和右上角点(u,v)确定，但需满足边长相等，即u - x = v - y。设边长s = u - x = v - y，s ≥ 1。</p>
+<ul>
+<li>由于u = x + s ≤ 9，v = y + s ≤ 7，所以s ≤ 9 - x 且 s ≤ 7 - y。因此s的最大值为min(9 - x, 7 - y)。</li>
+<li>对于每个(x,y)，s可以从1取到min(9 - x, 7 - y)，所以正方形的数量为min(9 - x, 7 - y)。</li>
+<li>需要求和所有可能的x和y：x从0到9，y从0到7。总数为：</li>
+</ul>
+<script type="math/tex; mode=display">
+\sum_{x=0}^9\sum_{y=0}^7min(9-x,7-y)=196</script><blockquote>
+<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20251008095518141.png" alt="image-20251008095518141"></p>
+</blockquote>
+<h2 id="5"><a href="#5" class="headerlink" title="5 "></a>5 <img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20251007203109615.png" alt="image-20251007203109615"></h2><p><strong>关键转换</strong>：将问题转化为网格路径问题：</p>
+<ul>
+<li>从点(0,0)出发，0代表向右移动（横坐标加1），1代表向上移动（纵坐标加1）。</li>
+<li>目标是从(0,0)走到(n,n)，且路径始终不越过直线y = x（即任意时刻向右移动的次数不少于向上移动的次数）。这等价于避免路径触及y = x + 1，从而确保0的数目始终不少于1的数目。</li>
+</ul>
+<p><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20251008100101295.png" alt="img2"></p>
+<p><strong>总路径数</strong>：从(0,0)到(n,n)的无限制路径数为组合数C(2n, n)，因为需要在2n步中选择n步向右（或向上）。</p>
+<p><strong>非法路径数</strong>：那些违反条件的路径会接触或越过直线y = x + 1。使用反射原理，从(0,0)到(n,n)的非法路径与从(-1,1)到(n,n)的路径一一对应，其数为C(2n, n-1)。</p>
+<p><strong>有效路径数</strong>：总路径数减去非法路径数，即C(2n, n) - C(2n, n-1)。</p>
+<h2 id="6"><a href="#6" class="headerlink" title="6 "></a>6 <img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20251007203120336.png" alt="image-20251007203120336"></h2><p>首先分解 $a_{60} = 20^{20} = (2^2 <em> 5)^ {20} = 2^{40} </em> 5^{20}$</p>
+<p>由于数列条件 $a_i 是 a_{i+1} 的约数$</p>
+<p>定义新数列$b_i = a_{i+1} / a_{i }$ 其中 i 从 1 到 59 , 每个$b_i$ 是正整数</p>
+<script type="math/tex; mode=display">
+b_1* b_2* b_3* ........*b_{59} = a_{60}</script><p>转换问题为分解 $b_i = 2^{x_i} * 5 ^{y_i}$ 即可</p>
+<p>( 1 ) 在这种情况下, $b_i$可以等于 1</p>
+<p>$x_1 + x_2 +…+ x_{59} = 40, 根据隔板法, 得到 C(40 + 59 - 1, 40) = C(98,40)$</p>
+<p>$y_1 + y_2 + …+y_{59} = 20,根据隔板法, 得到 C(20 + 59 - 1 ,20)  =C(78,20)$</p>
+<p>最终结果为 $ C(98,40) * C(78,20)$</p>
+<p>( 2 ) 若进一步要求 $a_i$ 严格递增，求满足条件的序列数目</p>
+<p>严格递增要求 $a_i &lt; a_{i+1}$，即 $d_i = a_{i+1}/a_i &gt; 1$，所以每个 $d_i \geq 2$。</p>
+<p>这意味着每个 $d_i$ 不能为 1，即对于每个 $i$，$x_i$ 和 $y_i$ 不能同时为零。</p>
+<p>使用包含排斥原理计算。设 $N = 59$。</p>
+<p>总分配数（无严格递增要求）为：</p>
+<script type="math/tex; mode=display">
+T = \binom{98}{40} \cdot \binom{78}{20}.</script><p>对于 $j = 0, 1, \ldots, 59$，设 $F(j)$ 为强制 $j$ 个特定 $d_i$ 为 1（即 $x_i = 0$ 且 $y_i = 0$）时，分配指数到剩余 $59 - j$ 个 $d_i$ 的方式数：</p>
+<script type="math/tex; mode=display">
+F(j) = \binom{98 - j}{40} \cdot \binom{78 - j}{20}.</script><p>其中当 $98 - j &lt; 40$ 或 $78 - j &lt; 20$ 时，二项式系数为 0。<br>由包含排斥原理，严格递增序列数目为：</p>
+<script type="math/tex; mode=display">
+\sum_{j=0}^{59} (-1)^j \binom{59}{j} \binom{98 - j}{40} \binom{78 - j}{20}.</script><h2 id="7"><a href="#7" class="headerlink" title="7 "></a>7 <img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20251007203134462.png" alt="image-20251007203134462"><img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20251007203142309.png" alt="image-20251007203142309"></h2><p>简单回路相当于一笔画问题，等价于每个点都走一次即可。</p>
+<p>相当于从 $(1, n)$ 和 $(n + 1, 2n)$ 这两个集合在总的遍历序列里面交替出现。</p>
+<p>对于完全二分图 $K_{n,n}$，点集 $V=\{1,2,\ldots,2n\}$，边集 $E=\{(i,n+j)\mid 1\leq i,j\leq n\}$，要求计算长度为 $2k$ 的简单回路的数目，其中 $k$ 是满足 $1\leq k\leq n$ 的正整数。<br>分析</p>
+<ul>
+<li>简单回路要求不含重复顶点或重复边，且长度至少为 3。在完全二分图中，任何回路长度必须为偶数，且最小回路长度为 4（因为长度 2 的回路不存在）。</li>
+<li>当 $k=1$ 时，长度为 2 的回路不存在，故数目为 0。</li>
+<li>当 $k\geq 2$ 时，长度为 $2k$ 的简单回路必须使用 $k$ 个左部顶点（来自 $\{1,2,\ldots,n\}$）和 $k$ 个右部顶点（来自 $\{n+1,n+2,\ldots,2n\}$），且回路在诱导子图 $K_{k,k}$ 上形成哈密顿回路。<br>计算步骤</li>
+</ul>
+<ol>
+<li>选择顶点：从 $n$ 个左部顶点中选择 $k$ 个，有 $\binom{n}{k}$ 种方式；从 $n$ 个右部顶点中选择 $k$ 个，有 $\binom{n}{k}$ 种方式。故选择顶点的总方式数为 $\binom{n}{k}^2$。</li>
+<li><p>形成回路：在选定的 $2k$ 个顶点形成的完全二分图 $K_{k,k}$ 中，无向哈密顿回路的数目为 $\frac{(k!)^2}{2}$。这是因为：</p>
+<ul>
+<li>有向哈密顿回路的数目为 $k!\times k!=(k!)^2$（从左部顶点开始，选择序列）。</li>
+<li>每个无向回路对应两个有向回路（方向相反），故无向回路数为 $\frac{(k!)^2}{2}$。</li>
+</ul>
+</li>
+</ol>
+<p>总数目：因此，对于 $k\geq 2$，长度为 $2k$ 的简单回路数目为：<script type="math/tex">\binom{n}{k}^2\cdot\frac{(k!)^2}{2}</script></p>
+<h2 id="8"><a href="#8" class="headerlink" title="8 "></a>8 <img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20251007203204927.png" alt="image-20251007203204927"></h2><p>( 1 )  一个圆和n条直线最多将圆分成的部分数</p>
+<p>当添加第k条直线时，它最多与之前的k-1条直线相交，从而被分成k段，每段会将圆的一个区域分成两部分。因此，部分数的递推关系为：$f(n)=f(n-1)+n$,其中$f(0)=1$ (只有圆本</p>
+<p>身)。求解得：</p>
+<script type="math/tex; mode=display">
+f(n)=1+\sum_{k=1}^nk=1+\frac{n(n+1)}2</script><p>所以，最多部分数为：</p>
+<script type="math/tex; mode=display">
+\boxed{1+\frac{n(n+1)}2}</script><blockquote>
+<p>设 $f(n)$为n 条直线最多能把圆分成多少部分。</p>
+<p>$当$n$=0时$,  f( 0 ) = 1 。当 n $ = 1  时 $,f( 1 )=2。</p>
+<p>当n = 2时，第 2 条直线为了产生最多的新区域，必须与第 1 条直线在圆内相交。这条新线本身被第 1 条线分成2段，每一段都将一个已有区域一分为二，所以新增了2个区域。则f(2)=f(1)+2=4</p>
+<p>….</p>
+<p>当我们画第 n 条直线时，为了使其增加的区域最多，它必须与前面已有的 n-1 条直线都在圆内相交。这n-1 个交点会将第 n 条直线 (在圆内的部分，即一条弦) 分割成 n 个线段。每一个线段都会把它所在的区域一分为二，从而增加一个新的区域。因此，第 n 条直线最多能增加 n 个新区域。<br>则$f(n)=f(n-1)+n=f(0)+1+2+3+\ldots\ldots+n=1+\frac{n(n+1)}2$</p>
+</blockquote>
+<p>(2)圆周上n个点两两连线，线段在圆内的交点数目</p>
+<p>这些交点由两条弦相交形成，每条弦由圆周上两个点决定。一个交点对应于四个点(因为两条弦的<br>四个端点确定一个交点)。因此，交点数目为从n个点中选取4个点的组合数：</p>
+<script type="math/tex; mode=display">
+C(n , 4 )</script><p>( 3 ) 这个有好几种情况</p>
+<ul>
+<li>三个顶点都在圆周上，则为 $C_{n}^{3}$</li>
+<li>两个顶点在圆周上，一个顶点在圆周内。在第二问的基础上，可以知道我们任意选择四个点，会一一对应一个交点。因此可以得到方案数为 $4*C_{n}^{4}$</li>
+<li>一个顶点在圆周上，两个顶点在圆周内。这种情况下，两个在圆周内的顶点都是内部交点，且要在同一条弦上。构造这种三角形需要选择 5 个点。</li>
+</ul>
+<p>每选择 5 个点，指定其中 1 个点为顶点（如P1），另外 4 个点（P2,P3,P4,P5）的两条对角线（P2P4, P3P5）会与 P1 发出的弦相交，形成满足条件的三角形。每组 5 个点，可以形成 5 个这样的三角形。</p>
+<p>可以得到方案数为 $5*C_{n}^{5}$</p>
+<ul>
+<li>三个顶点都在圆周内。这种三角形的三个顶点都是内部交点，它的三条边分别属于三条不同的弦。这三条弦必须两两相交。需要选择 6 个点。例如 P1, P2, P3, P4, P5, P6。连接对角点形成三条弦（P1P4, P2P5, P3P6），它们在内部构成的交点正好形成一个三角形。则可以得到为 $C_{n}^{6}$</li>
+</ul>
+<p>总的方案数为 $C_{n}^{3}+4<em>C_{n}^{4}+5</em>C_{n}^{5}+C_{n}^{6}$</p>
+<p>( 4 )  这些线段将圆分成的部分数（利用欧拉公式）<br>利用欧拉公式对于平面图，顶点数 V、边数 E和面数 F满足 V－E＋F＝2。这里：</p>
+<ul>
+<li>顶点数 V＝n＋(n/4)（n个圆上点和 (n/4)个交点）。</li>
+<li>边数 E＝(n/2)＋2(n/4)（弦的数目为 (n/2)，每个交点增加2条边）。<br>代入欧拉公式并考虑外部区域，得到面数：</li>
+</ul>
+<script type="math/tex; mode=display">
+F=1+E-V=1+\left[\left(\frac{n}{2}\right)+2\left(\frac{n}{4}\right)\right]-\left[n+\left(\frac{n}{4}\right)\right]=1+\left(\frac{n}{2}\right)+\left(\frac{n}{4}\right)-n</script><p>但需要注意的是，这个面数包括圆外部区域，因此圆内部分数为 F－1。最终圆内部分数为：</p>
+<script type="math/tex; mode=display">
+1+\left(\frac{n}{2}\right)+\left(\frac{n}{4}\right)</script><p>（这里直接给出了圆内部分数的标准公式，其中已调整了外部区域。）</p>
+<h2 id="9"><a href="#9" class="headerlink" title="9"></a>9<img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20251008102735511.png" alt="image-20251008102735511"></h2><ol>
+<li>选择一个顶点，从其出发的$n-3$条对角线中选出两条，因此共$C(n-3,2)$种情况<br>由于共$n$个点，因此总情况数为$n*C(n-3,2).$</li>
+<li>对于任意凸$n$边形，总对角线的个数为$\frac{n(n-3)}2$条，任意选两条不同的对角线就共有<br>$C(\frac{n(n-3)}2,2)$种情况，而有公共点的对数包括共享顶点的情况数$n<em>C(n-3,2)$,<br>$\bar{\text{以及相交于内部的情况数}C}(n,4)$<br>因此无公共点的方案数为$C(\frac{n(n-3)}2,2)-n</em>C(n-3,2)-C(n,4)$</li>
+</ol>
+<h2 id="10"><a href="#10" class="headerlink" title="10 "></a>10 <img src="https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20251008102749827.png" alt="image-20251008102749827"></h2><p>首先所有长度为n的字符串，一共有$3^n$个</p>
+<p>分两种情况</p>
+<p>情况一：x,y,z都是奇数 设这种方案数为A</p>
+<p>情况二：x,y,z有一个是奇数，另外两个是偶数,设这种方案数为B</p>
+<p>则$A+3B=3^n$</p>
+<p>然后我们考虑单个字符的奇偶性，设$O_k$为长度为k的x为奇数次的方案数,$E_k$为偶数的对应情况。</p>
+<p>长度为 k 的奇数 x 字符串，可以由以下两种方式得到</p>
+<ol>
+<li>一个长度为 k-1 的奇数 x 字符串，在末尾添上 y 或 z(共 $2×O_{k-1}$ 种)</li>
+<li>一个长度为 k-1 的偶数 x 字符串，在末尾添上 x(共 $E_{k-1}$ 种)</li>
+</ol>
+<p>所以$O_k=2×O_{k-1}+E_{k-1}$ 这是一个等比数列，解得$O_n=(3^n-1)/2$</p>
+<p>则$A+B=(3^n-1)/2$</p>
+<p>解得<strong>$A=(3^n-3)/4$</strong></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">zyuan</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://zzhaire.github.io/2025/10/11/zu-he-shu-xue-di-yi-ci-zuo-ye/">https://zzhaire.github.io/2025/10/11/zu-he-shu-xue-di-yi-ci-zuo-ye/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">zyuan</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/">
+                                    <span class="chip bg-color">组合数学</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'tBaBeOeMvOKCIZHcLuK8rXe0-gzGzoHsz',
+        appKey: 'KTxKGaCDtSVuailXk3ptjMs7',
+        serverURLs: 'https://tbabeoem.lc-cn-n1-shared.com',
+        notify: 'true' === 'true',
+        verify: 'true' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '15',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+<!--酷Q推送-->
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2025/10/14/shua-ti-cqoi-bu-ke-pai/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="刷题 : CQOI 扑克牌">
+                        
+                        <span class="card-title">刷题 : CQOI 扑克牌</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            CQOI&nbsp;扑克牌&nbsp;&nbsp;链接:&nbsp;https://ac.nowcoder.com/acm/problem/...
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-10-14
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/acmer%E4%B9%8B%E8%B7%AF/" class="post-category">
+                                    acmer之路
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E4%BA%8C%E5%88%86%E7%AD%94%E6%A1%88/">
+                        <span class="chip bg-color">二分答案</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2025/10/11/li-kou-hot100-er-cha-shu-gong-gong-zu-xian/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="力扣 hot100: 二叉树公共祖先">
+                        
+                        <span class="card-title">力扣 hot100: 二叉树公共祖先</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            二叉树公共祖先&nbsp;&nbsp;题目链接:&nbsp;https://leetcode.cn/problems/lowest...
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-10-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/acmer%E4%B9%8B%E8%B7%AF/" class="post-category">
+                                    acmer之路
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%A8%A1%E6%8B%9F/">
+                        <span class="chip bg-color">模拟</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">
+                        <span class="chip bg-color">二叉树</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('500')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: HiBlog<br />'
+            + '文章作者: zzhaire<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2025-2026</span>
+            
+            <a href="/about" target="_blank">zzhaire</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">94.8k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/zzhaire" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:zzhaire5@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1642249956" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1642249956" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+        <!-- <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script> -->
+        <script src='/libs/mermaid/mermaid.min.js'></script>
+        <script>
+          if (window.mermaid) {
+            mermaid.initialize({theme: 'forest'});
+          }
+        </script>
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
