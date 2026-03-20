@@ -8,7 +8,7 @@ excerpt: Modern Agent [02] LangChain &amp; LangGraph 实现 ReA...
 tags:
 - Agent
 title: Modern Agent [02] LangChain & LangGraph 实现 ReAct
-updated: '2026-03-20T20:31:04.502+08:00'
+updated: '2026-03-20T20:49:34.714+08:00'
 ---
 # Modern Agent [02] LangChain & LangGraph 实现 ReAct
 
@@ -25,6 +25,7 @@ updated: '2026-03-20T20:31:04.502+08:00'
 基于状态图 StateGraph 构建，节点与执行流程均为显式定义。可将执行流程拆分为 reason（推理）、act（执行工具）、should_continue（终止判断）等独立节点，状态 State 支持手动定义且可自由扩展字段。流程可控性极高，支持分支、循环、重试等复杂逻辑，工程化应用能力更强。搭配 LangSmith 可实现每一步迭代的可视化展示，调试与监控能力达到最优。
 
 ## 核心差异
+
 
 | 维度       | LangChain ReAct | LangGraph ReAct  |
 | ---------- | --------------- | ---------------- |
@@ -241,4 +242,3 @@ graph TD
 1. **LangChain** 适合快速开发，**框架自动处理 ReAct 循环**，无需关心底层流程；
 2. **LangGraph** 适合工程化落地，**手动定义状态和循环**，完全可控，配合 LangSmith 调试更高效；
 3. 两者的模型调用、工具定义逻辑一致，核心区别是**隐式封装**与**显式控制**。
-
