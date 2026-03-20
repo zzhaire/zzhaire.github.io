@@ -3,13 +3,13 @@ abbrlink: ''
 author: zyuan
 categories:
 - - AI学习
-coverImg: https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20260320205630675.png
+cover: https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20260320205630675.png
 date: '2026-03-20T21:00:50.008226+08:00'
 excerpt: Modern Agent [02] LangChain &amp; LangGraph 实现 ReA...
 tags:
 - Agent
 title: Modern Agent [02] LangChain & LangGraph 实现 ReAct
-updated: '2026-03-20T21:01:37.182+08:00'
+updated: '2026-03-20T21:09:16.108+08:00'
 ---
 # Modern Agent [02] LangChain & LangGraph 实现 ReAct
 
@@ -225,18 +225,7 @@ graph TD
 
 ### 规划式 ReAct 执行流程
 
-```mermaid
-graph TD
-    Q[用户复杂任务] --> P[Planner 规划]
-    P --> Todo[生成 To-do List / 子步骤]
-    Todo --> R[Execute: ReAct 智能体]
-    R --> Step[逐步骤执行+工具调用]
-    Step --> F[获取结果 Facts/Feedback]
-    F --> RP[RePlan 重规划]
-    RP --> C{是否完成?}
-    C -- 未完成 --> Todo[更新计划]
-    C -- 已完成 --> Ans[返回最终答案]
-```
+![image-20260320210845574](https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20260320210845574.png)
 
 ### 总结
 
