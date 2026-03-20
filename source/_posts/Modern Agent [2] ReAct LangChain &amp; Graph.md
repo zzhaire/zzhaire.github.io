@@ -3,13 +3,13 @@ abbrlink: ''
 author: zyuan
 categories:
 - - AI学习
-cover: https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20260320205630675.png
 date: '2026-03-20T21:00:50.008226+08:00'
 excerpt: Modern Agent [02] LangChain &amp; LangGraph 实现 ReA...
+img: https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20260320205630675.png
 tags:
 - Agent
 title: Modern Agent [02] LangChain & LangGraph 实现 ReAct
-updated: '2026-03-20T21:09:16.108+08:00'
+updated: '2026-03-20T21:17:28.798+08:00'
 ---
 # Modern Agent [02] LangChain & LangGraph 实现 ReAct
 
