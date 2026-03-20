@@ -4,13 +4,13 @@ author: zyuan
 categories:
 - - AI学习
 date: '2026-03-20T20:09:47.775211+08:00'
-excerpt: Modern Agent (1) Survey  基础：推理（Reasoning）与规划（Plann...
+excerpt: Modern Agent [1] Survey  基础：推理（Reasoning）与规划（Plann...
 tags:
 - Agent
-title: Modern Agent (1) Survey
-updated: '2026-03-20T20:12:27.898+08:00'
+title: Modern Agent [1] Survey
+updated: '2026-03-20T20:29:07.951+08:00'
 ---
-# Modern Agent (1) Survey
+# Modern Agent [1] Survey
 
 ![image-20260320201206464](https://zzhaire-markdown.oss-cn-shanghai.aliyuncs.com/imgs/image-20260320201206464.png)
 
